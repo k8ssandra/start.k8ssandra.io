@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-
-=======
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
->>>>>>> 7ee5da0... converted to vue2
 const routes = [
   {
     path: '/',
