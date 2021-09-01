@@ -2,8 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-            <router-link to="/wizard">Wizard</router-link>
+      <router-link to="/input">Input</router-link> |
+            <router-link to="/result">Result</router-link>
 
     </div>
     <router-view/>
@@ -30,5 +30,9 @@
       color: #42b983;
     }
   }
+}
+
+div {
+  padding-bottom: 20px;
 }
 </style>
