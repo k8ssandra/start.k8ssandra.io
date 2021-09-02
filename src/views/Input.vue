@@ -18,7 +18,7 @@
         </select> 
   </div>
   <div>
-    Authentication:43
+    Authentication:
     <input type="checkbox" id="checkbox" v-model="authentication">
     <label for="checkbox"> {{ authentication }}</label>
   </div>
