@@ -31,10 +31,7 @@ export default {
   methods: {
     incrementCount() {
       this.$store.commit("INCREMENT_COUNT");
-    },
-    updateText(e) {
-      this.$store.commit("updateText", e.target.value);
-    },
+    }
   },
 };
 </script>

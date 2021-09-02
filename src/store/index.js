@@ -7,8 +7,8 @@ export default new Vuex.Store({
   state: {
     count: 0,
     k8_config: {
-      id: 'ID',
-      name: 'Name'
+      name: '',
+      description: '',
     },
     text: 'Bind Text example'
   },

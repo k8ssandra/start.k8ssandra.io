@@ -3,7 +3,7 @@
     <h1>Result</h1>
         <div>{{ amountCounted }}</div>
         <div>{{ config.name }}</div>
-        <div>{{ config.id }}</div>
+        <div>{{ config.description }}</div>
         <div>{{ text }}</div>
 
 </div>
