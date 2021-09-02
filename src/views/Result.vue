@@ -1,10 +1,10 @@
 <template>
 <div>
     <h1>Result</h1>
-        <div>{{ amountCounted }}</div>
-        <div>{{ config.name }}</div>
-        <div>{{ config.description }}</div>
-        <div>{{ text }}</div>
+        <div>Name: {{ config.name }}</div>
+        <div>Description: {{ config.description }}</div>
+        <div>Version: {{ config.version }}</div>
+        <div>Version: {{ config.authentication }}</div>
 
 </div>
 </template>
@@ -14,9 +14,7 @@ import { mapState } from 'vuex'
 
 export default {
     computed: mapState({
-        amountCounted: 'count',
         config: 'k8_config',
-        text: 'text'
     })
 };
 </script>

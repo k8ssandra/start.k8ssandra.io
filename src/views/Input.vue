@@ -1,38 +1,76 @@
 <template>
   <div class="input">
-    <h1>This is the input page</h1>
+    <h1>K8ssandra Configurator</h1>
     <div>
-      <h3>count up example</h3>
-      <button @click="incrementCount">Increment</button>
+      <label>Name</label><br />
+      <input v-model="name" placeholder="Instance Name">
     </div>
     <div>
-      <h3> Binded text entry </h3>
-      <label>{{text}}</label><br />
-      <input v-model="text">
+      <label>Description</label><br />
+      <textarea v-model="description" placeholder="Instance Description"></textarea>
     </div>
+    <div>
+      <label>Description</label><br />
+        <select v-model="version">
+          <option v-for="(item, key) in cassandra_versions" :key="key" >
+            {{ item }}
+          </option>
+        </select> 
+  </div>
+  <div>
+    Authentication:43
+    <input type="checkbox" id="checkbox" v-model="authentication">
+    <label for="checkbox"> {{ authentication }}</label>
+  </div>
   </div> 
 </template>
 
 <script>
 export default {
   name: "Input",
-  components: {
+  components: {},
+  data() {
+    return {
+      cassandra_versions: [
+        "4.0.0","3.11.10","3.11.9", "3.11.8", "3.11.7"
+      ],
+    };
   },
   computed: {
-    text: {
+    name: {
       get() {
-        return this.$store.state.text;
+        return this.$store.state.k8_config.name;
       },
       set(value) {
-        this.$store.commit("updateText", value);
+        this.$store.commit("updateName", value);
       },
     },
+    description: {
+        get() {
+          return this.$store.state.k8_config.description;
+        },
+        set(value) {
+          this.$store.commit("updateDescription", value);
+        },
+    },
+    version: {
+        get() {
+          return this.$store.state.k8_config.version;
+        },
+        set(value) {
+          this.$store.commit("updateVersion", value);
+        },
+    },
+    authentication: {
+        get() {
+          return this.$store.state.k8_config.authentication;
+        },
+        set(value) {
+          this.$store.commit("updateAuthentication", value);
+        },
+    },
   },
-  methods: {
-    incrementCount() {
-      this.$store.commit("INCREMENT_COUNT");
-    }
-  },
+  methods: {},
 };
 </script>
 
