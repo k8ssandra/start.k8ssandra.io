@@ -2,9 +2,9 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <h1>Landing Page</h1>
-    <p>Prep environment for k8 wizard</p>
-  </div>
+    <h1>K8ssandra Configurator</h1>
+    <p>Dev environment for k8 wizard</p>
+  </div> 
 </template>
 
 <script>
