@@ -38,8 +38,8 @@ export default new Vuex.Store({
       stargate: {
         active: false,
         size: 1,
-        cpu: 1,
-        unit: "",
+        amt: 1,
+        unit: " ",
         heap_in_mb: 0,
       },
       reaper: {
@@ -143,6 +143,18 @@ export default new Vuex.Store({
     },
     updateStargateEnabled(state, txt) {
       state.k8_config.stargate.active = txt;
+    },
+    updateStargateSize(state, txt) {
+      state.k8_config.stargate.size = txt;
+    },
+    updateStargateCpuAmount(state, txt) {
+      state.k8_config.stargate.amt = txt;
+    },
+    updateStargateCpuUnit(state, txt) {
+      state.k8_config.stargate.unit = txt;
+    },
+    updateStargateHeapMb(state, txt) {
+      state.k8_config.stargate.heap_in_mb = txt;
     },
   },
   actions: {},
