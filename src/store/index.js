@@ -26,7 +26,7 @@ export default new Vuex.Store({
         unit: "MB",
       },
       storage: {
-        class: "",
+        class: "standard",
         amt: 1,
         unit: "MB",
       },
@@ -47,58 +47,57 @@ export default new Vuex.Store({
       },
       medusa: {
         active: false,
-        provider: [
-          {
-            name: "S3",
-            config: {
-              region: "",
-              bucket_name: "",
-              secret: "",
-            },
+        provider: "S3",
+        provider_s3: {
+          name: "S3",
+          config: {
+            region: "region1",
+            bucket_name: "",
+            secret: "",
           },
-          {
-            name: "S3 Compatible",
-            config: {
-              region: "",
-              host: "",
-              port: 0,
-              secure: false,
-              bucketname: "",
-              secret: "",
-            },
+        },
+        provider_s3_compatible: {
+          name: "S3 Compatible",
+          config: {
+            region: "",
+            host: "",
+            port: 0,
+            secure: false,
+            bucket_name: "",
+            secret: "",
           },
-          {
-            name: "Google Cloud Storage",
-            config: {
-              bucketname: "",
-              secret: ""
-            }
+        },
+        provider_gcs: {
+          name: "Google Cloud Storage",
+          config: {
+            bucket_name: "",
+            secret: "",
           },
-          {
-            name: "Azure Blob Configuration",
-            config: {
-              bucketname: "",
-              secret: ""
-            }
+        },
+        provider_abs: {
+          name: "Azure Blob Storage",
+          config: {
+            bucket_name: "adfs",
+            secret: "asfd",
           },
-          {
-            name: "Local Configuration",
-            config: {
-              storage_class: "",
-              size: 1,
-              unit: "MB"
-            }
+        },
+        provider_local: {
+          name: "Local Configuration",
+          config: {
+            storage_class: "",
+            size: 1,
+            unit: "MB",
           },
-        ],
+        },
       },
       monitoring: {
         active: false,
         config: {
           kube_prometheus_stack: false,
           service_monitors: false,
-          dashboards: false
-        }
-      }
+          dashboards: false,
+        },
+      },
     },
   },
   mutations: {
@@ -155,6 +154,75 @@ export default new Vuex.Store({
     },
     updateStargateHeapMb(state, txt) {
       state.k8_config.stargate.heap_in_mb = txt;
+    },
+    updateReaperEnabled(state, txt) {
+      state.k8_config.reaper.active = txt;
+    },
+    updateMedusaEnabled(state, txt) {
+      state.k8_config.medusa.active = txt;
+    },
+    updateMedusaProvider(state, txt) {
+      state.k8_config.medusa.provider = txt;
+    },
+    updateMedusaS3Region(state, txt) {
+      state.k8_config.medusa.provider_s3.config.region = txt;
+    },
+    updateMedusaS3Name(state, txt) {
+      state.k8_config.medusa.provider_s3.config.bucket_name = txt;
+    },
+    updateMedusaS3StorageSecret(state, txt) {
+      state.k8_config.medusa.provider_s3.config.secret = txt;
+    },
+    updateMedusaS3CompatibleRegion(state, txt) {
+      state.k8_config.medusa.provider_s3_compatible.config.region = txt;
+    },
+    updateMedusaS3CompatibleHost(state, txt) {
+      state.k8_config.medusa.provider_s3_compatible.config.host = txt;
+    },
+    updateMedusaS3CompatiblePort(state, txt) {
+      state.k8_config.medusa.provider_s3_compatible.config.port = txt;
+    },
+    updateMedusaS3CompatibleSecure(state, txt) {
+      state.k8_config.medusa.provider_s3_compatible.config.secure = txt;
+    },
+    updateMedusaS3CompatibleName(state, txt) {
+      state.k8_config.medusa.provider_s3_compatible.config.bucket_name = txt;
+    },
+    updateMedusaS3CompatibleStorageSecret(state, txt) {
+      state.k8_config.medusa.provider_s3_compatible.config.secret = txt;
+    },
+    updateMedusaGCSName(state, txt) {
+      state.k8_config.medusa.provider_gcs.config.bucket_name = txt;
+    },
+    updateMedusaGCSStorageSecret(state, txt) {
+      state.k8_config.medusa.provider_gcs.config.secret = txt;
+    },
+    updateMedusaABSName(state, txt) {
+      state.k8_config.medusa.provider_abs.config.bucket_name = txt;
+    },
+    updateMedusaABSStorageSecret(state, txt) {
+      state.k8_config.medusa.provider_abs.config.secret = txt;
+    },
+    updateMedusaLocalClass(state, txt) {
+      state.k8_config.medusa.provider_local.config.storage_class = txt;
+    },
+    updateMedusaLocalSize(state, txt) {
+      state.k8_config.medusa.provider_local.config.size = txt;
+    },
+    updateMedusaLocalUnit(state, txt) {
+      state.k8_config.medusa.provider_local.config.unit = txt;
+    },
+    updateMonitoringEnabled(state, txt) {
+      state.k8_config.monitoring.active = txt;
+    },
+    updateMonitoringKubePrometheus(state, txt) {
+      state.k8_config.monitoring.config.kube_prometheus_stack = txt;
+    },
+    updateMonitoringServiceMonitors(state, txt) {
+      state.k8_config.monitoring.config.service_monitors = txt;
+    },
+    updateMonitoringDashboards(state, txt) {
+      state.k8_config.monitoring.config.dashboards = txt;
     },
   },
   actions: {},
