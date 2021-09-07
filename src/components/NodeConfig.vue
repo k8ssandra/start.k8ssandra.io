@@ -47,7 +47,7 @@ export default {
     return {
       cpu_units: [" ", "m"],
       byte_units: ["MB", "GB", "TB"],
-      storage_classes: ["Storage Class 1", "Storage Class 2", "Storage Class 3"],
+      storage_classes: ["standard", "Storage Class 2", "Storage Class 3"],
     };
   },
   computed: {

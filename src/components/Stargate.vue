@@ -1,5 +1,5 @@
 <template>
-<div class="stargate">
+<div class="module stargate">
     <h2>Stargate</h2>
     <div>
         Enabled:
