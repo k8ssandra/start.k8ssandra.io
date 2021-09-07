@@ -6,6 +6,9 @@
       <Topology />
       <NodeConfig />
       <Stargate />
+      <Reaper />
+      <Medusa />
+      <Monitoring />
     </div>
       </div> 
 </template>
@@ -16,6 +19,9 @@ import ClusterInfo from '../components/ClusterInfo.vue';
 import Topology from '../components/Topology.vue';
 import NodeConfig from '../components/NodeConfig.vue';
 import Stargate from '../components/Stargate.vue';
+import Reaper from '../components/Reaper.vue';
+import Medusa from '../components/Medusa.vue';
+import Monitoring from '../components/Monitoring.vue';
 
 
 export default {
@@ -24,7 +30,10 @@ export default {
     ClusterInfo,
     Topology,
     NodeConfig,
-    Stargate
+    Stargate,
+    Reaper,
+    Medusa,
+    Monitoring
   }
 };
 </script>
@@ -37,10 +46,15 @@ export default {
   justify-content: space-around;
   flex-flow:row wrap;
   & > div {
-    width: 30%;
-    min-width:300px;
-    margin-bottom:20px;
     background-color:#eee;
+    width:100%;
+    margin-bottom:20px;
+  @media(min-width:600px) {
+    width:48%;
+  }
+  @media(min-width:800px) {
+    width:30%;
+  }
   }
 }
 </style>
