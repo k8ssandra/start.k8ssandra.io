@@ -10,6 +10,7 @@
       <Medusa />
       <Monitoring />
       <ExportConfig />
+      <ShareUrl />
     </div>
       </div> 
 </template>
@@ -24,6 +25,7 @@ import Reaper from '../components/Reaper.vue';
 import Medusa from '../components/Medusa.vue';
 import Monitoring from '../components/Monitoring.vue';
 import ExportConfig from '../components/ExportConfig.vue';
+import ShareUrl from '../components/ShareUrl.vue';
 
 
 export default {
@@ -36,7 +38,8 @@ export default {
     Reaper,
     Medusa,
     Monitoring,
-    ExportConfig
+    ExportConfig,
+    ShareUrl
   }
 };
 </script>
