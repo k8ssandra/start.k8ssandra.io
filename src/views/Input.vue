@@ -9,6 +9,7 @@
       <Reaper />
       <Medusa />
       <Monitoring />
+      <ExportConfig />
     </div>
       </div> 
 </template>
@@ -22,6 +23,7 @@ import Stargate from '../components/Stargate.vue';
 import Reaper from '../components/Reaper.vue';
 import Medusa from '../components/Medusa.vue';
 import Monitoring from '../components/Monitoring.vue';
+import ExportConfig from '../components/ExportConfig.vue';
 
 
 export default {
@@ -33,7 +35,8 @@ export default {
     Stargate,
     Reaper,
     Medusa,
-    Monitoring
+    Monitoring,
+    ExportConfig
   }
 };
 </script>
