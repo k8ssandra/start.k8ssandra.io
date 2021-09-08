@@ -31,7 +31,7 @@ export default {
   computed: {
     region: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_s3.config.region;
+        return this.$store.state.cassandra.medusa.provider_s3.config.region;
       },
       set(value) {
         this.$store.commit("updateMedusaS3Region", value);
@@ -39,7 +39,7 @@ export default {
     },
     name: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_s3.config.bucket_name;
+        return this.$store.state.cassandra.medusa.provider_s3.config.bucket_name;
       },
       set(value) {
         this.$store.commit("updateMedusaS3Name", value);
@@ -47,7 +47,7 @@ export default {
     },
     storage_secret: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_s3.config.secret;
+        return this.$store.state.cassandra.medusa.provider_s3.config.secret;
       },
       set(value) {
         this.$store.commit("updateMedusaS3StorageSecret", value);

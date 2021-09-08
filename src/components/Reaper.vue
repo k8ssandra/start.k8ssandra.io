@@ -15,7 +15,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.k8_config.reaper.active;
+        return this.$store.state.cassandra.reaper.active;
       },
       set(value) {
         this.$store.commit("updateReaperEnabled", value);

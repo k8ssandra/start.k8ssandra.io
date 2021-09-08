@@ -40,7 +40,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.k8_config.stargate.active;
+        return this.$store.state.cassandra.stargate.active;
       },
       set(value) {
         this.$store.commit("updateStargateEnabled", value);
@@ -48,7 +48,7 @@ export default {
     },
     size: {
       get() {
-        return this.$store.state.k8_config.stargate.size;
+        return this.$store.state.cassandra.stargate.size;
       },
       set(value) {
         this.$store.commit("updateStargateSize", value);
@@ -56,7 +56,7 @@ export default {
     },
     cpu_number: {
       get() {
-        return this.$store.state.k8_config.stargate.amt;
+        return this.$store.state.cassandra.stargate.amt;
       },
       set(value) {
         this.$store.commit("updateStargateCpuAmount", value);
@@ -64,7 +64,7 @@ export default {
     },
     cpu_unit: {
       get() {
-        return this.$store.state.k8_config.stargate.unit;
+        return this.$store.state.cassandra.stargate.unit;
       },
       set(value) {
         this.$store.commit("updateStargateCpuUnit", value);
@@ -72,7 +72,7 @@ export default {
     },
     heap_mb: {
       get() {
-        return this.$store.state.k8_config.stargate.heap_in_mb;
+        return this.$store.state.cassandra.stargate.heap_in_mb;
       },
       set(value) {
         this.$store.commit("updateStargateHeapMb", value);

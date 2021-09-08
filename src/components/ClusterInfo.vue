@@ -37,7 +37,7 @@ export default {
   computed: {
     name: {
       get() {
-        return this.$store.state.k8_config.name;
+        return this.$store.state.cassandra.name;
       },
       set(value) {
         this.$store.commit("updateName", value);
@@ -45,7 +45,7 @@ export default {
     },
     description: {
       get() {
-        return this.$store.state.k8_config.description;
+        return this.$store.state.cassandra.description;
       },
       set(value) {
         this.$store.commit("updateDescription", value);
@@ -53,7 +53,7 @@ export default {
     },
     version: {
       get() {
-        return this.$store.state.k8_config.version;
+        return this.$store.state.cassandra.version;
       },
       set(value) {
         this.$store.commit("updateVersion", value);
@@ -61,7 +61,7 @@ export default {
     },
     authentication: {
       get() {
-        return this.$store.state.k8_config.authentication;
+        return this.$store.state.cassandra.authentication;
       },
       set(value) {
         this.$store.commit("updateAuthentication", value);

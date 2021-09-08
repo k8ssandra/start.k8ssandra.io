@@ -23,7 +23,7 @@ import { mapState } from 'vuex'
 
 export default {
     computed: mapState({
-        config: 'k8_config',
+        config: 'cassandra',
     })
 };
 </script>

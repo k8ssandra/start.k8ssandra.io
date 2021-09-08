@@ -53,7 +53,7 @@ export default {
   computed: {
     cpu_number: {
       get() {
-        return this.$store.state.k8_config.cpu_cores.amt;
+        return this.$store.state.cassandra.cpu_cores.amt;
       },
       set(value) {
         this.$store.commit("updateCpuCoresAmount", value);
@@ -61,7 +61,7 @@ export default {
     },
     cpu_unit: {
       get() {
-        return this.$store.state.k8_config.cpu_cores.unit;
+        return this.$store.state.cassandra.cpu_cores.unit;
       },
       set(value) {
         this.$store.commit("updateCpuCoresUnit", value);
@@ -69,7 +69,7 @@ export default {
     },
     ram_number: {
       get() {
-        return this.$store.state.k8_config.ram_cores.amt;
+        return this.$store.state.cassandra.ram_cores.amt;
       },
       set(value) {
         this.$store.commit("updateRamCoresAmount", value);
@@ -77,7 +77,7 @@ export default {
     },
     ram_unit: {
       get() {
-        return this.$store.state.k8_config.ram_cores.unit;
+        return this.$store.state.cassandra.ram_cores.unit;
       },
       set(value) {
         this.$store.commit("updateRamCoresUnit", value);
@@ -85,7 +85,7 @@ export default {
     },
     storage_class: {
       get() {
-        return this.$store.state.k8_config.storage.class;
+        return this.$store.state.cassandra.storage.class;
       },
       set(value) {
         this.$store.commit("updateStorageClass", value);
@@ -93,7 +93,7 @@ export default {
     },
     storage_number: {
       get() {
-        return this.$store.state.k8_config.storage.amt;
+        return this.$store.state.cassandra.storage.amt;
       },
       set(value) {
         this.$store.commit("updateStorageAmount", value);
@@ -101,7 +101,7 @@ export default {
     },
     storage_unit: {
       get() {
-        return this.$store.state.k8_config.storage.unit;
+        return this.$store.state.cassandra.storage.unit;
       },
       set(value) {
         this.$store.commit("updateStorageUnit", value);

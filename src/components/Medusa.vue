@@ -66,7 +66,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.k8_config.medusa.active;
+        return this.$store.state.cassandra.medusa.active;
       },
       set(value) {
         this.$store.commit("updateMedusaEnabled", value);
@@ -74,7 +74,7 @@ export default {
     },
     provider: {
       get() {
-        return this.$store.state.k8_config.medusa.provider;
+        return this.$store.state.cassandra.medusa.provider;
       },
       set(value) {
         this.$store.commit("updateMedusaProvider", value);

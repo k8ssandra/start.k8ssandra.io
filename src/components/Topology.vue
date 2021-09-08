@@ -35,7 +35,7 @@ export default {
   computed: {
     cluster_size: {
       get() {
-        return this.$store.state.k8_config.cluster_size;
+        return this.$store.state.cassandra.cluster_size;
       },
       set(value) {
         this.$store.commit("updateClusterSize", value);
@@ -43,7 +43,7 @@ export default {
     },
     datacenter_name: {
       get() {
-        return this.$store.state.k8_config.datacenters[0].name;
+        return this.$store.state.cassandra.datacenters[0].name;
       },
       set(value) {
         this.$store.commit("updateDataCenterName", value);

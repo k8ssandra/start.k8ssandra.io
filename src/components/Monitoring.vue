@@ -34,7 +34,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.k8_config.monitoring.active;
+        return this.$store.state.cassandra.monitoring.active;
       },
       set(value) {
         this.$store.commit("updateMonitoringEnabled", value);
@@ -42,7 +42,7 @@ export default {
     },
     kube_prometheus: {
       get() {
-        return this.$store.state.k8_config.monitoring.config.kube_prometheus_stack;
+        return this.$store.state.cassandra.monitoring.config.kube_prometheus_stack;
       },
       set(value) {
         this.$store.commit("updateMonitoringKubePrometheus", value);
@@ -50,7 +50,7 @@ export default {
     },
     service_monitors: {
       get() {
-        return this.$store.state.k8_config.monitoring.config.service_monitors;
+        return this.$store.state.cassandra.monitoring.config.service_monitors;
       },
       set(value) {
         this.$store.commit("updateMonitoringServiceMonitors", value);
@@ -58,7 +58,7 @@ export default {
     },
     dashboards: {
       get() {
-        return this.$store.state.k8_config.monitoring.config.dashboards;
+        return this.$store.state.cassandra.monitoring.config.dashboards;
       },
       set(value) {
         this.$store.commit("updateMonitoringDashboards", value);

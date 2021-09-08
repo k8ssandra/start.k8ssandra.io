@@ -18,7 +18,7 @@ export default {
   computed: {
     name: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_gcs.config.bucket_name;
+        return this.$store.state.cassandra.medusa.provider_gcs.config.bucket_name;
       },
       set(value) {
         this.$store.commit("updateMedusaGCSName", value);
@@ -26,7 +26,7 @@ export default {
     },
     storage_secret: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_gcs.config.secret;
+        return this.$store.state.cassandra.medusa.provider_gcs.config.secret;
       },
       set(value) {
         this.$store.commit("updateMedusaGCSStorageSecret", value);

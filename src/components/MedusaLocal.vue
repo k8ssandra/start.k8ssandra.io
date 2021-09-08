@@ -28,7 +28,7 @@ export default {
   computed: {
     storage_class: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_local.config
+        return this.$store.state.cassandra.medusa.provider_local.config
           .storage_class;
       },
       set(value) {
@@ -37,7 +37,7 @@ export default {
     },
     size_number: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_local.config.size;
+        return this.$store.state.cassandra.medusa.provider_local.config.size;
       },
       set(value) {
         this.$store.commit("updateMedusaLocalSize", value);
@@ -45,7 +45,7 @@ export default {
     },
     size_unit: {
       get() {
-        return this.$store.state.k8_config.medusa.provider_local.config.unit;
+        return this.$store.state.cassandra.medusa.provider_local.config.unit;
       },
       set(value) {
         this.$store.commit("updateMedusaLocalUnit", value);
