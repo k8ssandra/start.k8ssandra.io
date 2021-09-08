@@ -10,6 +10,22 @@
   </div>
 </template>
 
+<script>
+
+export default {
+  name: "app",
+  updated: function() {
+        this.fillForm()
+  },
+  methods: {
+      fillForm() {
+        this.$store.commit("updateName", this.$route.query.name);
+        this.$store.commit("updateDescription", this.$route.query.description);
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
