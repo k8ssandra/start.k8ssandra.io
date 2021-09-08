@@ -15,7 +15,7 @@
 export default {
   name: "app",
   updated: function() {
-        this.fillForm()
+      this.fillForm()
   },
   methods: {
       fillForm() {
