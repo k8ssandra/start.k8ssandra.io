@@ -44,7 +44,7 @@ export default {
   computed: {
     region: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_s3_compatible.config.region;
+        return this.$store.state.k8_config.medusa.provider_s3_compatible.config.region;
       },
       set(value) {
         this.$store.commit("updateMedusaS3CompatibleRegion", value);
@@ -52,7 +52,7 @@ export default {
     },
     host: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_s3_compatible.config.host;
+        return this.$store.state.k8_config.medusa.provider_s3_compatible.config.host;
       },
       set(value) {
         this.$store.commit("updateMedusaS3CompatibleHost", value);
@@ -60,7 +60,7 @@ export default {
     },
     port: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_s3_compatible.config.port;
+        return this.$store.state.k8_config.medusa.provider_s3_compatible.config.port;
       },
       set(value) {
         this.$store.commit("updateMedusaS3CompatiblePort", value);
@@ -68,7 +68,7 @@ export default {
     },
     secure: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_s3_compatible.config.secure;
+        return this.$store.state.k8_config.medusa.provider_s3_compatible.config.secure;
       },
       set(value) {
         this.$store.commit("updateMedusaS3CompatibleSecure", value);
@@ -76,7 +76,7 @@ export default {
     },
     name: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_s3_compatible.config.bucket_name;
+        return this.$store.state.k8_config.medusa.provider_s3_compatible.config.bucket_name;
       },
       set(value) {
         this.$store.commit("updateMedusaS3CompatibleName", value);
@@ -84,7 +84,7 @@ export default {
     },
     storage_secret: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_s3_compatible.config.secret;
+        return this.$store.state.k8_config.medusa.provider_s3_compatible.config.secret;
       },
       set(value) {
         this.$store.commit("updateMedusaS3CompatibleStorageSecret", value);

@@ -2,18 +2,18 @@
 <div class="module stargate">
     <h2>Stargate</h2>
     <div>
-        Enabled:
+        Enabled**:
         <input type="checkbox" id="checkbox" v-model="enabled">
         <label for="checkbox"> {{ enabled }}</label>
     </div>
     <div v-if="enabled" class="settings">
         <h5>Stargate Settings</h5>
         <div>
-          <label>Size</label><br />
+          <label>Size**</label><br />
           <input v-model.number="size" type="number">
         </div>
         <div>
-          <label>CPU</label><br />
+          <label>CPU**</label><br />
           <input v-model.number="cpu_number" type="number">
           <select v-model="cpu_unit">
           <option v-for="(item, key) in cpu_units" :key="key" >
@@ -22,7 +22,7 @@
           </select> 
         </div>
         <div>
-          <label>Heap in MB</label><br />
+          <label>Heap in MB**</label><br />
           <input v-model.number="heap_mb" type="number">
         </div>
     </div>
@@ -40,7 +40,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.cassandra.stargate.active;
+        return this.$store.state.k8_config.stargate.active;
       },
       set(value) {
         this.$store.commit("updateStargateEnabled", value);
@@ -48,7 +48,7 @@ export default {
     },
     size: {
       get() {
-        return this.$store.state.cassandra.stargate.size;
+        return this.$store.state.k8_config.stargate.size;
       },
       set(value) {
         this.$store.commit("updateStargateSize", value);
@@ -56,7 +56,7 @@ export default {
     },
     cpu_number: {
       get() {
-        return this.$store.state.cassandra.stargate.amt;
+        return this.$store.state.k8_config.stargate.amt;
       },
       set(value) {
         this.$store.commit("updateStargateCpuAmount", value);
@@ -64,7 +64,7 @@ export default {
     },
     cpu_unit: {
       get() {
-        return this.$store.state.cassandra.stargate.unit;
+        return this.$store.state.k8_config.stargate.unit;
       },
       set(value) {
         this.$store.commit("updateStargateCpuUnit", value);
@@ -72,7 +72,7 @@ export default {
     },
     heap_mb: {
       get() {
-        return this.$store.state.cassandra.stargate.heap_in_mb;
+        return this.$store.state.k8_config.stargate.heap_in_mb;
       },
       set(value) {
         this.$store.commit("updateStargateHeapMb", value);

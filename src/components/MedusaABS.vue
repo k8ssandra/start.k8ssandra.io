@@ -18,7 +18,7 @@ export default {
   computed: {
     name: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_abs.config.bucket_name;
+        return this.$store.state.k8_config.medusa.provider_abs.config.bucket_name;
       },
       set(value) {
         this.$store.commit("updateMedusaABSName", value);
@@ -26,7 +26,7 @@ export default {
     },
     storage_secret: {
       get() {
-        return this.$store.state.cassandra.medusa.provider_abs.config.secret;
+        return this.$store.state.k8_config.medusa.provider_abs.config.secret;
       },
       set(value) {
         this.$store.commit("updateMedusaABSStorageSecret", value);

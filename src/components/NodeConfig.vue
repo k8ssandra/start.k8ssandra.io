@@ -2,7 +2,7 @@
     <div class="node_config">
         <h2>Node Config</h2>
         <div>
-            <label>CPU Cores</label><br />
+            <label>CPU Cores**</label><br />
             <input v-model.number="cpu_number" type="number">
             <select v-model="cpu_unit">
             <option v-for="(item, key) in cpu_units" :key="key" >
@@ -11,7 +11,7 @@
             </select> 
         </div>
         <div>
-            <label>RAM Cores</label><br />
+            <label>RAM Cores**</label><br />
             <input v-model.number="ram_number" type="number">
             <select v-model="ram_unit">
             <option v-for="(item, key) in byte_units" :key="key" >
@@ -21,7 +21,7 @@
         </div>
         <div>
           <h5>Storage</h5>
-            <label>Storage Class</label><br />
+            <label>Storage Class**</label><br />
             <select v-model="storage_class">
             <option v-for="(item, key) in storage_classes" :key="key" >
                 {{ item }}
@@ -29,7 +29,7 @@
             </select> 
         </div>
         <div>
-            <label>Storage Amount</label><br />
+            <label>Storage Amount**</label><br />
             <input v-model.number="storage_number" type="number">
             <select v-model="storage_unit">
             <option v-for="(item, key) in byte_units" :key="key" >
@@ -53,7 +53,7 @@ export default {
   computed: {
     cpu_number: {
       get() {
-        return this.$store.state.cassandra.cpu_cores.amt;
+        return this.$store.state.k8_config.cpu_cores.amt;
       },
       set(value) {
         this.$store.commit("updateCpuCoresAmount", value);
@@ -61,7 +61,7 @@ export default {
     },
     cpu_unit: {
       get() {
-        return this.$store.state.cassandra.cpu_cores.unit;
+        return this.$store.state.k8_config.cpu_cores.unit;
       },
       set(value) {
         this.$store.commit("updateCpuCoresUnit", value);
@@ -69,7 +69,7 @@ export default {
     },
     ram_number: {
       get() {
-        return this.$store.state.cassandra.ram_cores.amt;
+        return this.$store.state.k8_config.ram_cores.amt;
       },
       set(value) {
         this.$store.commit("updateRamCoresAmount", value);
@@ -77,7 +77,7 @@ export default {
     },
     ram_unit: {
       get() {
-        return this.$store.state.cassandra.ram_cores.unit;
+        return this.$store.state.k8_config.ram_cores.unit;
       },
       set(value) {
         this.$store.commit("updateRamCoresUnit", value);
@@ -85,7 +85,7 @@ export default {
     },
     storage_class: {
       get() {
-        return this.$store.state.cassandra.storage.class;
+        return this.$store.state.k8_config.storage.class;
       },
       set(value) {
         this.$store.commit("updateStorageClass", value);
@@ -93,7 +93,7 @@ export default {
     },
     storage_number: {
       get() {
-        return this.$store.state.cassandra.storage.amt;
+        return this.$store.state.k8_config.storage.amt;
       },
       set(value) {
         this.$store.commit("updateStorageAmount", value);
@@ -101,7 +101,7 @@ export default {
     },
     storage_unit: {
       get() {
-        return this.$store.state.cassandra.storage.unit;
+        return this.$store.state.k8_config.storage.unit;
       },
       set(value) {
         this.$store.commit("updateStorageUnit", value);

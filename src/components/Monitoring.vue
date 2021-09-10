@@ -2,24 +2,24 @@
 <div class="module monitoring">
     <h2>Monitoring</h2>
     <div>
-        Enabled:
+        Enabled**:
         <input type="checkbox" id="checkbox" v-model="enabled">
         <label for="checkbox"> {{ enabled }}</label>
     </div>
     <div v-if="enabled" class="settings">
         <h5>Monitoring Option</h5>
     <div>
-        Kube Prometheus Stack:
+        Kube Prometheus Stack**:
         <input type="checkbox" id="checkbox" v-model="kube_prometheus">
         <label for="checkbox"> {{ kube_prometheus }}</label>
     </div>
         <div>
-        Service Monitors:
+        Service Monitors**:
         <input type="checkbox" id="checkbox" v-model="service_monitors">
         <label for="checkbox"> {{ service_monitors }}</label>
     </div>
         <div>
-        Dashboards:
+        Dashboards**:
         <input type="checkbox" id="checkbox" v-model="dashboards">
         <label for="checkbox"> {{ dashboards }}</label>
     </div>
@@ -34,7 +34,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.cassandra.monitoring.active;
+        return this.$store.state.k8_config.monitoring.active;
       },
       set(value) {
         this.$store.commit("updateMonitoringEnabled", value);
@@ -42,7 +42,7 @@ export default {
     },
     kube_prometheus: {
       get() {
-        return this.$store.state.cassandra.monitoring.config.kube_prometheus_stack;
+        return this.$store.state.k8_config.monitoring.config.kube_prometheus_stack;
       },
       set(value) {
         this.$store.commit("updateMonitoringKubePrometheus", value);
@@ -50,7 +50,7 @@ export default {
     },
     service_monitors: {
       get() {
-        return this.$store.state.cassandra.monitoring.config.service_monitors;
+        return this.$store.state.k8_config.monitoring.config.service_monitors;
       },
       set(value) {
         this.$store.commit("updateMonitoringServiceMonitors", value);
@@ -58,7 +58,7 @@ export default {
     },
     dashboards: {
       get() {
-        return this.$store.state.cassandra.monitoring.config.dashboards;
+        return this.$store.state.k8_config.monitoring.config.dashboards;
       },
       set(value) {
         this.$store.commit("updateMonitoringDashboards", value);

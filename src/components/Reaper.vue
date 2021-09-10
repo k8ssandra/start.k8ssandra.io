@@ -2,7 +2,7 @@
 <div class="module reaper">
     <h2>Reaper</h2>
     <div>
-        Enabled:
+        Enabled**:
         <input type="checkbox" id="checkbox" v-model="enabled">
         <label for="checkbox"> {{ enabled }}</label>
     </div>
@@ -15,7 +15,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.cassandra.reaper.active;
+        return this.$store.state.k8_config.reaper.active;
       },
       set(value) {
         this.$store.commit("updateReaperEnabled", value);
