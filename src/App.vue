@@ -14,15 +14,6 @@
 
 export default {
   name: "app",
-  updated: function() {
-      this.fillForm()
-  },
-  methods: {
-      fillForm() {
-        this.$store.commit("updateName", this.$route.query.name);
-        this.$store.commit("updateDescription", this.$route.query.description);
-    }
-  }
 }
 </script>
 

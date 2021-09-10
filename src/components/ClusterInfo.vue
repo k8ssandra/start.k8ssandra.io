@@ -6,7 +6,7 @@
       <input v-model="name" placeholder="Instance Name">
     </div>
     <div>
-      <label>Description</label><br />
+      <label>Description**</label><br />
       <textarea v-model="description" placeholder="Instance Description"></textarea>
     </div>
     <div>
@@ -18,7 +18,7 @@
         </select> 
   </div>
   <div>
-    Authentication:
+    Authentication**:
     <input type="checkbox" id="checkbox" v-model="authentication">
     <label for="checkbox"> {{ authentication }}</label>
   </div>
@@ -37,7 +37,7 @@ export default {
   computed: {
     name: {
       get() {
-        return this.$store.state.cassandra.name;
+        return this.$store.state.config.cassandra.clusterName;
       },
       set(value) {
         this.$store.commit("updateName", value);
@@ -45,7 +45,7 @@ export default {
     },
     description: {
       get() {
-        return this.$store.state.cassandra.description;
+        return this.$store.state.k8_config.description;
       },
       set(value) {
         this.$store.commit("updateDescription", value);
@@ -53,7 +53,7 @@ export default {
     },
     version: {
       get() {
-        return this.$store.state.cassandra.version;
+        return this.$store.state.config.cassandra.version;
       },
       set(value) {
         this.$store.commit("updateVersion", value);
@@ -61,7 +61,7 @@ export default {
     },
     authentication: {
       get() {
-        return this.$store.state.cassandra.authentication;
+        return this.$store.state.config.cassandra.auth.enabled;
       },
       set(value) {
         this.$store.commit("updateAuthentication", value);
