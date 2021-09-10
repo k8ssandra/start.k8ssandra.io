@@ -5,18 +5,33 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    cassandra: {
-      name: "",
-      description: "",
-      version: "4.0.0",
-      authentication: "true",
-      cluster_size: 1,
-      datacenters: [
-        {
-          name: "",
-          racks: [],
+    config: {
+      cassandra: {
+        enabled: true,
+        version: "4.0.0",
+        clusterName: "",
+        auth: {
+          enabled: true,
         },
-      ],
+        datacenters: [
+          {
+            name: "dc1",
+            size: 0,
+            racks: [
+              {
+                name: "rack1",
+                affinityLabels: {
+                  foo: "bar",
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+    k8_config: {
+      description: "",
+      cluster_size: 1,
       cpu_cores: {
         amt: 1,
         unit: " ",
@@ -102,127 +117,128 @@ export default new Vuex.Store({
   },
   mutations: {
     updateName(state, txt) {
-      state.cassandra.name = txt;
+      state.config.cassandra.clusterName = txt;
     },
     updateDescription(state, txt) {
-      state.cassandra.description = txt;
+      state.k8_config.description = txt;
     },
     updateVersion(state, txt) {
-      state.cassandra.version = txt;
+      state.config.cassandra.version = txt;
     },
     updateAuthentication(state, txt) {
-      state.cassandra.authentication = txt;
-    },
-    updateClusterSize(state, txt) {
-      state.cassandra.cluster_size = txt;
+      state.config.cassandra.auth.enabled = txt;
     },
     updateDataCenterName(state, txt) {
-      state.cassandra.datacenters[0].name = txt;
+      state.config.cassandra.datacenters[0].name = txt;
+    },
+    updateClusterSize(state, txt) {
+      // Will have to calculate based on racks number here.
+      state.config.cassandra.datacenters.size = txt;
     },
     updateCpuCoresAmount(state, txt) {
-      state.cassandra.cpu_cores.amt = txt;
+      state.k8_config.cpu_cores.amt = txt;
     },
     updateCpuCoresUnit(state, txt) {
-      state.cassandra.cpu_cores.unit = txt;
+      state.k8_config.cpu_cores.unit = txt;
     },
     updateRamCoresAmount(state, txt) {
-      state.cassandra.ram_cores.amt = txt;
+      state.k8_config.ram_cores.amt = txt;
     },
     updateRamCoresUnit(state, txt) {
-      state.cassandra.ram_cores.unit = txt;
+      state.k8_config.ram_cores.unit = txt;
     },
     updateStorageClass(state, txt) {
-      state.cassandra.storage.class = txt;
+      state.k8_config.storage.class = txt;
     },
     updateStorageAmount(state, txt) {
-      state.cassandra.storage.amt = txt;
+      state.k8_config.storage.amt = txt;
     },
     updateStorageUnit(state, txt) {
-      state.cassandra.storage.unit = txt;
+      state.k8_config.storage.unit = txt;
     },
     updateStargateEnabled(state, txt) {
-      state.cassandra.stargate.active = txt;
+      state.k8_config.stargate.active = txt;
     },
     updateStargateSize(state, txt) {
-      state.cassandra.stargate.size = txt;
+      state.k8_config.stargate.size = txt;
     },
     updateStargateCpuAmount(state, txt) {
-      state.cassandra.stargate.amt = txt;
+      state.k8_config.stargate.amt = txt;
     },
     updateStargateCpuUnit(state, txt) {
-      state.cassandra.stargate.unit = txt;
+      state.k8_config.stargate.unit = txt;
     },
     updateStargateHeapMb(state, txt) {
-      state.cassandra.stargate.heap_in_mb = txt;
+      state.k8_config.stargate.heap_in_mb = txt;
     },
     updateReaperEnabled(state, txt) {
-      state.cassandra.reaper.active = txt;
+      state.k8_config.reaper.active = txt;
     },
     updateMedusaEnabled(state, txt) {
-      state.cassandra.medusa.active = txt;
+      state.k8_config.medusa.active = txt;
     },
     updateMedusaProvider(state, txt) {
-      state.cassandra.medusa.provider = txt;
+      state.k8_config.medusa.provider = txt;
     },
     updateMedusaS3Region(state, txt) {
-      state.cassandra.medusa.provider_s3.config.region = txt;
+      state.k8_config.medusa.provider_s3.config.region = txt;
     },
     updateMedusaS3Name(state, txt) {
-      state.cassandra.medusa.provider_s3.config.bucket_name = txt;
+      state.k8_config.medusa.provider_s3.config.bucket_name = txt;
     },
     updateMedusaS3StorageSecret(state, txt) {
-      state.cassandra.medusa.provider_s3.config.secret = txt;
+      state.k8_config.medusa.provider_s3.config.secret = txt;
     },
     updateMedusaS3CompatibleRegion(state, txt) {
-      state.cassandra.medusa.provider_s3_compatible.config.region = txt;
+      state.k8_config.medusa.provider_s3_compatible.config.region = txt;
     },
     updateMedusaS3CompatibleHost(state, txt) {
-      state.cassandra.medusa.provider_s3_compatible.config.host = txt;
+      state.k8_config.medusa.provider_s3_compatible.config.host = txt;
     },
     updateMedusaS3CompatiblePort(state, txt) {
-      state.cassandra.medusa.provider_s3_compatible.config.port = txt;
+      state.k8_config.medusa.provider_s3_compatible.config.port = txt;
     },
     updateMedusaS3CompatibleSecure(state, txt) {
-      state.cassandra.medusa.provider_s3_compatible.config.secure = txt;
+      state.k8_config.medusa.provider_s3_compatible.config.secure = txt;
     },
     updateMedusaS3CompatibleName(state, txt) {
-      state.cassandra.medusa.provider_s3_compatible.config.bucket_name = txt;
+      state.k8_config.medusa.provider_s3_compatible.config.bucket_name = txt;
     },
     updateMedusaS3CompatibleStorageSecret(state, txt) {
-      state.cassandra.medusa.provider_s3_compatible.config.secret = txt;
+      state.k8_config.medusa.provider_s3_compatible.config.secret = txt;
     },
     updateMedusaGCSName(state, txt) {
-      state.cassandra.medusa.provider_gcs.config.bucket_name = txt;
+      state.k8_config.medusa.provider_gcs.config.bucket_name = txt;
     },
     updateMedusaGCSStorageSecret(state, txt) {
-      state.cassandra.medusa.provider_gcs.config.secret = txt;
+      state.k8_config.medusa.provider_gcs.config.secret = txt;
     },
     updateMedusaABSName(state, txt) {
-      state.cassandra.medusa.provider_abs.config.bucket_name = txt;
+      state.k8_config.medusa.provider_abs.config.bucket_name = txt;
     },
     updateMedusaABSStorageSecret(state, txt) {
-      state.cassandra.medusa.provider_abs.config.secret = txt;
+      state.k8_config.medusa.provider_abs.config.secret = txt;
     },
     updateMedusaLocalClass(state, txt) {
-      state.cassandra.medusa.provider_local.config.storage_class = txt;
+      state.k8_config.medusa.provider_local.config.storage_class = txt;
     },
     updateMedusaLocalSize(state, txt) {
-      state.cassandra.medusa.provider_local.config.size = txt;
+      state.k8_config.medusa.provider_local.config.size = txt;
     },
     updateMedusaLocalUnit(state, txt) {
-      state.cassandra.medusa.provider_local.config.unit = txt;
+      state.k8_config.medusa.provider_local.config.unit = txt;
     },
     updateMonitoringEnabled(state, txt) {
-      state.cassandra.monitoring.active = txt;
+      state.k8_config.monitoring.active = txt;
     },
     updateMonitoringKubePrometheus(state, txt) {
-      state.cassandra.monitoring.config.kube_prometheus_stack = txt;
+      state.k8_config.monitoring.config.kube_prometheus_stack = txt;
     },
     updateMonitoringServiceMonitors(state, txt) {
-      state.cassandra.monitoring.config.service_monitors = txt;
+      state.k8_config.monitoring.config.service_monitors = txt;
     },
     updateMonitoringDashboards(state, txt) {
-      state.cassandra.monitoring.config.dashboards = txt;
+      state.k8_config.monitoring.config.dashboards = txt;
     },
   },
   actions: {},
