@@ -1,29 +1,33 @@
 <template>
-<div>
+<div class="result">
     <h1>Result</h1>
-        <h3>Info</h3>
-            <div>Name: {{ config.name }}</div>
-            <div>Description: {{ config.description }}</div>
-            <div>Version: {{ config.version }}</div>
-            <div>Version: {{ config.authentication }}</div>
-        <h3>Topology</h3>
-        <div>Clustersize: {{ config.cluster_size }}</div>
-        <h5>Datacenters</h5>
-        <ul>
-            <li v-for="(center, key) in config.datacenters" :key="key">
-                {{center.name}}
-            </li>
-        </ul>
-
+        <pre>{{ cassandra_output }}
+        </pre>
 </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+const YAML = require("json-to-pretty-yaml");
 
 export default {
-    computed: mapState({
-        config: 'cassandra',
-    })
+  computed: {
+    cassandra_output() {
+      let json = this.$store.state.config;
+      const data = YAML.stringify(json);
+      return data;
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.result {
+    max-width: 500px;  
+    margin: 0 auto;
+}
+pre {
+margin: 100px;
+
+    text-align: left;
+}
+</style>
