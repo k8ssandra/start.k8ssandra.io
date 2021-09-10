@@ -1,0 +1,235 @@
+cassandra:
+  enabled: true
+  version: "4.0.0"
+  versionImageMap: k8ssandra/cass-management-api:4.0.0-v0.1.28
+  image: {}
+  securityContext:
+    readOnlyRootFilesystem: false
+  podSecurityContext:
+    readOnlyRootFilesystem: false
+  baseConfig:
+    securityContext: {}
+  configBuilder:
+    securityContext: {}
+    image:
+      registry: docker.io
+      repository: datastax/cass-config-builder
+      tag: 1.0.4
+      pullPolicy: IfNotPresent
+  jmxCredentialsConfig:
+    securityContext: {}
+    image:
+      registry: docker.io
+      repository: busybox
+      tag: 1.33.1
+      pullPolicy: IfNotPresent
+  clusterName: ""
+  auth:
+    enabled: true
+    superuser:
+      secret: ""
+      username: ""
+    cacheValidityPeriodMillis: 3600000
+    cacheUpdateIntervalMillis: 3600000
+  cassandraLibDirVolume:
+    storageClass: standard
+    size: 5Gi
+  allowMultipleNodesPerWorker: false
+  additionalSeeds: []
+  loggingSidecar:
+    enabled: true
+    image:
+      registry: docker.io
+      repository: k8ssandra/system-logger
+      tag: 9c4c3692
+      pullPolicy: IfNotPresent
+  heap: {}
+  gc:
+    cms: {}
+    g1: {}
+  resources: {}
+  tolerations: []
+  datacenters:
+      name: dc1
+      size: 1
+      racks:
+          name: default
+          affinityLabels: {}
+      heap: {}
+      gc:
+        cms: {}
+        g1: {}
+  ingress:
+    enabled: false
+    method: traefik
+    host:
+    traefik:
+      entrypoint: cassandra
+stargate:
+  enabled: true
+  version: "1.0.29"
+  image: {}
+  replicas: 1
+  waitForCassandra:
+    image:
+      registry: docker.io
+      repository: alpine
+      tag: 3.12.2
+      pullPolicy: IfNotPresent
+  heapMB: 256
+  cpuReqMillicores: 200
+  cpuLimMillicores: 1000
+  livenessInitialDelaySeconds: 30
+  readinessInitialDelaySeconds: 30
+  cassandraUser:
+    secret: ""
+    username: ""
+  ingress:
+    host:
+    enabled: false
+    auth:
+      enabled: true
+      host:
+    rest:
+      enabled: true
+      host:
+    graphql:
+      enabled: true
+      host:
+      playground:
+        enabled: true
+    cassandra:
+      enabled: true
+      method: traefik
+      host:
+      traefik:
+        entrypoint: cassandra
+  affinity: {}
+  tolerations: []
+reaper:
+  securityContext: {}
+  schemaInitContainerConfig:
+    securityContext: {}
+  podSecurityContext: {}
+  autoschedule: false
+  autoschedule_properties: {}
+  enabled: true
+  image:
+    registry: docker.io
+    repository: thelastpickle/cassandra-reaper
+    tag: 2.3.1
+    pullPolicy: IfNotPresent
+  cassandraUser:
+    secret: ""
+    username: ""
+  jmx:
+    secret: ""
+    username: ""
+  ingress:
+    enabled: false
+    host:
+    method: traefik
+    traefik:
+      entrypoint: web
+  affinity: {}
+  tolerations: []
+medusa:
+  enabled: false
+  securityContext:
+    readOnlyRootFilesystem: false
+  restoreInitContainerConfig:
+    securityContext:
+      readOnlyRootFilesystem: false
+  image:
+    registry: docker.io
+    repository: k8ssandra/medusa
+    tag: 0.11.1
+    pullPolicy: IfNotPresent
+  cassandraUser:
+    secret: ""
+    username: ""
+  multiTenant: false
+  storage: s3
+  storage_properties: {}
+  bucketName: awstest
+  storageSecret: medusa-bucket-key
+  podStorage: {}
+monitoring:
+  grafana:
+    provision_dashboards: true
+  prometheus:
+    provision_service_monitors: true
+  serviceMonitors:
+    namespace:
+cleaner:
+  image:
+    registry: docker.io
+    repository: k8ssandra/k8ssandra-tools
+    tag: latest
+    pullPolicy: IfNotPresent
+client:
+  image:
+    registry: docker.io
+    repository: k8ssandra/k8ssandra-tools
+    tag: latest
+    pullPolicy: IfNotPresent
+cass-operator:
+  enabled: true
+reaper-operator:
+  enabled: true
+kube-prometheus-stack:
+  enabled: true
+  coreDns:
+    enabled: false
+  kubeApiServer:
+    enabled: false
+  kubeControllerManager:
+    enabled: false
+  kubeDns:
+    enabled: false
+  kubeEtcd:
+    enabled: false
+  kubeProxy:
+    enabled: false
+  kubeScheduler:
+    enabled: false
+  kubeStateMetrics:
+    enabled: false
+  kubelet:
+    enabled: false
+  nodeExporter:
+    enabled: false
+  alertmanager:
+    enabled: false
+    serviceMonitor:
+      selfMonitor: false
+  prometheusOperator:
+    enabled: true
+    namespaces:
+      releaseNamespace: true
+      additional: []
+    serviceMonitor:
+      selfMonitor: false
+  prometheus:
+    enabled: true
+    prometheusSpec:
+      routePrefix: /
+      externalUrl: ""
+    ingress:
+      enabled: false
+      paths: []
+    serviceMonitor:
+      selfMonitor: false
+  grafana:
+    enabled: true
+    ingress:
+      enabled: false
+      path:
+    adminUser: admin
+    adminPassword: secret
+    serviceMonitor:
+      selfMonitor: false
+    defaultDashboardsEnabled: false
+    plugins:
+      - grafana-polystat-panel
+    grafana.ini: {}
