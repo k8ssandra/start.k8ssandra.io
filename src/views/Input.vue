@@ -30,6 +30,15 @@ import ShareUrl from '../components/ShareUrl.vue';
 
 export default {
   name: "Input",
+    beforeMount: function() {
+      this.fillForm()
+  },
+  methods: {
+      fillForm() {
+        this.$store.commit("updateName", this.$route.query.name);
+        this.$store.commit("updateDescription", this.$route.query.description);
+    }
+  },
   components: {
     ClusterInfo,
     Topology,
