@@ -13,7 +13,9 @@ export default {
   computed: {
     cassandra_output() {
       let json = this.$store.state.config;
-      const data = YAML.stringify(json);
+      let data = YAML.stringify(json);
+
+      // data = data.replace(/["]+/g, '');
       return data;
     },
   },
