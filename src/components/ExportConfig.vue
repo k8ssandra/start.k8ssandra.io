@@ -13,7 +13,7 @@ export default {
   methods: {
     exportConfig() {
       const json = this.$store.state.config.cassandra;
-      let fileName = json.name + ".values.yml";
+      let fileName = json.clusterName + ".values.yml";
 
       const data = YAML.stringify(json);
 
