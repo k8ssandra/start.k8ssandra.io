@@ -4,20 +4,10 @@
         <div>
             <label>CPU Cores**</label><br />
             <input v-model.number="cpu_number" type="number">
-            <select v-model="cpu_unit">
-            <option v-for="(item, key) in cpu_units" :key="key" >
-                {{ item }}
-            </option>
-            </select> 
         </div>
         <div>
             <label>RAM Cores**</label><br />
             <input v-model.number="ram_number" type="number">
-            <select v-model="ram_unit">
-            <option v-for="(item, key) in byte_units" :key="key" >
-                {{ item }}
-            </option>
-            </select> 
         </div>
         <div>
           <h5>Storage</h5>
@@ -31,11 +21,10 @@
         <div>
             <label>Storage Amount**</label><br />
             <input v-model.number="storage_number" type="number">
-            <select v-model="storage_unit">
-            <option v-for="(item, key) in byte_units" :key="key" >
-                {{ item }}
-            </option>
-            </select> 
+        </div>
+        <div>
+            <label>Heap Number**</label><br />
+            <input v-model.number="heap_number" type="number">
         </div>
     </div>
 </template>
@@ -45,47 +34,37 @@ export default {
   name: "NodeConfig",
   data() {
     return {
-      cpu_units: [" ", "m"],
-      byte_units: ["MB", "GB", "TB"],
-      storage_classes: ["standard", "Storage Class 2", "Storage Class 3"],
+      storage_classes: ["standard", "managed-premium", "standard-rwo", "do-block-storage-wait", "local-path"],
     };
   },
   computed: {
     cpu_number: {
       get() {
-        return this.$store.state.k8_config.cpu_cores.amt;
+        return this.$store.state.k8_config.cpu_cores;
       },
       set(value) {
         this.$store.commit("updateCpuCoresAmount", value);
       },
     },
-    cpu_unit: {
-      get() {
-        return this.$store.state.k8_config.cpu_cores.unit;
-      },
-      set(value) {
-        this.$store.commit("updateCpuCoresUnit", value);
-      },
-    },
     ram_number: {
       get() {
-        return this.$store.state.k8_config.ram_cores.amt;
+        return this.$store.state.k8_config.ram_cores;
       },
       set(value) {
         this.$store.commit("updateRamCoresAmount", value);
       },
     },
-    ram_unit: {
+    heap_number: {
       get() {
-        return this.$store.state.k8_config.ram_cores.unit;
+        return this.$store.state.k8_config.heap_number;
       },
       set(value) {
-        this.$store.commit("updateRamCoresUnit", value);
+        this.$store.commit("updateHeapAmount", value);
       },
     },
     storage_class: {
       get() {
-        return this.$store.state.k8_config.storage.class;
+        return this.$store.state.config.cassandra.cassandraLibDirVolume.storageClass;
       },
       set(value) {
         this.$store.commit("updateStorageClass", value);
@@ -93,18 +72,10 @@ export default {
     },
     storage_number: {
       get() {
-        return this.$store.state.k8_config.storage.amt;
+        return this.$store.state.k8_config.storage_amount;
       },
       set(value) {
         this.$store.commit("updateStorageAmount", value);
-      },
-    },
-    storage_unit: {
-      get() {
-        return this.$store.state.k8_config.storage.unit;
-      },
-      set(value) {
-        this.$store.commit("updateStorageUnit", value);
       },
     },
   },
