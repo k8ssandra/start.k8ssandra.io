@@ -13,42 +13,40 @@ export default new Vuex.Store({
         auth: {
           enabled: true,
         },
+        cassandraLibDirVolume: {
+          storageClass: "standard",
+          size: '5Gi'
+        },
+        heap: {
+          size: ".25G",
+          newGenSize: ".25G",
+        },
+        resources: {
+          requests: {
+            cpu: "7000m",
+            memory: "60Gi",
+          },
+          limits: {
+            cpu: "7000m",
+            memory: "60Gi",
+          },
+        },
         datacenters: [
           {
             name: "dc1",
             size: 0,
-            racks: [
-              {
-                name: "rack1",
-                affinityLabels: {
-                  foo: "bar",
-                },
-              },
-            ],
+            racks: [],
           },
         ],
       },
     },
     k8_config: {
       description: "",
-      cluster_size: 1,
-      cpu_cores: {
-        amt: 1,
-        unit: " ",
-      },
-      ram_cores: {
-        amt: 1,
-        unit: "MB",
-      },
-      storage: {
-        class: "standard",
-        amt: 1,
-        unit: "MB",
-      },
-      heap: {
-        amt: 0.25,
-        suffix: "MB",
-      },
+      cluster_size_per: 1,
+      storage_amount: 5,
+      cpu_cores: 1,
+      ram_cores: 1,
+      heap_number: .25,
       additional_seeds: [],
       stargate: {
         active: false,
@@ -131,27 +129,51 @@ export default new Vuex.Store({
     updateDataCenterName(state, txt) {
       state.config.cassandra.datacenters[0].name = txt;
     },
+    addRack(state, txt) {
+      let rack = {
+          name: txt
+        }
+      state.config.cassandra.datacenters[0].racks.push(rack);
+    },
+    removeRack(state, num) {
+      state.config.cassandra.datacenters[0].racks.splice(num, 1);
+    },
     updateClusterSize(state, txt) {
-      // Will have to calculate based on racks number here.
-      state.config.cassandra.datacenters.size = txt;
+      state.k8_config.cluster_size_per = txt;
+    },
+    updateTotalClusterSize(state) {
+      let numOfRacks = state.config.cassandra.datacenters[0].racks.length;
+      let SizePer = state.k8_config.cluster_size_per;
+      let totalSize = numOfRacks * parseInt(SizePer);
+      state.config.cassandra.datacenters[0].size = totalSize;
+
     },
     updateCpuCoresAmount(state, txt) {
-      state.k8_config.cpu_cores.amt = txt;
-    },
-    updateCpuCoresUnit(state, txt) {
-      state.k8_config.cpu_cores.unit = txt;
+      state.k8_config.cpu_cores = txt;
+      let displayedCpuAmount = state.k8_config.cpu_cores + "m"
+      let parsed = JSON.parse(displayedCpuAmount);
+      state.config.cassandra.resources.requests.cpu = parsed;
+      state.config.cassandra.resources.limits.cpu = displayedCpuAmount;
     },
     updateRamCoresAmount(state, txt) {
-      state.k8_config.ram_cores.amt = txt;
+      state.k8_config.ram_cores = txt;
+      let displayedRamAmount = state.k8_config.ram_cores + "Gi"
+      state.config.cassandra.resources.requests.memory = displayedRamAmount;
+      state.config.cassandra.resources.limits.memory = displayedRamAmount;
     },
-    updateRamCoresUnit(state, txt) {
-      state.k8_config.ram_cores.unit = txt;
+    updateHeapAmount(state, txt) {
+      state.k8_config.heap_number = txt;
+      let displayedHeapAmount = state.k8_config.heap_number + "G"
+      state.config.cassandra.heap.size = displayedHeapAmount;
+      state.config.cassandra.heap.newGenSize = displayedHeapAmount;
     },
     updateStorageClass(state, txt) {
-      state.k8_config.storage.class = txt;
+      state.config.cassandra.cassandraLibDirVolume.storageClass = txt;
     },
     updateStorageAmount(state, txt) {
-      state.k8_config.storage.amt = txt;
+      state.k8_config.storage_amount = txt;
+      let displayedStorageAmount = state.k8_config.storage_amount + "Gi"
+      state.config.cassandra.cassandraLibDirVolume.size = displayedStorageAmount
     },
     updateStorageUnit(state, txt) {
       state.k8_config.storage.unit = txt;
