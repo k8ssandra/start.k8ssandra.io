@@ -40,11 +40,17 @@ export default new Vuex.Store({
         ],
       },
       stargate: {
-        enabled: false,
+        enabled: true,
         replicas: 1,
         heapMB: 256,
         cpuReqMillicores: 200,
       },
+      reaper: {
+        enabled: true
+      },
+      medusa: {
+        enabled: false,
+      }
     },
     k8_config: {
       description: "",
@@ -54,9 +60,6 @@ export default new Vuex.Store({
       ram_cores: 1,
       heap_number: 0.25,
       additional_seeds: [],
-      reaper: {
-        active: false,
-      },
       medusa: {
         active: false,
         provider: "S3",
@@ -192,10 +195,10 @@ export default new Vuex.Store({
       state.k8_config.stargate.heap_in_mb = txt;
     },
     updateReaperEnabled(state, txt) {
-      state.k8_config.reaper.active = txt;
+      state.config.reaper.enabled = txt;
     },
     updateMedusaEnabled(state, txt) {
-      state.k8_config.medusa.active = txt;
+      state.config.medusa.enabled = txt;
     },
     updateMedusaProvider(state, txt) {
       state.k8_config.medusa.provider = txt;
