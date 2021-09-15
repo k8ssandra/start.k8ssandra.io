@@ -39,6 +39,12 @@ export default new Vuex.Store({
           },
         ],
       },
+      stargate: {
+        enabled: false,
+        replicas: 1,
+        heapMB: 256,
+        cpuReqMillicores: 200,
+      },
     },
     k8_config: {
       description: "",
@@ -48,13 +54,6 @@ export default new Vuex.Store({
       ram_cores: 1,
       heap_number: 0.25,
       additional_seeds: [],
-      stargate: {
-        active: false,
-        size: 1,
-        amt: 1,
-        unit: " ",
-        heap_in_mb: 0,
-      },
       reaper: {
         active: false,
       },
@@ -178,16 +177,16 @@ export default new Vuex.Store({
       state.k8_config.storage.unit = txt;
     },
     updateStargateEnabled(state, txt) {
-      state.k8_config.stargate.active = txt;
+      state.config.stargate.enabled = txt;
     },
     updateStargateSize(state, txt) {
-      state.k8_config.stargate.size = txt;
+      state.config.stargate.replicas = txt;
     },
     updateStargateCpuAmount(state, txt) {
-      state.k8_config.stargate.amt = txt;
+      state.config.stargate.cpuReqMillicores = txt;
     },
     updateStargateCpuUnit(state, txt) {
-      state.k8_config.stargate.unit = txt;
+      state.config.stargate.heapMB = txt;
     },
     updateStargateHeapMb(state, txt) {
       state.k8_config.stargate.heap_in_mb = txt;
