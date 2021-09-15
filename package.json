@@ -11,6 +11,7 @@
     "browserify-fs": "^1.0.0",
     "core-js": "^3.6.5",
     "downloadjs": "^1.4.7",
+    "js-yaml": "^4.1.0",
     "json-to-pretty-yaml": "^1.2.2",
     "vue": "^2.6.11",
     "vue-repeater": "^1.1.2",
