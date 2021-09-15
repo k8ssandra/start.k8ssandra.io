@@ -45,7 +45,7 @@ export default {
     border: none;
     border-radius: 5px;
     padding: 10px 30px;
-    margin-bottom: 0;
+    margin: 20px;
     &:hover {
       border: 1px solid rgba(2, 62, 150, 1);
     }

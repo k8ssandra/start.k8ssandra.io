@@ -9,8 +9,6 @@
       <Reaper />
       <Medusa />
       <Monitoring />
-      <ExportConfig />
-      <ShareUrl />
     </div>
       </div> 
 </template>
@@ -24,8 +22,7 @@ import Stargate from '../components/Stargate.vue';
 import Reaper from '../components/Reaper.vue';
 import Medusa from '../components/Medusa.vue';
 import Monitoring from '../components/Monitoring.vue';
-import ExportConfig from '../components/ExportConfig.vue';
-import ShareUrl from '../components/ShareUrl.vue';
+
 
 
 export default {
@@ -47,13 +44,11 @@ export default {
     Reaper,
     Medusa,
     Monitoring,
-    ExportConfig,
-    ShareUrl
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .form_sections {
   max-width:1440px;
   margin: 0 auto;
@@ -64,12 +59,8 @@ export default {
     background-color:#eee;
     width:100%;
     margin-bottom:20px;
-  @media(min-width:600px) {
-    width:48%;
-  }
-  @media(min-width:800px) {
-    width:30%;
-  }
+    margin-left: 10vw;
+    margin-right:10vw;
   }
 }
 </style>
