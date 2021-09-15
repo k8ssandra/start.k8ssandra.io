@@ -15,7 +15,7 @@ export default new Vuex.Store({
         },
         cassandraLibDirVolume: {
           storageClass: "standard",
-          size: '5Gi'
+          size: "5Gi",
         },
         heap: {
           size: ".25G",
@@ -46,7 +46,7 @@ export default new Vuex.Store({
       storage_amount: 5,
       cpu_cores: 1,
       ram_cores: 1,
-      heap_number: .25,
+      heap_number: 0.25,
       additional_seeds: [],
       stargate: {
         active: false,
@@ -131,8 +131,8 @@ export default new Vuex.Store({
     },
     addRack(state, txt) {
       let rack = {
-          name: txt
-        }
+        name: txt,
+      };
       state.config.cassandra.datacenters[0].racks.push(rack);
     },
     removeRack(state, num) {
@@ -146,24 +146,23 @@ export default new Vuex.Store({
       let SizePer = state.k8_config.cluster_size_per;
       let totalSize = numOfRacks * parseInt(SizePer);
       state.config.cassandra.datacenters[0].size = totalSize;
-
     },
     updateCpuCoresAmount(state, txt) {
       state.k8_config.cpu_cores = txt;
-      let displayedCpuAmount = state.k8_config.cpu_cores + "m"
+      let displayedCpuAmount = state.k8_config.cpu_cores + "m";
       let parsed = JSON.parse(displayedCpuAmount);
       state.config.cassandra.resources.requests.cpu = parsed;
       state.config.cassandra.resources.limits.cpu = displayedCpuAmount;
     },
     updateRamCoresAmount(state, txt) {
       state.k8_config.ram_cores = txt;
-      let displayedRamAmount = state.k8_config.ram_cores + "Gi"
+      let displayedRamAmount = state.k8_config.ram_cores + "Gi";
       state.config.cassandra.resources.requests.memory = displayedRamAmount;
       state.config.cassandra.resources.limits.memory = displayedRamAmount;
     },
     updateHeapAmount(state, txt) {
       state.k8_config.heap_number = txt;
-      let displayedHeapAmount = state.k8_config.heap_number + "G"
+      let displayedHeapAmount = state.k8_config.heap_number + "G";
       state.config.cassandra.heap.size = displayedHeapAmount;
       state.config.cassandra.heap.newGenSize = displayedHeapAmount;
     },
@@ -172,8 +171,8 @@ export default new Vuex.Store({
     },
     updateStorageAmount(state, txt) {
       state.k8_config.storage_amount = txt;
-      let displayedStorageAmount = state.k8_config.storage_amount + "Gi"
-      state.config.cassandra.cassandraLibDirVolume.size = displayedStorageAmount
+      let displayedStorageAmount = state.k8_config.storage_amount + "Gi";
+      state.config.cassandra.cassandraLibDirVolume.size = displayedStorageAmount;
     },
     updateStorageUnit(state, txt) {
       state.k8_config.storage.unit = txt;
