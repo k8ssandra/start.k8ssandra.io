@@ -15,11 +15,6 @@
         <div>
           <label>CPU**</label><br />
           <input v-model.number="cpu_number" type="number">
-          <select v-model="cpu_unit">
-          <option v-for="(item, key) in cpu_units" :key="key" >
-              {{ item }}
-          </option>
-          </select> 
         </div>
         <div>
           <label>Heap in MB**</label><br />
@@ -32,15 +27,10 @@
 <script>
 export default {
   name: "Stargate",
-    data() {
-    return {
-      cpu_units: [" ", "m"],
-    };
-  },
   computed: {
     enabled: {
       get() {
-        return this.$store.state.k8_config.stargate.active;
+        return this.$store.state.config.stargate.enabled;
       },
       set(value) {
         this.$store.commit("updateStargateEnabled", value);
@@ -48,7 +38,7 @@ export default {
     },
     size: {
       get() {
-        return this.$store.state.k8_config.stargate.size;
+        return this.$store.state.config.stargate.replicas;
       },
       set(value) {
         this.$store.commit("updateStargateSize", value);
@@ -56,23 +46,15 @@ export default {
     },
     cpu_number: {
       get() {
-        return this.$store.state.k8_config.stargate.amt;
+        return this.$store.state.config.stargate.cpuReqMillicores;
       },
       set(value) {
         this.$store.commit("updateStargateCpuAmount", value);
       },
     },
-    cpu_unit: {
-      get() {
-        return this.$store.state.k8_config.stargate.unit;
-      },
-      set(value) {
-        this.$store.commit("updateStargateCpuUnit", value);
-      },
-    },
     heap_mb: {
       get() {
-        return this.$store.state.k8_config.stargate.heap_in_mb;
+        return this.$store.state.config.stargate.heapMB;
       },
       set(value) {
         this.$store.commit("updateStargateHeapMb", value);
