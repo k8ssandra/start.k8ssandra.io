@@ -1,6 +1,6 @@
 <template>
     <div class="export">
-        <a class="button" href @click.prevent="exportConfig">Export the config</a>
+        <a class="button" href @click.prevent="exportConfig">Export Config</a>
     </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
     border-radius: 5px;
     padding: 10px 30px;
     margin: 20px;
+    white-space: nowrap;
     &:hover {
       border: 1px solid rgba(2, 62, 150, 1);
     }

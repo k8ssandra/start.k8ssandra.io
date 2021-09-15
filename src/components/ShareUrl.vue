@@ -1,6 +1,6 @@
 <template>
     <div class="share">
-        <a class="button" href @click.prevent="toggleModal">Share this config</a>
+        <a class="button" href @click.prevent="toggleModal">Share Config</a>
         <transition name="fade">
         <div v-if="isOpen" class="modal-container">
         <div class="modal">
@@ -57,6 +57,7 @@ export default {
     border-radius: 5px;
     padding: 10px 30px;
     margin: 20px;
+    white-space: nowrap;
     &:hover {
       border: 1px solid rgb(165, 75, 255);
     }

@@ -1,8 +1,12 @@
 <template>
   <div class="home">
+    <h1>K8ssandra Configurator</h1>
+  <div class="container">
     <Input />
     <Result />
   </div> 
+    </div> 
+
 </template>
 
 <script>
@@ -20,8 +24,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
+.container {
   display: flex;
-  max-width:1440px;
+  max-width: 1440px;
 }
 </style>

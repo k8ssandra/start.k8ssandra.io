@@ -1,6 +1,5 @@
 <template>
   <div class="input">
-    <h1>K8ssandra Configurator</h1>
     <div class="form_sections">
       <ClusterInfo />
       <Topology />
