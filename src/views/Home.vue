@@ -1,20 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <h1>K8ssandra Configurator</h1>
-    <p>Dev environment for k8 wizard</p>
+    <Input />
+    <Result />
   </div> 
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import Input from "@/components/Input.vue";
+import Result from "@/components/Result.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    // HelloWorld
-  }
-}
+    Input,
+    Result,
+  },
+};
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  max-width:1440px;
+}
+</style>
