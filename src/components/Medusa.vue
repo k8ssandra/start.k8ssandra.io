@@ -66,7 +66,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.k8_config.medusa.active;
+        return this.$store.state.config.medusa.enabled;
       },
       set(value) {
         this.$store.commit("updateMedusaEnabled", value);
