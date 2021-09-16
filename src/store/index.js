@@ -46,11 +46,24 @@ export default new Vuex.Store({
         cpuReqMillicores: 200,
       },
       reaper: {
-        enabled: true
+        enabled: true,
       },
       medusa: {
         enabled: false,
-      }
+        storage: "",
+        storage_properties: {},
+      },
+      monitoring: {
+        prometheus: {
+          provision_service_monitors: true,
+        },
+        serviceMonitors: {
+          namespace: "",
+        },
+      },
+      kubeprometheusstack: {
+        enabled: true,
+      },
     },
     k8_config: {
       description: "",
@@ -134,11 +147,18 @@ export default new Vuex.Store({
     addRack(state, txt) {
       let rack = {
         name: txt,
+        affinityLabels: []
       };
       state.config.cassandra.datacenters[0].racks.push(rack);
     },
     removeRack(state, num) {
       state.config.cassandra.datacenters[0].racks.splice(num, 1);
+    },
+    addNode(state, values) {
+      let nodeKey = values.nodeLabel;
+      let nodeValue = values.nodeValue;
+      let node = { [nodeKey]: nodeValue };
+      state.config.cassandra.datacenters[0].racks[values.num].affinityLabels.push(node);
     },
     updateClusterSize(state, txt) {
       state.k8_config.cluster_size_per = txt;
@@ -251,17 +271,14 @@ export default new Vuex.Store({
     updateMedusaLocalUnit(state, txt) {
       state.k8_config.medusa.provider_local.config.unit = txt;
     },
-    updateMonitoringEnabled(state, txt) {
-      state.k8_config.monitoring.active = txt;
-    },
     updateMonitoringKubePrometheus(state, txt) {
-      state.k8_config.monitoring.config.kube_prometheus_stack = txt;
+      state.config.kubeprometheusstack.enabled = txt;
     },
     updateMonitoringServiceMonitors(state, txt) {
-      state.k8_config.monitoring.config.service_monitors = txt;
+      state.config.monitoring.serviceMonitors.namespace = txt; //not sure about the boolean on this.
     },
     updateMonitoringDashboards(state, txt) {
-      state.k8_config.monitoring.config.dashboards = txt;
+      state.config.monitoring.prometheus.provision_service_monitors = txt;
     },
   },
   actions: {},
