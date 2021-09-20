@@ -10,9 +10,7 @@
 export default {
   name: "ConfigUrl",
   computed: {
-    base64endcoded() {
-    //   const path = this.$store.state;
-      
+    base64endcoded() {   
       let buildPathConnect = {
           name: this.$store.state.config.cassandra.clusterName,
           description: this.$store.state.k8_config.description

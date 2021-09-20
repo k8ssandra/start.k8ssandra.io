@@ -66,6 +66,7 @@ export default new Vuex.Store({
       },
     },
     k8_config: {
+      landpage: true,
       description: "",
       cluster_size_per: 1,
       storage_amount: 5,
@@ -129,6 +130,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    LandingPage(state) {
+      state.k8_config.landpage = false;
+    },
     updateName(state, txt) {
       state.config.cassandra.clusterName = txt;
     },
