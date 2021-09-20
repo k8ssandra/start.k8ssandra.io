@@ -5,6 +5,9 @@
           <pre>{{ cassandra_output }}
           </pre>
   </div>
+  <div class="helm__container">
+    <div><input id="helm__install" v-model="helmInstall"><button @click.prevent="grabHelm">Copy</button></div>
+  </div>
   <div class="button_ctas">
     <div class="export">
         <a class="button" href @click.prevent="exportConfig">Export Config</a>
@@ -15,6 +18,7 @@
 </template>
 
 <script>
+
 const download = require("downloadjs");
 const YAML = require("json-to-pretty-yaml");
 
@@ -29,6 +33,17 @@ export default {
       let config = this.yamlizeData(this.$store.state.config);
       return config;
     },
+    filename: {
+      get() {
+        return this.$store.state.config.cassandra.clusterName;
+      },
+    },
+    helmInstall: {
+      get() {
+      let code = "helm install -f " + this.filename + ".yaml k8ssandra k8ssandra/k8ssandra";
+      return code;
+      },
+    }
   },
   methods: {
     yamlizeData(data) {
@@ -40,8 +55,12 @@ export default {
     },
     exportConfig() {
       let data = this.yamlizeData(this.$store.state.config);
-      let fileName = this.$store.state.config.cassandra.clusterName + ".values.yml";
+      let fileName = this.$store.state.config.cassandra.clusterName + ".yaml";
       download(data, fileName, "text/yaml");
+    },
+    grabHelm() {
+      document.getElementById('helm__install').select();
+      document.execCommand("copy");
     },
   },
 };
@@ -53,7 +72,7 @@ export default {
   margin: 0 auto;
 }
 pre {
-  margin: 100px;
+  margin: 30px 100px;
 
   text-align: left;
 }
