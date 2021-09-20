@@ -160,6 +160,9 @@ export default new Vuex.Store({
       let node = { [nodeKey]: nodeValue };
       state.config.cassandra.datacenters[0].racks[values.num].affinityLabels.push(node);
     },
+    removeNode(state, values) {
+      state.config.cassandra.datacenters[0].racks[values.rack].affinityLabels.splice(values.node, 1);
+    },
     updateClusterSize(state, txt) {
       state.k8_config.cluster_size_per = txt;
     },

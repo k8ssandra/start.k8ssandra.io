@@ -8,16 +8,18 @@
                   <button @click.prevent="removeRack(num)">x</button>
                 </div>
                 <div class="racklist__nodes">
-                      <ul class="racklist__nodelist">
-                        <li v-for="(node, num) in rack.affinityLabels" class="racklist_node" :key="num" >
-                          {{ node }}
-                        </li>
-                      </ul>
+                    <ul class="racklist__nodelist">
+                      <li v-for="(node, key) in rack.affinityLabels" class="racklist_node" :key="key" >
+                        {{ node }}
+                        <button @click.prevent="removeNode(key, num)">x</button>
+                      </li>
+                    </ul>
                     <form v-on:submit.prevent="addNode(num)" class="rackadd">
                       <input v-model="nodeLabelValue" placeholder="Label" minlength=3 type="text">
                       <input v-model="nodeValueValue" placeholder="value" minlength=3 type="text">
                       <input type="submit"  value="add">
-                    </form>                </div>
+                    </form>                
+                </div>
               </li>
             </ul>
               <form v-on:submit.prevent="addRack" class="rackadd">
@@ -35,7 +37,8 @@ export default {
     return {
       rackAddValue: "",
       nodeLabelValue: "",
-      nodeValueValue: "",
+      nodeValueValue: ""
+
     };
   },
   computed: {
@@ -66,6 +69,9 @@ export default {
       this.$store.commit("addNode", { num, nodeLabel, nodeValue });
       this.nodeLabelValue = "";
       this.nodeValueValue = "";
+    },
+    removeNode(node, rack) {
+      this.$store.commit("removeNode", { node, rack });
     },
   },
 };
