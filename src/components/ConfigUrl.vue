@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>Share This URL</h2>
-        {{ base64endcoded }}
+        <div><input id="configurl" v-model="uriendcoded"><button @click.prevent="grabEncode">Copy</button></div>
         </div>
         
 </template>
@@ -10,7 +10,7 @@
 export default {
   name: "ConfigUrl",
   computed: {
-    base64endcoded() {   
+    uriendcoded() {   
       let buildPathConnect = {
           name: this.$store.state.config.cassandra.clusterName,
           description: this.$store.state.k8_config.description
@@ -23,10 +23,14 @@ export default {
          builtPath = builtPath + stone + "=" + val + "&";
       }
 
-       
-
       return builtPath;
     },
   },
+  methods: {
+    grabEncode() {
+      document.getElementById('configurl').select();
+      document.execCommand("copy");
+    },
+  }
 };
 </script>
