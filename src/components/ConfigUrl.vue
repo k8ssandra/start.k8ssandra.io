@@ -11,9 +11,19 @@ export default {
   name: "ConfigUrl",
   computed: {
     uriendcoded() {   
+
+      // CDnotes - This is where the URL is built - it goes through and grabs each field and adds it to the querystring
+      //This willneed built out and the objects need fixed - right now they aren't coming through
+      
       let buildPathConnect = {
           name: this.$store.state.config.cassandra.clusterName,
-          description: this.$store.state.k8_config.description
+          description: this.$store.state.k8_config.description,
+          v: this.$store.state.config.cassandra.version,
+          auth: this.$store.state.config.cassandra.auth.enabled,
+          dc: this.$store.state.config.cassandra.datacenters[0].name,
+          racks: this.$store.state.config.cassandra.datacenters[0].racks,
+
+
       };
 
       let builtPath = window.location.origin + "?"

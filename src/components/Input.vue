@@ -31,6 +31,7 @@ export default {
   },
   methods: {
       fillForm() {
+        // CDnotes - THis is the method that reads the querystring - the keys will have to align - but the info coming through the $route.query can be passed through the Vuex mutation. 
         this.$store.commit("updateName", this.$route.query.name);
         this.$store.commit("updateDescription", this.$route.query.description);
     }

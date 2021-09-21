@@ -23,6 +23,9 @@ import templates from "@/json/templates";
 export default {
   methods: {
     start(setup) {
+      // CDnotes - this is template setter method - this loops through the keys - which align with the mutation - and values which can be set
+      // This data is coming through the json template - imported above ^. 
+
       this.$store.commit("LandingPage");
       let fillValues = templates[setup];
 
