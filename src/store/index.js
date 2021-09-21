@@ -151,9 +151,12 @@ export default new Vuex.Store({
     addRack(state, txt) {
       let rack = {
         name: txt,
-        affinityLabels: []
+        affinityLabels: {}
       };
       state.config.cassandra.datacenters[0].racks.push(rack);
+    },
+    addRacks(state, txt) {
+      state.config.cassandra.datacenters[0].racks = txt;
     },
     removeRack(state, num) {
       state.config.cassandra.datacenters[0].racks.splice(num, 1);
@@ -162,11 +165,11 @@ export default new Vuex.Store({
       let rack = values.num;
       let nodeKey = values.nodeLabel;
       let nodeValue = values.nodeValue;
-      let node = { [nodeKey]: nodeValue };
-      state.config.cassandra.datacenters[0].racks[rack].affinityLabels.push(node);
+      state.config.cassandra.datacenters[0].racks[rack].affinityLabels = {...state.config.cassandra.datacenters[0].racks[rack].affinityLabels, [nodeKey]: nodeValue};
     },
     removeNode(state, values) {
-      state.config.cassandra.datacenters[0].racks[values.rack].affinityLabels.splice(values.node, 1);
+      let node = values.node;
+      Vue.delete(state.config.cassandra.datacenters[0].racks[values.rack].affinityLabels, node);
     },
     updateClusterSize(state, txt) {
       state.k8_config.cluster_size_per = txt;
