@@ -1,0 +1,41 @@
+[
+  {
+    "updateName": "Local Dev",
+    "updateDescription": "This is the template for Local build Values",
+    "addRacks": [
+      {
+        "name": "Rack One",
+        "affinityLabels": [
+          { "labelnode1": "valuenode1", "labelnode2": "valuenode2" }
+        ]
+      },
+      {
+        "name": "Rack Two",
+        "affinityLabels": [
+          { "labelnode3": "valuenode3", "labelnode4": "valuenode4" }
+        ]
+      }
+    ],
+    "addNode": { "num": "0", "nodeLabel": "testOne", "nodeValue": "testTwo" }
+  },
+  {
+    "updateName": "Amazon AKS Template",
+    "updateDescription": "This is the template for AKS Values",
+    "": ""
+  },
+  {
+    "updateName": "Digital Ocean DOK Template",
+    "updateDescription": "This is the template for DOK Values",
+    "": ""
+  },
+  {
+    "updateName": "Amazon EKS Template",
+    "updateDescription": "This is the template for EKS Values",
+    "": ""
+  },
+  {
+    "updateName": "Google GKE Template",
+    "updateDescription": "This is the template for GKE Values",
+    "": ""
+  }
+]
