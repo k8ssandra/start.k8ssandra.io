@@ -2,13 +2,16 @@
 <div class="result__container">
   <div class="result">
       <h1>Result</h1>
-          <pre>{{ cassandra_output }}
-          </pre>
+      <textarea id="config_preview" v-model="cassandra_output" name="config_preview" rows="20" cols="50">
+        </textarea>
   </div>
   <div class="helm__container">
     <div><input id="helm__install" v-model="helmInstall"><button @click.prevent="grabHelm">Copy</button></div>
   </div>
   <div class="button_ctas">
+    <div class="copy__config">
+        <a class="button" href @click.prevent="grabConfig">Copy Config</a>
+    </div>
     <div class="export">
         <a class="button" href @click.prevent="exportConfig">Export Config</a>
     </div>    
@@ -18,7 +21,6 @@
 </template>
 
 <script>
-
 const download = require("downloadjs");
 const YAML = require("json-to-pretty-yaml");
 
@@ -40,10 +42,13 @@ export default {
     },
     helmInstall: {
       get() {
-      let code = "helm install -f " + this.filename + ".yaml k8ssandra k8ssandra/k8ssandra";
-      return code;
+        let code =
+          "helm install -f " +
+          this.filename +
+          ".yaml k8ssandra k8ssandra/k8ssandra";
+        return code;
       },
-    }
+    },
   },
   methods: {
     yamlizeData(data) {
@@ -59,7 +64,11 @@ export default {
       download(data, fileName, "text/yaml");
     },
     grabHelm() {
-      document.getElementById('helm__install').select();
+      document.getElementById("helm__install").select();
+      document.execCommand("copy");
+    },
+    grabConfig() {
+      document.getElementById("config_preview").select();
       document.execCommand("copy");
     },
   },
@@ -93,6 +102,34 @@ pre {
       45deg,
       rgba(34, 193, 195, 1) 0%,
       rgba(2, 62, 150, 1) 71%
+    );
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 20px;
+    white-space: nowrap;
+    &:hover {
+      border: 1px solid rgba(2, 62, 150, 1);
+    }
+  }
+}
+.copy__config {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding-bottom: 0;
+  a.button {
+    background: rgb(146, 200, 20);
+    background: linear-gradient(
+      45deg,
+      rgba(146, 200, 20, 1) 0%,
+      rgba(34, 193, 195, 1) 71%
     );
     color: white;
     text-decoration: none;
