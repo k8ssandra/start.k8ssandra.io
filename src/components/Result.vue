@@ -25,6 +25,7 @@ const download = require("downloadjs");
 const YAML = require("json-to-pretty-yaml");
 
 import ShareUrl from "@/components/ShareUrl.vue";
+const slugify = require("slugify");
 
 export default {
   components: {
@@ -35,20 +36,21 @@ export default {
       let config = this.yamlizeData(this.$store.state.config);
       return config;
     },
-    filename: {
-      get() {
-        return this.$store.state.config.cassandra.clusterName;
-      },
+    filename() {
+      let fileTitle = this.$store.state.config.cassandra.clusterName;
+      if (fileTitle) {
+        fileTitle = slugify(fileTitle);
+      } else {
+        fileTitle = "k8ssandra-config";
+      }
+      return fileTitle;
     },
-    helmInstall: {
-      get() {
-        let fileTitle = (this.filename ? this.filename : "k8ssandra-config")
-        let code =
-          "helm install -f " +
-          fileTitle +
-          ".yaml k8ssandra k8ssandra/k8ssandra";
-        return code;
-      },
+    helmInstall() {
+      let code =
+        "helm install -f " +
+        this.filename +
+        ".yaml k8ssandra k8ssandra/k8ssandra";
+      return code;
     },
   },
   methods: {
@@ -61,7 +63,7 @@ export default {
     },
     exportConfig() {
       let data = this.yamlizeData(this.$store.state.config);
-      let fileName = this.$store.state.config.cassandra.clusterName + ".yaml";
+      let fileName = this.filename + ".yaml";
       download(data, fileName, "text/yaml");
     },
     grabHelm() {
