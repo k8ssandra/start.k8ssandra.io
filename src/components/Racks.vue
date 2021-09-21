@@ -15,8 +15,8 @@
                       </li>
                     </ul>
                     <form v-on:submit.prevent="addNode(num)" class="rackadd">
-                      <input v-model="nodeLabelValue" placeholder="Label" minlength=3 type="text">
-                      <input v-model="nodeValueValue" placeholder="value" minlength=3 type="text">
+                      <input v-model="nodeLabelValue[num]" placeholder="Label" minlength=3 type="text">
+                      <input v-model="nodeValueValue[num]" placeholder="value" minlength=3 type="text">
                       <input type="submit"  value="add">
                     </form>                
                 </div>
@@ -36,8 +36,8 @@ export default {
   data() {
     return {
       rackAddValue: "",
-      nodeLabelValue: "",
-      nodeValueValue: ""
+      nodeLabelValue: [],
+      nodeValueValue: []
 
     };
   },
@@ -55,6 +55,8 @@ export default {
         this.$store.commit("addRack", rackName);
         this.$store.commit("updateTotalClusterSize");
         this.rackAddValue = "";
+        this.nodeLabelValue.push("");
+        this.nodeValueValue.push("");
       } else {
         this.error;
       }
@@ -62,13 +64,15 @@ export default {
     removeRack(num) {
       this.$store.commit("removeRack", num);
       this.$store.commit("updateTotalClusterSize");
+      this.nodeLabelValue.splice(num, 1);
+      this.nodeValueValue.splice(num, 1)
     },
     addNode(num) {
-      let nodeLabel = this.nodeLabelValue;
-      let nodeValue = this.nodeValueValue;
+      let nodeLabel = this.nodeLabelValue[num];
+      let nodeValue = this.nodeValueValue[num];
       this.$store.commit("addNode", { num, nodeLabel, nodeValue });
-      this.nodeLabelValue = "";
-      this.nodeValueValue = "";
+      this.nodeLabelValue[num] = "";
+      this.nodeValueValue[num] = "";
     },
     removeNode(node, rack) {
       this.$store.commit("removeNode", { node, rack });

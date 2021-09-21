@@ -159,10 +159,11 @@ export default new Vuex.Store({
       state.config.cassandra.datacenters[0].racks.splice(num, 1);
     },
     addNode(state, values) {
+      let rack = values.num;
       let nodeKey = values.nodeLabel;
       let nodeValue = values.nodeValue;
       let node = { [nodeKey]: nodeValue };
-      state.config.cassandra.datacenters[0].racks[values.num].affinityLabels.push(node);
+      state.config.cassandra.datacenters[0].racks[rack].affinityLabels.push(node);
     },
     removeNode(state, values) {
       state.config.cassandra.datacenters[0].racks[values.rack].affinityLabels.splice(values.node, 1);
