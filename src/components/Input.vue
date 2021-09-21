@@ -14,15 +14,15 @@
 
 <script>
 
-import ClusterInfo from '../components/ClusterInfo.vue';
-import Topology from '../components/Topology.vue';
-import NodeConfig from '../components/NodeConfig.vue';
-import Stargate from '../components/Stargate.vue';
-import Reaper from '../components/Reaper.vue';
-import Medusa from '../components/Medusa.vue';
-import Monitoring from '../components/Monitoring.vue';
+import ClusterInfo from '@/components/ClusterInfo.vue';
+import Topology from '@/components/Topology.vue';
+import NodeConfig from '@/components/NodeConfig.vue';
+import Stargate from '@/components/Stargate.vue';
+import Reaper from '@/components/Reaper.vue';
+import Medusa from '@/components/Medusa.vue';
+import Monitoring from '@/components/Monitoring.vue';
 
-
+// import fillform from '@/helpers/'
 
 export default {
   name: "Input",
