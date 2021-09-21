@@ -29,6 +29,8 @@ export default {
       for (let value in fillValues) {
         this.$store.commit(value, fillValues[value]);
       }
+        this.$store.commit("updateTotalClusterSize");
+
     },
   },
 };
