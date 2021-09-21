@@ -22,7 +22,7 @@
 const download = require("downloadjs");
 const YAML = require("json-to-pretty-yaml");
 
-import ShareUrl from "../components/ShareUrl.vue";
+import ShareUrl from "@/components/ShareUrl.vue";
 
 export default {
   components: {
