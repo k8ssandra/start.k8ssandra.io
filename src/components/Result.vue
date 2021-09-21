@@ -2,7 +2,7 @@
 <div class="result__container">
   <div class="result">
       <h1>Result</h1>
-      <textarea id="config_preview" v-model="cassandra_output" name="config_preview" rows="20" cols="50">
+      <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" rows="20" cols="50">
         </textarea>
   </div>
   <div class="helm__container">
@@ -42,9 +42,10 @@ export default {
     },
     helmInstall: {
       get() {
+        let fileTitle = (this.filename ? this.filename : "k8ssandra-config")
         let code =
           "helm install -f " +
-          this.filename +
+          fileTitle +
           ".yaml k8ssandra k8ssandra/k8ssandra";
         return code;
       },
