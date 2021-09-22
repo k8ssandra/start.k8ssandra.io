@@ -23,8 +23,9 @@
             <input v-model.number="storage_number" type="number">
         </div>
         <div>
-            <label>Heap Number**</label><br />
-            <input v-model.number="heap_number" type="number">
+            <label>Heap Number(max amt: {{max_heap}})</label><br />
+            <input v-model.number="heap_number" min=1 :max='max_heap' type="number">
+
         </div>
     </div>
 </template>
@@ -38,6 +39,10 @@ export default {
     };
   },
   computed: {
+    max_heap() {
+       let heapMax = Math.floor((this.$store.state.settings.k8_config.ram_cores) / 2);
+      return heapMax;
+    },
     cpu_number: {
       get() {
         return this.$store.state.settings.k8_config.cpu_cores;
