@@ -23,17 +23,22 @@ import Medusa from '@/components/Medusa.vue';
 import Monitoring from '@/components/Monitoring.vue';
 
 // import fillform from '@/helpers/'
+const codec = require('json-url')('lzma');
+
 
 export default {
+
+  
   name: "Input",
     beforeMount: function() {
       this.fillForm()
   },
   methods: {
       fillForm() {
-        // CDnotes - THis is the method that reads the querystring - the keys will have to align - but the info coming through the $route.query can be passed through the Vuex mutation. 
-        this.$store.commit("updateName", this.$route.query.name);
-        this.$store.commit("updateDescription", this.$route.query.description);
+        let data = this.$route.query.data;
+        codec.decompress(data).then(json => { 
+          this.$store.commit("buildSettings", json);
+ })
     }
   },
   components: {

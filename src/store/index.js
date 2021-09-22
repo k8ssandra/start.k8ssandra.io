@@ -292,6 +292,12 @@ export default new Vuex.Store({
     updateMonitoringDashboards(state, txt) {
       state.settings.config.monitoring.prometheus.provision_service_monitors = txt;
     },
+    endcodeSave(state, txt) {
+      state.encodestore = txt;
+    },
+    buildSettings(state, txt) {
+      state.settings = txt;
+    },
   },
   actions: {},
   modules: {},

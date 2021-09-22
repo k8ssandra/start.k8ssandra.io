@@ -15,6 +15,7 @@
 <script>
 
 import ConfigUrl from "./ConfigUrl.vue"
+const codec = require('json-url')('lzma');
 
 export default {
   name: "ShareUrl",
@@ -29,7 +30,12 @@ export default {
   methods: {
     toggleModal() {
       this.isOpen = !this.isOpen;
+      this.encodeData();
     },
+    encodeData() {
+      let data = this.$store.state.settings;
+      codec.compress(data).then(result => (this.$store.commit("endcodeSave", result)));
+    }
   },
 };
 </script>
