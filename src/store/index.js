@@ -17,10 +17,11 @@ export default new Vuex.Store({
           cassandraLibDirVolume: {
             storageClass: "standard",
             size: "5Gi",
+            additionalSeeds: [],
           },
           heap: {
-            size: ".25G",
-            newGenSize: ".25G",
+            size: "1G",
+            newGenSize: "1G",
           },
           resources: {
             requests: {
@@ -53,6 +54,8 @@ export default new Vuex.Store({
           enabled: false,
           storage: "",
           storage_properties: {},
+          bucketName: "",
+          storageSecret: ""
         },
         monitoring: {
           prometheus: {
@@ -73,53 +76,8 @@ export default new Vuex.Store({
         storage_amount: 5,
         cpu_cores: 1,
         ram_cores: 1,
-        heap_number: 0.25,
-        additional_seeds: [],
-        medusa: {
-          active: false,
-          provider: "S3",
-          provider_s3: {
-            name: "S3",
-            config: {
-              region: "region1",
-              bucket_name: "",
-              secret: "",
-            },
-          },
-          provider_s3_compatible: {
-            name: "S3 Compatible",
-            config: {
-              region: "",
-              host: "",
-              port: 0,
-              secure: false,
-              bucket_name: "",
-              secret: "",
-            },
-          },
-          provider_gcs: {
-            name: "Google Cloud Storage",
-            config: {
-              bucket_name: "",
-              secret: "",
-            },
-          },
-          provider_abs: {
-            name: "Azure Blob Storage",
-            config: {
-              bucket_name: "adfs",
-              secret: "asfd",
-            },
-          },
-          provider_local: {
-            name: "Local Configuration",
-            config: {
-              storage_class: "",
-              size: 1,
-              unit: "MB",
-            },
-          },
-        },
+        heap_number: 1,
+        additionalSeeds: [],
       },
     },
     encodestore: "",
@@ -200,6 +158,9 @@ export default new Vuex.Store({
       state.settings.config.cassandra.heap.size = displayedHeapAmount;
       state.settings.config.cassandra.heap.newGenSize = displayedHeapAmount;
     },
+    addAddSeed(state, txt) {
+      state.settings.config.cassandra.cassandraLibDirVolume.additionalSeeds.push(txt);
+    },
     updateStorageClass(state, txt) {
       state.settings.config.cassandra.cassandraLibDirVolume.storageClass = txt;
     },
@@ -233,52 +194,49 @@ export default new Vuex.Store({
       state.settings.config.medusa.enabled = txt;
     },
     updateMedusaProvider(state, txt) {
-      state.settings.k8_config.medusa.provider = txt;
+      state.settings.config.medusa.storage = txt;
+    },
+    updateMedusaBucketName(state, txt) {
+      state.settings.config.medusa.bucketName = txt;
+    },
+    updateMedusaStorageSecret(state, txt) {
+      state.settings.config.medusa.storageSecret = txt;
     },
     updateMedusaS3Region(state, txt) {
-      state.settings.k8_config.medusa.provider_s3.config.region = txt;
-    },
-    updateMedusaS3Name(state, txt) {
-      state.settings.k8_config.medusa.provider_s3.config.bucket_name = txt;
-    },
-    updateMedusaS3StorageSecret(state, txt) {
-      state.settings.k8_config.medusa.provider_s3.config.secret = txt;
-    },
-    updateMedusaS3CompatibleRegion(state, txt) {
-      state.settings.k8_config.medusa.provider_s3_compatible.config.region = txt;
+      state.settings.config.medusa.storage_properties = {
+        ...state.settings.config.medusa.storage_properties,
+        region: txt,
+      }
     },
     updateMedusaS3CompatibleHost(state, txt) {
-      state.settings.k8_config.medusa.provider_s3_compatible.config.host = txt;
+      state.settings.config.medusa.storage_properties = {
+        ...state.settings.config.medusa.storage_properties,
+        host: txt,
+      }
     },
     updateMedusaS3CompatiblePort(state, txt) {
-      state.settings.k8_config.medusa.provider_s3_compatible.config.port = txt;
-    },
+      state.settings.config.medusa.storage_properties = {
+        ...state.settings.config.medusa.storage_properties,
+        port: txt,
+      }
+        },
     updateMedusaS3CompatibleSecure(state, txt) {
-      state.settings.k8_config.medusa.provider_s3_compatible.config.secure = txt;
-    },
-    updateMedusaS3CompatibleName(state, txt) {
-      state.settings.k8_config.medusa.provider_s3_compatible.config.bucket_name = txt;
-    },
-    updateMedusaS3CompatibleStorageSecret(state, txt) {
-      state.settings.k8_config.medusa.provider_s3_compatible.config.secret = txt;
-    },
-    updateMedusaGCSName(state, txt) {
-      state.settings.k8_config.medusa.provider_gcs.config.bucket_name = txt;
-    },
-    updateMedusaGCSStorageSecret(state, txt) {
-      state.settings.k8_config.medusa.provider_gcs.config.secret = txt;
-    },
-    updateMedusaABSName(state, txt) {
-      state.settings.k8_config.medusa.provider_abs.config.bucket_name = txt;
-    },
-    updateMedusaABSStorageSecret(state, txt) {
-      state.settings.k8_config.medusa.provider_abs.config.secret = txt;
-    },
+      state.settings.config.medusa.storage_properties = {
+        ...state.settings.config.medusa.storage_properties,
+        secure: txt,
+      }
+        },
     updateMedusaLocalClass(state, txt) {
-      state.settings.k8_config.medusa.provider_local.config.storage_class = txt;
+      state.settings.config.medusa = {
+        ...state.settings.config.medusa,
+        storageClass: txt,
+      }
     },
     updateMedusaLocalSize(state, txt) {
-      state.settings.k8_config.medusa.provider_local.config.size = txt;
+      state.settings.config.medusa = {
+        ...state.settings.config.medusa,
+        size: txt,
+      }
     },
     updateMedusaLocalUnit(state, txt) {
       state.settings.k8_config.medusa.provider_local.config.unit = txt;

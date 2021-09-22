@@ -16,41 +16,42 @@
             </option>
           </select> 
         </div>
-        <div v-if="provider === 's3'">
-          <MedusaS3 />
+        <div v-show="provider">
+        <div v-if="provider === 's3' || provider === 's3_compatible'" >
+          <MedusaS3Region />
           </div>
-          <div v-else-if="provider === 's3_compatible'">
-            <MedusaS3Compatible />
+        <div v-if="provider === 's3_compatible'">
+          <MedusaS3Compatible />
+        </div>
+          <div v-if="provider === 'local'">
+             <MedusaLocal />
           </div>
-          <div v-else-if="provider === 'google_storage'">
-            <MedusaGCS />
-          </div>
-          <div v-else-if="provider === 'azure_blobs'">
-            <MedusaABS />
-          </div>
-          <div v-else-if="provider === 'local'">
-            <MedusaLocal />
-          </div>
+          <div v-else>
+                          <div>
+                <label>Bucket Name</label><br />
+                <input v-model="bucketName" placeholder="Bucket Name">
+              </div>
+              <div>
+                  <label>Storage Secret</label><br />
+                  <input v-model="storage_secret" placeholder="must follow k8s naming rules">
+              </div>
+            </div>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
-import MedusaS3 from "./MedusaS3.vue";
+import MedusaS3Region from "./MedusaS3Region.vue";
 import MedusaS3Compatible from "./MedusaS3Compatible.vue";
-import MedusaGCS from "./MedusaGCS.vue";
-import MedusaABS from "./MedusaABS.vue";
 import MedusaLocal from "./MedusaLocal.vue";
-
 
 export default {
   name: "Medusa",
   components: {
-    MedusaS3,
+    MedusaS3Region,
     MedusaS3Compatible,
-    MedusaGCS,
-    MedusaABS,
-    MedusaLocal
+    MedusaLocal,
   },
   data() {
     return {
@@ -74,10 +75,26 @@ export default {
     },
     provider: {
       get() {
-        return this.$store.state.settings.k8_config.medusa.provider;
+        return this.$store.state.settings.config.medusa.storage;
       },
       set(value) {
         this.$store.commit("updateMedusaProvider", value);
+      },
+    },
+    bucketName: {
+      get() {
+        return this.$store.state.settings.config.medusa.bucketName;
+      },
+      set(value) {
+        this.$store.commit("updateMedusaBucketName", value);
+      },
+    },
+    storage_secret: {
+      get() {
+        return this.$store.state.settings.config.medusa.storageSecret;
+      },
+      set(value) {
+        this.$store.commit("updateMedusaStorageSecret", value);
       },
     },
   },
