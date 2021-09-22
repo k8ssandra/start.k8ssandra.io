@@ -4,34 +4,157 @@
     "updateDescription": "This is the template for Local build Values",
     "addRacks": [
       {
-        "name": "Rack One",
-        "affinityLabels": { "labelnode1": "valuenode1", "labelnode2": "valuenode2" }
-      },
-      {
-        "name": "Rack Two",
-        "affinityLabels": { "labelnode3": "valuenode3", "labelnode4": "valuenode4" }
+        "name": "default"
       }
     ],
-    "addNode": { "num": "0", "nodeLabel": "testOne", "nodeValue": "testTwo" }
+    "updateDataCenterName": "dc1",
+    "updateTotalClusterSize": 1,
+    "updateVersion": "3.11.10",
+    "updateStorageClass": "local-path",
+    "updateStorageAmount": 5,
+    "updateHeapAmount": 1,
+    "updateCpuCoresAmount": 1000,
+    "updateRamCoresAmount": 2,
+    "updateMonitoringKubePrometheus": true,
+    "updateStargateEnabled": true,
+    "updateStargateSize": 1,
+    "updateStargateHeapMb": 256,
+    "updateStargateCpuAmount": 200
   },
   {
-    "updateName": "Amazon AKS Template",
+    "updateName": "Azure AKS Template",
     "updateDescription": "This is the template for AKS Values",
-    "": ""
+    "addRacks": [
+      {
+        "name": "eastus-1",
+        "affinityLabels": { "topology.kubernetes.io/zone": "eastus-1" }
+      },
+      {
+        "name": "eastus-2",
+        "affinityLabels": { "topology.kubernetes.io/zone": "eastus-2" }
+      },
+      {
+        "name": "eastus-3",
+        "affinityLabels": { "topology.kubernetes.io/zone": "eastus-3" }
+      }
+    ],
+    "updateDataCenterName": "dc1",
+    "updateTotalClusterSize": 3,
+    "updateVersion": "3.11.10",
+    "updateStorageClass": "managed-premium",
+    "updateStorageAmount": 2048,
+    "updateHeapAmount": 31,
+    "updateCpuCoresAmount": 7000,
+    "updateRamCoresAmount": 60,
+    "updateStargateEnabled": true,
+    "updateStargateSize": 3,
+    "updateStargateHeapMb": 1024,
+    "updateStargateCpuAmount": 3000,
+    "updateMedusaEnabled": true,
+    "updateMedusaProvider": "azure_blobs",
+    "updateMedusaABSName": "prod-k8ssandra-storage-bucket",
+    "updateMedusaABSStorageSecret": "prod-k8ssandra-medusa-key"
   },
   {
     "updateName": "Digital Ocean DOK Template",
     "updateDescription": "This is the template for DOK Values",
-    "": ""
+    "addRacks": [
+      {
+        "name": "rack-a"
+      },
+      {
+        "name": "rack-b"
+      },
+      {
+        "name": "rack-c"
+      }
+    ],
+    "updateDataCenterName": "dc1",
+    "updateTotalClusterSize": 3,
+    "updateVersion": "3.11.10",
+    "updateStorageClass": "do-block-storage-wait",
+    "updateStorageAmount": 2048,
+    "updateHeapAmount": 31,
+    "updateCpuCoresAmount": 31000,
+    "updateRamCoresAmount": 55,
+    "updateStargateEnabled": true,
+    "updateStargateSize": 3,
+    "updateStargateHeapMb": 1024,
+    "updateStargateCpuAmount": 1000,
+    "updateMedusaEnabled": true,
+    "updateMedusaProvider": "s3_compatible",
+    "updateMedusaS3CompatibleHost": "nyc3.digitaloceanspaces.com",
+    "updateMedusaS3CompatiblePort": 443,
+    "updateMedusaS3CompatibleSecure": "True",
+    "updateMedusaS3CompatibleName": "k8ssandra-prod-backups",
+    "updateMedusaS3CompatibleStorageSecret": "prod-k8ssandra-medusa-key"
   },
   {
     "updateName": "Amazon EKS Template",
     "updateDescription": "This is the template for EKS Values",
-    "": ""
+    "addRacks": [
+      {
+        "name": "us-east-1a",
+        "affinityLabels": { "topology.kubernetes.io/zone": "us-east-1a" }
+      },
+      {
+        "name": "us-east-1b",
+        "affinityLabels": { "topology.kubernetes.io/zone": "us-east-1b" }
+      },
+      {
+        "name": "us-east-1c",
+        "affinityLabels": { "topology.kubernetes.io/zone": "us-east-1c" }
+      }
+    ],
+    "updateDataCenterName": "dc1",
+    "updateTotalClusterSize": 3,
+    "updateVersion": "3.11.10",
+    "updateStorageAmount": 2048,
+    "updateHeapAmount": 31,
+    "updateCpuCoresAmount": 7000,
+    "updateRamCoresAmount": 60,
+    "updateStargateEnabled": true,
+    "updateStargateSize": 3,
+    "updateStargateHeapMb": 1024,
+    "updateStargateCpuAmount": 3000,
+    "updateMedusaEnabled": true,
+    "updateMedusaProvider": "s3",
+    "updateMedusaS3Name": "prod-k8ssandra-s3-bucket",
+    "updateMedusaS3StorageSecret": "prod-k8ssandra-medusa-key",
+    "updateMedusaS3Region": "us-east-1"
   },
   {
     "updateName": "Google GKE Template",
     "updateDescription": "This is the template for GKE Values",
-    "": ""
+    "addRacks": [
+      {
+        "name": "us-central1-f",
+        "affinityLabels": { "topology.kubernetes.io/zone": "us-central1-f" }
+      },
+      {
+        "name": "us-central1-a",
+        "affinityLabels": { "topology.kubernetes.io/zone": "s-central1-a" }
+      },
+      {
+        "name": "us-central1-c",
+        "affinityLabels": { "topology.kubernetes.io/zone": "us-central1-c" }
+      }
+    ],
+    "updateDataCenterName": "dc1",
+    "updateTotalClusterSize": 3,
+    "updateVersion": "3.11.10",
+    "updateStorageClass": "standard-rwo",
+    "updateStorageAmount": 2048,
+    "updateHeapAmount": 8,
+    "updateCpuCoresAmount": 5000,
+    "updateRamCoresAmount": 50,
+    "updateStargateEnabled": true,
+    "updateStargateSize": 3,
+    "updateStargateHeapMb": 1024,
+    "updateStargateCpuAmount": 1000,
+    "updateMedusaEnabled": true,
+    "updateMedusaProvider": "google_storage",
+    "updateMedusaGCSName": "prod-k8ssandra-storage-bucket",
+    "updateMedusaGCSStorageSecret": "prod-k8ssandra-medusa-key"
   }
 ]
