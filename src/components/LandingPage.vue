@@ -9,7 +9,7 @@
 
         <div class="templates">
             <button @click.prevent="start(0)">Local Template</button>
-            <button @click.prevent="start(1)">Amazon AKS</button>            
+            <button @click.prevent="start(1)">Azure AKS</button>
             <button @click.prevent="start(2)">Digital Ocean DOK</button>
             <button @click.prevent="start(3)">Amazon EKS</button>            
             <button @click.prevent="start(4)">Google GKE</button>
