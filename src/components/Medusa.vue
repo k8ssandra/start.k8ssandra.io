@@ -16,19 +16,19 @@
             </option>
           </select> 
         </div>
-        <div v-if="provider === 'S3'">
+        <div v-if="provider === 's3'">
           <MedusaS3 />
           </div>
-          <div v-else-if="provider === 'S3 Compatible'">
+          <div v-else-if="provider === 's3_compatible'">
             <MedusaS3Compatible />
           </div>
-          <div v-else-if="provider === 'Google Cloud Storage'">
+          <div v-else-if="provider === 'google_storage'">
             <MedusaGCS />
           </div>
-          <div v-else-if="provider === 'Azure Blob Storage'">
+          <div v-else-if="provider === 'azure_blobs'">
             <MedusaABS />
           </div>
-          <div v-else-if="provider === 'Local'">
+          <div v-else-if="provider === 'local'">
             <MedusaLocal />
           </div>
     </div>
@@ -55,11 +55,11 @@ export default {
   data() {
     return {
       providers: [
-        "S3",
-        "S3 Compatible",
-        "Google Cloud Storage",
-        "Azure Blob Storage",
-        "Local",
+        "s3",
+        "s3_compatible",
+        "google_storage",
+        "azure_blobs",
+        "local",
       ],
     };
   },
