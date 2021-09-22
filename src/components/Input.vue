@@ -36,10 +36,12 @@ export default {
   methods: {
       fillForm() {
         let data = this.$route.query.data;
+        if(data) {
         codec.decompress(data).then(json => { 
           this.$store.commit("buildSettings", json);
- })
-    }
+          })
+        }
+      }
   },
   components: {
     ClusterInfo,
