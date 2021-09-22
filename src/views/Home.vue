@@ -39,6 +39,7 @@ export default {
 .container {
   display: flex;
   max-width: 1440px;
+  margin: 0 auto;
 }
 
 .fade-enter-active, .fade-leave-active {
