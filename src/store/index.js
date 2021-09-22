@@ -158,8 +158,8 @@ export default new Vuex.Store({
       state.settings.config.cassandra.heap.size = displayedHeapAmount;
       state.settings.config.cassandra.heap.newGenSize = displayedHeapAmount;
     },
-    addAddSeed(state, txt) {
-      state.settings.config.cassandra.cassandraLibDirVolume.additionalSeeds.push(txt);
+    addAddSeed(state) {
+      state.settings.config.cassandra.cassandraLibDirVolume.additionalSeeds.push("seed");
     },
     updateStorageClass(state, txt) {
       state.settings.config.cassandra.cassandraLibDirVolume.storageClass = txt;

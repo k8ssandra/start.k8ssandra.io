@@ -27,20 +27,36 @@
             <input v-model.number="heap_number" min=1 :max='max_heap' type="number">
 
         </div>
+        <div>
+          <additionalSeeds />
+        </div>
     </div>
 </template>
 
 <script>
+
+import additionalSeeds from './AdditionalSeeds.vue'
 export default {
   name: "NodeConfig",
+  components: {
+    additionalSeeds
+  },
   data() {
     return {
-      storage_classes: ["standard", "managed-premium", "standard-rwo", "do-block-storage-wait", "local-path"],
+      storage_classes: [
+        "standard",
+        "managed-premium",
+        "standard-rwo",
+        "do-block-storage-wait",
+        "local-path",
+      ],
     };
   },
   computed: {
     max_heap() {
-       let heapMax = Math.floor((this.$store.state.settings.k8_config.ram_cores) / 2);
+      let heapMax = Math.floor(
+        this.$store.state.settings.k8_config.ram_cores / 2
+      );
       return heapMax;
     },
     cpu_number: {
@@ -69,7 +85,8 @@ export default {
     },
     storage_class: {
       get() {
-        return this.$store.state.settings.config.cassandra.cassandraLibDirVolume.storageClass;
+        return this.$store.state.settings.config.cassandra.cassandraLibDirVolume
+          .storageClass;
       },
       set(value) {
         this.$store.commit("updateStorageClass", value);
