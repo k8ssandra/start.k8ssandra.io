@@ -16,7 +16,7 @@
         <a class="button" href @click.prevent="exportConfig">Export Config</a>
     </div>    
     <ShareUrl />
-  </div>
+      </div>
 </div>
 </template>
 
@@ -33,11 +33,11 @@ export default {
   },
   computed: {
     cassandra_output() {
-      let config = this.yamlizeData(this.$store.state.config);
+      let config = this.yamlizeData(this.$store.state.settings.config);
       return config;
     },
     filename() {
-      let fileTitle = this.$store.state.config.cassandra.clusterName;
+      let fileTitle = this.$store.state.settings.config.cassandra.clusterName;
       if (fileTitle) {
         fileTitle = slugify(fileTitle);
       } else {
@@ -62,7 +62,7 @@ export default {
       return output;
     },
     exportConfig() {
-      let data = this.yamlizeData(this.$store.state.config);
+      let data = this.yamlizeData(this.$store.state.settings.config);
       let fileName = this.filename + ".yaml";
       download(data, fileName, "text/yaml");
     },

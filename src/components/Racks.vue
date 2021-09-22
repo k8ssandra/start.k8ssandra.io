@@ -44,7 +44,7 @@ export default {
   computed: {
     racks: {
       get() {
-        return this.$store.state.config.cassandra.datacenters[0].racks;
+        return this.$store.state.settings.config.cassandra.datacenters[0].racks;
       },
     },
   },

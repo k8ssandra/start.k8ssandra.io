@@ -38,7 +38,7 @@ export default {
   computed: {
     cluster_size_per: {
       get() {
-        return this.$store.state.k8_config.cluster_size_per;
+        return this.$store.state.settings.k8_config.cluster_size_per;
       },
       set(value) {
         this.$store.commit("updateClusterSize", value);
@@ -47,12 +47,12 @@ export default {
     },
     cluster_size_total: {
       get() {
-        return this.$store.state.config.cassandra.datacenters[0].size;
+        return this.$store.state.settings.config.cassandra.datacenters[0].size;
       }
     },
     datacenter_name: {
       get() {
-        return this.$store.state.config.cassandra.datacenters[0].name;
+        return this.$store.state.settings.config.cassandra.datacenters[0].name;
       },
       set(value) {
         this.$store.commit("updateDataCenterName", value);

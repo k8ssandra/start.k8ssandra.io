@@ -15,7 +15,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.config.reaper.enabled;
+        return this.$store.state.settings.config.reaper.enabled;
       },
       set(value) {
         this.$store.commit("updateReaperEnabled", value);

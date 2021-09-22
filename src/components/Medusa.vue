@@ -66,7 +66,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.config.medusa.enabled;
+        return this.$store.state.settings.config.medusa.enabled;
       },
       set(value) {
         this.$store.commit("updateMedusaEnabled", value);
@@ -74,7 +74,7 @@ export default {
     },
     provider: {
       get() {
-        return this.$store.state.k8_config.medusa.provider;
+        return this.$store.state.settings.k8_config.medusa.provider;
       },
       set(value) {
         this.$store.commit("updateMedusaProvider", value);

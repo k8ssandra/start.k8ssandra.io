@@ -37,7 +37,7 @@ export default {
   computed: {
     name: {
       get() {
-        return this.$store.state.config.cassandra.clusterName;
+        return this.$store.state.settings.config.cassandra.clusterName;
       },
       set(value) {
         this.$store.commit("updateName", value);
@@ -45,7 +45,7 @@ export default {
     },
     description: {
       get() {
-        return this.$store.state.k8_config.description;
+        return this.$store.state.settings.k8_config.description;
       },
       set(value) {
         this.$store.commit("updateDescription", value);
@@ -53,7 +53,7 @@ export default {
     },
     version: {
       get() {
-        return this.$store.state.config.cassandra.version;
+        return this.$store.state.settings.config.cassandra.version;
       },
       set(value) {
         this.$store.commit("updateVersion", value);
@@ -61,7 +61,7 @@ export default {
     },
     authentication: {
       get() {
-        return this.$store.state.config.cassandra.auth.enabled;
+        return this.$store.state.settings.config.cassandra.auth.enabled;
       },
       set(value) {
         this.$store.commit("updateAuthentication", value);

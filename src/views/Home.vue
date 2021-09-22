@@ -28,7 +28,7 @@ export default {
   computed: {
     landpage: {
       get() {
-        return this.$store.state.k8_config.landpage;
+        return this.$store.state.settings.k8_config.landpage;
       },
     }
 }

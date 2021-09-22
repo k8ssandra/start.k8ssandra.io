@@ -40,7 +40,7 @@ export default {
   computed: {
     cpu_number: {
       get() {
-        return this.$store.state.k8_config.cpu_cores;
+        return this.$store.state.settings.k8_config.cpu_cores;
       },
       set(value) {
         this.$store.commit("updateCpuCoresAmount", value);
@@ -48,7 +48,7 @@ export default {
     },
     ram_number: {
       get() {
-        return this.$store.state.k8_config.ram_cores;
+        return this.$store.state.settings.k8_config.ram_cores;
       },
       set(value) {
         this.$store.commit("updateRamCoresAmount", value);
@@ -56,7 +56,7 @@ export default {
     },
     heap_number: {
       get() {
-        return this.$store.state.k8_config.heap_number;
+        return this.$store.state.settings.k8_config.heap_number;
       },
       set(value) {
         this.$store.commit("updateHeapAmount", value);
@@ -64,7 +64,7 @@ export default {
     },
     storage_class: {
       get() {
-        return this.$store.state.config.cassandra.cassandraLibDirVolume.storageClass;
+        return this.$store.state.settings.config.cassandra.cassandraLibDirVolume.storageClass;
       },
       set(value) {
         this.$store.commit("updateStorageClass", value);
@@ -72,7 +72,7 @@ export default {
     },
     storage_number: {
       get() {
-        return this.$store.state.k8_config.storage_amount;
+        return this.$store.state.settings.k8_config.storage_amount;
       },
       set(value) {
         this.$store.commit("updateStorageAmount", value);

@@ -30,7 +30,7 @@ export default {
   computed: {
     enabled: {
       get() {
-        return this.$store.state.config.stargate.enabled;
+        return this.$store.state.settings.config.stargate.enabled;
       },
       set(value) {
         this.$store.commit("updateStargateEnabled", value);
@@ -38,7 +38,7 @@ export default {
     },
     size: {
       get() {
-        return this.$store.state.config.stargate.replicas;
+        return this.$store.state.settings.config.stargate.replicas;
       },
       set(value) {
         this.$store.commit("updateStargateSize", value);
@@ -46,7 +46,7 @@ export default {
     },
     cpu_number: {
       get() {
-        return this.$store.state.config.stargate.cpuReqMillicores;
+        return this.$store.state.settings.config.stargate.cpuReqMillicores;
       },
       set(value) {
         this.$store.commit("updateStargateCpuAmount", value);
@@ -54,7 +54,7 @@ export default {
     },
     heap_mb: {
       get() {
-        return this.$store.state.config.stargate.heapMB;
+        return this.$store.state.settings.config.stargate.heapMB;
       },
       set(value) {
         this.$store.commit("updateStargateHeapMb", value);

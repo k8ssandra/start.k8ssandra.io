@@ -27,7 +27,7 @@ export default {
   computed: {
     kube_prometheus: {
       get() {
-        return this.$store.state.config.kubeprometheusstack.enabled;
+        return this.$store.state.settings.config.kubeprometheusstack.enabled;
       },
       set(value) {
         this.$store.commit("updateMonitoringKubePrometheus", value);
@@ -35,7 +35,7 @@ export default {
     },
     service_monitors: {
       get() {
-        return this.$store.state.config.monitoring.serviceMonitors.namespace;
+        return this.$store.state.settings.config.monitoring.serviceMonitors.namespace;
       },
       set(value) {
         this.$store.commit("updateMonitoringServiceMonitors", value);
@@ -43,7 +43,7 @@ export default {
     },
     dashboards: {
       get() {
-        return this.$store.state.config.monitoring.prometheus.provision_service_monitors;
+        return this.$store.state.settings.config.monitoring.prometheus.provision_service_monitors;
       },
       set(value) {
         this.$store.commit("updateMonitoringDashboards", value);
