@@ -52,8 +52,8 @@
     "updateStargateCpuAmount": 3000,
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "azure_blobs",
-    "updateMedusaABSName": "prod-k8ssandra-storage-bucket",
-    "updateMedusaABSStorageSecret": "prod-k8ssandra-medusa-key"
+    "updateMedusaBucketName": "prod-k8ssandra-storage-bucket",
+    "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
   },
   {
     "updateName": "Digital Ocean DOK Template",
@@ -86,8 +86,8 @@
     "updateMedusaS3CompatibleHost": "nyc3.digitaloceanspaces.com",
     "updateMedusaS3CompatiblePort": 443,
     "updateMedusaS3CompatibleSecure": "True",
-    "updateMedusaS3CompatibleName": "k8ssandra-prod-backups",
-    "updateMedusaS3CompatibleStorageSecret": "prod-k8ssandra-medusa-key"
+    "updateMedusaBucketName": "k8ssandra-prod-backups",
+    "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
   },
   {
     "updateName": "Amazon EKS Template",
@@ -119,8 +119,8 @@
     "updateStargateCpuAmount": 3000,
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "s3",
-    "updateMedusaS3Name": "prod-k8ssandra-s3-bucket",
-    "updateMedusaS3StorageSecret": "prod-k8ssandra-medusa-key",
+    "updateMedusaBucketName": "prod-k8ssandra-s3-bucket",
+    "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key",
     "updateMedusaS3Region": "us-east-1"
   },
   {
@@ -154,7 +154,7 @@
     "updateStargateCpuAmount": 1000,
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "google_storage",
-    "updateMedusaGCSName": "prod-k8ssandra-storage-bucket",
-    "updateMedusaGCSStorageSecret": "prod-k8ssandra-medusa-key"
+    "updateMedusaBucketName": "prod-k8ssandra-storage-bucket",
+    "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
   }
 ]
