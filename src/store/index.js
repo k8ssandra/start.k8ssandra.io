@@ -183,8 +183,8 @@ export default new Vuex.Store({
     updateCpuCoresAmount(state, txt) {
       state.k8_config.cpu_cores = txt;
       let displayedCpuAmount = state.k8_config.cpu_cores + "m";
-      let parsed = JSON.parse(displayedCpuAmount);
-      state.config.cassandra.resources.requests.cpu = parsed;
+      // let parsed = JSON.parse(displayedCpuAmount);
+      state.config.cassandra.resources.requests.cpu = displayedCpuAmount;
       state.config.cassandra.resources.limits.cpu = displayedCpuAmount;
     },
     updateRamCoresAmount(state, txt) {
