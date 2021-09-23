@@ -74,7 +74,8 @@ export default {
       if (data.medusa.storage === "local") {
         delete translatedData.medusa.bucketName
         delete translatedData.medusa.storageSecret
-      } else {
+      } 
+      if (data.medusa.storage !== "local") {
         delete translatedData.medusa.storageClass
         delete translatedData.medusa.size
       }
