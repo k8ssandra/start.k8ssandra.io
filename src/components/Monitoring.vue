@@ -10,7 +10,7 @@
       <div>
       Service Monitors**:
       <input type="checkbox" id="checkbox" v-model="service_monitors">
-      <label for="checkbox"> {{ service_monitors }}</label>
+      <label for="checkbox"> {{ service_monitors }}11</label>
   </div>
       <div>
       Dashboards**:
@@ -27,7 +27,7 @@ export default {
   computed: {
     kube_prometheus: {
       get() {
-        return this.$store.state.settings.config.kubeprometheusstack.enabled;
+        return this.$store.state.settings.config['kube-prometheus-stack'].enabled;
       },
       set(value) {
         this.$store.commit("updateMonitoringKubePrometheus", value);
@@ -35,7 +35,7 @@ export default {
     },
     service_monitors: {
       get() {
-        return this.$store.state.settings.config.monitoring.serviceMonitors.namespace;
+        return this.$store.state.settings.config.monitoring.prometheus.provision_service_monitors;
       },
       set(value) {
         this.$store.commit("updateMonitoringServiceMonitors", value);
@@ -43,7 +43,7 @@ export default {
     },
     dashboards: {
       get() {
-        return this.$store.state.settings.config.monitoring.prometheus.provision_service_monitors;
+        return this.$store.state.settings.config.monitoring.grafana.provision_dashboards;
       },
       set(value) {
         this.$store.commit("updateMonitoringDashboards", value);

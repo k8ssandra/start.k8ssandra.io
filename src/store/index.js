@@ -59,11 +59,11 @@ export default new Vuex.Store({
           "storageSecret": ""
         },
         "monitoring": {
+          "grafana": {
+            "provision_dashboards": true,
+          },
           "prometheus": {
             "provision_service_monitors": true,
-          },
-          "serviceMonitors": {
-            "namespace": "",
           },
         },
         "kube-prometheus-stack": {
@@ -246,13 +246,13 @@ export default new Vuex.Store({
       state.settings.k8_config.medusa.provider_local.config.unit = txt;
     },
     updateMonitoringKubePrometheus(state, txt) {
-      state.settings.config.kubeprometheusstack.enabled = txt;
+      state.settings.config['kube-prometheus-stack'].enabled = txt;
     },
     updateMonitoringServiceMonitors(state, txt) {
-      state.settings.config.monitoring.serviceMonitors.namespace = txt; //not sure about the boolean on this.
+      state.settings.config.monitoring.prometheus.provision_service_monitors = txt;
     },
     updateMonitoringDashboards(state, txt) {
-      state.settings.config.monitoring.prometheus.provision_service_monitors = txt;
+      state.settings.config.monitoring.grafana.provision_dashboards = txt;
     },
     endcodeSave(state, txt) {
       state.encodestore = txt;

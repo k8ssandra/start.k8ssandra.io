@@ -55,14 +55,24 @@ export default {
   },
   methods: {
     yamlizeData(data) {
+      //sanitize yaml to pull out disabled systems. 
+      let translatedData = {...data};
+      // if (data.cassandra.auth.enabled !== true) {
+      //   delete translatedData.cassandra.auth;
+      // }
 
-      //translation function to pull out disabled systems. 
-      //let translatedData = function - gets pulls out disabled and does prometheus output. 
-
-
-      let output = YAML.stringify(data);
+      if (data.stargate.enabled !== true) {
+        delete translatedData["stargate"]
+      }
+      if (data.reaper.enabled !== true) {
+        delete translatedData["reaper"]
+      }
+      if (data.medusa.enabled !== true) {
+        delete translatedData["medusa"]
+      }
+      let output = YAML.stringify(translatedData);
       //built this in to replace the issue with json to yaml - check for options
-      output = output.replace("kubeprometheusstack", "kube-prometheus-stack"); //replace this with quotes in the json. 
+      // output = output.replace("kubeprometheusstack", "kube-prometheus-stack"); 
       
       // data = data.replace(/["]+/g, '');
       return output;
@@ -91,7 +101,6 @@ export default {
 }
 pre {
   margin: 30px 100px;
-
   text-align: left;
 }
 
