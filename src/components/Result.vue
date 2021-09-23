@@ -55,9 +55,15 @@ export default {
   },
   methods: {
     yamlizeData(data) {
+
+      //translation function to pull out disabled systems. 
+      //let translatedData = function - gets pulls out disabled and does prometheus output. 
+
+
       let output = YAML.stringify(data);
       //built this in to replace the issue with json to yaml - check for options
-      output = output.replace("kubeprometheusstack", "kube-prometheus-stack");
+      output = output.replace("kubeprometheusstack", "kube-prometheus-stack"); //replace this with quotes in the json. 
+      
       // data = data.replace(/["]+/g, '');
       return output;
     },
