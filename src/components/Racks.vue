@@ -10,7 +10,7 @@
                 <div class="racklist__nodes">
                     <ul class="racklist__nodelist">
                       <li v-for="(node, key) in rack.affinityLabels" class="racklist_node" :key="key" >
-                        {{key}}/{{ node }} 
+                        {{key}}:{{ node }} 
                         <button @click.prevent="removeNode(key, num)">x</button>
                       </li>
                     </ul>

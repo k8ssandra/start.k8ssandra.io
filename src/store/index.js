@@ -46,6 +46,7 @@ export default new Vuex.Store({
           replicas: 1,
           heapMB: 256,
           cpuReqMillicores: 200,
+          cpuLimMillicores: 200,
         },
         reaper: {
           enabled: true,
@@ -158,8 +159,11 @@ export default new Vuex.Store({
       state.settings.config.cassandra.heap.size = displayedHeapAmount;
       state.settings.config.cassandra.heap.newGenSize = displayedHeapAmount;
     },
-    addAddSeed(state) {
-      state.settings.config.cassandra.cassandraLibDirVolume.additionalSeeds.push("seed");
+    addAddSeed(state, txt) {
+      state.settings.config.cassandra.cassandraLibDirVolume.additionalSeeds.push(txt);
+    },
+    removeSeed(state, num) {
+      state.settings.config.cassandra.cassandraLibDirVolume.additionalSeeds.splice(num, 1);
     },
     updateStorageClass(state, txt) {
       state.settings.config.cassandra.cassandraLibDirVolume.storageClass = txt;
@@ -180,6 +184,7 @@ export default new Vuex.Store({
     },
     updateStargateCpuAmount(state, txt) {
       state.settings.config.stargate.cpuReqMillicores = txt;
+      state.settings.config.stargate.cpuLimMillicores = txt;
     },
     updateStargateCpuUnit(state, txt) {
       state.settings.config.stargate.heapMB = txt;
