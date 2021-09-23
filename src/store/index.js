@@ -5,83 +5,82 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    settings: {
-      config: {
-        cassandra: {
-          enabled: true,
-          version: "4.0.0",
-          clusterName: "",
-          auth: {
-            enabled: true,
+    "settings": {
+      "config": {
+        "cassandra": {
+          "enabled": true,
+          "version": "4.0.0",
+          "clusterName": "",
+          "auth": {
+            "enabled": true,
           },
-          cassandraLibDirVolume: {
-            storageClass: "standard",
-            size: "5Gi",
-            additionalSeeds: [],
+          "cassandraLibDirVolume": {
+            "storageClass": "standard",
+            "size": "5Gi",
+            "additionalSeeds": [],
           },
-          heap: {
-            size: "1G",
-            newGenSize: "1G",
+          "heap": {
+            "size": "1G",
+            "newGenSize": "1G",
           },
-          resources: {
-            requests: {
-              cpu: "7000m",
-              memory: "60Gi",
+          "resources": {
+            "requests": {
+              "cpu": "7000m",
+              "memory": "60Gi",
             },
-            limits: {
-              cpu: "7000m",
-              memory: "60Gi",
+            "limits": {
+              "cpu:": "7000m",
+              "memory": "60Gi",
             },
           },
-          datacenters: [
+          "datacenters": [
             {
-              name: "dc1",
-              size: 0,
-              racks: [],
+              "name": "dc1",
+              "size": 0,
+              "racks": [],
             },
           ],
         },
-        stargate: {
-          enabled: true,
-          replicas: 1,
-          heapMB: 256,
-          cpuReqMillicores: 200,
-          cpuLimMillicores: 200,
+        "stargate": {
+          "enabled": true,
+          "replicas": 1,
+          "heapMB": 256,
+          "cpuReqMillicores": 200,
+          "cpuLimMillicores": 200,
         },
-        reaper: {
-          enabled: true,
+        "reaper": {
+          "enabled": true,
         },
-        medusa: {
-          enabled: false,
-          storage: "",
-          storage_properties: {},
-          bucketName: "",
-          storageSecret: ""
+        "medusa": {
+          "enabled": false,
+          "storage": "",
+          "storage_properties": {},
+          "bucketName": "",
+          "storageSecret": ""
         },
-        monitoring: {
-          prometheus: {
-            provision_service_monitors: true,
+        "monitoring": {
+          "prometheus": {
+            "provision_service_monitors": true,
           },
-          serviceMonitors: {
-            namespace: "",
+          "serviceMonitors": {
+            "namespace": "",
           },
         },
-        kubeprometheusstack: {
-          enabled: true,
+        "kube-prometheus-stack": {
+          "enabled": true,
         },
       },
-      k8_config: {
-        landpage: true,
-        description: "",
-        cluster_size_per: 1,
-        storage_amount: 5,
-        cpu_cores: 1,
-        ram_cores: 1,
-        heap_number: 1,
-        additionalSeeds: [],
+      "k8_config": {
+        "landpage": true,
+        "description": "",
+        "cluster_size_per": 1,
+        "storage_amount": 5,
+        "cpu_cores": 1,
+        "ram_cores": 1,
+        "heap_number": 1,
       },
     },
-    encodestore: "",
+    "encodestore": "",
   },
   mutations: {
     LandingPage(state) {
