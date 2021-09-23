@@ -46,6 +46,7 @@ export default {
       storage_classes: [
         "standard",
         "managed-premium",
+        "gp2",
         "standard-rwo",
         "do-block-storage-wait",
         "local-path",
