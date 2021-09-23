@@ -70,7 +70,7 @@ export default new Vuex.Store({
           "enabled": true,
         },
       },
-      "k8_config": {
+      "k8_config": { 
         "landpage": true,
         "description": "",
         "cluster_size_per": 1,
@@ -249,10 +249,16 @@ export default new Vuex.Store({
       state.settings.config['kube-prometheus-stack'].enabled = txt;
     },
     updateMonitoringServiceMonitors(state, txt) {
-      state.settings.config.monitoring.prometheus.provision_service_monitors = txt;
+      state.settings.config.monitoring = {
+        ...state.settings.config.monitoring,
+        "prometheus": {provision_service_monitors: txt}
+      }
     },
     updateMonitoringDashboards(state, txt) {
-      state.settings.config.monitoring.grafana.provision_dashboards = txt;
+      state.settings.config.monitoring = {
+        ...state.settings.config.monitoring,
+        "grafana": {provision_dashboards: txt}
+      }
     },
     endcodeSave(state, txt) {
       state.encodestore = txt;

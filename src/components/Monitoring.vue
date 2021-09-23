@@ -10,7 +10,7 @@
       <div>
       Service Monitors**:
       <input type="checkbox" id="checkbox" v-model="service_monitors">
-      <label for="checkbox"> {{ service_monitors }}11</label>
+      <label for="checkbox"> {{ service_monitors }}</label>
   </div>
       <div>
       Dashboards**:

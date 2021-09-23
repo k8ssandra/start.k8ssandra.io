@@ -56,11 +56,12 @@ export default {
   methods: {
     yamlizeData(data) {
       //sanitize yaml to pull out disabled systems. 
-      let translatedData = {...data};
-      // if (data.cassandra.auth.enabled !== true) {
-      //   delete translatedData.cassandra.auth;
-      // }
+      // let translatedData = {...data};
+      let translatedData = JSON.parse(JSON.stringify(data))
 
+      if (data.cassandra.auth.enabled !== true) {
+        delete translatedData.cassandra.auth;
+      }
       if (data.stargate.enabled !== true) {
         delete translatedData["stargate"]
       }
@@ -69,6 +70,18 @@ export default {
       }
       if (data.medusa.enabled !== true) {
         delete translatedData["medusa"]
+      }
+      if (data.monitoring.prometheus.provision_service_monitors !== true) {
+        delete translatedData.monitoring.prometheus
+      }
+      if (data.monitoring.grafana.provision_dashboards !== true) {
+        delete translatedData.monitoring.grafana
+      }
+      if (data["kube-prometheus-stack"].enabled !== true) {
+        delete translatedData["kube-prometheus-stack"]
+      }
+      if (data.cassandra.cassandraLibDirVolume.additionalSeeds.length === 0) {
+        delete translatedData.cassandra.cassandraLibDirVolume.additionalSeeds
       }
       let output = YAML.stringify(translatedData);
       //built this in to replace the issue with json to yaml - check for options
