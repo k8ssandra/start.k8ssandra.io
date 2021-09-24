@@ -3,12 +3,11 @@
   <transition name="fade">
       <LandingPage v-if="landpage"/>
   </transition>
-    <h1>K8ssandra Configurator</h1>
   <div class="container">
     <Input />
     <Result />
   </div> 
-    </div> 
+    </div>
 
 </template>
 
@@ -17,6 +16,7 @@
 import Input from "@/components/Input.vue";
 import Result from "@/components/Result.vue";
 import LandingPage from "@/components/LandingPage.vue";
+
 
 export default {
   name: "Home",

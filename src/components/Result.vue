@@ -2,7 +2,7 @@
 <div class="result__container">
   <div class="result">
       <h1>Result</h1>
-      <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" rows="20" cols="50">
+      <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
         </textarea>
   </div>
   <div class="helm__container">
@@ -125,17 +125,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.result__container {
+  height: calc(100vh - 106px);
+  display:flex;
+  flex-flow:column nowrap;
+}
 .result {
-  max-width: 500px;
   margin: 0 auto;
+  flex-grow:1;
 }
 pre {
-  margin: 30px 100px;
   text-align: left;
 }
 
 .button_ctas {
   display: flex;
+}
+
+textarea#config_preview {
+  height:calc(100% - 120px);
 }
 
 .export {
