@@ -90,6 +90,10 @@ export default {
     padding: 20px;
     font-size: 14px;
     font-weight: 700;
+
+    .v-input {
+      margin-left: auto;
+    }
   }
 </style>
 

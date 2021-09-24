@@ -140,7 +140,7 @@ export default {
     margin: 25px 30px;
     background-color: var(--color-brand-dark-blue);
     border: 0;
-    color: var(--color-grey-light);
+    color: var(--color-grey-medium);
     font-size: 12px;
     font-family: monospace;
   }
