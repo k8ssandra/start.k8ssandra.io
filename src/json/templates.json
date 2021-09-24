@@ -2,14 +2,11 @@
   {
     "updateName": "",
     "updateDescription": "",
-    "addRacks": [
-      {
-        "name": ""
-      }
-    ],
+    "addRacks": [],
     "updateDataCenterName": "",
     "updateTotalClusterSize": 1,
     "updateVersion": "",
+    "updateAuthentication": false,
     "updateStorageClass": "",
     "updateStorageAmount": 1,
     "updateHeapAmount": 1,
@@ -19,7 +16,11 @@
     "updateStargateEnabled": false,
     "updateStargateSize": 1,
     "updateStargateHeapMb": 1,
-    "updateStargateCpuAmount": 1
+    "updateStargateCpuAmount": 1,
+    "updateReaperEnabled": false,
+    "updateMedusaEnabled": false,
+    "updateMonitoringServiceMonitors": false,
+    "updateMonitoringDashboards": false
   },
   {
     "updateName": "Local Dev",
