@@ -8,6 +8,21 @@
         <div>
             <label>RAM Cores*</label><br />
             <input v-model.number="ram_number" type="number">
+          <v-slider
+              min="0"
+              max="100"
+              v-model.number="ram_number"
+              thumb-label="always"
+              track-color="#b2becd"
+          >
+            <template v-slot:prepend>
+              0 GB
+            </template>
+
+            <template v-slot:append>
+              100 GB
+            </template>
+          </v-slider>
         </div>
         <div>
           <h5>Storage</h5>

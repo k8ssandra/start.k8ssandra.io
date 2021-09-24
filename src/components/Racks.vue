@@ -94,20 +94,26 @@ export default {
 
 <style lang="scss">
 .rackadd {
-  background: #ddd;
-  margin: 20px;
+  background: var(--color-grey-light);
+  margin: 20px 0;
   padding: 10px;
+
+  input[type="submit"] {
+    box-shadow: none;
+    margin: 0;
+    padding: 8px 20px;
+  }
 }
 
 ul.racklist__list {
   padding-left: 0;
-  margin: 5px 10px;
+  margin: 5px 0;
   & > li {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin: 10px;
-    background-color: #ddd;
+    margin: 10px 0;
+    background-color: var(--color-grey-light);
     padding: 10px;
     .racklist__primary {
       display: flex;

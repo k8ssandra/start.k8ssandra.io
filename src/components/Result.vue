@@ -1,11 +1,12 @@
 <template>
 <div class="result__container">
   <div class="result">
-      <h1>Result</h1>
+      <h2>Result</h2>
       <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
         </textarea>
   </div>
   <div class="helm__container">
+    <h3>Helm Install</h3>
     <div><input id="helm__install" v-model="helmInstall"><button @click.prevent="grabHelm">Copy</button></div>
   </div>
   <div class="button_ctas">
@@ -125,19 +126,68 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .result__container {
+    color: var(--color-brand-dark-blue);
+    margin-left: 30px;
+    height: calc(100vh - 106px);
+    display:flex;
+    flex-flow:column nowrap;
 
-.result__container {
-  height: calc(100vh - 106px);
-  display:flex;
-  flex-flow:column nowrap;
-}
+    > div {
+      background: var(--color-brand-dark-blue);
+    }
+  }
+
 .result {
+  border-radius: 10px 10px 0 0;
   margin: 0 auto;
   flex-grow:1;
+
+  h2 {
+    margin: 0;
+    padding: 20px 30px;
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-brand-light-blue);
+  }
+
+  textarea {
+    max-width: 500px;
+    margin: 25px 30px;
+    background-color: var(--color-brand-dark-blue);
+    border: 0;
+    color: var(--color-grey-medium);
+    font-size: 12px;
+    font-family: monospace;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
 }
-pre {
-  text-align: left;
-}
+  pre {
+    margin: 30px 100px;
+    text-align: left;
+  }
+
+  .helm__container {
+    padding: 30px;
+    border-top: 1px solid var(--color-brand-light-blue);
+
+    > div {
+      display: flex;
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    margin-left: 5px;
+    background: var(--color-grey-medium);
+    border: 1px solid var(--color-grey-medium);
+    color: var(--color-grey-dark);
+    font-size: 14px;
+    font-weight: 700;
+  }
 
 .button_ctas {
   display: flex;
@@ -153,27 +203,27 @@ textarea#config_preview {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-  a.button {
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      45deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(2, 62, 150, 1) 71%
-    );
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 30px;
-    margin: 20px;
-    white-space: nowrap;
-    &:hover {
-      border: 1px solid rgba(2, 62, 150, 1);
-    }
-  }
+//  a.button {
+//    background: rgb(34, 193, 195);
+//    background: linear-gradient(
+//      45deg,
+//      rgba(34, 193, 195, 1) 0%,
+//      rgba(2, 62, 150, 1) 71%
+//    );
+//    color: white;
+//    text-decoration: none;
+//    font-weight: bold;
+//    font-size: 20px;
+//    letter-spacing: -0.5px;
+//    border: none;
+//    border-radius: 5px;
+//    padding: 10px 30px;
+//    margin: 20px;
+//    white-space: nowrap;
+//    &:hover {
+//      border: 1px solid rgba(2, 62, 150, 1);
+//    }
+//  }
 }
 .copy__config {
   display: flex;
@@ -181,26 +231,26 @@ textarea#config_preview {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-  a.button {
-    background: rgb(146, 200, 20);
-    background: linear-gradient(
-      45deg,
-      rgba(146, 200, 20, 1) 0%,
-      rgba(34, 193, 195, 1) 71%
-    );
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 30px;
-    margin: 20px;
-    white-space: nowrap;
-    &:hover {
-      border: 1px solid rgba(2, 62, 150, 1);
-    }
-  }
+//  a.button {
+//    background: rgb(146, 200, 20);
+//    background: linear-gradient(
+//      45deg,
+//      rgba(146, 200, 20, 1) 0%,
+//      rgba(34, 193, 195, 1) 71%
+//    );
+//    color: white;
+//    text-decoration: none;
+//    font-weight: bold;
+//    font-size: 20px;
+//    letter-spacing: -0.5px;
+//    border: none;
+//    border-radius: 5px;
+//    padding: 10px 30px;
+//    margin: 20px;
+//    white-space: nowrap;
+//    &:hover {
+//      border: 1px solid rgba(2, 62, 150, 1);
+//    }
+//  }
 }
 </style>

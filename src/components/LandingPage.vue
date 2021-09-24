@@ -1,20 +1,23 @@
 <template>
    <div class="landing-page">
-       <h1>Landing Page</h1>
-        <div>
-            <button @click.prevent="start(0)">Start</button>
-        </div>
-        
-        <h3> or Start with a template </h3>
+       <div>
+         <h1>K8ssandra Config Builder</h1>
+         <p>Toggle configurations and get the exact code you need to set up K8ssandra in your workflow.</p>
+         <div>
+           <button @click.prevent="start(0)">Start</button>
+         </div>
 
-        <div class="templates">
-            <button @click.prevent="start(1)">Local Template</button>
-            <button @click.prevent="start(2)">Azure AKS</button>
-            <button @click.prevent="start(3)">Digital Ocean DOK</button>
-            <button @click.prevent="start(4)">Amazon EKS</button>            
-            <button @click.prevent="start(5)">Google GKE</button>
-        </div>
-   </div> 
+         <h3> or Start with a template </h3>
+
+         <div class="templates">
+           <button @click.prevent="start(1)">Local Template</button>
+           <button @click.prevent="start(2)">Azure AKS</button>
+           <button @click.prevent="start(3)">Digital Ocean DOK</button>
+           <button @click.prevent="start(4)">Amazon EKS</button>
+           <button @click.prevent="start(5)">Google GKE</button>
+         </div>
+       </div>
+   </div>
 </template>
 
 <script>
@@ -47,13 +50,30 @@ export default {
   bottom: 0;
   right: 0;
   overflow: hidden;
-  background-color: #eee;
+  background-color: var(--color-brand-dark-blue);
+  color: var(--color-white);
+  z-index: 10;
+
+  > div {
+    max-width: 550px;
+    margin-top: 100px;
+    margin-left: 200px;
+  }
 }
 .templates {
     display:flex;
     justify-content: center;
     button {
-        margin: 5px;
+      margin: 5px;
+      color: var(--color-white);
+      border: 1px solid var(--color-white);
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background-color: transparent;
+
+      &:hover {
+        background-color: var(--color-brand-yellow);
+      }
     }
 }
 </style>
