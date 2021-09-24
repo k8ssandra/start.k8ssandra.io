@@ -97,6 +97,9 @@ export default {
       if (data.cassandra.cassandraLibDirVolume.additionalSeeds.length === 0) {
         delete translatedData.cassandra.cassandraLibDirVolume.additionalSeeds
       }
+      if (data.cassandra.datacenters[0].name.length === 0) {
+        delete translatedData.cassandra.datacenters
+      }
       let output = YAML.stringify(translatedData);
       //built this in to replace the issue with json to yaml - check for options
       // output = output.replace("kubeprometheusstack", "kube-prometheus-stack"); 

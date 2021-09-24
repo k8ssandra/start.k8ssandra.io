@@ -2,7 +2,7 @@
 <div class="module reaper">
     <h2>Reaper</h2>
     <div>
-        Enabled**:
+        Enabled:
         <input type="checkbox" id="checkbox" v-model="enabled">
         <label for="checkbox"> {{ enabled }}</label>
     </div>

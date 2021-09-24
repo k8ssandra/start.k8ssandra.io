@@ -2,15 +2,15 @@
   <div class="clusterInfo">
     <h2>Cluster Info</h2>
     <div>
-      <label>Name</label><br />
+      <label>Name*</label><br />
       <input v-model="name" placeholder="Instance Name">
     </div>
     <div>
-      <label>Description**</label><br />
+      <label>Description</label><br />
       <textarea v-model="description" placeholder="Instance Description"></textarea>
     </div>
     <div>
-      <label>Version</label><br />
+      <label>Version*</label><br />
         <select v-model="version">
           <option v-for="(item, key) in cassandra_versions" :key="key" >
             {{ item }}
@@ -18,7 +18,7 @@
         </select> 
   </div>
   <div>
-    Authentication**:
+    Authentication:
     <input type="checkbox" id="checkbox" v-model="authentication">
     <label for="checkbox"> {{ authentication }}</label>
   </div>

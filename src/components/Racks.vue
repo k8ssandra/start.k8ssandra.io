@@ -1,6 +1,6 @@
 <template>
         <div class="racklist__container">
-            <label>Racks (array) ** </label><br />
+            <label>Racks</label><br />
             <ul class="racklist__list">
               <li class="racklist__item" v-for="(rack, num) in racks" :key="num">
                 <div class="racklist__primary">
