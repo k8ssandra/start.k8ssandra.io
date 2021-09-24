@@ -96,13 +96,13 @@ export default {
 
 ul.racklist__list {
   padding-left: 0;
-  margin: 5px 10px;
+  margin: 5px 0;
   & > li {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin: 10px;
-    background-color: #ddd;
+    margin: 10px 0;
+    background-color: var(--color-grey-light);
     padding: 10px;
     .racklist__primary {
       display: flex;

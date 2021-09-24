@@ -98,7 +98,7 @@ export default {
   }
 
   input[type="submit"],
-  button {
+  .landing-page button {
     padding: 12px 24px;
     border: 0;
     cursor: pointer;
