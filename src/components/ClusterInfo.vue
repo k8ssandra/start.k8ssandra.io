@@ -16,12 +16,23 @@
             {{ item }}
           </option>
         </select> 
-  </div>
-  <div class="auth">
-    Authentication**:
-    <input type="checkbox" id="checkbox" v-model="authentication">
-    <label for="checkbox"> {{ authentication }}</label>
-  </div>
+    </div>
+    <div class="auth">
+      Authentication**:
+<!--      <input type="checkbox" id="checkbox" v-model="authentication">-->
+<!--      <label for="checkbox"> {{ authentication }}</label>-->
+      <v-switch
+        v-model="authentication"
+        inset
+      >
+        <template v-slot:prepend>
+          False
+        </template>
+        <template v-slot:append>
+          True
+        </template>
+      </v-switch>
+    </div>
   </div> 
 </template>
 
@@ -71,7 +82,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .auth {
     display: flex;
     align-items: center;
@@ -82,3 +93,52 @@ export default {
   }
 </style>
 
+<style lang="scss">
+  // TODO: Clean up and move to proper scope
+  .v-input--switch {
+    &.v-input {
+      align-items: center;
+    }
+
+    &.v-input--selection-controls {
+      margin: 0;
+    }
+
+    .v-input__append-outer,
+    .v-input__prepend-outer {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-brand-black);
+    }
+
+    .v-input__slot {
+      margin: 0;
+    }
+
+    .v-input--selection-controls__ripple {
+      color: var(--color-brand-yellow);
+    }
+
+    .v-input--switch__track.theme--light {
+      background: var(--color-grey-medium) !important;
+      color: var(--color-grey-medium) !important;
+      opacity: 1;
+
+      &.primary--text {
+        background: var(--color-brand-black) !important;
+      }
+    }
+
+    .v-input--switch__thumb.theme--light {
+      color: var(--color-brand-black) !important;
+
+      &.primary--text {
+        color: var(--color-brand-yellow) !important;
+      }
+    }
+
+    .v-messages {
+      min-height: initial;
+    }
+  }
+</style>
