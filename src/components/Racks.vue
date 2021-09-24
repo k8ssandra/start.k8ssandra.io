@@ -83,9 +83,15 @@ export default {
 
 <style lang="scss">
 .rackadd {
-  background: #ddd;
-  margin: 20px;
+  background: var(--color-grey-light);
+  margin: 20px 0;
   padding: 10px;
+
+  input[type="submit"] {
+    box-shadow: none;
+    margin: 0;
+    padding: 8px 20px;
+  }
 }
 
 ul.racklist__list {

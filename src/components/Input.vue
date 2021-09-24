@@ -1,9 +1,14 @@
 <template>
   <div class="input">
+    <h2>Configurations</h2>
     <div class="form_sections">
-      <ClusterInfo />
-      <Topology />
-      <NodeConfig />
+      <div class="cassandra">
+        <h3>Cassandra</h3>
+        <span>*Required Fields</span>
+        <ClusterInfo />
+        <Topology />
+        <NodeConfig />
+      </div>
       <Stargate />
       <Reaper />
       <Medusa />
@@ -56,6 +61,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .input {
+    max-width: 400px;
+    h2 {
+      padding: 20px 30px;
+      background: var(--color-blue-dark);
+      color: var(--color-white);
+      border-radius: 10px 10px 0 0;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
 .form_sections {
   max-width:1440px;
   margin: 0 auto;
@@ -63,11 +80,10 @@ export default {
   justify-content: space-around;
   flex-flow:row wrap;
   & > div {
-    background-color:#eee;
+    background-color: var(--color-white);
     width:100%;
     margin-bottom:20px;
-    margin-left: 10vw;
-    margin-right:10vw;
+    padding: 30px;
   }
 }
 </style>
@@ -78,6 +94,8 @@ export default {
     padding: 7px 14px;
     background: var(--color-white);
     border: 1px solid var(--color-grey-medium);
+    font-size: 14px;
+    line-height: 24px;
   }
 
   input[type="submit"],

@@ -3,7 +3,7 @@
   <transition name="fade">
       <LandingPage v-if="landpage"/>
   </transition>
-    <h1>K8ssandra Configurator</h1>
+    <h1>K8ssandra Config Builder</h1>
   <div class="container">
     <Input />
     <Result />
@@ -40,6 +40,14 @@ export default {
   display: flex;
   max-width: 1440px;
   margin: 0 auto;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-black);
 }
 
 .fade-enter-active, .fade-leave-active {

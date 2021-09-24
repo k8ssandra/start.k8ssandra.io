@@ -1,8 +1,8 @@
 <template>
   <div class="clusterInfo">
-    <h2>Cluster Info</h2>
+    <h4>Cluster Info</h4>
     <div>
-      <label>Name</label><br />
+      <label>Name*</label><br />
       <input v-model="name" placeholder="Instance Name">
     </div>
     <div>
@@ -17,7 +17,7 @@
           </option>
         </select> 
   </div>
-  <div>
+  <div class="auth">
     Authentication**:
     <input type="checkbox" id="checkbox" v-model="authentication">
     <label for="checkbox"> {{ authentication }}</label>
@@ -71,4 +71,14 @@ export default {
 };
 </script>
 
+<style lang="scss">
+  .auth {
+    display: flex;
+    align-items: center;
+    background: var(--color-grey-light);
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+</style>
 
