@@ -129,14 +129,17 @@ export default {
   border-radius: 10px 10px 0 0;
 
   h2 {
+    margin: 0;
     padding: 20px 30px;
-    text-align: center;
+    color: var(--color-white);
     border-bottom: 1px solid var(--color-blue);
   }
 
   textarea {
     max-width: 500px;
     margin: 25px 30px;
+    background-color: var(--color-blue-dark);
+    border: 0;
     color: var(--color-grey-light);
     font-size: 12px;
     font-family: monospace;

@@ -68,7 +68,6 @@ export default {
       background: var(--color-blue-dark);
       color: var(--color-white);
       border-radius: 10px 10px 0 0;
-      text-align: center;
       margin: 0;
     }
   }
