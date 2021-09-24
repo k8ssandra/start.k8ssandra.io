@@ -2,17 +2,17 @@
    <div class="landing-page">
        <h1>Landing Page</h1>
         <div>
-            <button @click.prevent="start">Start</button>
+            <button @click.prevent="start(0)">Start</button>
         </div>
         
         <h3> or Start with a template </h3>
 
         <div class="templates">
-            <button @click.prevent="start(0)">Local Template</button>
-            <button @click.prevent="start(1)">Azure AKS</button>
-            <button @click.prevent="start(2)">Digital Ocean DOK</button>
-            <button @click.prevent="start(3)">Amazon EKS</button>            
-            <button @click.prevent="start(4)">Google GKE</button>
+            <button @click.prevent="start(1)">Local Template</button>
+            <button @click.prevent="start(2)">Azure AKS</button>
+            <button @click.prevent="start(3)">Digital Ocean DOK</button>
+            <button @click.prevent="start(4)">Amazon EKS</button>            
+            <button @click.prevent="start(5)">Google GKE</button>
         </div>
    </div> 
 </template>

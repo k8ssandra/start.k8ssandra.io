@@ -1,5 +1,27 @@
 [
   {
+    "updateName": "",
+    "updateDescription": "",
+    "addRacks": [
+      {
+        "name": ""
+      }
+    ],
+    "updateDataCenterName": "",
+    "updateTotalClusterSize": 1,
+    "updateVersion": "",
+    "updateStorageClass": "",
+    "updateStorageAmount": 1,
+    "updateHeapAmount": 1,
+    "updateCpuCoresAmount": 1,
+    "updateRamCoresAmount": 1,
+    "updateMonitoringKubePrometheus": false,
+    "updateStargateEnabled": false,
+    "updateStargateSize": 1,
+    "updateStargateHeapMb": 1,
+    "updateStargateCpuAmount": 1
+  },
+  {
     "updateName": "Local Dev",
     "updateDescription": "This is the template for Local build Values",
     "addRacks": [

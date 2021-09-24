@@ -15,27 +15,27 @@ export default new Vuex.Store({
             "enabled": true,
           },
           "cassandraLibDirVolume": {
-            "storageClass": "standard",
-            "size": "5Gi",
+            "storageClass": "",
+            "size": "",
             "additionalSeeds": [],
           },
           "heap": {
-            "size": "1G",
-            "newGenSize": "1G",
+            "size": "",
+            "newGenSize": "",
           },
           "resources": {
             "requests": {
-              "cpu": "7000m",
-              "memory": "60Gi",
+              "cpu": "",
+              "memory": "",
             },
             "limits": {
-              "cpu:": "7000m",
-              "memory": "60Gi",
+              "cpu": "",
+              "memory": "",
             },
           },
           "datacenters": [
             {
-              "name": "dc1",
+              "name": "",
               "size": 0,
               "racks": [],
             },
@@ -44,9 +44,9 @@ export default new Vuex.Store({
         "stargate": {
           "enabled": true,
           "replicas": 1,
-          "heapMB": 256,
-          "cpuReqMillicores": 200,
-          "cpuLimMillicores": 200,
+          "heapMB": 1,
+          "cpuReqMillicores": 1,
+          "cpuLimMillicores": 1,
         },
         "reaper": {
           "enabled": true,
@@ -74,7 +74,7 @@ export default new Vuex.Store({
         "landpage": true,
         "description": "",
         "cluster_size_per": 1,
-        "storage_amount": 5,
+        "storage_amount": 1,
         "cpu_cores": 1,
         "ram_cores": 1,
         "heap_number": 1,
