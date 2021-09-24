@@ -2,11 +2,11 @@
     <div class="node_config">
         <h2>Node Config</h2>
         <div>
-            <label>CPU Cores**</label><br />
+            <label>CPU Cores*</label><br />
             <input v-model.number="cpu_number" type="number">
         </div>
         <div>
-            <label>RAM Cores**</label><br />
+            <label>RAM Cores*</label><br />
             <input v-model.number="ram_number" type="number">
           <v-slider
               min="0"
@@ -26,7 +26,7 @@
         </div>
         <div>
           <h5>Storage</h5>
-            <label>Storage Class**</label><br />
+            <label>Storage Class*</label><br />
             <select v-model="storage_class">
             <option v-for="(item, key) in storage_classes" :key="key" >
                 {{ item }}
@@ -34,7 +34,7 @@
             </select> 
         </div>
         <div>
-            <label>Storage Amount**</label><br />
+            <label>Storage Amount</label><br />
             <input v-model.number="storage_number" type="number">
         </div>
         <div>

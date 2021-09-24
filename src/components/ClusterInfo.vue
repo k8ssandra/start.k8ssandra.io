@@ -6,11 +6,11 @@
       <input v-model="name" placeholder="Instance Name">
     </div>
     <div>
-      <label>Description**</label><br />
+      <label>Description</label><br />
       <textarea v-model="description" placeholder="Instance Description"></textarea>
     </div>
     <div>
-      <label>Version</label><br />
+      <label>Version*</label><br />
         <select v-model="version">
           <option v-for="(item, key) in cassandra_versions" :key="key" >
             {{ item }}
@@ -18,7 +18,7 @@
         </select> 
     </div>
     <div class="auth">
-      Authentication**:
+      Authentication:
 <!--      <input type="checkbox" id="checkbox" v-model="authentication">-->
 <!--      <label for="checkbox"> {{ authentication }}</label>-->
       <v-switch
@@ -33,7 +33,7 @@
         </template>
       </v-switch>
     </div>
-  </div> 
+  </div>
 </template>
 
 <script>

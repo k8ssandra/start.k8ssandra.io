@@ -1,9 +1,8 @@
 <template>
     <div class="topology">
        <h2>Topology</h2>
-        <h5>DataCenters</h5>
         <div>
-            <label>Name**</label><br />
+            <label>DataCenters*</label><br />
             <select v-model="datacenter_name">
             <option v-for="(item, key) in datacenters" :key="key" >
                 {{ item }}
@@ -12,7 +11,7 @@
         </div>
         <Racks />
         <div>
-            <label>Cluster Size( per-rack.)</label><br />
+            <label>Cluster Size( per-rack)</label><br />
             <input v-model.number="cluster_size_per" type="number" min="1" max="100">
         </div>
         <div>
@@ -32,7 +31,7 @@ export default {
   },
   data() {
     return {
-      datacenters: ["dc1", "dc2", "dc3"],
+      datacenters: ["", "dc1", "dc2", "dc3"],
     };
   },
   computed: {

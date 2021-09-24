@@ -1,14 +1,13 @@
 <template>
   <div class="home">
-  <transition name="fade">
-      <LandingPage v-if="landpage"/>
-  </transition>
-    <h1>K8ssandra Config Builder</h1>
-  <div class="container">
-    <Input />
-    <Result />
-  </div> 
-    </div> 
+    <transition name="fade">
+        <LandingPage v-if="landpage"/>
+    </transition>
+    <div class="container">
+      <Input />
+      <Result />
+    </div>
+  </div>
 
 </template>
 
@@ -17,6 +16,7 @@
 import Input from "@/components/Input.vue";
 import Result from "@/components/Result.vue";
 import LandingPage from "@/components/LandingPage.vue";
+
 
 export default {
   name: "Home",

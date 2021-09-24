@@ -2,14 +2,14 @@
 <div class="module medusa">
     <h2>Medusa</h2>
     <div>
-        Enabled**:
+        Enabled:
         <input type="checkbox" id="checkbox" v-model="enabled">
         <label for="checkbox"> {{ enabled }}</label>
     </div>
     <div v-if="enabled" class="settings">
         <h5>Medusa Option</h5>
         <div>
-          <label>Provider**</label><br />
+          <label>Provider</label><br />
           <select v-model="provider">
             <option v-for="(item, key) in providers" :key="key" >
                 {{ item }}

@@ -2,7 +2,7 @@
 <div class="result__container">
   <div class="result">
       <h2>Result</h2>
-      <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" rows="20" cols="50">
+      <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
         </textarea>
   </div>
   <div class="helm__container">
@@ -69,12 +69,19 @@ export default {
       if (data.reaper.enabled !== true) {
         delete translatedData["reaper"]
       }
-      if (data.medusa.enabled !== true) {
-        delete translatedData["medusa"]
-      }
       if (data.medusa.storage === "local") {
         delete translatedData.medusa.bucketName
         delete translatedData.medusa.storageSecret
+      } 
+      if (data.medusa.storage !== "local") {
+        delete translatedData.medusa.storageClass
+        delete translatedData.medusa.size
+      }
+      if (data.medusa.storage !== "s3_compatible") {
+        delete translatedData.medusa.storage_properties
+      }
+      if (data.medusa.enabled !== true) {
+        delete translatedData["medusa"]
       }
       if (data.monitoring.prometheus.provision_service_monitors !== true) {
         delete translatedData.monitoring.prometheus
@@ -90,6 +97,9 @@ export default {
       }
       if (data.cassandra.cassandraLibDirVolume.additionalSeeds.length === 0) {
         delete translatedData.cassandra.cassandraLibDirVolume.additionalSeeds
+      }
+      if (data.cassandra.datacenters[0].name.length === 0) {
+        delete translatedData.cassandra.datacenters
       }
       let output = YAML.stringify(translatedData);
       //built this in to replace the issue with json to yaml - check for options
@@ -119,6 +129,9 @@ export default {
   .result__container {
     color: var(--color-brand-dark-blue);
     margin-left: 30px;
+    height: calc(100vh - 106px);
+    display:flex;
+    flex-flow:column nowrap;
 
     > div {
       background: var(--color-brand-dark-blue);
@@ -127,6 +140,8 @@ export default {
 
 .result {
   border-radius: 10px 10px 0 0;
+  margin: 0 auto;
+  flex-grow:1;
 
   h2 {
     margin: 0;
@@ -176,6 +191,10 @@ export default {
 
 .button_ctas {
   display: flex;
+}
+
+textarea#config_preview {
+  height:calc(100% - 120px);
 }
 
 .export {

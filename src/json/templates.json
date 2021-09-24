@@ -1,5 +1,28 @@
 [
   {
+    "updateName": "",
+    "updateDescription": "",
+    "addRacks": [],
+    "updateDataCenterName": "",
+    "updateTotalClusterSize": 1,
+    "updateVersion": "4.0.0",
+    "updateAuthentication": false,
+    "updateStorageClass": "standard",
+    "updateStorageAmount": 1,
+    "updateHeapAmount": 1,
+    "updateCpuCoresAmount": 1,
+    "updateRamCoresAmount": 1,
+    "updateMonitoringKubePrometheus": false,
+    "updateStargateEnabled": false,
+    "updateStargateSize": 1,
+    "updateStargateHeapMb": 1,
+    "updateStargateCpuAmount": 1,
+    "updateReaperEnabled": false,
+    "updateMedusaEnabled": false,
+    "updateMonitoringServiceMonitors": false,
+    "updateMonitoringDashboards": false
+  },
+  {
     "updateName": "Local Dev",
     "updateDescription": "This is the template for Local build Values",
     "addRacks": [

@@ -4,20 +4,20 @@
          <h1>K8ssandra Config Builder</h1>
          <p>Toggle configurations and get the exact code you need to set up K8ssandra in your workflow.</p>
          <div>
-           <button @click.prevent="start">Start</button>
+           <button @click.prevent="start(0)">Start</button>
          </div>
 
          <h3> or Start with a template </h3>
 
          <div class="templates">
-           <button @click.prevent="start(0)">Local Template</button>
-           <button @click.prevent="start(1)">Azure AKS</button>
-           <button @click.prevent="start(2)">Digital Ocean DOK</button>
-           <button @click.prevent="start(3)">Amazon EKS</button>
-           <button @click.prevent="start(4)">Google GKE</button>
+           <button @click.prevent="start(1)">Local Template</button>
+           <button @click.prevent="start(2)">Azure AKS</button>
+           <button @click.prevent="start(3)">Digital Ocean DOK</button>
+           <button @click.prevent="start(4)">Amazon EKS</button>
+           <button @click.prevent="start(5)">Google GKE</button>
          </div>
        </div>
-   </div> 
+   </div>
 </template>
 
 <script>

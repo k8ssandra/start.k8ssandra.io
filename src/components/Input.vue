@@ -87,6 +87,8 @@ export default {
   display:flex;
   justify-content: space-around;
   flex-flow:row wrap;
+  height: calc(100vh - 106px);
+  overflow: scroll;
   & > div {
     background-color: var(--color-white);
     width:100%;

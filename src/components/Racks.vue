@@ -1,13 +1,16 @@
 <template>
         <div class="racklist__container">
-            <label>Racks (array) ** </label><br />
+            <label>Racks</label><br />
             <ul class="racklist__list">
               <li class="racklist__item" v-for="(rack, num) in racks" :key="num">
                 <div class="racklist__primary">
                   <h4 class="racklist__racktitle">{{rack.name}}</h4>
                   <button @click.prevent="removeRack(num)">x</button>
                 </div>
-                <div class="racklist__nodes">
+                <div v-if="hideNodes[num]">
+                  <button @click.prevent="showNodes(num)">Add Nodes</button>
+                </div>
+                <div v-else class="racklist__nodes">
                     <ul class="racklist__nodelist">
                       <li v-for="(node, key) in rack.affinityLabels" class="racklist_node" :key="key" >
                         {{key}}:{{ node }} 
@@ -20,6 +23,7 @@
                       <input type="submit"  value="add">
                     </form>                
                 </div>
+
               </li>
             </ul>
               <form v-on:submit.prevent="addRack" class="rackadd">
@@ -36,6 +40,7 @@ export default {
   data() {
     return {
       rackAddValue: "",
+      hideNodes: [],
       nodeLabelValue: [],
       nodeValueValue: []
 
@@ -55,6 +60,7 @@ export default {
         this.$store.commit("addRack", rackName);
         this.$store.commit("updateTotalClusterSize");
         this.rackAddValue = "";
+        this.hideNodes.push(true);
         this.nodeLabelValue.push("");
         this.nodeValueValue.push("");
       } else {
@@ -67,6 +73,10 @@ export default {
       this.nodeLabelValue.splice(num, 1);
       this.nodeValueValue.splice(num, 1)
     },
+    showNodes(num) {
+      this.hideNodes[num] = false;
+      this.$forceUpdate();
+    },
     addNode(num) {
       let nodeLabel = this.nodeLabelValue[num];
       let nodeValue = this.nodeValueValue[num];
@@ -76,6 +86,7 @@ export default {
     },
     removeNode(node, rack) {
       this.$store.commit("removeNode", { node, rack });
+
     },
   },
 };

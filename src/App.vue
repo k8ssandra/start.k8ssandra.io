@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <div id="app">
-      <div id="nav">
+      <div id="header">
+        <h1>K8ssandra Configurator</h1>
       </div>
       <router-view/>
     </div>
@@ -39,7 +40,8 @@ export default {
   }
 
   body {
-    margin: 0;
+    margin: 0 8px;
+    background: var(--color-brand-light-blue);
   }
 
   // Typography.
@@ -151,18 +153,12 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--color-brand-light-blue);
     color: var(--color-brand-black);
+    height: 100vh;
+    padding-bottom:0;
+    overflow: hidden;
   }
 
-  #nav {
-    padding: 30px;
-
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
+  #header {
+    padding: 10px;
   }
 </style>
