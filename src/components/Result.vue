@@ -71,16 +71,9 @@ export default {
       if (data.medusa.enabled !== true) {
         delete translatedData["medusa"]
       }
-      // if (data.medusa.storage === "local") {
-      //   delete translatedData.medusa.bucketName
-      //   delete translatedData.medusa.storageSecret
-      // } 
-      // if (data.medusa.storage === "local") {
-      //   delete translatedData.medusa.storageClass
-      //   delete translatedData.medusa.size
-      // }
-      if (data.medusa.storage !== "s3_compatible") {
-        delete translatedData.medusa.storage_properties
+      if (data.medusa.storage === "local") {
+        delete translatedData.medusa.bucketName
+        delete translatedData.medusa.storageSecret
       }
       if (data.monitoring.prometheus.provision_service_monitors !== true) {
         delete translatedData.monitoring.prometheus

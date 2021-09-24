@@ -10,7 +10,7 @@
             <input v-model.number="port" type="number">
         </div>
         <div>
-            Enabled:
+            Secure Enabled:
             <input type="checkbox" id="checkbox" v-model="secure">
             <label for="checkbox"> {{ secure }}</label>
         </div>
