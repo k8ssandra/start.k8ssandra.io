@@ -47,7 +47,7 @@ h1 {
   font-size: 72px;
   font-weight: 600;
   text-align: center;
-  color: var(--color-black);
+  color: var(--color-brand-black);
 }
 
 .fade-enter-active, .fade-leave-active {

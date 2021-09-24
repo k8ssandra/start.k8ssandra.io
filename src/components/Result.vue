@@ -117,11 +117,11 @@ export default {
 
 <style lang="scss" scoped>
   .result__container {
-    color: var(--color-blue-dark);
+    color: var(--color-brand-dark-blue);
     margin-left: 30px;
 
     > div {
-      background: var(--color-blue-dark);
+      background: var(--color-brand-dark-blue);
     }
   }
 
@@ -132,13 +132,13 @@ export default {
     margin: 0;
     padding: 20px 30px;
     color: var(--color-white);
-    border-bottom: 1px solid var(--color-blue);
+    border-bottom: 1px solid var(--color-brand-light-blue);
   }
 
   textarea {
     max-width: 500px;
     margin: 25px 30px;
-    background-color: var(--color-blue-dark);
+    background-color: var(--color-brand-dark-blue);
     border: 0;
     color: var(--color-grey-light);
     font-size: 12px;
@@ -157,7 +157,7 @@ export default {
 
   .helm__container {
     padding: 30px;
-    border-top: 1px solid var(--color-blue);
+    border-top: 1px solid var(--color-brand-light-blue);
 
     > div {
       display: flex;
@@ -184,27 +184,27 @@ export default {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-  a.button {
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      45deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(2, 62, 150, 1) 71%
-    );
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 30px;
-    margin: 20px;
-    white-space: nowrap;
-    &:hover {
-      border: 1px solid rgba(2, 62, 150, 1);
-    }
-  }
+//  a.button {
+//    background: rgb(34, 193, 195);
+//    background: linear-gradient(
+//      45deg,
+//      rgba(34, 193, 195, 1) 0%,
+//      rgba(2, 62, 150, 1) 71%
+//    );
+//    color: white;
+//    text-decoration: none;
+//    font-weight: bold;
+//    font-size: 20px;
+//    letter-spacing: -0.5px;
+//    border: none;
+//    border-radius: 5px;
+//    padding: 10px 30px;
+//    margin: 20px;
+//    white-space: nowrap;
+//    &:hover {
+//      border: 1px solid rgba(2, 62, 150, 1);
+//    }
+//  }
 }
 .copy__config {
   display: flex;
@@ -212,26 +212,26 @@ export default {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-  a.button {
-    background: rgb(146, 200, 20);
-    background: linear-gradient(
-      45deg,
-      rgba(146, 200, 20, 1) 0%,
-      rgba(34, 193, 195, 1) 71%
-    );
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 30px;
-    margin: 20px;
-    white-space: nowrap;
-    &:hover {
-      border: 1px solid rgba(2, 62, 150, 1);
-    }
-  }
+//  a.button {
+//    background: rgb(146, 200, 20);
+//    background: linear-gradient(
+//      45deg,
+//      rgba(146, 200, 20, 1) 0%,
+//      rgba(34, 193, 195, 1) 71%
+//    );
+//    color: white;
+//    text-decoration: none;
+//    font-weight: bold;
+//    font-size: 20px;
+//    letter-spacing: -0.5px;
+//    border: none;
+//    border-radius: 5px;
+//    padding: 10px 30px;
+//    margin: 20px;
+//    white-space: nowrap;
+//    &:hover {
+//      border: 1px solid rgba(2, 62, 150, 1);
+//    }
+//  }
 }
 </style>

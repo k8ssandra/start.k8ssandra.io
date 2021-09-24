@@ -65,10 +65,19 @@ export default {
     max-width: 400px;
     h2 {
       padding: 20px 30px;
-      background: var(--color-blue-dark);
+      background: var(--color-brand-dark-blue);
       color: var(--color-white);
       border-radius: 10px 10px 0 0;
       margin: 0;
+    }
+
+    &::v-deep input:not([type="submit"], [type="checkbox"]) {
+      width: 100%;
+      padding: 7px 14px;
+      background: var(--color-white);
+      border: 1px solid var(--color-grey-medium);
+      font-size: 14px;
+      line-height: 24px;
     }
   }
 
@@ -85,39 +94,4 @@ export default {
     padding: 30px;
   }
 }
-</style>
-
-<style lang="scss">
-  input {
-    /*width: 100%;*/
-    padding: 7px 14px;
-    background: var(--color-white);
-    border: 1px solid var(--color-grey-medium);
-    font-size: 14px;
-    line-height: 24px;
-  }
-
-  input[type="submit"],
-  .landing-page button {
-    padding: 12px 24px;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    font-size: 15px;
-    margin-bottom: 15px;
-    overflow: hidden;
-    position: relative;
-    vertical-align: middle;
-    color: var(--color-black);
-    background-color: var(--color-red);
-    border-radius: 3px;
-    font-weight: 700;
-    box-shadow: 4px 4px 0 0 var(--color-black);
-
-    &:hover {
-      background-color: var(--color-yellow);
-      text-decoration: underline;
-    }
-  }
 </style>

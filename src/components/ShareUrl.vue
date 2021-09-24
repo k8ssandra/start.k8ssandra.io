@@ -47,27 +47,27 @@ export default {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-  a.button {
-    background: rgb(165, 75, 255);
-    background: linear-gradient(
-      45deg,
-      rgb(2, 62, 150) 0%,
-      rgb(165, 75, 255) 71%
-    );
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 30px;
-    margin: 20px;
-    white-space: nowrap;
-    &:hover {
-      border: 1px solid rgb(165, 75, 255);
-    }
-  }
+//  a.button {
+//    background: rgb(165, 75, 255);
+//    background: linear-gradient(
+//      45deg,
+//      rgb(2, 62, 150) 0%,
+//      rgb(165, 75, 255) 71%
+//    );
+//    color: white;
+//    text-decoration: none;
+//    font-weight: bold;
+//    font-size: 20px;
+//    letter-spacing: -0.5px;
+//    border: none;
+//    border-radius: 5px;
+//    padding: 10px 30px;
+//    margin: 20px;
+//    white-space: nowrap;
+//    &:hover {
+//      border: 1px solid rgb(165, 75, 255);
+//    }
+//  }
 }
 .modal-container {
   height: 100vh;

@@ -50,7 +50,7 @@ export default {
   bottom: 0;
   right: 0;
   overflow: hidden;
-  background-color: var(--color-blue-dark);
+  background-color: var(--color-brand-dark-blue);
   color: var(--color-white);
   z-index: 10;
 
@@ -72,7 +72,7 @@ export default {
       background-color: transparent;
 
       &:hover {
-        background-color: var(--color-yellow);
+        background-color: var(--color-brand-yellow);
       }
     }
 }
