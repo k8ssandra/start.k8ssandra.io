@@ -61,17 +61,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .input {
-    max-width: 400px;
-    h2 {
-      padding: 20px 30px;
-      background: var(--color-brand-dark-blue);
-      color: var(--color-white);
-      border-radius: 10px 10px 0 0;
-      margin: 0;
-    }
+.input {
+  max-width: 400px;
+  h2 {
+    padding: 20px 30px;
+    background: var(--color-brand-dark-blue);
+    color: var(--color-white);
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+  }
 
-    &::v-deep input:not([type="submit"], [type="checkbox"]) {
+  &::v-deep {
+    input:not([type="submit"], [type="checkbox"]) {
       width: 100%;
       padding: 7px 14px;
       background: var(--color-white);
@@ -79,7 +80,24 @@ export default {
       font-size: 14px;
       line-height: 24px;
     }
+
+    h4 {
+      margin-top: 30px;
+    }
+
+    label {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 700;
+    }
   }
+}
+
+span {
+  font-size: 12px;
+  line-height: 18px;
+}
 
 .form_sections {
   max-width:1440px;

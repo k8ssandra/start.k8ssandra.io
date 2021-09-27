@@ -7,7 +7,14 @@
     </div>
     <div>
       <label>Description</label><br />
-      <textarea v-model="description" placeholder="Instance Description"></textarea>
+      <v-textarea
+          v-model="description"
+          placeholder="Instance Description"
+          counter="150"
+          no-resize
+          rows="4"
+          :value="value"
+      ></v-textarea>
     </div>
     <div>
       <label>Version*</label><br />
@@ -83,6 +90,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .clusterInfo > div {
+    margin-top: 20px;
+  }
+
+  .v-textarea {
+    padding: 0;
+    margin: 0;
+  }
+
+  .clusterInfo::v-deep {
+    .v-text-field .v-counter {
+      order: -1;
+      margin: 0;
+    }
+
+    .v-counter::after {
+      content: ' Characters';
+    }
+
+    textarea {
+      padding: 7px 14px;
+      border: 1px solid var(--color-grey-medium);
+      font-size: 14px;
+      line-height: 24px;
+      color: var(--color-brand-black);
+    }
+
+    .v-text-field > .v-input__control > .v-input__slot {
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+  }
+
   .auth {
     display: flex;
     align-items: center;
