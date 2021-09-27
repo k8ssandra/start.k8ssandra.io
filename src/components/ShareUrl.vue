@@ -1,6 +1,12 @@
 <template>
     <div class="share">
-        <a class="button" href @click.prevent="toggleModal">Share</a>
+        <a class="button" href @click.prevent="toggleModal">
+            <v-icon
+            >
+                fa-share
+            </v-icon>
+            <span>Share</span>
+        </a>
         <transition name="fade">
         <div v-if="isOpen" class="modal-container">
         <div class="modal">
