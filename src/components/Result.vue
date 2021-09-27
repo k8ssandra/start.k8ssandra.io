@@ -1,25 +1,27 @@
 <template>
 <div class="result__container">
   <div class="result__block">
-  <div class="result">
-      <h2>Result</h2>
-      <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
-        </textarea>
-  </div>
-  <div class="helm__container">
-    <h3>Helm Install</h3>
-    <div><input id="helm__install" v-model="helmInstall"><button @click.prevent="grabHelm">Copy</button></div>
-  </div>
-  <div class="button_ctas">
-    <div class="copy__config">
-        <a class="button" href @click.prevent="grabConfig">Copy Config</a>
+    <div class="result">
+      <div class="result__heading">
+        <h2>Output</h2>
+        <div class="button_ctas">
+          <div class="copy__config">
+            <a class="button" href @click.prevent="grabConfig">Copy</a>
+          </div>
+          <ShareUrl />
+        </div>
+      </div>
+        <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
+          </textarea>
     </div>
-    <div class="export">
-        <a class="button" href @click.prevent="exportConfig">Export Config</a>
-    </div>    
-    <ShareUrl />
+    <div class="helm__container">
+      <h3>Helm Install</h3>
+      <div class="export">
+        <a class="button" href @click.prevent="exportConfig">Download YAML File</a>
       </div>
-      </div>
+      <div><input id="helm__install" v-model="helmInstall"><button @click.prevent="grabHelm">Copy</button></div>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -138,6 +140,7 @@ export default {
 
   > div {
     background: var(--color-brand-dark-blue);
+    border-radius: 10px;
   }
 }
 
@@ -151,6 +154,12 @@ export default {
   }
 }
 
+.result__heading {
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--color-brand-light-blue);
+  display: flex;
+}
+
 .result {
   border-radius: 10px 10px 0 0;
   margin: 0 auto;
@@ -159,9 +168,7 @@ export default {
 
   h2 {
     margin: 0;
-    padding: 20px 30px;
     color: var(--color-white);
-    border-bottom: 1px solid var(--color-brand-light-blue);
   }
 
   textarea {
@@ -172,6 +179,8 @@ export default {
     color: var(--color-grey-medium);
     font-size: 12px;
     font-family: monospace;
+    resize: none;
+    outline: none;
   }
 
   ::-webkit-scrollbar {
@@ -184,27 +193,60 @@ pre {
   text-align: left;
 }
 
+h3 {
+  color: var(--color-white);
+}
+
 .helm__container {
   padding: 30px;
   border-top: 1px solid var(--color-brand-light-blue);
 
   > div {
     display: flex;
+    margin-top: 5px;
+
+    input {
+      padding: 7px 14px;
+      flex-grow: 1;
+      background: var(--color-grey-light);
+      border: 1px solid var(--color-grey-medium);
+      color: var(--color-grey-medium);
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 }
 
-button {
+button,
+.export .button {
   padding: 10px 20px;
   margin-left: 5px;
   background: var(--color-grey-medium);
   border: 1px solid var(--color-grey-medium);
   color: var(--color-grey-dark);
   font-size: 14px;
+  line-height: 28px;
   font-weight: 700;
+  text-decoration: none;
+}
+
+.export .button {
+  margin: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .button_ctas {
   display: flex;
+  margin-left: auto;
+
+  &::v-deep a {
+    margin-left: 20px;
+    color: var(--color-white);
+    font-size: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
 }
 
 textarea#config_preview {
