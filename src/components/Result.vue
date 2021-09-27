@@ -1,5 +1,6 @@
 <template>
 <div class="result__container">
+  <div class="result__block">
   <div class="result">
       <h2>Result</h2>
       <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
@@ -17,6 +18,7 @@
         <a class="button" href @click.prevent="exportConfig">Export Config</a>
     </div>    
     <ShareUrl />
+      </div>
       </div>
 </div>
 </template>
@@ -56,55 +58,58 @@ export default {
   },
   methods: {
     yamlizeData(data) {
-      //sanitize yaml to pull out disabled systems. 
+      //sanitize yaml to pull out disabled systems.
       // let translatedData = {...data};
-      let translatedData = JSON.parse(JSON.stringify(data))
+      let translatedData = JSON.parse(JSON.stringify(data));
 
       if (data.cassandra.auth.enabled !== true) {
         delete translatedData.cassandra.auth;
       }
       if (data.stargate.enabled !== true) {
-        delete translatedData["stargate"]
+        delete translatedData["stargate"];
       }
       if (data.reaper.enabled !== true) {
-        delete translatedData["reaper"]
+        delete translatedData["reaper"];
       }
       if (data.medusa.storage === "local") {
-        delete translatedData.medusa.bucketName
-        delete translatedData.medusa.storageSecret
-      } 
+        delete translatedData.medusa.bucketName;
+        delete translatedData.medusa.storageSecret;
+      }
       if (data.medusa.storage !== "local") {
-        delete translatedData.medusa.storageClass
-        delete translatedData.medusa.size
+        delete translatedData.medusa.storageClass;
+        delete translatedData.medusa.size;
       }
       if (data.medusa.storage !== "s3_compatible") {
-        delete translatedData.medusa.storage_properties
+        delete translatedData.medusa.storage_properties;
       }
       if (data.medusa.enabled !== true) {
-        delete translatedData["medusa"]
+        delete translatedData["medusa"];
       }
       if (data.monitoring.prometheus.provision_service_monitors !== true) {
-        delete translatedData.monitoring.prometheus
+        delete translatedData.monitoring.prometheus;
       }
       if (data.monitoring.grafana.provision_dashboards !== true) {
-        delete translatedData.monitoring.grafana
+        delete translatedData.monitoring.grafana;
       }
-      if (data.monitoring.grafana.provision_dashboards !== true && data.monitoring.prometheus.provision_service_monitors !== true) {
-        delete translatedData.monitoring
+      if (
+        data.monitoring.grafana.provision_dashboards !== true &&
+        data.monitoring.prometheus.provision_service_monitors !== true
+      ) {
+        delete translatedData.monitoring;
       }
       if (data["kube-prometheus-stack"].enabled !== true) {
-        delete translatedData["kube-prometheus-stack"]
+        delete translatedData["kube-prometheus-stack"];
       }
       if (data.cassandra.cassandraLibDirVolume.additionalSeeds.length === 0) {
-        delete translatedData.cassandra.cassandraLibDirVolume.additionalSeeds
+        delete translatedData.cassandra.cassandraLibDirVolume.additionalSeeds;
       }
       if (data.cassandra.datacenters[0].name.length === 0) {
-        delete translatedData.cassandra.datacenters
+        delete translatedData.cassandra.datacenters;
       }
       let output = YAML.stringify(translatedData);
       //built this in to replace the issue with json to yaml - check for options
-      // output = output.replace("kubeprometheusstack", "kube-prometheus-stack"); 
-      
+      // output = output.replace("kubeprometheusstack", "kube-prometheus-stack");
+
       // data = data.replace(/["]+/g, '');
       return output;
     },
@@ -126,22 +131,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .result__container {
-    color: var(--color-brand-dark-blue);
-    margin-left: 30px;
-    height: calc(100vh - 106px);
-    display:flex;
-    flex-flow:column nowrap;
+.result__container {
+  color: var(--color-brand-dark-blue);
+  margin-left: 30px;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
 
-    > div {
-      background: var(--color-brand-dark-blue);
-    }
+  > div {
+    background: var(--color-brand-dark-blue);
   }
+}
+
+.result__block {
+  height: calc(100vh - 146px);
+  display: flex; 
+  flex-flow: column nowrap;
+}
 
 .result {
   border-radius: 10px 10px 0 0;
   margin: 0 auto;
-  flex-grow:1;
+  flex-grow: 1;
+  width: 100%;
 
   h2 {
     margin: 0;
@@ -161,40 +173,40 @@ export default {
   }
 
   ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
   }
 }
-  pre {
-    margin: 30px 100px;
-    text-align: left;
-  }
+pre {
+  margin: 30px 100px;
+  text-align: left;
+}
 
-  .helm__container {
-    padding: 30px;
-    border-top: 1px solid var(--color-brand-light-blue);
+.helm__container {
+  padding: 30px;
+  border-top: 1px solid var(--color-brand-light-blue);
 
-    > div {
-      display: flex;
-    }
+  > div {
+    display: flex;
   }
+}
 
-  button {
-    padding: 10px 20px;
-    margin-left: 5px;
-    background: var(--color-grey-medium);
-    border: 1px solid var(--color-grey-medium);
-    color: var(--color-grey-dark);
-    font-size: 14px;
-    font-weight: 700;
-  }
+button {
+  padding: 10px 20px;
+  margin-left: 5px;
+  background: var(--color-grey-medium);
+  border: 1px solid var(--color-grey-medium);
+  color: var(--color-grey-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
 
 .button_ctas {
   display: flex;
 }
 
 textarea#config_preview {
-  height:calc(100% - 120px);
+  height: calc(100% - 120px);
 }
 
 .export {
@@ -203,27 +215,27 @@ textarea#config_preview {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-//  a.button {
-//    background: rgb(34, 193, 195);
-//    background: linear-gradient(
-//      45deg,
-//      rgba(34, 193, 195, 1) 0%,
-//      rgba(2, 62, 150, 1) 71%
-//    );
-//    color: white;
-//    text-decoration: none;
-//    font-weight: bold;
-//    font-size: 20px;
-//    letter-spacing: -0.5px;
-//    border: none;
-//    border-radius: 5px;
-//    padding: 10px 30px;
-//    margin: 20px;
-//    white-space: nowrap;
-//    &:hover {
-//      border: 1px solid rgba(2, 62, 150, 1);
-//    }
-//  }
+  //  a.button {
+  //    background: rgb(34, 193, 195);
+  //    background: linear-gradient(
+  //      45deg,
+  //      rgba(34, 193, 195, 1) 0%,
+  //      rgba(2, 62, 150, 1) 71%
+  //    );
+  //    color: white;
+  //    text-decoration: none;
+  //    font-weight: bold;
+  //    font-size: 20px;
+  //    letter-spacing: -0.5px;
+  //    border: none;
+  //    border-radius: 5px;
+  //    padding: 10px 30px;
+  //    margin: 20px;
+  //    white-space: nowrap;
+  //    &:hover {
+  //      border: 1px solid rgba(2, 62, 150, 1);
+  //    }
+  //  }
 }
 .copy__config {
   display: flex;
@@ -231,26 +243,26 @@ textarea#config_preview {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-//  a.button {
-//    background: rgb(146, 200, 20);
-//    background: linear-gradient(
-//      45deg,
-//      rgba(146, 200, 20, 1) 0%,
-//      rgba(34, 193, 195, 1) 71%
-//    );
-//    color: white;
-//    text-decoration: none;
-//    font-weight: bold;
-//    font-size: 20px;
-//    letter-spacing: -0.5px;
-//    border: none;
-//    border-radius: 5px;
-//    padding: 10px 30px;
-//    margin: 20px;
-//    white-space: nowrap;
-//    &:hover {
-//      border: 1px solid rgba(2, 62, 150, 1);
-//    }
-//  }
+  //  a.button {
+  //    background: rgb(146, 200, 20);
+  //    background: linear-gradient(
+  //      45deg,
+  //      rgba(146, 200, 20, 1) 0%,
+  //      rgba(34, 193, 195, 1) 71%
+  //    );
+  //    color: white;
+  //    text-decoration: none;
+  //    font-weight: bold;
+  //    font-size: 20px;
+  //    letter-spacing: -0.5px;
+  //    border: none;
+  //    border-radius: 5px;
+  //    padding: 10px 30px;
+  //    margin: 20px;
+  //    white-space: nowrap;
+  //    &:hover {
+  //      border: 1px solid rgba(2, 62, 150, 1);
+  //    }
+  //  }
 }
 </style>
