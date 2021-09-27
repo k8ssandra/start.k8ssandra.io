@@ -134,8 +134,6 @@ export default {
 .result__container {
   color: var(--color-brand-dark-blue);
   margin-left: 30px;
-  display: flex;
-  flex-flow: column nowrap;
   flex-grow: 1;
 
   > div {
@@ -145,8 +143,12 @@ export default {
 
 .result__block {
   height: calc(100vh - 146px);
-  display: flex; 
+  display: flex;
   flex-flow: column nowrap;
+  position: fixed;
+  @media screen and (min-width: 1056px) {
+    width: 626px;
+  }
 }
 
 .result {
@@ -215,27 +217,6 @@ textarea#config_preview {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-  //  a.button {
-  //    background: rgb(34, 193, 195);
-  //    background: linear-gradient(
-  //      45deg,
-  //      rgba(34, 193, 195, 1) 0%,
-  //      rgba(2, 62, 150, 1) 71%
-  //    );
-  //    color: white;
-  //    text-decoration: none;
-  //    font-weight: bold;
-  //    font-size: 20px;
-  //    letter-spacing: -0.5px;
-  //    border: none;
-  //    border-radius: 5px;
-  //    padding: 10px 30px;
-  //    margin: 20px;
-  //    white-space: nowrap;
-  //    &:hover {
-  //      border: 1px solid rgba(2, 62, 150, 1);
-  //    }
-  //  }
 }
 .copy__config {
   display: flex;
@@ -243,26 +224,5 @@ textarea#config_preview {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
-  //  a.button {
-  //    background: rgb(146, 200, 20);
-  //    background: linear-gradient(
-  //      45deg,
-  //      rgba(146, 200, 20, 1) 0%,
-  //      rgba(34, 193, 195, 1) 71%
-  //    );
-  //    color: white;
-  //    text-decoration: none;
-  //    font-weight: bold;
-  //    font-size: 20px;
-  //    letter-spacing: -0.5px;
-  //    border: none;
-  //    border-radius: 5px;
-  //    padding: 10px 30px;
-  //    margin: 20px;
-  //    white-space: nowrap;
-  //    &:hover {
-  //      border: 1px solid rgba(2, 62, 150, 1);
-  //    }
-  //  }
 }
 </style>

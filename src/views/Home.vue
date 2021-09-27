@@ -45,7 +45,7 @@ export default {
   max-width: 1056px;
   margin: 0 auto;
   padding:0;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 h1 {
