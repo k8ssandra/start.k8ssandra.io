@@ -9,8 +9,8 @@
             <label>Port</label><br />
             <input v-model.number="port" type="number">
         </div>
-        <div>
-            Secure Enabled:
+        <div class="provider__secure">
+            <label>Secure</label><br />
 <!--            <input type="checkbox" id="checkbox" v-model="secure">-->
 <!--            <label for="checkbox"> {{ secure }}</label>-->
             <v-switch
@@ -59,3 +59,21 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.provider__secure {
+  display: flex;
+  align-items: center;
+  padding: 25px 20px;
+  border: 1px solid var(--color-grey-medium);
+
+  label {
+    margin: 0;
+  }
+
+  .v-input--selection-controls {
+    margin: 0;
+    padding: 0;
+  }
+}
+</style>
