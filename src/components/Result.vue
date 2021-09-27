@@ -2,7 +2,15 @@
 <div class="result__container">
   <div class="result__block">
     <div class="result">
-        <h2>Result</h2>
+      <div class="result__heading">
+        <h2>Output</h2>
+        <div class="button_ctas">
+          <div class="copy__config">
+            <a class="button" href @click.prevent="grabConfig">Copy</a>
+          </div>
+          <ShareUrl />
+        </div>
+      </div>
         <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
           </textarea>
     </div>
@@ -12,13 +20,6 @@
         <a class="button" href @click.prevent="exportConfig">Download YAML File</a>
       </div>
       <div><input id="helm__install" v-model="helmInstall"><button @click.prevent="grabHelm">Copy</button></div>
-    </div>
-    <div class="button_ctas">
-      <div class="copy__config">
-          <a class="button" href @click.prevent="grabConfig">Copy Config</a>
-      </div>
-
-      <ShareUrl />
     </div>
   </div>
 </div>
@@ -153,6 +154,12 @@ export default {
   }
 }
 
+.result__heading {
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--color-brand-light-blue);
+  display: flex;
+}
+
 .result {
   border-radius: 10px 10px 0 0;
   margin: 0 auto;
@@ -161,9 +168,7 @@ export default {
 
   h2 {
     margin: 0;
-    padding: 20px 30px;
     color: var(--color-white);
-    border-bottom: 1px solid var(--color-brand-light-blue);
   }
 
   textarea {
@@ -175,6 +180,7 @@ export default {
     font-size: 12px;
     font-family: monospace;
     resize: none;
+    outline: none;
   }
 
   ::-webkit-scrollbar {
@@ -232,6 +238,15 @@ button,
 
 .button_ctas {
   display: flex;
+  margin-left: auto;
+
+  &::v-deep a {
+    margin-left: 20px;
+    color: var(--color-white);
+    font-size: 10px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
 }
 
 textarea#config_preview {
