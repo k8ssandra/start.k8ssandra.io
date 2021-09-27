@@ -147,6 +147,10 @@ export default {
 
     &.v-input--selection-controls {
       margin: 0;
+
+      > .v-input__append-outer {
+        margin: 0;
+      }
     }
 
     .v-input__append-outer,
@@ -161,7 +165,7 @@ export default {
     }
 
     .v-input--selection-controls__ripple {
-      color: var(--color-brand-yellow);
+      display: none;
     }
 
     .v-input--switch__track.theme--light {
@@ -184,6 +188,11 @@ export default {
 
     .v-messages {
       min-height: initial;
+    }
+
+    &.v-input--switch--inset .v-input--switch__track,
+    &.v-input--switch--inset .v-input--selection-controls__input {
+      margin: 0
     }
   }
 </style>

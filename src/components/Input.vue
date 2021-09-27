@@ -5,8 +5,11 @@
       <div class="cassandra">
         <h3>Cassandra</h3>
         <span>*Required Fields</span>
+        <div class="separator"></div>
         <ClusterInfo />
+        <div class="separator"></div>
         <Topology />
+        <div class="separator"></div>
         <NodeConfig />
       </div>
       <Stargate />
@@ -105,6 +108,14 @@ export default {
         margin-top: 0;
         margin-left: auto;
       }
+    }
+
+    .separator {
+      width: 100%;
+      height: 32px;
+      margin-top: 40px;
+      background-image: url('../assets/images/light-waves.svg');
+      background-repeat: repeat-x;
     }
   }
 }

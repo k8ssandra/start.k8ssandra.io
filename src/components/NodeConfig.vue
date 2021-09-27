@@ -36,6 +36,7 @@
             <label>Storage Amount</label><br />
             <input v-model.number="storage_number" type="number">
         </div>
+        <div class="separator"></div>
         <h3>Advanced Settings</h3>
         <div>
             <label>Heap Number(max amt: {{max_heap}})</label><br />

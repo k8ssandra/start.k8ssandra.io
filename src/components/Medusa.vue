@@ -29,6 +29,7 @@
           </select> 
         </div>
         <div v-show="provider">
+          <div class="separator"></div>
         <div v-if="provider === 's3' || provider === 's3_compatible'" >
           <MedusaS3Region />
           </div>
