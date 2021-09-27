@@ -97,6 +97,14 @@ export default {
       line-height: 1;
       font-weight: 700;
     }
+
+    .module__heading {
+      display: flex;
+
+      > div {
+        margin-left: auto;
+      }
+    }
   }
 }
 
