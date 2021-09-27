@@ -62,15 +62,24 @@ export default {
         margin: 0;
       }
 
-      .v-input__prepend-outer {
+      .v-input__prepend-outer,
+      .v-input__append-outer {
         position: absolute;
         bottom: 0;
+        margin: 0;
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      .v-input__slot {
+        margin-bottom: 0;
+      }
+
+      .v-input__prepend-outer {
         left: 0;
       }
 
       .v-input__append-outer {
-        position: absolute;
-        bottom: 0;
         right: 0;
       }
 
@@ -84,11 +93,16 @@ export default {
       }
 
       .v-slider--horizontal .v-slider__thumb-label {
+          width: auto !important;
+          height: auto !important;
+          padding: 5px 3px 3px;
           border-radius: 0;
-          transform: translateY(-20%) translateY(-12px) translateX(-50%) rotate(0) !important;
+          transform: translateY(-20%) translateY(-6px) translateX(-50%) rotate(0) !important;
           background: var(--color-brand-yellow) !important;
           border-color: var(--color-brand-yellow) !important;
           color: var(--color-brand-black);
+          font-size: 16px;
+          line-height: 1;
 
           > * {
               transform: rotate(0);

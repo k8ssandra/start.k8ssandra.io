@@ -5,7 +5,7 @@
               <li class="racklist__item" v-for="(rack, num) in racks" :key="num">
                 <div class="racklist__primary">
                   <h4 class="racklist__racktitle">{{rack.name}}</h4>
-                  <button @click.prevent="removeRack(num)">x</button>
+                  <button class="racklist__remove" @click.prevent="removeRack(num)">Remove</button>
                 </div>
                 <div v-if="hideNodes[num]">
                   <button @click.prevent="showNodes(num)">Add Nodes</button>
@@ -14,7 +14,7 @@
                     <ul class="racklist__nodelist">
                       <li v-for="(node, key) in rack.affinityLabels" class="racklist_node" :key="key" >
                         {{key}}:{{ node }} 
-                        <button @click.prevent="removeNode(key, num)">x</button>
+                        <button class="racklist__remove" @click.prevent="removeNode(key, num)">Remove</button>
                       </li>
                     </ul>
                     <form v-on:submit.prevent="addNode(num)" class="rackadd">
@@ -95,8 +95,8 @@ export default {
 <style lang="scss">
 .rackadd {
   background: var(--color-grey-light);
-  margin: 20px 0;
-  padding: 10px;
+  /*margin: 20px 0;*/
+  padding: 20px;
 
   input[type="submit"] {
     box-shadow: none;
@@ -107,14 +107,14 @@ export default {
 
 ul.racklist__list {
   padding-left: 0;
-  margin: 5px 0;
+  margin: 0;
   & > li {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     margin: 10px 0;
     background-color: var(--color-grey-light);
-    padding: 10px;
+    padding: 20px;
     .racklist__primary {
       display: flex;
       flex-direction: row nowrap;
@@ -134,4 +134,35 @@ ul.racklist__list {
     list-style: none;
   }
 }
+
+  .racklist__item {
+    > div {
+      width: 100%;
+    }
+
+    button:not(.racklist__remove) {
+      width: 100%;
+      padding: 6px;
+      font-size: 14px;
+      line-height: 28px;
+      font-weight: 700;
+      border: 1px dashed var(--color-brand-black);
+      border-radius: 3px;
+    }
+
+    .rackadd {
+      display: flex;
+      padding: 0;
+
+      input[type="text"] {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .racklist__remove {
+    font-size: 12px;
+    line-height: 24px;
+    text-decoration: underline;
+  }
 </style>
