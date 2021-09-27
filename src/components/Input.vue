@@ -101,6 +101,10 @@ export default {
       font-weight: 700;
     }
 
+    .provider__secure label {
+      margin-top: 0;
+    }
+
     .module__heading {
       display: flex;
 

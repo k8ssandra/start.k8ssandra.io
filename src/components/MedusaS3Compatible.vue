@@ -67,12 +67,8 @@ export default {
   padding: 25px 20px;
   border: 1px solid var(--color-grey-medium);
 
-  label {
-    margin: 0;
-  }
-
   .v-input--selection-controls {
-    margin: 0;
+    margin-left: auto;
     padding: 0;
   }
 }
