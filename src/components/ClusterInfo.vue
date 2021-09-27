@@ -13,7 +13,6 @@
           counter="150"
           no-resize
           rows="4"
-          :value="value"
       ></v-textarea>
     </div>
     <div>
@@ -22,7 +21,7 @@
           <option v-for="(item, key) in cassandra_versions" :key="key" >
             {{ item }}
           </option>
-        </select> 
+        </select>
     </div>
     <div class="auth">
       Authentication:

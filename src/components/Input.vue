@@ -81,6 +81,12 @@ export default {
       line-height: 24px;
     }
 
+    select {
+      width: 100%;
+      padding: 7px 14px;
+      border: 1px solid var(--color-grey-medium);
+    }
+
     h4 {
       margin-top: 30px;
     }
