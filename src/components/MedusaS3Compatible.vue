@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h5>Medusa S3 Compatible</h5>
+    <div class="provider__details">
+        <h4>Medusa S3 Compatible</h4>
         <div>
             <label>Host</label><br />
             <input v-model="host" placeholder="Host Name">
@@ -11,8 +11,19 @@
         </div>
         <div>
             Secure Enabled:
-            <input type="checkbox" id="checkbox" v-model="secure">
-            <label for="checkbox"> {{ secure }}</label>
+<!--            <input type="checkbox" id="checkbox" v-model="secure">-->
+<!--            <label for="checkbox"> {{ secure }}</label>-->
+            <v-switch
+                v-model="secure"
+                inset
+            >
+                <template v-slot:prepend>
+                    False
+                </template>
+                <template v-slot:append>
+                    True
+                </template>
+            </v-switch>
         </div>
     </div>
 </template>

@@ -102,6 +102,7 @@ export default {
       display: flex;
 
       > div {
+        margin-top: 0;
         margin-left: auto;
       }
     }

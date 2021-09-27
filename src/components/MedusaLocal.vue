@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <h5>Medusa Local</h5>
+    <div class="provider__details">
+        <h4>Medusa Local</h4>
         <div>
             <label>Storage Class</label><br />
             <input v-model="storage_class" placeholder="Storage Class">
         </div>
         <div>
             <label>Size</label><br />
-            <input v-model.number="size" type="number">
+<!--            <input v-model.number="size" type="number">-->
             <v-slider
                 hint="X Clusters total"
                 min="0"
