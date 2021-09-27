@@ -117,7 +117,7 @@ export default {
     .separator {
       width: 100%;
       height: 32px;
-      margin-top: 40px;
+      margin: 40px 0 30px;
       background-image: url('../assets/images/light-waves.svg');
       background-repeat: repeat-x;
     }
