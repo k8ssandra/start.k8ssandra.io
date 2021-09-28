@@ -10,6 +10,10 @@ Vue.use(Vuetify, {
     },
 })
 
-const opts = {}
+const opts = {
+    icons: {
+        iconfont: 'fa',
+    },
+}
 
 export default new Vuetify(opts)

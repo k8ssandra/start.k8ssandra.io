@@ -1,10 +1,22 @@
 <template>
 <div class="module reaper">
-    <h2>Reaper</h2>
-    <div>
-        Enabled:
-        <input type="checkbox" id="checkbox" v-model="enabled">
-        <label for="checkbox"> {{ enabled }}</label>
+    <div class="module__heading">
+        <h3>Reaper</h3>
+        <div>
+    <!--        <input type="checkbox" id="checkbox" v-model="enabled">-->
+    <!--        <label for="checkbox"> {{ enabled }}</label>-->
+            <v-switch
+                v-model="enabled"
+                inset
+            >
+                <template v-slot:prepend>
+                    False
+                </template>
+                <template v-slot:append>
+                    True
+                </template>
+            </v-switch>
+        </div>
     </div>
   </div>
 </template>

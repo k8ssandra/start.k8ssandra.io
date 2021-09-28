@@ -1,13 +1,25 @@
 <template>
 <div class="module medusa">
-    <h2>Medusa</h2>
-    <div>
-        Enabled:
-        <input type="checkbox" id="checkbox" v-model="enabled">
-        <label for="checkbox"> {{ enabled }}</label>
+    <div class="module__heading">
+    <h3>Medusa</h3>
+      <div>
+  <!--        <input type="checkbox" id="checkbox" v-model="enabled">-->
+  <!--        <label for="checkbox"> {{ enabled }}</label>-->
+          <v-switch
+              v-model="enabled"
+              inset
+          >
+            <template v-slot:prepend>
+              False
+            </template>
+            <template v-slot:append>
+              True
+            </template>
+          </v-switch>
+      </div>
     </div>
     <div v-if="enabled" class="settings">
-        <h5>Medusa Option</h5>
+        <h4>Medusa Option</h4>
         <div>
           <label>Provider</label><br />
           <select v-model="provider">
@@ -17,6 +29,7 @@
           </select> 
         </div>
         <div v-show="provider">
+          <div class="separator"></div>
         <div v-if="provider === 's3' || provider === 's3_compatible'" >
           <MedusaS3Region />
           </div>
@@ -26,8 +39,8 @@
           <div v-if="provider === 'local'">
              <MedusaLocal />
           </div>
-          <div v-else>
-                          <div>
+          <div v-else class="provider__details">
+              <div>
                 <label>Bucket Name</label><br />
                 <input v-model="bucketName" placeholder="Bucket Name">
               </div>
@@ -100,3 +113,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  .medusa {
+    h4 {
+      margin-bottom: 20px;
+    }
+
+    &::v-deep {
+      .provider__details > div,
+      .settings > div {
+        margin-top: 20px;
+      }
+    }
+  }
+</style>

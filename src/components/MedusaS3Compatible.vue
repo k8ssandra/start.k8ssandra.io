@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h5>Medusa S3 Compatible</h5>
+    <div class="provider__details">
+        <h4>Medusa S3 Compatible</h4>
         <div>
             <label>Host</label><br />
             <input v-model="host" placeholder="Host Name">
@@ -9,10 +9,21 @@
             <label>Port</label><br />
             <input v-model.number="port" type="number">
         </div>
-        <div>
-            Secure Enabled:
-            <input type="checkbox" id="checkbox" v-model="secure">
-            <label for="checkbox"> {{ secure }}</label>
+        <div class="provider__secure">
+            <label>Secure</label><br />
+<!--            <input type="checkbox" id="checkbox" v-model="secure">-->
+<!--            <label for="checkbox"> {{ secure }}</label>-->
+            <v-switch
+                v-model="secure"
+                inset
+            >
+                <template v-slot:prepend>
+                    False
+                </template>
+                <template v-slot:append>
+                    True
+                </template>
+            </v-switch>
         </div>
     </div>
 </template>
@@ -48,3 +59,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.provider__secure {
+  display: flex;
+  align-items: center;
+  padding: 25px 20px;
+  border: 1px solid var(--color-grey-medium);
+
+  .v-input--selection-controls {
+    margin-left: auto;
+    padding: 0;
+  }
+}
+</style>

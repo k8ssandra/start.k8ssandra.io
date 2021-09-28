@@ -1,31 +1,30 @@
 <template>
     <div class="node_config">
-        <h2>Node Config</h2>
+        <h3>Node Config</h3>
         <div>
             <label>CPU Cores*</label><br />
             <input v-model.number="cpu_number" type="number">
         </div>
         <div>
             <label>RAM Cores*</label><br />
-            <input v-model.number="ram_number" type="number">
-          <v-slider
-              min="0"
-              max="100"
-              v-model.number="ram_number"
-              thumb-label="always"
-              track-color="#b2becd"
-          >
-            <template v-slot:prepend>
-              0 GB
-            </template>
+<!--            <input v-model.number="ram_number" type="number">-->
+            <v-slider
+                min="0"
+                max="100"
+                v-model.number="ram_number"
+                thumb-label="always"
+                track-color="#b2becd"
+            >
+              <template v-slot:prepend>
+                0 GB
+              </template>
 
-            <template v-slot:append>
-              100 GB
-            </template>
-          </v-slider>
+              <template v-slot:append>
+                100 GB
+              </template>
+            </v-slider>
         </div>
         <div>
-          <h5>Storage</h5>
             <label>Storage Class*</label><br />
             <select v-model="storage_class">
             <option v-for="(item, key) in storage_classes" :key="key" >
@@ -37,10 +36,11 @@
             <label>Storage Amount</label><br />
             <input v-model.number="storage_number" type="number">
         </div>
+        <div class="separator"></div>
+        <h3>Advanced Settings</h3>
         <div>
             <label>Heap Number(max amt: {{max_heap}})</label><br />
             <input v-model.number="heap_number" min=1 :max='max_heap' type="number">
-
         </div>
         <div>
           <additionalSeeds />
@@ -119,3 +119,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  .node_config > div {
+    margin-top: 20px;
+  }
+</style>

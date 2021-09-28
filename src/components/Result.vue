@@ -6,7 +6,13 @@
         <h2>Output</h2>
         <div class="button_ctas">
           <div class="copy__config">
-            <a class="button" href @click.prevent="grabConfig">Copy</a>
+            <a class="button" href @click.prevent="grabConfig">
+              <v-icon
+              >
+                fa-copy
+              </v-icon>
+              <span>Copy</span>
+            </a>
           </div>
           <ShareUrl />
         </div>
@@ -240,12 +246,25 @@ button,
   display: flex;
   margin-left: auto;
 
-  &::v-deep a {
-    margin-left: 20px;
-    color: var(--color-white);
-    font-size: 10px;
-    line-height: 1;
-    text-transform: uppercase;
+  &::v-deep {
+    span {
+      text-decoration: underline;
+    }
+
+    a {
+      margin-left: 20px;
+      color: var(--color-white);
+      font-size: 10px;
+      line-height: 1;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .v-icon {
+      margin-right: 10px;
+      font-size: 16px;
+      color: var(--color-white);
+    }
   }
 }
 

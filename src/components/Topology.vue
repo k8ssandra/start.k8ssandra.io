@@ -1,6 +1,6 @@
 <template>
     <div class="topology">
-       <h2>Topology</h2>
+       <h4>Topology</h4>
         <div>
             <label>DataCenters*</label><br />
             <select v-model="datacenter_name">
@@ -11,11 +11,25 @@
         </div>
         <Racks />
         <div>
-            <label>Cluster Size( per-rack)</label><br />
-            <input v-model.number="cluster_size_per" type="number" min="1" max="100">
+            <label>Cluster Size (per-rack)</label><br />
+            <v-slider
+                min="0"
+                max="100"
+                v-model.number="cluster_size_per"
+                thumb-label="always"
+                track-color="#b2becd"
+            >
+              <template v-slot:prepend>
+                0 GB
+              </template>
+
+              <template v-slot:append>
+                100 GB
+              </template>
+            </v-slider>
         </div>
         <div>
-          <h3>Total Cluster Size: {{ cluster_size_total }}</h3>
+          <span>Total Cluster Size: {{ cluster_size_total }}</span>
         </div>
     </div>
 </template>
@@ -61,5 +75,18 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .topology > div {
+    margin-top: 20px;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  span {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6F7A87;
+  }
 </style>

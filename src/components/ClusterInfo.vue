@@ -7,7 +7,13 @@
     </div>
     <div>
       <label>Description</label><br />
-      <textarea v-model="description" placeholder="Instance Description"></textarea>
+      <v-textarea
+          v-model="description"
+          placeholder="Instance Description"
+          counter="150"
+          no-resize
+          rows="4"
+      ></v-textarea>
     </div>
     <div>
       <label>Version*</label><br />
@@ -15,7 +21,7 @@
           <option v-for="(item, key) in cassandra_versions" :key="key" >
             {{ item }}
           </option>
-        </select> 
+        </select>
     </div>
     <div class="auth">
       Authentication:
@@ -83,6 +89,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .clusterInfo > div {
+    margin-top: 20px;
+  }
+
+  .v-textarea {
+    padding: 0;
+    margin: 0;
+  }
+
+  .clusterInfo::v-deep {
+    .v-text-field .v-counter {
+      order: -1;
+      margin: 0;
+    }
+
+    .v-counter::after {
+      content: ' Characters';
+    }
+
+    textarea {
+      padding: 7px 14px;
+      border: 1px solid var(--color-grey-medium);
+      font-size: 14px;
+      line-height: 24px;
+      color: var(--color-brand-black);
+    }
+
+    .v-text-field > .v-input__control > .v-input__slot {
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+  }
+
   .auth {
     display: flex;
     align-items: center;
@@ -106,6 +147,10 @@ export default {
 
     &.v-input--selection-controls {
       margin: 0;
+
+      > .v-input__append-outer {
+        margin: 0;
+      }
     }
 
     .v-input__append-outer,
@@ -120,7 +165,7 @@ export default {
     }
 
     .v-input--selection-controls__ripple {
-      color: var(--color-brand-yellow);
+      display: none;
     }
 
     .v-input--switch__track.theme--light {
@@ -143,6 +188,11 @@ export default {
 
     .v-messages {
       min-height: initial;
+    }
+
+    &.v-input--switch--inset .v-input--switch__track,
+    &.v-input--switch--inset .v-input--selection-controls__input {
+      margin: 0
     }
   }
 </style>
