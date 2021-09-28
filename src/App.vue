@@ -119,7 +119,7 @@ input[type="submit"],
   position: relative;
   margin-top: 2px; // match half word-spacing
   margin-bottom: 2px; // match half word-spacing
-  padding: 12px 24px;
+  padding: 10px 20px;
   color: var(--color-brand-black);
   border: 1px solid transparent;
   border-radius: 3px;
@@ -136,6 +136,18 @@ input[type="submit"],
     background-color: var(--color-brand-yellow);
     text-decoration: underline;
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  }
+}
+
+.separator {
+  width: 100%;
+  height: 32px;
+  margin: 40px 0 30px;
+  background-image: url('assets/images/light-waves.svg');
+  background-repeat: repeat-x;
+
+  .landing-page & {
+    margin-bottom: 40px;
   }
 }
 

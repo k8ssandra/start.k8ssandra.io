@@ -1,13 +1,21 @@
 <template>
    <div class="landing-page">
+     <div class="landing-page__wrapper">
        <div>
-         <h1>K8ssandra Config Builder</h1>
+         <h1>
+           <span class="a-logo"></span>
+           K8ssandra <br>Config Builder
+         </h1>
          <p>Toggle configurations and get the exact code you need to set up K8ssandra in your workflow.</p>
+
+         <div class="separator"></div>
+
+         <span>Start a custom configuration</span>
          <div>
            <button @click.prevent="start(0)">Start</button>
          </div>
 
-         <h3> or Start with a template </h3>
+         <span>Start with a template </span>
 
          <div class="templates">
            <button @click.prevent="start(1)">Local Template</button>
@@ -17,6 +25,8 @@
            <button @click.prevent="start(5)">Google GKE</button>
          </div>
        </div>
+      <figure><img src="../assets/images/landing.png"></figure>
+     </div>
    </div>
 </template>
 
@@ -54,22 +64,64 @@ export default {
   color: var(--color-white);
   z-index: 10;
 
+  p {
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 36px;
+  }
+
+  span {
+    display: block;
+    margin: 30px 0 10px;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 1.43px;
+    text-transform: uppercase;
+  }
+
+  .a-logo {
+    position: relative;
+    display: block;
+    width: 50px;
+    margin: 0 0 30px;
+    background: no-repeat 50% 50% url('../assets/images/logo.svg');
+    background-size: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    text-decoration: none;
+    font-size: 0;
+
+    &::before {
+      content: '';
+      display: block;
+      padding-top: (100% * 46 / 50); // proportional based on width
+    }
+  }
+}
+.landing-page__wrapper {
+  display: flex;
+  justify-content: space-between;
+
   > div {
-    max-width: 550px;
+    max-width: 40%;
     margin-top: 100px;
-    margin-left: 200px;
+    margin-left: 14%;
   }
 }
 .templates {
     display:flex;
-    justify-content: center;
+    justify-content: space-between;
     button {
-      margin: 5px;
       color: var(--color-white);
       border: 1px solid var(--color-white);
       -webkit-box-shadow: none;
       box-shadow: none;
       background-color: transparent;
+
+      &:not(:last-of-type) {
+        margin-right: 10px;
+      }
 
       &:hover {
         background-color: var(--color-brand-yellow);

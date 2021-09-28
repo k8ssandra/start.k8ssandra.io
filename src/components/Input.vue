@@ -113,14 +113,6 @@ export default {
         margin-left: auto;
       }
     }
-
-    .separator {
-      width: 100%;
-      height: 32px;
-      margin: 40px 0 30px;
-      background-image: url('../assets/images/light-waves.svg');
-      background-repeat: repeat-x;
-    }
   }
 }
 
