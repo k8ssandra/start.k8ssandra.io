@@ -38,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 
 .home {
-  margin-top:110px;
+  margin-top:320px;
 }
 .container {
   display: flex;

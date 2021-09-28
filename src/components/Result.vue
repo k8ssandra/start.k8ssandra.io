@@ -143,7 +143,8 @@ export default {
   color: var(--color-brand-dark-blue);
   margin-left: 30px;
   flex-grow: 1;
-
+  z-index: 2;
+  
   > div {
     background: var(--color-brand-dark-blue);
     border-radius: 10px;
@@ -151,7 +152,7 @@ export default {
 }
 
 .result__block {
-  height: calc(100vh - 146px);
+  height: calc(100vh - 340px);
   display: flex;
   flex-flow: column nowrap;
   position: fixed;

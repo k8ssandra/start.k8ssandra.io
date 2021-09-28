@@ -110,7 +110,7 @@ export default {
 
     textarea {
       padding: 7px 14px;
-      border: 1px solid var(--color-grey-medium);
+      border: 2px solid var(--color-grey-medium);
       font-size: 14px;
       line-height: 24px;
       color: var(--color-brand-black);
