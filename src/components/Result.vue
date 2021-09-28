@@ -151,7 +151,7 @@ export default {
 }
 
 .result__block {
-  height: calc(100vh - 146px);
+  height: calc(100vh - 340px);
   display: flex;
   flex-flow: column nowrap;
   position: fixed;
