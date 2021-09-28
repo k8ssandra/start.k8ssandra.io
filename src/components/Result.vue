@@ -143,7 +143,8 @@ export default {
   color: var(--color-brand-dark-blue);
   margin-left: 30px;
   flex-grow: 1;
-
+  z-index: 2;
+  
   > div {
     background: var(--color-brand-dark-blue);
     border-radius: 10px;
