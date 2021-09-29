@@ -88,6 +88,10 @@ export default {
       border: 2px solid var(--color-grey-medium);
     }
 
+    .rackadd .v-text-field:not(.v-textarea) .v-input__slot {
+      border: 0;
+    }
+
     .v-text-field__suffix {
       padding-right: 14px;
     }
