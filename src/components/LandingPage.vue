@@ -20,7 +20,7 @@
          <div class="templates">
            <button @click.prevent="start(1)">Local Template</button>
            <button @click.prevent="start(2)">Azure AKS</button>
-           <button @click.prevent="start(3)">Digital Ocean DOK</button>
+           <button @click.prevent="start(3)">Digital Ocean</button>
            <button @click.prevent="start(4)">Amazon EKS</button>
            <button @click.prevent="start(5)">Google GKE</button>
          </div>
@@ -91,7 +91,7 @@ export default {
 }
 .templates {
     display:flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     button {
       color: var(--color-white);
       border: 1px solid var(--color-white);
@@ -107,5 +107,19 @@ export default {
         background-color: var(--color-brand-yellow);
       }
     }
+}
+
+.separator {
+  animation: wave-flow 5s linear infinite;
+}
+
+@keyframes wave-flow {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: 68px;
+  }
 }
 </style>
