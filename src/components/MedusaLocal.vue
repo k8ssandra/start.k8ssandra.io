@@ -3,7 +3,10 @@
         <h4>Medusa Local</h4>
         <div>
             <label>Storage Class</label><br />
-            <input v-model="storage_class" placeholder="Storage Class">
+            <v-text-field
+                v-model="storage_class"
+                placeholder="Storage Class"
+            ></v-text-field>
         </div>
         <div>
             <label>Size</label><br />

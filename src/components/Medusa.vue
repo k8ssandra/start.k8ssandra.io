@@ -3,8 +3,6 @@
     <div class="module__heading">
     <h3>Medusa</h3>
       <div>
-  <!--        <input type="checkbox" id="checkbox" v-model="enabled">-->
-  <!--        <label for="checkbox"> {{ enabled }}</label>-->
           <v-switch
               v-model="enabled"
               inset
@@ -42,11 +40,17 @@
           <div v-else class="provider__details">
               <div>
                 <label>Bucket Name</label><br />
-                <input v-model="bucketName" placeholder="Bucket Name">
+                <v-text-field
+                    v-model="bucketName"
+                    placeholder="Bucket Name"
+                ></v-text-field>
               </div>
               <div>
                   <label>Storage Secret</label><br />
-                  <input v-model="storage_secret" placeholder="must follow k8s naming rules">
+                <v-text-field
+                    v-model="storage_secret"
+                    placeholder="must follow k8s naming rules"
+                ></v-text-field>
               </div>
             </div>
         </div>

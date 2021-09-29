@@ -82,6 +82,7 @@ export default {
       border: 2px solid var(--color-grey-medium);
       font-size: 14px;
       line-height: 24px;
+      max-height: none;
     }
 
     select {
@@ -112,6 +113,10 @@ export default {
         margin-top: 0;
         margin-left: auto;
       }
+    }
+
+    .v-text-field > .v-input__control > .v-input__slot:before {
+      content: none;
     }
   }
 }
