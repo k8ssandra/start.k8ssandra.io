@@ -118,7 +118,9 @@ h5 {
 
 // Elements re-used across components.
 input[type="submit"],
-.landing-page button {
+.landing-page button,
+.export .button,
+.helm__container button {
   display: inline-block;
   position: relative;
   margin-top: 2px; // match half word-spacing
@@ -140,6 +142,25 @@ input[type="submit"],
     background-color: var(--color-brand-yellow);
     text-decoration: underline;
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  }
+}
+
+.templates,
+.helm__container {
+  button {
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: var(--color-brand-yellow);
+    }
   }
 }
 
