@@ -1,7 +1,20 @@
 <template>
 <div class="module reaper">
     <div class="module__heading">
-        <h3>Reaper</h3>
+        <h3>
+          Reaper
+          <v-tooltip right>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon
+                  v-bind="attrs"
+                  v-on="on"
+              >
+                fa-question
+              </v-icon>
+            </template>
+            <span>Reaper tooltip text</span>
+          </v-tooltip>
+        </h3>
         <div>
     <!--        <input type="checkbox" id="checkbox" v-model="enabled">-->
     <!--        <label for="checkbox"> {{ enabled }}</label>-->

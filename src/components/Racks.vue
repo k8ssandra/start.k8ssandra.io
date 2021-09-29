@@ -7,7 +7,7 @@
                   <h4 class="racklist__racktitle">{{rack.name}}</h4>
                   <button class="racklist__remove" @click.prevent="removeRack(num)">Remove</button>
                 </div>
-                <div v-if="hideNodes[num]">
+                <div class="racklist__nodeadd" v-if="hideNodes[num]">
                   <button @click.prevent="showNodes(num)">Add Nodes</button>
                 </div>
                 <div v-else class="racklist__nodes">
@@ -36,7 +36,14 @@
               </li>
             </ul>
               <form v-on:submit.prevent="addRack" class="rackadd">
-                <input v-model="rackAddValue" placeholder="Name" minlength=3 type="text">
+                <h5>Add Rack</h5>
+                <label>Rack Name</label><br />
+<!--                <input v-model="rackAddValue" placeholder="Name" minlength=3 type="text">-->
+                <v-text-field
+                    v-model="rackAddValue"
+                    placeholder="Name"
+                    minlength="3"
+                ></v-text-field>
                 <input type="submit"  value="add rack">
               </form>
         </div>
@@ -106,14 +113,20 @@ export default {
 
 <style lang="scss">
 .rackadd {
-  background: var(--color-grey-light);
+  background: var(--color-brand-black);
   /*margin: 20px 0;*/
   padding: 20px;
 
   input[type="submit"] {
+    width: 100%;
     box-shadow: none;
     margin: 0;
     padding: 8px 20px;
+  }
+
+  h5,
+  label {
+    color: var(--color-white);
   }
 }
 
@@ -126,12 +139,16 @@ ul.racklist__list {
     align-items: center;
     margin: 10px 0;
     background-color: var(--color-grey-light);
-    padding: 20px;
+    /*padding: 20px;*/
     .racklist__primary {
       display: flex;
       flex-direction: row nowrap;
       width: 100%;
       justify-content: space-between;
+      background: var(--color-brand-black);
+      color: var(--color-white);
+      padding: 10px;
+
       .racklist__racktitle {
         margin: 0;
       }
@@ -154,23 +171,30 @@ ul.racklist__list {
 
   button:not(.racklist__remove) {
     width: 100%;
-    padding: 6px;
+    padding: 10px;
     font-size: 14px;
     line-height: 28px;
     font-weight: 700;
-    border: 1px dashed var(--color-brand-black);
-    border-radius: 3px;
+    /*border: 1px dashed var(--color-brand-black);*/
+    /*border-radius: 3px;*/
+    background: var(--color-brand-yellow);
+    text-align: left;
   }
 
   .rackadd {
     display: flex;
-    padding: 0;
+    padding: 10px;
     flex-flow: row wrap;
-
-    input[type="text"] {
-      margin-right: 5px;
-    }
+    background: var(--color-brand-yellow);
   }
+}
+
+.racklist__nodeadd {
+  padding: 10px;
+}
+
+.racklist__nodes {
+  padding: 10px;
 }
 
 .racklist__remove {

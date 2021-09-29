@@ -1,7 +1,20 @@
 <template>
 <div class="module medusa">
     <div class="module__heading">
-    <h3>Medusa</h3>
+    <h3>
+      Medusa
+      <v-tooltip right>
+        <template v-slot:activator="{ on, attrs }">
+          <v-icon
+              v-bind="attrs"
+              v-on="on"
+          >
+            fa-question
+          </v-icon>
+        </template>
+        <span>Medusa tooltip text</span>
+      </v-tooltip>
+    </h3>
       <div>
           <v-switch
               v-model="enabled"
@@ -29,6 +42,7 @@
               v-model="provider"
               :items="providers"
               single-line
+              append-icon="fa-chevron-down"
           ></v-select>
         </div>
         <div v-show="provider">

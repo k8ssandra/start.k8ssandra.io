@@ -21,7 +21,20 @@
           </textarea>
     </div>
     <div class="helm__container">
-      <h3>Helm Install</h3>
+      <h3>
+        Helm Install
+        <v-tooltip right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+                v-bind="attrs"
+                v-on="on"
+            >
+              fa-question
+            </v-icon>
+          </template>
+          <span>Helm install tooltip text</span>
+        </v-tooltip>
+      </h3>
       <div class="export">
         <a class="button" href @click.prevent="exportConfig">Download YAML File</a>
       </div>
@@ -201,7 +214,12 @@ pre {
 }
 
 h3 {
+  display: flex;
   color: var(--color-white);
+
+  .v-tooltip + .v-icon.v-icon {
+    margin-left: 10px;
+  }
 }
 
 .helm__container {
@@ -220,6 +238,7 @@ h3 {
       color: var(--color-grey-medium);
       font-size: 14px;
       line-height: 24px;
+      outline: none;
     }
   }
 }

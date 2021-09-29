@@ -74,6 +74,11 @@ export default {
     margin: 0;
   }
 
+  h3 {
+    display: flex;
+    align-items: center;
+  }
+
   &::v-deep {
     input:not([type="submit"], [type="checkbox"]) {
       width: 100%;
@@ -88,6 +93,10 @@ export default {
       border: 2px solid var(--color-grey-medium);
     }
 
+    .rackadd .v-text-field:not(.v-textarea) .v-input__slot {
+      border: 0;
+    }
+
     .v-text-field__suffix {
       padding-right: 14px;
     }
@@ -100,6 +109,17 @@ export default {
 
     .v-select__selections {
       padding-left: 14px;
+
+      + .v-input__append-inner {
+        margin-top: 7px;
+        margin-right: 6px;
+
+        .v-icon {
+          font-size: 16px;
+          line-height: 1;
+          color: #0097FF;
+        }
+      }
     }
 
     h4 {
