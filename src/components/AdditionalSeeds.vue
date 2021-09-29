@@ -10,7 +10,11 @@
                   </li>
             </ul>
               <form v-on:submit.prevent="addAddSeed" class="seedadd">
-                <input v-model="seedValue" placeholder="Seed name" minlength=3 type="text">
+                <v-text-field
+                    v-model="seedValue"
+                    placeholder="Seed name"
+                    minlength=3
+                ></v-text-field>
                 <input type="submit"  value="add">
               </form>    </div>
 </template>

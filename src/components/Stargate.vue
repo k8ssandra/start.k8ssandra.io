@@ -3,8 +3,6 @@
     <div class="module__heading">
       <h3>Stargate</h3>
       <div>
-        <!--        <input type="checkbox" id="checkbox" v-model="enabled">-->
-        <!--        <label for="checkbox"> {{ enabled }}</label>-->
         <v-switch
             v-model="enabled"
             inset
@@ -21,15 +19,51 @@
     <div v-if="enabled" class="settings">
         <div>
           <label>Size</label><br />
-          <input v-model.number="size" type="number">
+<!--          <input v-model.number="size" type="number">-->
+          <v-slider
+              min="0"
+              max="100"
+              v-model.number="size"
+              thumb-label="always"
+              track-color="#b2becd"
+          >
+            <template v-slot:prepend>
+              0 GB
+            </template>
+
+            <template v-slot:append>
+              100 GB
+            </template>
+          </v-slider>
         </div>
         <div>
           <label>CPU</label><br />
-          <input v-model.number="cpu_number" type="number">
+<!--          <input v-model.number="cpu_number" type="number">-->
+          <v-slider
+              min="0"
+              max="100"
+              v-model.number="cpu_number"
+              thumb-label="always"
+              track-color="#b2becd"
+          >
+            <template v-slot:prepend>
+              0 milliCPU
+            </template>
+
+            <template v-slot:append>
+              100 milliCPU
+            </template>
+          </v-slider>
         </div>
         <div>
           <label>Heap in MB</label><br />
-          <input v-model.number="heap_mb" type="number">
+<!--          <input v-model.number="heap_mb" type="number">-->
+          <v-text-field
+              v-model.number="heap_mb"
+              suffix="GB"
+              hint="25% of Total RAM"
+              persistent-hint
+          ></v-text-field>
         </div>
     </div>
   </div>

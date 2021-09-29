@@ -3,11 +3,17 @@
        <h4>Topology</h4>
         <div>
             <label>DataCenters*</label><br />
-            <select v-model="datacenter_name">
-            <option v-for="(item, key) in datacenters" :key="key" >
-                {{ item }}
-            </option>
-            </select> 
+<!--            <select v-model="datacenter_name">-->
+<!--            <option v-for="(item, key) in datacenters" :key="key" >-->
+<!--                {{ item }}-->
+<!--            </option>-->
+<!--            </select>-->
+            <v-select
+                v-model="datacenter_name"
+                :items="datacenters"
+                single-line
+                label="Select"
+            ></v-select>
         </div>
         <Racks />
         <div>

@@ -1,11 +1,16 @@
 <template>
         <div>
           <label>Region</label><br />
-          <select v-model="region">
-            <option v-for="(item, key) in regions" :key="key" >
-                {{ item }}
-            </option>
-          </select> 
+<!--          <select v-model="region">-->
+<!--            <option v-for="(item, key) in regions" :key="key" >-->
+<!--                {{ item }}-->
+<!--            </option>-->
+<!--          </select>-->
+          <v-select
+              v-model="region"
+              :items="regions"
+              single-line
+          ></v-select>
         </div>
 </template>
 

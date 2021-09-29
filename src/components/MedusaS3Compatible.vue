@@ -3,16 +3,21 @@
         <h4>Medusa S3 Compatible</h4>
         <div>
             <label>Host</label><br />
-            <input v-model="host" placeholder="Host Name">
+            <v-text-field
+                v-model="host"
+                placeholder="Host Name"
+            ></v-text-field>
         </div>
         <div>
             <label>Port</label><br />
-            <input v-model.number="port" type="number">
+            <v-text-field
+                v-model="port"
+                hint="Integers only"
+                persistent-hint
+            ></v-text-field>
         </div>
         <div class="provider__secure">
             <label>Secure</label><br />
-<!--            <input type="checkbox" id="checkbox" v-model="secure">-->
-<!--            <label for="checkbox"> {{ secure }}</label>-->
             <v-switch
                 v-model="secure"
                 inset

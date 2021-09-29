@@ -3,7 +3,10 @@
     <h4>Cluster Info</h4>
     <div>
       <label>Name*</label><br />
-      <input v-model="name" placeholder="Instance Name">
+      <v-text-field
+          v-model="name"
+          placeholder="Instance Name"
+      ></v-text-field>
     </div>
     <div>
       <label>Description</label><br />
@@ -17,16 +20,18 @@
     </div>
     <div>
       <label>Version*</label><br />
-        <select v-model="version">
-          <option v-for="(item, key) in cassandra_versions" :key="key" >
-            {{ item }}
-          </option>
-        </select>
+<!--        <select v-model="version">-->
+<!--          <option v-for="(item, key) in cassandra_versions" :key="key" >-->
+<!--            {{ item }}-->
+<!--          </option>-->
+<!--        </select>-->
+      <v-select
+          v-model="version"
+          :items="cassandra_versions"
+      ></v-select>
     </div>
     <div class="auth">
       Authentication:
-<!--      <input type="checkbox" id="checkbox" v-model="authentication">-->
-<!--      <label for="checkbox"> {{ authentication }}</label>-->
       <v-switch
         v-model="authentication"
         inset
