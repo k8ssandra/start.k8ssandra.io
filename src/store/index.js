@@ -78,6 +78,7 @@ export default new Vuex.Store({
         "cpu_cores": 1,
         "ram_cores": 1,
         "heap_number": 1,
+        "label_items": ["kubernetes.io/arch", "kubernetes.io/hostname ", "node.kubernetes.io/instance-type", "topology.kubernetes.io/region", "failure-domain.beta.kubernetes.io/region", "failure-domain.beta.kubernetes.io/zone", "topology.kubernetes.io/zone"],
       },
     },
     "encodestore": "",
@@ -259,6 +260,9 @@ export default new Vuex.Store({
         ...state.settings.config.monitoring,
         "grafana": {provision_dashboards: txt}
       }
+    },
+    setLabelOptions(state, txt) {
+      state.settings.k8_config.label_items = txt;
     },
     endcodeSave(state, txt) {
       state.encodestore = txt;

@@ -3,7 +3,7 @@
     "updateName": "",
     "updateDescription": "",
     "addRacks": [],
-    "updateDataCenterName": "",
+    "updateDataCenterName": "dc1",
     "updateTotalClusterSize": 1,
     "updateVersion": "4.0.0",
     "updateAuthentication": false,
@@ -178,6 +178,7 @@
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "google_storage",
     "updateMedusaBucketName": "prod-k8ssandra-storage-bucket",
-    "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
+    "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key",
+    "setLabelOptions": ["kubernetes.io/arch", "kubernetes.io/hostname ", "node.kubernetes.io/instance-type", "topology.kubernetes.io/region", "failure-domain.beta.kubernetes.io/region", "failure-domain.beta.kubernetes.io/zone", "topology.kubernetes.io/zone", "cloud.google.com/machine-family", "cloud.google.com/gke-nodepool"]
   }
 ]

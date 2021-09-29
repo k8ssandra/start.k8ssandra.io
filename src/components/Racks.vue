@@ -18,7 +18,16 @@
                       </li>
                     </ul>
                     <form v-on:submit.prevent="addNode(num)" class="rackadd">
-                      <input v-model="nodeLabelValue[num]" placeholder="Label" minlength=3 type="text">
+                      <!-- <input v-model="nodeLabelValue[num]" placeholder="Label" minlength=3 type="text"> -->
+                      
+                      <v-combobox
+                      v-model="nodeLabelValue[num]"
+                      :items="label_items"
+                      dense
+                      placeholder="Label" minlength=3 type="text"
+                      ></v-combobox>
+                      <br />
+
                       <input v-model="nodeValueValue[num]" placeholder="value" minlength=3 type="text">
                       <input type="submit"  value="add">
                     </form>                
@@ -42,15 +51,19 @@ export default {
       rackAddValue: "",
       hideNodes: [],
       nodeLabelValue: [],
-      nodeValueValue: []
-
+      nodeValueValue: [],
     };
   },
   computed: {
     racks: {
       get() {
-        return this.$store.state.settings.config.cassandra.datacenters[0].racks;
+        return this.$store.state.settings.config.cassandra.datacenters[0].racks
       },
+    },
+    label_items: {
+      get() {
+        return this.$store.state.settings.k8_config.label_items
+      }
     },
   },
   methods: {
@@ -71,7 +84,7 @@ export default {
       this.$store.commit("removeRack", num);
       this.$store.commit("updateTotalClusterSize");
       this.nodeLabelValue.splice(num, 1);
-      this.nodeValueValue.splice(num, 1)
+      this.nodeValueValue.splice(num, 1);
     },
     showNodes(num) {
       this.hideNodes[num] = false;
@@ -86,7 +99,6 @@ export default {
     },
     removeNode(node, rack) {
       this.$store.commit("removeNode", { node, rack });
-
     },
   },
 };
@@ -135,34 +147,35 @@ ul.racklist__list {
   }
 }
 
-  .racklist__item {
-    > div {
-      width: 100%;
-    }
-
-    button:not(.racklist__remove) {
-      width: 100%;
-      padding: 6px;
-      font-size: 14px;
-      line-height: 28px;
-      font-weight: 700;
-      border: 1px dashed var(--color-brand-black);
-      border-radius: 3px;
-    }
-
-    .rackadd {
-      display: flex;
-      padding: 0;
-
-      input[type="text"] {
-        margin-right: 5px;
-      }
-    }
+.racklist__item {
+  > div {
+    width: 100%;
   }
 
-  .racklist__remove {
-    font-size: 12px;
-    line-height: 24px;
-    text-decoration: underline;
+  button:not(.racklist__remove) {
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: 700;
+    border: 1px dashed var(--color-brand-black);
+    border-radius: 3px;
   }
+
+  .rackadd {
+    display: flex;
+    padding: 0;
+    flex-flow: row wrap;
+
+    input[type="text"] {
+      margin-right: 5px;
+    }
+  }
+}
+
+.racklist__remove {
+  font-size: 12px;
+  line-height: 24px;
+  text-decoration: underline;
+}
 </style>
