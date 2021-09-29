@@ -109,6 +109,17 @@ export default {
 
     .v-select__selections {
       padding-left: 14px;
+
+      + .v-input__append-inner {
+        margin-top: 7px;
+        margin-right: 6px;
+
+        .v-icon {
+          font-size: 16px;
+          line-height: 1;
+          color: #0097FF;
+        }
+      }
     }
 
     h4 {

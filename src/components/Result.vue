@@ -238,6 +238,7 @@ h3 {
       color: var(--color-grey-medium);
       font-size: 14px;
       line-height: 24px;
+      outline: none;
     }
   }
 }

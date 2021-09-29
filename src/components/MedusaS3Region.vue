@@ -10,6 +10,7 @@
               v-model="region"
               :items="regions"
               single-line
+              append-icon="fa-chevron-down"
           ></v-select>
         </div>
 </template>

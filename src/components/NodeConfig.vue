@@ -39,6 +39,7 @@
                 v-model="storage_class"
                 :items="storage_classes"
                 single-line
+                append-icon="fa-chevron-down"
             ></v-select>
         </div>
         <div>

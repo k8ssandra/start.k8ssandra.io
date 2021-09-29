@@ -26,6 +26,7 @@
                 :items="datacenters"
                 single-line
                 label="Select"
+                append-icon="fa-chevron-down"
             ></v-select>
         </div>
         <Racks />

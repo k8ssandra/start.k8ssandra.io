@@ -42,6 +42,7 @@
               v-model="provider"
               :items="providers"
               single-line
+              append-icon="fa-chevron-down"
           ></v-select>
         </div>
         <div v-show="provider">
