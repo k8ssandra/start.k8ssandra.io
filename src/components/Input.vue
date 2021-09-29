@@ -79,10 +79,17 @@ export default {
       width: 100%;
       padding: 7px 14px;
       background: var(--color-white);
-      border: 2px solid var(--color-grey-medium);
       font-size: 14px;
       line-height: 24px;
       max-height: none;
+    }
+
+    .v-text-field:not(.v-textarea) .v-input__slot {
+      border: 2px solid var(--color-grey-medium);
+    }
+
+    .v-text-field__suffix {
+      padding-right: 14px;
     }
 
     select {
@@ -115,7 +122,8 @@ export default {
       }
     }
 
-    .v-text-field > .v-input__control > .v-input__slot:before {
+    .v-text-field > .v-input__control > .v-input__slot::before,
+    .v-text-field > .v-input__control > .v-input__slot::after {
       content: none;
     }
   }
