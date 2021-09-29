@@ -20,11 +20,16 @@
         <h4>Medusa Option</h4>
         <div>
           <label>Provider</label><br />
-          <select v-model="provider">
-            <option v-for="(item, key) in providers" :key="key" >
-                {{ item }}
-            </option>
-          </select> 
+<!--          <select v-model="provider">-->
+<!--            <option v-for="(item, key) in providers" :key="key" >-->
+<!--                {{ item }}-->
+<!--            </option>-->
+<!--          </select>-->
+          <v-select
+              v-model="provider"
+              :items="providers"
+              single-line
+          ></v-select>
         </div>
         <div v-show="provider">
           <div class="separator"></div>

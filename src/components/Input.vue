@@ -98,6 +98,10 @@ export default {
       border: 2px solid var(--color-grey-medium);
     }
 
+    .v-select__selections {
+      padding-left: 14px;
+    }
+
     h4 {
       margin-top: 30px;
     }

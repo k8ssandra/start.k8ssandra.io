@@ -30,11 +30,16 @@
         </div>
         <div>
             <label>Storage Class*</label><br />
-            <select v-model="storage_class">
-            <option v-for="(item, key) in storage_classes" :key="key" >
-                {{ item }}
-            </option>
-            </select> 
+<!--            <select v-model="storage_class">-->
+<!--            <option v-for="(item, key) in storage_classes" :key="key" >-->
+<!--                {{ item }}-->
+<!--            </option>-->
+<!--            </select>-->
+            <v-select
+                v-model="storage_class"
+                :items="storage_classes"
+                single-line
+            ></v-select>
         </div>
         <div>
             <label>Storage Amount</label><br />

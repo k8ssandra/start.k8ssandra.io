@@ -20,11 +20,15 @@
     </div>
     <div>
       <label>Version*</label><br />
-        <select v-model="version">
-          <option v-for="(item, key) in cassandra_versions" :key="key" >
-            {{ item }}
-          </option>
-        </select>
+<!--        <select v-model="version">-->
+<!--          <option v-for="(item, key) in cassandra_versions" :key="key" >-->
+<!--            {{ item }}-->
+<!--          </option>-->
+<!--        </select>-->
+      <v-select
+          v-model="version"
+          :items="cassandra_versions"
+      ></v-select>
     </div>
     <div class="auth">
       Authentication:
