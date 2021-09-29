@@ -51,7 +51,7 @@ export default {
   },
   data() {
     return {
-      datacenters: ["", "dc1", "dc2", "dc3"],
+      datacenters: ["dc1", "dc2", "dc3"],
     };
   },
   computed: {
