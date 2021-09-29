@@ -74,6 +74,11 @@ export default {
     margin: 0;
   }
 
+  h3 {
+    display: flex;
+    align-items: center;
+  }
+
   &::v-deep {
     input:not([type="submit"], [type="checkbox"]) {
       width: 100%;

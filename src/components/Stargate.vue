@@ -1,7 +1,20 @@
 <template>
 <div class="module stargate">
     <div class="module__heading">
-      <h3>Stargate</h3>
+      <h3>
+        Stargate
+        <v-tooltip right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+                v-bind="attrs"
+                v-on="on"
+            >
+              fa-question
+            </v-icon>
+          </template>
+          <span>Stargate tooltip text</span>
+        </v-tooltip>
+      </h3>
       <div>
         <v-switch
             v-model="enabled"

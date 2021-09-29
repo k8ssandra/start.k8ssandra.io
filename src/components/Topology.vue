@@ -1,6 +1,19 @@
 <template>
     <div class="topology">
-       <h4>Topology</h4>
+       <h4>
+         Topology
+         <v-tooltip right>
+           <template v-slot:activator="{ on, attrs }">
+             <v-icon
+                 v-bind="attrs"
+                 v-on="on"
+             >
+               fa-question
+             </v-icon>
+           </template>
+           <span>Topology is a thing you can use to help set-up K8ssandra. Short and concise tooltips are recommended for our users.</span>
+         </v-tooltip>
+       </h4>
         <div>
             <label>DataCenters*</label><br />
 <!--            <select v-model="datacenter_name">-->

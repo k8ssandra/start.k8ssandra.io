@@ -180,6 +180,16 @@ input[type="submit"],
   }
 }
 
+.v-tooltip + .v-icon.v-icon {
+  margin-left: 5px;
+  color: var(--color-brand-black);
+  background: var(--color-brand-yellow);
+  border-radius: 50%;
+  font-size: 17px;
+  width: 30px;
+  height: 30px;
+}
+
 // App.
 #app {
   font-family: var(--ff-usual);
@@ -187,6 +197,21 @@ input[type="submit"],
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-brand-light-blue);
   color: var(--color-brand-black);
+
+  .v-tooltip__content {
+    max-width: 290px;
+    padding: 20px;
+    background: var(--color-white);
+    box-shadow: 10px 10px 20px rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 1 !important;
+
+    span {
+      color: var(--color-brand-black);
+    }
+  }
 }
 
 #header {

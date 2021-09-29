@@ -1,6 +1,6 @@
 <template>
     <div class="node_config">
-        <h3>Node Config</h3>
+        <h4>Node Config</h4>
         <div>
             <label>CPU Cores*</label><br />
             <v-text-field
@@ -51,7 +51,7 @@
             ></v-text-field>
         </div>
         <div class="separator"></div>
-        <h3>Advanced Settings</h3>
+        <h4>Advanced Settings</h4>
         <div>
             <label>Heap Number(max amt: {{max_heap}})</label><br />
             <v-slider
