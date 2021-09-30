@@ -46,14 +46,14 @@
               </v-tooltip>
             </label><br />
             <v-slider
-                min="0"
+                min="1"
                 max="100"
                 v-model.number="cluster_size_per"
                 thumb-label="always"
                 track-color="#b2becd"
             >
               <template v-slot:prepend>
-                0 GB
+                1 GB
               </template>
 
               <template v-slot:append>
