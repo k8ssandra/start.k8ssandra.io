@@ -16,18 +16,9 @@
        </h4>
         <div>
             <label>DataCenters*</label><br />
-<!--            <select v-model="datacenter_name">-->
-<!--            <option v-for="(item, key) in datacenters" :key="key" >-->
-<!--                {{ item }}-->
-<!--            </option>-->
-<!--            </select>-->
-            <v-select
+            <v-text-field
                 v-model="datacenter_name"
-                :items="datacenters"
-                single-line
-                label="Select"
-                append-icon="fa-chevron-down"
-            ></v-select>
+            ></v-text-field>
         </div>
         <Racks />
         <div>
