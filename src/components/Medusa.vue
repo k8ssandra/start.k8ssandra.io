@@ -62,7 +62,8 @@
                 <label>Bucket Name</label><br />
                 <v-text-field
                     v-model="bucketName"
-                    placeholder="Bucket Name"
+                    hint="Bucket must already exist. K8ssandra will not provision this for you."
+                    persistent-hint
                 ></v-text-field>
               </div>
               <div>
