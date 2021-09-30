@@ -1,8 +1,9 @@
 <template>
 <div class="module medusa">
-    <div class="module__heading">
+  <span class="module__pretitle">Medusa</span>
+  <div class="module__heading">
     <h3>
-      Medusa
+      Backup & Restore
       <v-tooltip right>
         <template v-slot:activator="{ on, attrs }">
           <v-icon
@@ -12,7 +13,7 @@
             fa-question
           </v-icon>
         </template>
-        <span>Medusa tooltip text</span>
+        <span>Medusa provides a mechanism for backing up and restoring your K8ssandra data in a simple manner to local or cloud object stores.</span>
       </v-tooltip>
     </h3>
       <div>
@@ -65,7 +66,20 @@
                 ></v-text-field>
               </div>
               <div>
-                  <label>Storage Secret</label><br />
+                  <label>
+                    Storage Secret
+                    <v-tooltip right>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-icon
+                            v-bind="attrs"
+                            v-on="on"
+                        >
+                          fa-question-circle
+                        </v-icon>
+                      </template>
+                      <span>Kubernetes secret containing Azure connection information in the key `medusa_azure_credentials.json`</span>
+                    </v-tooltip>
+                  </label><br />
                 <v-text-field
                     v-model="storage_secret"
                     placeholder="must follow k8s naming rules"

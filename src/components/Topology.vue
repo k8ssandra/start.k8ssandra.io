@@ -11,7 +11,7 @@
                fa-question
              </v-icon>
            </template>
-           <span>Topology is a thing you can use to help set-up K8ssandra. Short and concise tooltips are recommended for our users.</span>
+           <span>Defining a topology of datacenters and racks allows K8ssandra to place data replicas across failure boundaries in your infrastructure.</span>
          </v-tooltip>
        </h4>
         <div>
@@ -31,7 +31,20 @@
         </div>
         <Racks />
         <div>
-            <label>Cluster Size (per-rack)</label><br />
+            <label>
+              Cluster Size (per-rack)
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                      v-bind="attrs"
+                      v-on="on"
+                  >
+                    fa-question-circle
+                  </v-icon>
+                </template>
+                <span>K8ssandra requires each rack contain the same number of nodes to prevent data imbalance.</span>
+              </v-tooltip>
+            </label><br />
             <v-slider
                 min="0"
                 max="100"

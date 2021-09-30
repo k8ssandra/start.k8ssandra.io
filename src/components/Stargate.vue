@@ -12,7 +12,7 @@
               fa-question
             </v-icon>
           </template>
-          <span>Stargate tooltip text</span>
+          <span>Stargate provides an independently scalable API layer for K8ssandra. It supports interacting with your cluster over REST, Document, GraphQL, and CQL interfaces. While not required it may rapidly accelerate your application development lifecycle.</span>
         </v-tooltip>
       </h3>
       <div>

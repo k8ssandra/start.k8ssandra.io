@@ -3,9 +3,20 @@
   <h3>Monitoring</h3>
 
   <div>
-      Kube Prometheus Stack
-<!--      <input type="checkbox" id="checkbox" v-model="kube_prometheus">-->
-<!--      <label for="checkbox"> {{ kube_prometheus }}</label>-->
+      <label>
+        Kube Prometheus Stack
+        <v-tooltip right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+                v-bind="attrs"
+                v-on="on"
+            >
+              fa-question-circle
+            </v-icon>
+          </template>
+          <span>Deploy the prometheus-community/kube-prometheus-stack Helm chart alongside K8ssandra.</span>
+        </v-tooltip>
+      </label>
       <v-switch
           v-model="kube_prometheus"
           inset
@@ -19,9 +30,20 @@
       </v-switch>
   </div>
   <div>
-      Service Monitors
-<!--      <input type="checkbox" id="checkbox" v-model="service_monitors">-->
-<!--      <label for="checkbox"> {{ service_monitors }}</label>-->
+      <label>
+        Service Monitors
+        <v-tooltip right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+                v-bind="attrs"
+                v-on="on"
+            >
+              fa-question-circle
+            </v-icon>
+          </template>
+          <span>Deploy prometheus-operator ServiceMonitor Custom Resources for monitoring the K8ssandra cluster.</span>
+        </v-tooltip>
+      </label>
       <v-switch
           v-model="service_monitors"
           inset
@@ -35,9 +57,20 @@
       </v-switch>
   </div>
   <div>
-      Dashboards
-<!--      <input type="checkbox" id="checkbox" v-model="dashboards">-->
-<!--      <label for="checkbox"> {{ dashboards }}</label>-->
+      <label>
+        Dashboards
+        <v-tooltip right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+                v-bind="attrs"
+                v-on="on"
+            >
+              fa-question-circle
+            </v-icon>
+          </template>
+          <span>Deploy preconfigured Grafana Dashboards via Kubernetes ConfigMap objects.</span>
+        </v-tooltip>
+      </label>
       <v-switch
           v-model="dashboards"
           inset
@@ -98,6 +131,13 @@ export default {
 
     .v-input {
       margin-left: auto;
+    }
+
+    label {
+      margin: 0;
+      padding-right: 20px;
+      display: flex;
+      align-items: center;
     }
   }
 </style>
