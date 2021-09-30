@@ -99,14 +99,8 @@
                 hint="Max value based on 50% of RAM. 25% of total RAM is recommended."
                 persistent-hint
             >
-                <template v-slot:prepend>
-                    0 GB
-                </template>
 
-                <template v-slot:append>
-                    {{max_heap}} GB
-                </template>
-            </v-slider>
+            </v-slider> 
         </div>
         <div>
           <additionalSeeds />

@@ -12,7 +12,7 @@
             <label>Port</label><br />
             <v-text-field
                 v-model="port"
-                hint="Integers only"
+                :rules="[rules.number]"
                 persistent-hint
             ></v-text-field>
         </div>
@@ -36,6 +36,18 @@
 <script>
 export default {
   name: "MedusaS3",
+  data() {
+    return {
+      rules: {
+        number: (value) => {
+          const pattern = /^[0-9]*$/;
+          return (
+            pattern.test(value) || "Must contain integers only"
+          );
+        }
+      }
+    }
+  },
   computed: {
     host: {
       get() {

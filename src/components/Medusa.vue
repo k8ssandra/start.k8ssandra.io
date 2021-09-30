@@ -54,9 +54,9 @@
         <div v-if="provider === 's3_compatible'">
           <MedusaS3Compatible />
         </div>
-          <div v-if="provider === 'local'">
+          <!-- <div v-if="provider === 'local'">
              <MedusaLocal />
-          </div>
+          </div> -->
           <div v-else class="provider__details">
               <div>
                 <label>Bucket Name</label><br />
@@ -95,14 +95,14 @@
 <script>
 import MedusaS3Region from "./MedusaS3Region.vue";
 import MedusaS3Compatible from "./MedusaS3Compatible.vue";
-import MedusaLocal from "./MedusaLocal.vue";
+// import MedusaLocal from "./MedusaLocal.vue";
 
 export default {
   name: "Medusa",
   components: {
     MedusaS3Region,
     MedusaS3Compatible,
-    MedusaLocal,
+    // MedusaLocal,
   },
   data() {
     return {
@@ -111,7 +111,7 @@ export default {
         "s3_compatible",
         "google_storage",
         "azure_blobs",
-        "local",
+        // "local",
       ],
     };
   },

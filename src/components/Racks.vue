@@ -147,6 +147,7 @@ export default {
       if (rackName.length >= 3) {
         this.$store.commit("addRack", rackName);
         this.$store.commit("updateTotalClusterSize");
+        this.$store.commit("updateTotalStargateSize");
         this.rackAddValue = "";
         this.hideNodes.push(true);
         this.nodeLabelValue.push("");
@@ -158,6 +159,7 @@ export default {
     removeRack(num) {
       this.$store.commit("removeRack", num);
       this.$store.commit("updateTotalClusterSize");
+      this.$store.commit("updateTotalStargateSize");
       this.nodeLabelValue.splice(num, 1);
       this.nodeValueValue.splice(num, 1);
     },
