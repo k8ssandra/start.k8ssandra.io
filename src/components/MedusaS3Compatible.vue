@@ -1,6 +1,5 @@
 <template>
     <div class="provider__details">
-        <h4>Medusa S3 Compatible</h4>
         <div>
             <label>Host</label><br />
             <v-text-field
