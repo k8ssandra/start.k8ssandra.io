@@ -92,21 +92,6 @@ export default {
 .templates {
     display:flex;
     flex-wrap: wrap;
-    button {
-      color: var(--color-white);
-      border: 1px solid var(--color-white);
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      background-color: transparent;
-
-      &:not(:last-of-type) {
-        margin-right: 10px;
-      }
-
-      &:hover {
-        background-color: var(--color-brand-yellow);
-      }
-    }
 }
 
 .separator {

@@ -231,11 +231,12 @@ h3 {
     margin-top: 5px;
 
     input {
+      height: 45px;
       padding: 7px 14px;
       flex-grow: 1;
       background: var(--color-grey-light);
       border: 1px solid var(--color-grey-medium);
-      color: var(--color-grey-medium);
+      color: var(--color-brand-black);
       font-size: 14px;
       line-height: 24px;
       outline: none;
@@ -243,13 +244,11 @@ h3 {
   }
 }
 
-button,
-.export .button {
-  padding: 10px 20px;
+button {
+  height: 45px;
+  padding: 7px 20px;
+  margin-top: 0;
   margin-left: 5px;
-  background: var(--color-grey-medium);
-  border: 1px solid var(--color-grey-medium);
-  color: var(--color-grey-dark);
   font-size: 14px;
   line-height: 28px;
   font-weight: 700;
@@ -260,6 +259,7 @@ button,
   margin: 0;
   width: 100%;
   text-align: center;
+  box-shadow: none;
 }
 
 .button_ctas {

@@ -13,8 +13,16 @@
                 <div v-else class="racklist__nodes">
                     <ul class="racklist__nodelist">
                       <li v-for="(node, key) in rack.affinityLabels" class="racklist_node" :key="key" >
-                        {{key}}:{{ node }} 
-                        <button class="racklist__remove" @click.prevent="removeNode(key, num)">Remove</button>
+                        <div>
+                          <div><span>Label: </span> {{key}}</div>
+                          <div><span>Value: </span> {{node}}</div>
+                        </div>
+                        <button class="racklist__remove" @click.prevent="removeNode(key, num)">
+                          <v-icon
+                          >
+                            fa-times-circle
+                          </v-icon>
+                        </button>
                       </li>
                     </ul>
                     <form v-on:submit.prevent="addNode(num)" class="rackadd">
@@ -161,6 +169,35 @@ ul.racklist__list {
 
   .racklist__nodelist {
     list-style: none;
+    padding: 0;
+  }
+
+  .racklist_node {
+    display: flex;
+    background: var(--color-white);
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+
+    &:not(:last-of-type) {
+      margin-bottom: 5px;
+    }
+
+    span {
+      font-weight: 700;
+    }
+
+    .racklist__remove {
+      margin-left: auto;
+      text-decoration: none;
+      border: 0;
+
+      .v-icon.v-icon {
+        color: var(--color-brand-red);
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
   }
 }
 
