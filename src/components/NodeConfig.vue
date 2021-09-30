@@ -11,16 +11,16 @@
             ></v-text-field>
         </div>
         <div>
-            <label>RAM Cores*</label><br />
+            <label>RAM</label><br />
             <v-slider
-                min="0"
+                min="2"
                 max="100"
                 v-model.number="ram_number"
                 thumb-label="always"
                 track-color="#b2becd"
             >
               <template v-slot:prepend>
-                0 GB
+                2 GB
               </template>
 
               <template v-slot:append>
