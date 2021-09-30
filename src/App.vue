@@ -204,11 +204,16 @@ input[type="submit"],
 .v-tooltip + .v-icon.v-icon {
   margin-left: 5px;
   color: var(--color-brand-black);
-  background: var(--color-brand-yellow);
-  border-radius: 50%;
-  font-size: 17px;
-  width: 30px;
-  height: 30px;
+  font-size: 14px;
+
+  h3 &,
+  h4 & {
+    font-size: 17px;
+    width: 30px;
+    height: 30px;
+    background: var(--color-brand-yellow);
+    border-radius: 50%;
+  }
 }
 
 // App.

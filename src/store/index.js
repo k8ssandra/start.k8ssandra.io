@@ -35,7 +35,7 @@ export default new Vuex.Store({
           },
           "datacenters": [
             {
-              "name": "",
+              "name": " ",
               "size": 0,
               "racks": [],
             },

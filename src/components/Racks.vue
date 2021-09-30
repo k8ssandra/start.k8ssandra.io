@@ -1,6 +1,19 @@
 <template>
         <div class="racklist__container">
-            <label>Racks</label><br />
+            <label>
+              Racks
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                      v-bind="attrs"
+                      v-on="on"
+                  >
+                    fa-question-circle
+                  </v-icon>
+                </template>
+                <span>Racks usually align with availability zones in cloud deployments or redundancy boundaries on prem.</span>
+              </v-tooltip>
+            </label><br />
             <ul class="racklist__list">
               <li class="racklist__item" v-for="(rack, num) in racks" :key="num">
                 <div class="racklist__primary">
@@ -19,7 +32,20 @@
                       <form v-on:submit.prevent="addNode(num)" class="rackadd">
                         <!-- <input v-model="nodeLabelValue[num]" placeholder="Label" minlength=3 type="text"> -->
 
-                        <label>Label</label>
+                        <label>
+                          Label
+                          <v-tooltip right>
+                            <template v-slot:activator="{ on, attrs }">
+                              <v-icon
+                                  v-bind="attrs"
+                                  v-on="on"
+                              >
+                                fa-question-circle
+                              </v-icon>
+                            </template>
+                            <span>Labels specified are matched to Kubernetes workers during scheduling to control where pods are placed within the cluster.</span>
+                          </v-tooltip>
+                        </label>
                         <v-combobox
                             v-model="nodeLabelValue[num]"
                             :items="label_items"
@@ -275,6 +301,8 @@ ul.racklist__list {
     background: var(--color-brand-yellow);
 
     label {
+      display: flex;
+      align-items: center;
       margin-bottom: 10px;
     }
 

@@ -11,7 +11,7 @@
             ></v-text-field>
         </div>
         <div>
-            <label>RAM Cores*</label><br />
+            <label>RAM</label><br />
             <v-slider
                 min="1"
                 max="10"
@@ -25,21 +25,43 @@
             </v-slider>
         </div>
         <div>
-            <label>Storage Class*</label><br />
-<!--            <select v-model="storage_class">-->
-<!--            <option v-for="(item, key) in storage_classes" :key="key" >-->
-<!--                {{ item }}-->
-<!--            </option>-->
-<!--            </select>-->
-            <v-select
+            <label>
+                Storage Class*
+                <v-tooltip right>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-icon
+                            v-bind="attrs"
+                            v-on="on"
+                        >
+                            fa-question-circle
+                        </v-icon>
+                    </template>
+                    <span>K8ssandra recommends a storage class with the VolumeBindingMode set to WaitForFirstConsumer. If you need to check this consider running `kubectl get storageclasses` against your cluster.</span>
+                </v-tooltip>
+            </label><br />
+            <v-combobox
                 v-model="storage_class"
                 :items="storage_classes"
-                single-line
+                dense
+                minlength=3 type="text"
                 append-icon="fa-chevron-down"
-            ></v-select>
+            ></v-combobox>
         </div>
         <div>
-            <label>Storage Amount</label><br />
+            <label>
+                Storage Amount
+                <v-tooltip right>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-icon
+                            v-bind="attrs"
+                            v-on="on"
+                        >
+                            fa-question-circle
+                        </v-icon>
+                    </template>
+                    <span>Generally you want to target 1-2 TB of active data per node with additional capacity for overhead purposes.</span>
+                </v-tooltip>
+            </label><br />
             <v-text-field
                 v-model.number="storage_number"
                 suffix="GB"
@@ -50,14 +72,27 @@
         <div class="separator"></div>
         <h4>Advanced Settings</h4>
         <div>
-            <label>Heap Number(max amt: {{max_heap}})</label><br />
+            <label>
+                Heap Amount
+                <v-tooltip right>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-icon
+                            v-bind="attrs"
+                            v-on="on"
+                        >
+                            fa-question-circle
+                        </v-icon>
+                    </template>
+                    <span>Heap is a portion of the total ram dedicated to each node. There are a number of off-heap objects and cache which may lead to instability if this field is set too high. Additionally more heap tends to lead to longer garbage collections.</span>
+                </v-tooltip>
+            </label><br />
             <v-slider
                 min="1"
                 :max='max_heap'
                 v-model.number="heap_number"
                 thumb-label="always"
                 track-color="#b2becd"
-                hint="25% of total RAM is recommended"
+                hint="Max value based on 50% of RAM. 25% of total RAM is recommended."
                 persistent-hint
             >
 
