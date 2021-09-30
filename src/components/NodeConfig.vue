@@ -43,17 +43,13 @@
                     <span>K8ssandra recommends a storage class with the VolumeBindingMode set to WaitForFirstConsumer. If you need to check this consider running `kubectl get storageclasses` against your cluster.</span>
                 </v-tooltip>
             </label><br />
-<!--            <select v-model="storage_class">-->
-<!--            <option v-for="(item, key) in storage_classes" :key="key" >-->
-<!--                {{ item }}-->
-<!--            </option>-->
-<!--            </select>-->
-            <v-select
+            <v-combobox
                 v-model="storage_class"
                 :items="storage_classes"
-                single-line
+                dense
+                minlength=3 type="text"
                 append-icon="fa-chevron-down"
-            ></v-select>
+            ></v-combobox>
         </div>
         <div>
             <label>
