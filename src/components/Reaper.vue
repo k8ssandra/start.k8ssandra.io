@@ -1,8 +1,9 @@
 <template>
 <div class="module reaper">
-    <div class="module__heading">
+  <span class="module__pretitle">Reaper</span>
+  <div class="module__heading">
         <h3>
-          Reaper
+          Repair
           <v-tooltip right>
             <template v-slot:activator="{ on, attrs }">
               <v-icon
@@ -12,7 +13,7 @@
                 fa-question
               </v-icon>
             </template>
-            <span>Reaper tooltip text</span>
+            <span>Reaper provides an out of band anti-entropy mechanism for K8ssandra. It handles the periodic scheduling and execution of repair tasks keeping your data updated across replicas in case of failure.</span>
           </v-tooltip>
         </h3>
         <div>

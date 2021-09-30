@@ -11,36 +11,40 @@
                fa-question
              </v-icon>
            </template>
-           <span>Topology is a thing you can use to help set-up K8ssandra. Short and concise tooltips are recommended for our users.</span>
+           <span>Defining a topology of datacenters and racks allows K8ssandra to place data replicas across failure boundaries in your infrastructure.</span>
          </v-tooltip>
        </h4>
         <div>
             <label>DataCenters*</label><br />
-<!--            <select v-model="datacenter_name">-->
-<!--            <option v-for="(item, key) in datacenters" :key="key" >-->
-<!--                {{ item }}-->
-<!--            </option>-->
-<!--            </select>-->
-            <v-select
+            <v-text-field
                 v-model="datacenter_name"
-                :items="datacenters"
-                single-line
-                label="Select"
-                append-icon="fa-chevron-down"
-            ></v-select>
+            ></v-text-field>
         </div>
         <Racks />
         <div>
-            <label>Cluster Size (per-rack)</label><br />
+            <label>
+              Nodes Per Rack
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                      v-bind="attrs"
+                      v-on="on"
+                  >
+                    fa-question-circle
+                  </v-icon>
+                </template>
+                <span>K8ssandra requires each rack contain the same number of nodes to prevent data imbalance.</span>
+              </v-tooltip>
+            </label><br />
             <v-slider
-                min="0"
+                min="1"
                 max="100"
                 v-model.number="cluster_size_per"
                 thumb-label="always"
                 track-color="#b2becd"
             >
               <template v-slot:prepend>
-                0 GB
+                1 GB
               </template>
 
               <template v-slot:append>
@@ -49,7 +53,7 @@
             </v-slider>
         </div>
         <div>
-          <span>Total Cluster Size: {{ cluster_size_total }}</span>
+          <span>{{ cluster_size_total }} Nodes Total</span>
         </div>
     </div>
 </template>
