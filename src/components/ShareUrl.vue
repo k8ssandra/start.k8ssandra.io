@@ -10,7 +10,12 @@
         <transition name="fade">
         <div v-if="isOpen" class="modal-container">
         <div class="modal">
-            <button @click="toggleModal">X</button>
+            <button @click="toggleModal">
+                <v-icon
+                >
+                    fa-times-circle
+                </v-icon>
+            </button>
             <ConfigUrl />
         </div>
         </div>
@@ -57,24 +62,29 @@ export default {
 .modal-container {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(21, 61, 113, 0.8);
   position: fixed;
   top: 0;
   left: 0;
 }
 .modal {
-  height: 200px;
   width: 40vw;
-  background-color: #ddd;
-  border: 2px solid #333;
-  border-radius: 5px;
+  padding: 147px 50px 37px;
+  background: var(--color-brand-yellow) no-repeat 50% 30px url('../assets/images/modal-background.png');
+  color: var(--color-brand-black);
   position: absolute;
-  top: 20vh;
-  left: 30vw;
+  top: 30vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
   button {
-      position: absolute;
-      right: 10px;
-      top: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    .v-icon {
+        color: var(--color-brand-black);
+    }
   }
 }
 
