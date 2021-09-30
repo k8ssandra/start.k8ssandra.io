@@ -74,6 +74,7 @@ export default new Vuex.Store({
         "landpage": true,
         "description": "",
         "cluster_size_per": 1,
+        "stargate_instance_per": 1,
         "storage_amount": 1,
         "cpu_cores": 1,
         "ram_cores": 1,
@@ -180,7 +181,14 @@ export default new Vuex.Store({
       state.settings.config.stargate.enabled = txt;
     },
     updateStargateSize(state, txt) {
-      state.settings.config.stargate.replicas = txt;
+      state.settings.k8_config.stargate_instance_per = txt;
+    },
+    updateTotalStargateSize(state) {
+      let numOfRacks = state.settings.config.cassandra.datacenters[0].racks.length;
+      console.log(numOfRacks)
+      let SizePer = state.settings.k8_config.stargate_instance_per;
+      let totalSize = numOfRacks * parseInt(SizePer);
+      state.settings.config.stargate.replicas = totalSize;
     },
     updateStargateCpuAmount(state, txt) {
       state.settings.config.stargate.cpuReqMillicores = txt;

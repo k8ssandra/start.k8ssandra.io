@@ -46,7 +46,7 @@ export default {
         this.$store.commit(value, fillValues[value]);
       }
         this.$store.commit("updateTotalClusterSize");
-
+        this.$store.commit("updateTotalStargateSize");
     },
   },
 };

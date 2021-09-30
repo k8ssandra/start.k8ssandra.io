@@ -31,11 +31,10 @@
     </div>
     <div v-if="enabled" class="settings">
         <div>
-          <label>Size</label><br />
-<!--          <input v-model.number="size" type="number">-->
+          <label>Instances Per Rack</label><br />
           <v-slider
               min="0"
-              max="100"
+              max="10"
               v-model.number="size"
               thumb-label="always"
               track-color="#b2becd"
@@ -49,6 +48,9 @@
             </template>
           </v-slider>
         </div>
+        <div> 
+          Total Instances {{totalInstances}}
+          </div>
         <div>
           <label>CPU</label><br />
 <!--          <input v-model.number="cpu_number" type="number">-->
@@ -96,10 +98,16 @@ export default {
     },
     size: {
       get() {
-        return this.$store.state.settings.config.stargate.replicas;
+        return this.$store.state.settings.k8_config.stargate_instance_per;
       },
       set(value) {
         this.$store.commit("updateStargateSize", value);
+        this.$store.commit("updateTotalStargateSize");
+      },
+    },
+    totalInstances: {
+      get() {
+        return this.$store.state.settings.config.stargate.replicas;
       },
     },
     cpu_number: {
