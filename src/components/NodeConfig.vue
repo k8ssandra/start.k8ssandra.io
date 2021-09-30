@@ -77,7 +77,7 @@
         <h4>Advanced Settings</h4>
         <div>
             <label>
-                Heap Number(max amt: {{max_heap}})
+                Heap Amount
                 <v-tooltip right>
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon
@@ -96,7 +96,7 @@
                 v-model.number="heap_number"
                 thumb-label="always"
                 track-color="#b2becd"
-                hint="25% of total RAM is recommended"
+                hint="Max value based on 50% of RAM. 25% of total RAM is recommended."
                 persistent-hint
             >
                 <template v-slot:prepend>
