@@ -13,7 +13,7 @@
         <div>
             <label>RAM Cores*</label><br />
             <v-slider
-                min="0"
+                min="2"
                 max="100"
                 v-model.number="ram_number"
                 thumb-label="always"
@@ -64,14 +64,8 @@
                 hint="25% of total RAM is recommended"
                 persistent-hint
             >
-                <template v-slot:prepend>
-                    0 GB
-                </template>
 
-                <template v-slot:append>
-                    {{max_heap}} GB
-                </template>
-            </v-slider>
+            </v-slider> 
         </div>
         <div>
           <additionalSeeds />
