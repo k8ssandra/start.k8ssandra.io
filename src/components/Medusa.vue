@@ -31,7 +31,7 @@
       </div>
     </div>
     <div v-if="enabled" class="settings">
-        <h4>Medusa Option</h4>
+        <h4>Backend</h4>
         <div>
           <label>Provider</label><br />
 <!--          <select v-model="provider">-->
@@ -46,18 +46,20 @@
               append-icon="fa-chevron-down"
           ></v-select>
         </div>
-        <div v-show="provider">
+        <div v-if="provider">
           <div class="separator"></div>
-        <div v-if="provider === 's3' || provider === 's3_compatible'" >
-          <MedusaS3Region />
-          </div>
-        <div v-if="provider === 's3_compatible'">
-          <MedusaS3Compatible />
-        </div>
-          <!-- <div v-if="provider === 'local'">
-             <MedusaLocal />
-          </div> -->
-          <div v-else class="provider__details">
+          <div class="provider__details">
+            <h4>{{ details[provider]['title'] }} Configuration</h4>
+
+              <div v-if="provider === 's3' || provider === 's3_compatible'" >
+                <MedusaS3Region />
+              </div>
+              <div v-if="provider === 's3_compatible'">
+                <MedusaS3Compatible />
+              </div>
+              <!-- <div v-if="provider === 'local'">
+                 <MedusaLocal />
+              </div> -->
               <div>
                 <label>Bucket Name</label><br />
                 <v-text-field
@@ -78,7 +80,7 @@
                           fa-question-circle
                         </v-icon>
                       </template>
-                      <span>Kubernetes secret containing Azure connection information in the key `medusa_azure_credentials.json`</span>
+                      <span>{{ details[provider]['tooltip'] }} </span>
                     </v-tooltip>
                   </label><br />
                 <v-text-field
@@ -113,6 +115,24 @@ export default {
         "azure_blobs",
         // "local",
       ],
+        details: {
+          "s3": {
+            "title": "S3",
+            "tooltip": "Kubernetes secret containing AWS CLI config file in the `medusa_s3_credentials` key. Note if you are using IAM roles attached to EC2 instances this secret must exist, but be empty. See the Medusa docs for the Medusa docs for more information.",
+          },
+          "s3_compatible": {
+            "title": "S3 Compatible",
+            "tooltip": "At this time when using IAM roles attached to EC2 secrets you MUST specify an empty secret here.",
+          },
+          "google_storage": {
+            "title": "GCS",
+            "tooltip": "Kubernetes secret name containing a service account JSON file under the key `medusa_gcp_key.json`",
+          },
+          "azure_blobs": {
+            "title": "Azure Blob",
+            "tooltip": "Kubernetes secret containing Azure connection information in the key `medusa_azure_credentials.json`",
+          },
+        },
     };
   },
   computed: {
