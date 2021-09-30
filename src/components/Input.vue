@@ -107,7 +107,8 @@ export default {
       border: 2px solid var(--color-grey-medium);
     }
 
-    .v-select__selections {
+    .v-select__selections,
+    .v-select__slot input {
       padding-left: 14px;
 
       + .v-input__append-inner {
@@ -133,8 +134,11 @@ export default {
       font-weight: 700;
     }
 
-    .provider__secure label {
-      margin-top: 0;
+    .provider__secure,
+    .rackadd {
+      label {
+        margin-top: 0;
+      }
     }
 
     .module__heading {
