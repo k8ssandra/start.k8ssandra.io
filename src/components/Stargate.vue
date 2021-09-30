@@ -20,12 +20,6 @@
             v-model="enabled"
             inset
         >
-          <template v-slot:prepend>
-            False
-          </template>
-          <template v-slot:append>
-            True
-          </template>
         </v-switch>
       </div>
     </div>
@@ -40,11 +34,11 @@
               track-color="#b2becd"
           >
             <template v-slot:prepend>
-              0 GB
+              0
             </template>
 
             <template v-slot:append>
-              100 GB
+              10
             </template>
           </v-slider>
         </div>
@@ -56,7 +50,7 @@
 <!--          <input v-model.number="cpu_number" type="number">-->
           <v-slider
               min="0"
-              max="100"
+              max="4000"
               v-model.number="cpu_number"
               thumb-label="always"
               track-color="#b2becd"
@@ -66,20 +60,35 @@
             </template>
 
             <template v-slot:append>
-              100 milliCPU
+              4000 milliCPU
             </template>
           </v-slider>
         </div>
-        <div>
+
+                <div>
+            <label>Heap in MB(max amt: {{max_heap}})</label><br />
+            <v-slider
+                min="1"
+                :max='max_heap'
+                v-model.number="heap_mb"
+                thumb-label="always"
+                track-color="#b2becd"
+                hint="25% of total RAM is recommended"
+                persistent-hint
+            >
+            </v-slider>
+        </div>
+
+        <!-- <div>
           <label>Heap in MB</label><br />
-<!--          <input v-model.number="heap_mb" type="number">-->
+        <input v-model.number="heap_mb" type="number">
           <v-text-field
               v-model.number="heap_mb"
               suffix="GB"
               hint="25% of Total RAM"
               persistent-hint
           ></v-text-field>
-        </div>
+        </div> -->
     </div>
   </div>
 </template>
@@ -88,6 +97,12 @@
 export default {
   name: "Stargate",
   computed: {
+    max_heap() {
+      let heapMax = Math.floor(
+        this.$store.state.settings.k8_config.ram_cores / 2
+      );
+      return heapMax;
+    },
     enabled: {
       get() {
         return this.$store.state.settings.config.stargate.enabled;

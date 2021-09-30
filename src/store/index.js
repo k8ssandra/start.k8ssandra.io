@@ -185,7 +185,6 @@ export default new Vuex.Store({
     },
     updateTotalStargateSize(state) {
       let numOfRacks = state.settings.config.cassandra.datacenters[0].racks.length;
-      console.log(numOfRacks)
       let SizePer = state.settings.k8_config.stargate_instance_per;
       let totalSize = numOfRacks * parseInt(SizePer);
       state.settings.config.stargate.replicas = totalSize;
