@@ -43,13 +43,6 @@
                 thumb-label="always"
                 track-color="#b2becd"
             >
-              <template v-slot:prepend>
-                1 GB
-              </template>
-
-              <template v-slot:append>
-                100 GB
-              </template>
             </v-slider>
         </div>
         <div>

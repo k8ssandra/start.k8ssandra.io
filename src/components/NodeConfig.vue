@@ -13,19 +13,15 @@
         <div>
             <label>RAM</label><br />
             <v-slider
-                min="2"
-                max="100"
+                min="1"
+                max="10"
                 v-model.number="ram_number"
                 thumb-label="always"
                 track-color="#b2becd"
             >
-              <template v-slot:prepend>
-                2 GB
-              </template>
-
-              <template v-slot:append>
-                100 GB
-              </template>
+          <template v-slot:thumb-label="{ value }">
+            {{ Math.pow(2, value) }}
+          </template>
             </v-slider>
         </div>
         <div>
@@ -118,6 +114,7 @@ export default {
   },
   data() {
     return {
+      ramLabel: [ 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 ],
       storage_classes: [
         "standard",
         "managed-premium",
@@ -130,9 +127,7 @@ export default {
   },
   computed: {
     max_heap() {
-      let heapMax = Math.floor(
-        this.$store.state.settings.k8_config.ram_cores / 2
-      );
+      let heapMax = (Math.pow(2,this.$store.state.settings.k8_config.ram_cores)) / 2;
       return heapMax;
     },
     cpu_number: {

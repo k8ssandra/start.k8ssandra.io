@@ -150,7 +150,8 @@ export default new Vuex.Store({
     },
     updateRamCoresAmount(state, txt) {
       state.settings.k8_config.ram_cores = txt;
-      let displayedRamAmount = state.settings.k8_config.ram_cores + "Gi";
+      let num = (Math.pow(2, state.settings.k8_config.ram_cores));
+      let displayedRamAmount = num + "Gi"
       state.settings.config.cassandra.resources.requests.memory = displayedRamAmount;
       state.settings.config.cassandra.resources.limits.memory = displayedRamAmount;
     },
