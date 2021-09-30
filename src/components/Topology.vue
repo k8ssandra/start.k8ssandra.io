@@ -32,7 +32,7 @@
         <Racks />
         <div>
             <label>
-              Cluster Size (per-rack)
+              Nodes Per Rack
               <v-tooltip right>
                 <template v-slot:activator="{ on, attrs }">
                   <v-icon
@@ -62,7 +62,7 @@
             </v-slider>
         </div>
         <div>
-          <span>Total Cluster Size: {{ cluster_size_total }}</span>
+          <span>{{ cluster_size_total }} Nodes Total</span>
         </div>
     </div>
 </template>
