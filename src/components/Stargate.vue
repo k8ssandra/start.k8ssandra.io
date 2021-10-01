@@ -31,7 +31,7 @@
     </div>
     <div v-if="enabled" class="settings">
         <div>
-          <label>Instances Per Rack</label><br />
+          <label>Instances Per Rack</label>
           <v-slider
               min="0"
               max="10"
@@ -48,11 +48,9 @@
             </template>
           </v-slider>
         </div>
-        <div> 
-          <span>Total Instances {{totalInstances}}</span>
-        </div>
+        <span>Total Instances {{totalInstances}}</span>
         <div>
-          <label>CPU</label><br />
+          <label>CPU</label>
 <!--          <input v-model.number="cpu_number" type="number">-->
           <v-slider
               min="0"
@@ -71,8 +69,8 @@
           </v-slider>
         </div>
 
-                <div>
-            <label>Heap in MB(max amt: {{max_heap}})</label><br />
+        <div>
+            <label>Heap in MB(max amt: {{max_heap}})</label>
             <v-slider
                 min="1"
                 :max='max_heap'
@@ -86,7 +84,7 @@
         </div>
 
         <!-- <div>
-          <label>Heap in MB</label><br />
+          <label>Heap in MB</label>
         <input v-model.number="heap_mb" type="number">
           <v-text-field
               v-model.number="heap_mb"
