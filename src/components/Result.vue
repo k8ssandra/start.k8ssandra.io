@@ -157,6 +157,13 @@ export default {
   margin-left: 30px;
   flex-grow: 1;
   z-index: 2;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+    margin-bottom: 20px;
+    overflow: hidden;
+    z-index: 1;
+  }
   
   > div {
     background: var(--color-brand-dark-blue);
@@ -172,12 +179,21 @@ export default {
   @media screen and (min-width: 1056px) {
     width: 626px;
   }
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    position: relative;
+  }
 }
 
 .result__heading {
   padding: 20px 30px;
   border-bottom: 1px solid var(--color-brand-light-blue);
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .result {
@@ -201,6 +217,11 @@ export default {
     font-family: monospace;
     resize: none;
     outline: none;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+      margin: 20px;
+    }
   }
 
   ::-webkit-scrollbar {
@@ -226,9 +247,18 @@ h3 {
   padding: 30px;
   border-top: 1px solid var(--color-brand-light-blue);
 
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+    border: 0;
+  }
+
   > div {
     display: flex;
     margin-top: 5px;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
 
     input {
       height: 45px;
@@ -253,6 +283,10 @@ button {
   line-height: 28px;
   font-weight: 700;
   text-decoration: none;
+
+  @media screen and (max-width: 768px) {
+    margin: 5px 0 0;
+  }
 }
 
 .export .button {
@@ -278,6 +312,10 @@ button {
       line-height: 1;
       text-transform: uppercase;
       text-decoration: none;
+
+      @media screen and (max-width: 768px) {
+        margin-left: 10px;
+      }
     }
 
     .v-icon {

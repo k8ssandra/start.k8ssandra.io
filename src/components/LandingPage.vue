@@ -63,11 +63,21 @@ export default {
   background-color: var(--color-brand-dark-blue);
   color: var(--color-white);
   z-index: 10;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
 
   p {
     margin-top: 10px;
     font-size: 22px;
-    line-height: 36px;
+    line-height: 1.6;
+
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+    }
   }
 
   span {
@@ -83,10 +93,39 @@ export default {
   display: flex;
   justify-content: space-between;
 
+  @media screen and (max-width: 1220px) {
+    flex-direction: column;
+  }
+
+
   > div {
     max-width: 40%;
     margin-top: 100px;
-    margin-left: 14%;
+    margin-left: 10%;
+    padding-right: 25px;
+    padding-bottom: 25px;
+
+    @media screen and (max-width: 1220px) {
+      max-width: 100%;
+      margin-top: -70px;
+      margin-left: 25px;
+    }
+  }
+
+  figure {
+    width: 50%;
+    max-width: 770px;
+
+    @media screen and (max-width: 1220px) {
+      width: 65%;
+      align-self: flex-end;
+      order: -1;
+    }
+
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
   }
 }
 .templates {
@@ -107,4 +146,11 @@ export default {
     background-position-x: 68px;
   }
 }
+</style>
+
+<style lang="scss">
+  .landing-page {
+
+  }
+
 </style>

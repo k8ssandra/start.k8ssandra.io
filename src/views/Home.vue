@@ -39,6 +39,10 @@ export default {
 
 .home {
   margin-top:280px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 240px;
+  }
 }
 .container {
   display: flex;
@@ -46,6 +50,17 @@ export default {
   margin: 0 auto;
   padding:0;
   justify-content: flex-start;
+
+  @media screen and (max-width: 1220px) {
+    max-width: 900px;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px;
+  }
 }
 
 h1 {

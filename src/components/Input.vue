@@ -66,12 +66,22 @@ export default {
 <style lang="scss" scoped>
 .input {
   max-width: 400px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
   h2 {
     padding: 20px 30px;
     background: var(--color-brand-dark-blue);
     color: var(--color-white);
     border-radius: 10px 10px 0 0;
     margin: 0;
+
+    @media screen and (max-width: 768px) {
+      padding: 20px;
+    }
   }
 
   h3 {
@@ -263,6 +273,10 @@ export default {
 
       h3 {
         padding-right: 60px;
+
+        @media screen and (max-width: 768px) {
+          padding-right: 5px;
+        }
       }
 
       > div {
@@ -305,6 +319,10 @@ span {
     width:100%;
     margin-bottom:20px;
     padding: 30px;
+
+    @media screen and (max-width: 768px) {
+      padding: 20px;
+    }
   }
 }
 </style>

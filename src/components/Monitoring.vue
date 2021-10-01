@@ -129,8 +129,17 @@ export default {
     font-size: 14px;
     font-weight: 700;
 
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .v-input {
       margin-left: auto;
+
+      @media screen and (max-width: 768px) {
+        margin-top: 10px;
+        margin-left: 0;
+      }
     }
 
     label {
@@ -138,6 +147,10 @@ export default {
       padding-right: 20px;
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: 768px) {
+        padding-right: 0;
+      }
     }
   }
 </style>
