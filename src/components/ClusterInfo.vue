@@ -75,7 +75,6 @@ export default {
         },
         lastLetter: (value) => {
           let charLast = value.charAt(value.length - 1);
-          console.log("last" + charLast);
           const letterCheck = /^[a-zA-Z0-9]*$/;
           return (
             letterCheck.test(charLast) ||

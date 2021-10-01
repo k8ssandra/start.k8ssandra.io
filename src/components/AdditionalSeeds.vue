@@ -30,8 +30,7 @@ export default {
   computed: {
     seeds: {
       get() {
-        return this.$store.state.settings.config.cassandra.cassandraLibDirVolume
-          .additionalSeeds;
+        return this.$store.state.settings.config.cassandra.cassandraLibDirVolume.additionalSeeds;
       },
     },
   },
