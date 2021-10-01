@@ -16,6 +16,12 @@
 <script>
 export default {
   name: "app",
+  metaInfo: {
+      title: 'K8ssandra Config Builder',
+      htmlAttrs: {
+        lang: 'en',
+      }
+    }
 };
 </script>
 
