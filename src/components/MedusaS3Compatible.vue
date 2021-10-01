@@ -78,11 +78,6 @@ export default {
 
 <style lang="scss" scoped>
 .provider__secure {
-  display: flex;
-  align-items: center;
-  padding: 25px 20px;
-  border: 1px solid var(--color-grey-medium);
-
   .v-input--selection-controls {
     margin-left: auto;
     padding: 0;

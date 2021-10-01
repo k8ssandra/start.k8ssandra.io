@@ -217,6 +217,20 @@ input[type="submit"],
   }
 }
 
+.auth,
+.provider__secure {
+  display: flex;
+  align-items: center;
+  background: var(--color-grey-light);
+  padding: 25px 20px;
+  font-size: 14px;
+  font-weight: 700;
+
+  .v-input {
+    margin-left: auto;
+  }
+}
+
 // App.
 #app {
   font-family: var(--ff-usual);
