@@ -31,9 +31,10 @@
       </div>
     </div>
     <div v-if="enabled" class="settings">
+      <div class="separator"></div>
         <h4>Backend</h4>
         <div>
-          <label>Provider</label><br />
+          <label>Provider</label>
 <!--          <select v-model="provider">-->
 <!--            <option v-for="(item, key) in providers" :key="key" >-->
 <!--                {{ item }}-->
@@ -61,7 +62,7 @@
                  <MedusaLocal />
               </div> -->
               <div>
-                <label>Bucket Name</label><br />
+                <label>Bucket Name</label>
                 <v-text-field
                     v-model="bucketName"
                     hint="Bucket must already exist. K8ssandra will not provision this for you."
@@ -82,7 +83,7 @@
                       </template>
                       <span>{{ details[provider]['tooltip'] }} </span>
                     </v-tooltip>
-                  </label><br />
+                  </label>
                 <v-text-field
                     v-model="storage_secret"
                     placeholder="must follow k8s naming rules"
@@ -184,5 +185,9 @@ export default {
         margin-top: 20px;
       }
     }
+  }
+
+  .settings {
+    margin-top: 40px;
   }
 </style>

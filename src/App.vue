@@ -209,9 +209,9 @@ input[type="submit"],
 
   h3 &,
   h4 & {
-    font-size: 17px;
-    width: 30px;
-    height: 30px;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
     background: var(--color-brand-yellow);
     border-radius: 50%;
   }
@@ -239,6 +239,10 @@ input[type="submit"],
       color: var(--color-brand-black);
     }
   }
+
+  .v-menu__content {
+    border-radius: 0;
+  }
 }
 
 #header {
@@ -246,7 +250,7 @@ input[type="submit"],
   background-color: var(--color-brand-light-blue);
   width:100%;
   text-align: center;
-  padding: 120px 15px 46px;
+  padding: 74px 15px 46px;
   z-index: 2;
 
   figure {

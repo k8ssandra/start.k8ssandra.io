@@ -1,14 +1,14 @@
 <template>
     <div class="provider__details">
         <div>
-            <label>Host</label><br />
+            <label>Host</label>
             <v-text-field
                 v-model="host"
                 placeholder="Host Name"
             ></v-text-field>
         </div>
         <div>
-            <label>Port</label><br />
+            <label>Port</label>
             <v-text-field
                 v-model="port"
                 :rules="[rules.number]"
@@ -16,7 +16,7 @@
             ></v-text-field>
         </div>
         <div class="provider__secure">
-            <label>Secure</label><br />
+            <label>Secure</label>
             <v-switch
                 v-model="secure"
                 inset

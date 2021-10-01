@@ -2,14 +2,14 @@
     <div class="provider__details">
         <h4>Medusa Local</h4>
         <div>
-            <label>Storage Class</label><br />
+            <label>Storage Class</label>
             <v-text-field
                 v-model="storage_class"
                 placeholder="Storage Class"
             ></v-text-field>
         </div>
         <div>
-            <label>Size</label><br />
+            <label>Size</label>
 <!--            <input v-model.number="size" type="number">-->
             <v-slider
                 hint="X Clusters total"

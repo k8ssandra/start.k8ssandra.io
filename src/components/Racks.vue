@@ -8,12 +8,12 @@
                       v-bind="attrs"
                       v-on="on"
                   >
-                    fa-question-circle
+                    far fa-question-circle
                   </v-icon>
                 </template>
                 <span>Racks usually align with availability zones in cloud deployments or redundancy boundaries on prem.</span>
               </v-tooltip>
-            </label><br />
+            </label>
             <ul class="racklist__list">
               <li class="racklist__item" v-for="(rack, num) in racks" :key="num">
                 <div class="racklist__primary">
@@ -40,7 +40,7 @@
                                   v-bind="attrs"
                                   v-on="on"
                               >
-                                fa-question-circle
+                                far fa-question-circle
                               </v-icon>
                             </template>
                             <span>Labels specified are matched to Kubernetes workers during scheduling to control where pods are placed within the cluster.</span>
@@ -105,7 +105,7 @@
             </ul>
               <form v-on:submit.prevent="addRack" class="rackadd">
                 <h5>Add Rack</h5>
-                <label>Rack Name</label><br />
+                <label>Rack Name</label>
 <!--                <input v-model="rackAddValue" placeholder="Name" minlength=3 type="text">-->
                 <v-text-field
                     v-model="rackAddValue"
@@ -197,6 +197,10 @@ export default {
       background: transparent;
       border: 1px solid var(--color-brand-black);
     }
+  }
+
+  h5 {
+    margin-bottom: 10px;
   }
 
   h5,
@@ -307,8 +311,12 @@ ul.racklist__list {
     }
 
     .v-input {
-      margin: 0;
+      margin: 0 0 14px;
       padding: 0;
+
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
     }
 
     .v-input__slot {
@@ -360,5 +368,9 @@ ul.racklist__list {
   font-size: 12px;
   line-height: 24px;
   text-decoration: underline;
+}
+
+.racklist__container + div {
+  margin-top: 30px;
 }
 </style>

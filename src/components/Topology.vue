@@ -15,7 +15,7 @@
          </v-tooltip>
        </h4>
         <div>
-            <label>DataCenters*</label><br />
+            <label>DataCenters*</label>
             <v-text-field
                 v-model="datacenter_name"
             ></v-text-field>
@@ -30,12 +30,12 @@
                       v-bind="attrs"
                       v-on="on"
                   >
-                    fa-question-circle
+                    far fa-question-circle
                   </v-icon>
                 </template>
                 <span>K8ssandra requires each rack contain the same number of nodes to prevent data imbalance.</span>
               </v-tooltip>
-            </label><br />
+            </label>
             <v-slider
                 min="1"
                 max="100"
@@ -97,7 +97,7 @@ export default {
     margin-top: 20px;
 
     &:last-of-type {
-      margin: 0;
+      margin-top: 12px;
     }
   }
 

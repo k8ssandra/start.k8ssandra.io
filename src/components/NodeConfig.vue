@@ -2,7 +2,7 @@
     <div class="node_config">
         <h4>Node Config</h4>
         <div>
-            <label>CPU Cores*</label><br />
+            <label>CPU Cores*</label>
             <v-text-field
                 v-model.number="cpu_number"
                 suffix="milliCPU"
@@ -11,7 +11,7 @@
             ></v-text-field>
         </div>
         <div>
-            <label>RAM</label><br />
+            <label>RAM</label>
             <v-slider
                 min="1"
                 max="10"
@@ -33,12 +33,12 @@
                             v-bind="attrs"
                             v-on="on"
                         >
-                            fa-question-circle
+                            far fa-question-circle
                         </v-icon>
                     </template>
                     <span>K8ssandra recommends a storage class with the VolumeBindingMode set to WaitForFirstConsumer. If you need to check this consider running `kubectl get storageclasses` against your cluster.</span>
                 </v-tooltip>
-            </label><br />
+            </label>
             <v-combobox
                 v-model="storage_class"
                 :items="storage_classes"
@@ -56,12 +56,12 @@
                             v-bind="attrs"
                             v-on="on"
                         >
-                            fa-question-circle
+                            far fa-question-circle
                         </v-icon>
                     </template>
                     <span>Generally you want to target 1-2 TB of active data per node with additional capacity for overhead purposes.</span>
                 </v-tooltip>
-            </label><br />
+            </label>
             <v-text-field
                 v-model.number="storage_number"
                 suffix="GB"
@@ -80,12 +80,12 @@
                             v-bind="attrs"
                             v-on="on"
                         >
-                            fa-question-circle
+                            far fa-question-circle
                         </v-icon>
                     </template>
                     <span>Heap is a portion of the total ram dedicated to each node. There are a number of off-heap objects and cache which may lead to instability if this field is set too high. Additionally more heap tends to lead to longer garbage collections.</span>
                 </v-tooltip>
-            </label><br />
+            </label>
             <v-slider
                 min="1"
                 :max='max_heap'
@@ -176,7 +176,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .node_config > div {
-    margin-top: 20px;
+  .node_config > div:not(.separator) {
+    margin-top: 30px;
+
+      &:first-of-type {
+          margin-top: 20px;
+      }
   }
 </style>

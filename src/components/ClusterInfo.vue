@@ -2,7 +2,7 @@
   <div class="clusterInfo">
     <h4>Cluster Info</h4>
     <div>
-      <label>Name*</label><br />
+      <label>Name*</label>
       <v-text-field
           v-model="name"
           :rules="[rules.required, rules.name, rules.firstLetter, rules.lastLetter]"
@@ -11,7 +11,7 @@
       ></v-text-field>
     </div>
     <div>
-      <label>Description</label><br />
+      <label>Description</label>
       <v-textarea
           v-model="description"
           placeholder="Instance Description"
@@ -21,12 +21,7 @@
       ></v-textarea>
     </div>
     <div>
-      <label>Version*</label><br />
-<!--        <select v-model="version">-->
-<!--          <option v-for="(item, key) in cassandra_versions" :key="key" >-->
-<!--            {{ item }}-->
-<!--          </option>-->
-<!--        </select>-->
+      <label>Version*</label>
       <v-select
           v-model="version"
           :items="cassandra_versions"
@@ -133,11 +128,6 @@ export default {
 }
 
 .clusterInfo::v-deep {
-  .v-text-field .v-counter {
-    order: -1;
-    margin: 0;
-  }
-
   .v-counter::after {
     content: " Characters";
   }
@@ -162,7 +152,7 @@ export default {
   display: flex;
   align-items: center;
   background: var(--color-grey-light);
-  padding: 20px;
+  padding: 25px 20px;
   font-size: 14px;
   font-weight: 700;
 
@@ -183,7 +173,11 @@ export default {
     margin: 0;
 
     > .v-input__append-outer {
-      margin: 0;
+      margin: 0 0 0 6px;
+    }
+
+    > .v-input__prepend-outer {
+      margin: 0 14px 0 0;
     }
   }
 

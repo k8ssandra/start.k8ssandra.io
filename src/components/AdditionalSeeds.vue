@@ -1,6 +1,6 @@
 <template>
     <div class="additionalSeeds">
-        <h5>Additional Seeds</h5>
+        <label>Additional Seeds</label>
             <ul class="seeds_list">
               <li class="seeds__seed" v-for="(seed, num) in seeds" :key="num">
                   <div class="seed__primary">
