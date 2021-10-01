@@ -119,11 +119,30 @@ export default {
       padding-right: 14px;
     }
 
+    .v-text-field .v-counter {
+      color: var(--color-grey-dark) !important;
+    }
+
     .v-text-field .v-counter,
     .v-messages__message {
       color: var(--color-grey-dark);
       order: -1;
       margin: 8px 0 0;
+    }
+
+    .v-text-field.v-input--has-state.error--text {
+      .v-input__control > .v-text-field__details > .v-counter {
+        color: var(--color-grey-dark);
+      }
+
+      .v-messages__message {
+        color: var(--color-brand-red);
+        font-style: italic;
+      }
+
+      .v-input__slot {
+        border-color: rgba(249, 48, 93, .6);
+      }
     }
 
     select {
@@ -232,6 +251,10 @@ export default {
       label {
         margin-top: 0;
       }
+    }
+
+    .provider__secure label {
+      margin-bottom: 0;
     }
 
     .module__heading {

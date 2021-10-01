@@ -370,7 +370,7 @@ ul.racklist__list {
   text-decoration: underline;
 }
 
-.racklist__container + div {
-  margin-top: 30px;
+.racklist__container > .rackadd input[type=submit] {
+  margin-top: 10px;
 }
 </style>

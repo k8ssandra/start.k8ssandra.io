@@ -93,13 +93,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .topology > div {
-    margin-top: 20px;
+  .topology {
+    > div {
+      margin-top: 20px;
 
-    &:last-of-type {
-      margin-top: 12px;
+      &:last-of-type {
+        margin-top: 12px;
+      }
+    }
+
+    &::v-deep {
+      .racklist__container + div {
+        margin-top: 30px;
+      }
     }
   }
+
 
   span {
     font-size: 12px;
