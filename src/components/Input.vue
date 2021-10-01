@@ -89,8 +89,26 @@ export default {
       max-height: none;
     }
 
-    .v-text-field:not(.v-textarea) .v-input__slot {
-      border: 2px solid var(--color-grey-medium);
+    .v-text-field {
+      margin-top: 0;
+      padding-top: 0;
+
+      &:not(.v-textarea) .v-input__slot {
+        border: 2px solid var(--color-grey-medium);
+      }
+    }
+
+    .v-input__slot {
+      margin-bottom: 0;
+    }
+
+    .v-text-field__details {
+      flex-direction: column;
+      min-height: initial;
+    }
+
+    .v-text-field__suffix {
+      color: var(--color-grey-dark);
     }
 
     .rackadd .v-text-field:not(.v-textarea) .v-input__slot {
@@ -99,6 +117,13 @@ export default {
 
     .v-text-field__suffix {
       padding-right: 14px;
+    }
+
+    .v-text-field .v-counter,
+    .v-messages__message {
+      color: var(--color-grey-dark);
+      order: -1;
+      margin: 8px 0 0;
     }
 
     select {
@@ -123,12 +148,23 @@ export default {
       }
     }
 
+    .v-autocomplete__content.v-menu__content .v-select-list {
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .v-slider--horizontal {
+      margin: 0;
+    }
+
     h4 {
       margin-top: 30px;
     }
 
     label {
+      display: flex;
       margin-top: 20px;
+      margin-bottom: 10px;
       font-size: 14px;
       line-height: 1;
       font-weight: 700;
@@ -143,6 +179,11 @@ export default {
 
     .module__heading {
       display: flex;
+      align-items: center;
+
+      h3 {
+        padding-right: 60px;
+      }
 
       > div {
         margin-top: 0;
@@ -150,9 +191,20 @@ export default {
       }
     }
 
+    .module__pretitle {
+      font-size: 10px;
+      text-transform: uppercase;
+      text-decoration: underline;
+      letter-spacing: 1.43px;
+    }
+
     .v-text-field > .v-input__control > .v-input__slot::before,
     .v-text-field > .v-input__control > .v-input__slot::after {
       content: none;
+    }
+
+    .v-messages {
+      min-height: initial;
     }
   }
 }

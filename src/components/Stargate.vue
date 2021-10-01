@@ -20,6 +20,12 @@
             v-model="enabled"
             inset
         >
+          <template v-slot:prepend>
+            False
+          </template>
+          <template v-slot:append>
+            True
+          </template>
         </v-switch>
       </div>
     </div>
@@ -43,8 +49,8 @@
           </v-slider>
         </div>
         <div> 
-          Total Instances {{totalInstances}}
-          </div>
+          <span>Total Instances {{totalInstances}}</span>
+        </div>
         <div>
           <label>CPU</label><br />
 <!--          <input v-model.number="cpu_number" type="number">-->
@@ -146,5 +152,11 @@ export default {
 <style lang="scss" scoped>
   .settings > div {
     margin-top: 20px;
+  }
+
+  span {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6F7A87;
   }
 </style>

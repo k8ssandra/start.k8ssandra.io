@@ -1,6 +1,6 @@
 <template>
         <div>
-          <label>Region</label><br />
+          <label>Region</label>
           <v-select
               v-model="region"
               :items="regions"
