@@ -113,6 +113,11 @@ export default new Vuex.Store({
     addRacks(state, txt) {
       state.settings.config.cassandra.datacenters[0].racks = txt;
     },
+    updateRackName(state, values) {
+      let rack = values.num;
+      let name = values.rackName;
+      state.settings.config.cassandra.datacenters[0].racks[rack].name = name;
+    },
     removeRack(state, num) {
       state.settings.config.cassandra.datacenters[0].racks.splice(num, 1);
     },

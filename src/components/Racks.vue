@@ -18,7 +18,20 @@
               <li class="racklist__item" v-for="(rack, num) in racks" :key="num">
                 <div class="racklist__primary">
                   <h4 class="racklist__racktitle">{{rack.name}}</h4>
-                  <button class="racklist__remove" @click.prevent="removeRack(num)">Remove</button>
+                  <div class="racklist__title-container" v-show="rackEdit[num]">
+                  <form v-on:submit.prevent="sumbitName(num)"  class="racklist__title-form">
+                  <input type='text' v-model="rackNewName">
+                  </form>
+                  </div>
+                  <div class="racklist__btns">
+                  <button class="racklist__title-edit" @click.prevent="rackTitleEdit(num)">
+                  <v-icon>
+                    fas fa-pencil-alt
+                  </v-icon>
+                </button>
+                  <button class="racklist__remove" @click.prevent="removeRack(num)"><v-icon>fa fa-times-circle</v-icon>
+                  </button>
+                  </div>
                 </div>
 
                 <v-expansion-panels accordion>
@@ -30,8 +43,6 @@
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
                       <form v-on:submit.prevent="addNode(num)" class="rackadd">
-                        <!-- <input v-model="nodeLabelValue[num]" placeholder="Label" minlength=3 type="text"> -->
-
                         <label>
                           Label
                           <v-tooltip right>
@@ -65,11 +76,6 @@
                     </v-expansion-panel-content>
                   </v-expansion-panel>
                 </v-expansion-panels>
-
-<!--                <div class="racklist__nodeadd" v-if="hideNodes[num]">-->
-<!--                  <button @click.prevent="showNodes(num)">Add Nodes</button>-->
-<!--                </div>-->
-<!--                <div v-else class="racklist__nodes">-->
                 <div class="racklist__nodes">
                     <ul class="racklist__nodelist">
                       <li v-for="(node, key) in rack.affinityLabels" class="racklist_node" :key="key" >
@@ -85,20 +91,6 @@
                         </button>
                       </li>
                     </ul>
-<!--                    <form v-on:submit.prevent="addNode(num)" class="rackadd">-->
-<!--                      &lt;!&ndash; <input v-model="nodeLabelValue[num]" placeholder="Label" minlength=3 type="text"> &ndash;&gt;-->
-<!--                      -->
-<!--                      <v-combobox-->
-<!--                      v-model="nodeLabelValue[num]"-->
-<!--                      :items="label_items"-->
-<!--                      dense-->
-<!--                      placeholder="Label" minlength=3 type="text"-->
-<!--                      ></v-combobox>-->
-<!--                      <br />-->
-
-<!--                      <input v-model="nodeValueValue[num]" placeholder="value" minlength=3 type="text">-->
-<!--                      <input type="submit"  value="add">-->
-<!--                    </form>                -->
                 </div>
 
               </li>
@@ -106,7 +98,6 @@
               <form v-on:submit.prevent="addRack" class="rackadd">
                 <h5>Add Rack</h5>
                 <label>Rack Name</label>
-<!--                <input v-model="rackAddValue" placeholder="Name" minlength=3 type="text">-->
                 <v-text-field
                     v-model="rackAddValue"
                     placeholder="Name"
@@ -124,7 +115,8 @@ export default {
   data() {
     return {
       rackAddValue: "",
-      hideNodes: [],
+      rackEdit: [],
+      rackNewName: "",
       nodeLabelValue: [],
       nodeValueValue: [],
     };
@@ -132,24 +124,24 @@ export default {
   computed: {
     racks: {
       get() {
-        return this.$store.state.settings.config.cassandra.datacenters[0].racks
+        return this.$store.state.settings.config.cassandra.datacenters[0].racks;
       },
     },
     label_items: {
       get() {
-        return this.$store.state.settings.k8_config.label_items
-      }
+        return this.$store.state.settings.k8_config.label_items;
+      },
     },
   },
   methods: {
     addRack() {
       let rackName = this.rackAddValue;
       if (rackName.length >= 3) {
+        this.rackEdit.push(false);
         this.$store.commit("addRack", rackName);
         this.$store.commit("updateTotalClusterSize");
         this.$store.commit("updateTotalStargateSize");
         this.rackAddValue = "";
-        this.hideNodes.push(true);
         this.nodeLabelValue.push("");
         this.nodeValueValue.push("");
       } else {
@@ -162,10 +154,26 @@ export default {
       this.$store.commit("updateTotalStargateSize");
       this.nodeLabelValue.splice(num, 1);
       this.nodeValueValue.splice(num, 1);
+      this.rackEdit.splice(num, 1);
     },
-    showNodes(num) {
-      this.hideNodes[num] = false;
+    sumbitName(num) {
+      let rackName = this.rackNewName;
+      this.$store.commit("updateRackName", { num, rackName });
+      this.rackEdit[num] = false;
+      this.rackNewName = "";
       this.$forceUpdate();
+    },
+    rackTitleEdit(num) {
+      if (this.rackEdit[num] === true) {
+        this.sumbitName(num);
+      }
+      else {
+      this.rackEdit = this.rackEdit.map(() => {
+        return false;
+      });
+      this.rackEdit[num] = true;
+      this.$forceUpdate();
+      }
     },
     addNode(num) {
       let nodeLabel = this.nodeLabelValue[num];
@@ -225,7 +233,7 @@ ul.racklist__list {
     /*padding: 20px;*/
     .racklist__primary {
       display: flex;
-      flex-direction: row nowrap;
+      position: relative;
       width: 100%;
       justify-content: space-between;
       background: var(--color-brand-black);
@@ -234,10 +242,38 @@ ul.racklist__list {
 
       .racklist__racktitle {
         margin: 0;
+        flex-grow: 1;
       }
       & > button {
         margin-left: 5px;
-        height: 25px;
+        height: 50px;
+      }
+      .racklist__title-container {
+        background-color: var(--color-brand-black);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+
+      input[type="text"] {
+        background: var(--color-brand-black);
+        color: var(--color-white);
+        font-weight: bold;
+        border-width: 0;
+        padding: 0;
+        outline: var(--color-brand-black) !important;
+        border-bottom: 2px solid var(--color-white);
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: -1.1px;
+        font-family: var(--ff-museoSans);
+        font-weight: 700;
+      }
+      .racklist__btns > button > .v-icon {
+        color: var(--color-white);
+        font-size: 16px;
+        line-height: 1;
+        margin-left: 10px;
       }
     }
   }
@@ -367,7 +403,6 @@ ul.racklist__list {
 .racklist__remove {
   font-size: 12px;
   line-height: 24px;
-  text-decoration: underline;
 }
 
 .racklist__container + div {
