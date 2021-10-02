@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import helpers from './helpers'
 import vuetify from './plugins/vuetify'
+import VueMeta from 'vue-meta'
 
 Vue.config.productionTip = false
 
@@ -12,5 +13,6 @@ new Vue({
   store,
   helpers,
   vuetify,
+  VueMeta,
   render: h => h(App)
 }).$mount('#app')

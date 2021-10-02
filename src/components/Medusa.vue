@@ -51,6 +51,7 @@
           <div class="separator"></div>
           <div class="provider__details">
             <h4>{{ details[provider]['title'] }} Configuration</h4>
+            <a class="provider__docs" :href="details[provider]['docs']" target="_blank">View Documentation<v-icon>fa-external-link-alt</v-icon></a>
 
               <div v-if="provider === 's3' || provider === 's3_compatible'" >
                 <MedusaS3Region />
@@ -65,6 +66,7 @@
                 <label>Bucket Name</label>
                 <v-text-field
                     v-model="bucketName"
+                    placeholder="Name"
                     hint="Bucket must already exist. K8ssandra will not provision this for you."
                     persistent-hint
                 ></v-text-field>
@@ -86,7 +88,7 @@
                   </label>
                 <v-text-field
                     v-model="storage_secret"
-                    placeholder="must follow k8s naming rules"
+                    placeholder="Secret"
                 ></v-text-field>
               </div>
             </div>
@@ -116,24 +118,32 @@ export default {
         "azure_blobs",
         // "local",
       ],
-        details: {
-          "s3": {
-            "title": "S3",
-            "tooltip": "Kubernetes secret containing AWS CLI config file in the `medusa_s3_credentials` key. Note if you are using IAM roles attached to EC2 instances this secret must exist, but be empty. See the Medusa docs for the Medusa docs for more information.",
-          },
-          "s3_compatible": {
-            "title": "S3 Compatible",
-            "tooltip": "At this time when using IAM roles attached to EC2 secrets you MUST specify an empty secret here.",
-          },
-          "google_storage": {
-            "title": "GCS",
-            "tooltip": "Kubernetes secret name containing a service account JSON file under the key `medusa_gcp_key.json`",
-          },
-          "azure_blobs": {
-            "title": "Azure Blob",
-            "tooltip": "Kubernetes secret containing Azure connection information in the key `medusa_azure_credentials.json`",
-          },
+      details: {
+        s3: {
+          title: "S3",
+          tooltip:
+            "Kubernetes secret containing AWS CLI config file in the `medusa_s3_credentials` key. Note if you are using IAM roles attached to EC2 instances this secret must exist, but be empty. See the Medusa docs for the Medusa docs for more information.",
+          docs: "https://github.com/thelastpickle/cassandra-medusa/blob/master/docs/aws_s3_setup.md",
         },
+        s3_compatible: {
+          title: "S3 Compatible",
+          tooltip:
+            "At this time when using IAM roles attached to EC2 secrets you MUST specify an empty secret here.",
+          docs: "https://github.com/thelastpickle/cassandra-medusa/blob/master/docs/minio_setup.md",
+        },
+        google_storage: {
+          title: "GCS",
+          tooltip:
+            "Kubernetes secret name containing a service account JSON file under the key `medusa_gcp_key.json`",
+          docs: "https://github.com/thelastpickle/cassandra-medusa/blob/master/docs/gcs_setup.md",
+        },
+        azure_blobs: {
+          title: "Azure Blob",
+          tooltip:
+            "Kubernetes secret containing Azure connection information in the key `medusa_azure_credentials.json`",
+          docs: "https://github.com/thelastpickle/cassandra-medusa/blob/master/docs/azure_blobs_setup.md",
+        },
+      },
     };
   },
   computed: {
@@ -174,20 +184,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .medusa {
+.medusa {
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  &::v-deep {
+    .provider__details > div,
+    .settings > div {
+      margin-top: 20px;
+    }
+  }
+  .provider__details  {
     h4 {
-      margin-bottom: 20px;
+      margin-bottom: 0px;
     }
-
-    &::v-deep {
-      .provider__details > div,
-      .settings > div {
-        margin-top: 20px;
-      }
-    }
+  a.provider__docs, a.provider__docs .theme--light.v-icon {
+    color: var(--color-brand-light-blue);
+    font-size: 12px;
+    line-height: 1;
   }
-
-  .settings {
-    margin-top: 40px;
+  .theme--light.v-icon {
+    margin-left: 5px;
+    text-decoration: none;
   }
+}
+}
+
+.settings {
+  margin-top: 40px;
+}
 </style>
