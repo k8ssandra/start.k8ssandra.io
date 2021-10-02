@@ -51,7 +51,6 @@
         <span>Total Instances {{totalInstances}}</span>
         <div>
           <label>CPU</label>
-<!--          <input v-model.number="cpu_number" type="number">-->
           <v-slider
               min="0"
               max="4000"
@@ -82,17 +81,6 @@
             >
             </v-slider>
         </div>
-
-        <!-- <div>
-          <label>Heap in MB</label>
-        <input v-model.number="heap_mb" type="number">
-          <v-text-field
-              v-model.number="heap_mb"
-              suffix="GB"
-              hint="25% of Total RAM"
-              persistent-hint
-          ></v-text-field>
-        </div> -->
     </div>
   </div>
 </template>

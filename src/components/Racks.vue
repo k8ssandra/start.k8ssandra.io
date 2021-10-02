@@ -66,7 +66,6 @@
                         ></v-combobox>
 
                         <label>Value</label>
-<!--                        <input v-model="nodeValueValue[num]" minlength=3 type="text">-->
                         <v-text-field
                             v-model="nodeValueValue[num]"
                             minlength=3 type="text"
@@ -258,7 +257,6 @@ ul.racklist__list {
       input[type="text"] {
         background: var(--color-brand-black);
         color: var(--color-white);
-        font-weight: bold;
         border-width: 0;
         padding: 0;
         outline: var(--color-brand-black) !important;
@@ -318,7 +316,6 @@ ul.racklist__list {
     width: 100%;
   }
 
-  /*button:not(.racklist__remove),*/
   .v-expansion-panel-header {
     width: 100%;
     padding: 12px 10px 9px;
@@ -326,8 +323,6 @@ ul.racklist__list {
     line-height: 21px;
     font-family: var(--ff-museoSans);
     font-weight: 700;
-    /*border: 1px dashed var(--color-brand-black);*/
-    /*border-radius: 3px;*/
     background: var(--color-brand-yellow);
     text-align: left;
     min-height: initial !important;
@@ -337,7 +332,6 @@ ul.racklist__list {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    /*flex-flow: row wrap;*/
     background: var(--color-brand-yellow);
 
     label {
@@ -395,10 +389,6 @@ ul.racklist__list {
     }
   }
 }
-
-/*.racklist__nodeadd {*/
-/*  padding: 10px;*/
-/*}*/
 
 .racklist__remove {
   font-size: 12px;

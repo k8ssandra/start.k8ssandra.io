@@ -10,7 +10,6 @@
         </div>
         <div>
             <label>Size</label>
-<!--            <input v-model.number="size" type="number">-->
             <v-slider
                 hint="X Clusters total"
                 min="0"

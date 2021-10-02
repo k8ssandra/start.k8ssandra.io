@@ -35,11 +35,6 @@
         <h4>Backend</h4>
         <div>
           <label>Provider</label>
-<!--          <select v-model="provider">-->
-<!--            <option v-for="(item, key) in providers" :key="key" >-->
-<!--                {{ item }}-->
-<!--            </option>-->
-<!--          </select>-->
           <v-select
               v-model="provider"
               :items="providers"
@@ -59,9 +54,6 @@
               <div v-if="provider === 's3_compatible'">
                 <MedusaS3Compatible />
               </div>
-              <!-- <div v-if="provider === 'local'">
-                 <MedusaLocal />
-              </div> -->
               <div>
                 <label>Bucket Name</label>
                 <v-text-field
