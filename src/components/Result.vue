@@ -12,6 +12,9 @@
                 fa-copy
               </v-icon>
               <span>Copy</span>
+              <transition name="fade">
+                <span class="copy-tooltip" v-show="showConfigCopied">Link Copied!</span>
+              </transition>
             </a>
           </div>
           <ShareUrl />
@@ -38,7 +41,15 @@
       <div class="export">
         <a class="button" href @click.prevent="exportConfig">Download YAML File</a>
       </div>
-      <div><input id="helm__install" v-model="helmInstall"><button @click.prevent="grabHelm">Copy</button></div>
+      <div>
+        <input id="helm__install" v-model="helmInstall">
+        <button @click.prevent="grabHelm">
+          Copy
+          <transition name="fade">
+            <span class="copy-tooltip" v-show="showHelmCopied">Copied!</span>
+          </transition>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -52,6 +63,12 @@ import ShareUrl from "@/components/ShareUrl.vue";
 const slugify = require("slugify");
 
 export default {
+  data () {
+    return {
+      showConfigCopied: false,
+      showHelmCopied: false
+    }
+  },
   components: {
     ShareUrl,
   },
@@ -142,10 +159,14 @@ export default {
     grabHelm() {
       document.getElementById("helm__install").select();
       document.execCommand("copy");
+      this.showHelmCopied = true;
+      setTimeout(() => this.showHelmCopied = false, 2000);
     },
     grabConfig() {
       document.getElementById("config_preview").select();
       document.execCommand("copy");
+      this.showConfigCopied = true;
+      setTimeout(() => this.showConfigCopied = false, 2000);
     },
   },
 };
@@ -301,11 +322,12 @@ button {
   margin-left: auto;
 
   &::v-deep {
-    span {
+    span:not(.copy-tooltip) {
       text-decoration: underline;
     }
 
     a {
+      position: relative;
       margin-left: 20px;
       color: var(--color-white);
       font-size: 10px;

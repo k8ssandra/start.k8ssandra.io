@@ -247,6 +247,34 @@ input[type="submit"],
   }
 }
 
+.copy-tooltip {
+  width: 100px;
+  padding: 8px;
+  position: absolute;
+  bottom: -40px;
+  color: var(--color-white);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: normal;
+  background: var(--color-brand-black);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  text-transform: none;
+  text-align: center;
+
+  .button_ctas & {
+    width: 90px;
+    bottom: -40px;
+  }
+
+  &.fade-enter-active, &.fade-leave-active {
+    transition: opacity .5s;
+  }
+  &.fade-enter, &.fade-leave-to {
+    opacity: 0;
+  }
+}
+
 .auth,
 .provider__secure {
   display: flex;
