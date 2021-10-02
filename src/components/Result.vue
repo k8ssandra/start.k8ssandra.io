@@ -179,7 +179,7 @@ export default {
   flex-grow: 1;
   z-index: 2;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 992px) {
     margin-left: 0;
     margin-bottom: 20px;
     overflow: hidden;
@@ -197,13 +197,21 @@ export default {
   display: flex;
   flex-flow: column nowrap;
   position: fixed;
-  @media screen and (min-width: 1056px) {
+
+  @media screen and (max-width: 1220px) {
+    width: 470px;
+  }
+
+  @media screen and (min-width: 1221px) {
     width: 626px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 992px) {
+    width: 600px;
+    max-width: 100%;
     height: auto;
     position: relative;
+    margin: 0 auto;
   }
 }
 

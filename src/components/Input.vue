@@ -67,8 +67,8 @@ export default {
 .input {
   max-width: 400px;
 
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
+  @media screen and (max-width: 992px) {
+    max-width: 600px;
     margin: 0 auto;
   }
 
