@@ -76,4 +76,13 @@ h1 {
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
+
+.landing-page + .container {
+  max-height: calc(100vh - 280px);
+  overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    max-height: calc(100vh - 240px);
+  }
+}
 </style>
