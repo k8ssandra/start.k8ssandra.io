@@ -243,6 +243,66 @@ export default {
       }
     }
 
+    .v-input--switch {
+      &.v-input {
+        align-items: center;
+      }
+
+      &.v-input--selection-controls {
+        margin-top: 0;
+
+        > .v-input__append-outer {
+          margin: 0 0 0 6px;
+        }
+
+        > .v-input__prepend-outer {
+          margin: 0 14px 0 0;
+        }
+      }
+
+      .v-input__append-outer,
+      .v-input__prepend-outer {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-brand-black);
+      }
+
+      .v-input__slot {
+        margin: 0;
+      }
+
+      .v-input--selection-controls__ripple {
+        display: none;
+      }
+
+      .v-input--switch__track.theme--light {
+        background: var(--color-grey-medium) !important;
+        color: var(--color-grey-medium) !important;
+        opacity: 1;
+
+        &.primary--text {
+          background: var(--color-brand-black) !important;
+        }
+      }
+
+      .v-input--switch__thumb.theme--light {
+        color: var(--color-brand-black) !important;
+
+        &.primary--text {
+          color: var(--color-brand-yellow) !important;
+        }
+      }
+
+      .v-messages {
+        min-height: initial;
+      }
+
+      &.v-input--switch--inset .v-input--switch__track,
+      &.v-input--switch--inset .v-input--selection-controls__input {
+        margin: 0;
+      }
+    }
+
     h4 {
       margin-top: 30px;
     }

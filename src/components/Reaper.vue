@@ -17,8 +17,6 @@
           </v-tooltip>
         </h3>
         <div>
-    <!--        <input type="checkbox" id="checkbox" v-model="enabled">-->
-    <!--        <label for="checkbox"> {{ enabled }}</label>-->
             <v-switch
                 v-model="enabled"
                 inset
