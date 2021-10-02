@@ -26,6 +26,7 @@
           v-model="version"
           :items="cassandra_versions"
           append-icon="fa-chevron-down"
+          dense
       ></v-select>
     </div>
     <div class="auth">

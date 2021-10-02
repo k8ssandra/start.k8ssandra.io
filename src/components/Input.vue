@@ -161,6 +161,10 @@ export default {
       border: 2px solid var(--color-grey-medium);
     }
 
+    .v-select__selection {
+      font-size: 14px;
+    }
+
     .v-select__selections,
     .v-select__slot input {
       padding-left: 14px;
@@ -175,11 +179,6 @@ export default {
           color: #0097FF;
         }
       }
-    }
-
-    .v-autocomplete__content.v-menu__content .v-select-list {
-      padding: 0;
-      border-radius: 0;
     }
 
     .v-input__slider {

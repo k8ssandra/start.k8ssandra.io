@@ -270,6 +270,12 @@ input[type="submit"],
   }
 }
 
+.v-autocomplete__content.v-menu__content .v-select-list,
+.v-sheet.v-list {
+  padding: 0;
+  border-radius: 0 !important;
+}
+
 // App.
 #app {
   font-family: var(--ff-usual);

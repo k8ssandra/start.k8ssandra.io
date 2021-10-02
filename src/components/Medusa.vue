@@ -40,6 +40,7 @@
               :items="providers"
               single-line
               append-icon="fa-chevron-down"
+              dense
           ></v-select>
         </div>
         <div v-if="provider">
