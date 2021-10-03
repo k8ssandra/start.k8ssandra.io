@@ -5,6 +5,7 @@
             <label>CPU Cores*</label>
             <v-text-field
                 v-model.number="cpu_number"
+                :rules="[rules.required, rules.integers]"
                 suffix="milliCPU"
                 hint="1000n = 1vCPU; Integers only"
                 persistent-hint
@@ -105,16 +106,25 @@
 </template>
 
 <script>
-
-import additionalSeeds from './AdditionalSeeds.vue'
+import additionalSeeds from "./AdditionalSeeds.vue";
 export default {
   name: "NodeConfig",
   components: {
-    additionalSeeds
+    additionalSeeds,
   },
   data() {
     return {
-      ramLabel: [ 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 ],
+      ramLabel: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
+      rules: {
+          required: (value) => !!value || "Required.",
+          integers: (value) => {
+          const pattern = /^[0-9]*$/;
+          return (
+            pattern.test(value) ||
+            "Must only contain integers"
+          );
+        },
+      },
       storage_classes: [
         "standard",
         "managed-premium",
@@ -127,7 +137,8 @@ export default {
   },
   computed: {
     max_heap() {
-      let heapMax = (Math.pow(2,this.$store.state.settings.k8_config.ram_cores)) / 2;
+      let heapMax =
+        Math.pow(2, this.$store.state.settings.k8_config.ram_cores) / 2;
       return heapMax;
     },
     cpu_number: {
@@ -176,11 +187,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .node_config > div:not(.separator) {
-    margin-top: 30px;
+.node_config > div:not(.separator) {
+  margin-top: 30px;
 
-      &:first-of-type {
-          margin-top: 20px;
-      }
+  &:first-of-type {
+    margin-top: 20px;
   }
+}
 </style>

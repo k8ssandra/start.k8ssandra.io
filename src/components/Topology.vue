@@ -18,6 +18,7 @@
             <label>DataCenters*</label>
             <v-text-field
                 v-model="datacenter_name"
+                :rules="[rules.required]"
             ></v-text-field>
         </div>
         <Racks />
@@ -63,6 +64,9 @@ export default {
   data() {
     return {
       datacenters: ["dc1", "dc2", "dc3"],
+      rules: {
+        required: (value) => !!value || "Required."
+      }
     };
   },
   computed: {
