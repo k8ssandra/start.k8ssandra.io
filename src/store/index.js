@@ -101,7 +101,7 @@ export default new Vuex.Store({
       state.settings.config.cassandra.auth.enabled = txt;
     },
     updateDataCenterName(state, txt) {
-      state.settings.config.cassandra.datacenters[0].name = txt;
+      state.settings.config.cassandra.datacenters[0].name = ( txt ? txt : ' ');
     },
     addRack(state, txt) {
       let rack = {
