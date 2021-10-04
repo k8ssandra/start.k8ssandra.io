@@ -38,10 +38,14 @@ export default {
 <style lang="scss" scoped>
 
 .home {
-  margin-top:280px;
+  margin-top:275px;
 
   @media screen and (max-width: 992px) {
     margin-top: 240px;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 225px;
   }
 }
 .container {

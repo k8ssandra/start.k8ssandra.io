@@ -10,12 +10,11 @@
 
          <div class="separator"></div>
 
-         <span>Start a custom configuration</span>
          <div>
-           <button @click.prevent="start(0)">Start</button>
+           <button @click.prevent="start(0)">Start Custom Configuration</button>
          </div>
 
-         <span>Start with a template </span>
+         <span>Start with presets</span>
 
          <div class="templates">
            <button @click.prevent="start(1)">Local Template</button>

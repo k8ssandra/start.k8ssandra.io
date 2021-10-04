@@ -186,6 +186,16 @@ export default {
       }
     }
 
+    .v-select__selections {
+      input {
+        padding-left: 0;
+      }
+
+      ::placeholder {
+        color: var(--color-brand-black) !important;
+      }
+    }
+
     .v-input__slider {
       position: relative;
       margin-top: 32px;
@@ -338,6 +348,10 @@ export default {
 
     .provider__secure label {
       margin-bottom: 0;
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: 10px;
+      }
     }
 
     .module__heading {

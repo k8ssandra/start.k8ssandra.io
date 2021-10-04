@@ -40,9 +40,10 @@
               single-line
               append-icon="fa-chevron-down"
               dense
+              placeholder="Select"
           >
             <template v-slot:prepend>
-              <label>Provider</label>
+              <label>Provider*</label>
             </template>
           </v-select>
         </div>
@@ -66,7 +67,7 @@
                     persistent-hint
                 >
                   <template v-slot:prepend>
-                    <label>Bucket Name</label>
+                    <label>Bucket Name*</label>
                   </template>
                 </v-text-field>
               </div>
@@ -77,7 +78,7 @@
                 >
                   <template v-slot:prepend>
                     <label>
-                      Storage Secret
+                      Storage Secret*
                       <v-tooltip right>
                         <template v-slot:activator="{ on, attrs }">
                           <v-icon
@@ -195,6 +196,10 @@ export default {
     .provider__details > div,
     .settings > div {
       margin-top: 20px;
+
+      &.provider__secure {
+        margin-top: 30px;
+      }
     }
   }
   .provider__details  {
