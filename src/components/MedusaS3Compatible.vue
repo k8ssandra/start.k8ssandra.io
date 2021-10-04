@@ -6,7 +6,7 @@
                 placeholder="Host Name"
             >
                 <template v-slot:prepend>
-                    <label>Host</label>
+                    <label>Host*</label>
                 </template>
             </v-text-field>
         </div>
@@ -15,6 +15,7 @@
                 v-model="port"
                 :rules="[rules.number]"
                 persistent-hint
+                hint="Integers only"
             >
                 <template v-slot:prepend>
                     <label>Port</label>
@@ -87,6 +88,10 @@ export default {
   .v-input--selection-controls {
     margin-left: auto;
     padding: 0;
+
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+    }
   }
 }
 </style>

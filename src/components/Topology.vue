@@ -47,6 +47,13 @@
                 thumb-label="always"
                 track-color="#b2becd"
             >
+              <template v-slot:prepend>
+                1
+              </template>
+
+              <template v-slot:append>
+                100
+              </template>
             </v-slider>
         </div>
         <div>

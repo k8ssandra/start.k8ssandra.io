@@ -4,7 +4,7 @@
 
   <div>
       <label>
-        Kube Prometheus Stack
+        Kube Prometheus Stack*
         <v-tooltip right>
           <template v-slot:activator="{ on, attrs }">
             <v-icon
@@ -31,7 +31,7 @@
   </div>
   <div>
       <label>
-        Service Monitors
+        Service Monitors*
         <v-tooltip right>
           <template v-slot:activator="{ on, attrs }">
             <v-icon

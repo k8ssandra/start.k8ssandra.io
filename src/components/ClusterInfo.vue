@@ -39,7 +39,7 @@
       </v-select>
     </div>
     <div class="auth">
-      Authentication:
+      Authentication*
       <v-switch
         v-model="authentication"
         inset

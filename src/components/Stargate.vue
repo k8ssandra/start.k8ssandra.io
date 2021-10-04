@@ -69,17 +69,23 @@
         </div>
 
         <div>
-            <label>Heap in MB(max amt: {{max_heap}})</label>
+            <label>Heap Amount</label>
             <v-slider
                 min="1"
                 :max='max_heap'
                 v-model.number="heap_mb"
                 thumb-label="always"
                 track-color="#b2becd"
-                hint="25% of total RAM is recommended"
-                persistent-hint
             >
+              <template v-slot:prepend>
+                1
+              </template>
+
+              <template v-slot:append>
+                {{ max_heap }}
+              </template>
             </v-slider>
+            <span>Max value based on 50% of RAM</span>
         </div>
     </div>
   </div>

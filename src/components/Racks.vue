@@ -1,7 +1,7 @@
 <template>
         <div class="racklist__container">
             <label>
-              Racks
+              Racks*
               <v-tooltip right>
                 <template v-slot:activator="{ on, attrs }">
                   <v-icon
@@ -108,7 +108,7 @@
                     placeholder="Name"
                     minlength="3"
                 ></v-text-field>
-                <input type="submit"  value="add rack">
+                <input type="submit"  value="Add Rack">
               </form>
         </div>
 </template>

@@ -6,6 +6,7 @@
               single-line
               append-icon="fa-chevron-down"
               dense
+              placeholder="Select"
           >
             <template v-slot:prepend>
               <label>Region</label>

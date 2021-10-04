@@ -6,7 +6,7 @@
                 v-model.number="cpu_number"
                 :rules="[rules.required, rules.integers]"
                 suffix="milliCPU"
-                hint="1000n = 1vCPU; Integers only"
+                hint="1000m = 1vCPU; Integers only"
                 persistent-hint
             >
                 <template v-slot:prepend>
@@ -23,9 +23,16 @@
                 thumb-label="always"
                 track-color="#b2becd"
             >
-          <template v-slot:thumb-label="{ value }">
-            {{ Math.pow(2, value) }}
-          </template>
+              <template v-slot:thumb-label="{ value }">
+                {{ Math.pow(2, value) }}
+              </template>
+                <template v-slot:prepend>
+                    {{ Math.pow(2, 1) }} GB
+                </template>
+
+                <template v-slot:append>
+                    {{ Math.pow(2, 10) }} GB
+                </template>
             </v-slider>
         </div>
         <div>
@@ -58,6 +65,7 @@
             <v-text-field
                 v-model.number="storage_number"
                 suffix="GB"
+                :rules="[rules.integers]"
                 hint="Max 4000GB; Integers only"
                 persistent-hint
             >
@@ -81,7 +89,7 @@
         </div>
         <div class="separator"></div>
         <h4>Advanced Settings</h4>
-        <div>
+        <div class="advanced">
             <label>
                 Heap Amount
                 <v-tooltip right>
@@ -102,11 +110,16 @@
                 v-model.number="heap_number"
                 thumb-label="always"
                 track-color="#b2becd"
-                hint="Max value based on 50% of RAM. 25% of total RAM is recommended."
-                persistent-hint
             >
+                <template v-slot:prepend>
+                    1 GB
+                </template>
 
-            </v-slider> 
+                <template v-slot:append>
+                    {{ max_heap }} GB
+                </template>
+            </v-slider>
+            <span>Max value based on 50% of RAM. 25% of total RAM is recommended.</span>
         </div>
         <div>
           <additionalSeeds />
@@ -202,5 +215,11 @@ export default {
   &:first-of-type {
     margin-top: 20px;
   }
+}
+
+.advanced > span {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #6F7A87;
 }
 </style>

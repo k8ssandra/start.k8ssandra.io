@@ -5,7 +5,7 @@
         <figure><img src="@/assets/images/hero-background.svg"></figure>
         <h1>
           <span class="logo"></span>
-          K8ssandra Configurator
+          K8ssandra Config Builder
         </h1>
       </div>
       <router-view/>
@@ -104,7 +104,7 @@ h1 {
   line-height: 1.2;
 
   @media screen and (max-width: 768px) {
-    font-size: 48px;
+    font-size: 44px;
   }
 }
 
@@ -183,6 +183,7 @@ input[type="submit"],
 
     &:hover {
       background-color: var(--color-brand-yellow);
+      color: var(--color-brand-black);
     }
   }
 }
@@ -339,6 +340,10 @@ input[type="submit"],
   text-align: center;
   padding: 74px 15px 46px;
   z-index: 2;
+
+  @media screen and (max-width: 768px) {
+    padding-top: 20px;
+  }
 
   @media screen and (max-width: 992px) {
     padding: 40px 15px 20px;
