@@ -75,6 +75,7 @@ export default {
     line-height: 1.6;
 
     @media screen and (max-width: 768px) {
+      max-width: 90%;
       font-size: 20px;
     }
   }
@@ -104,10 +105,20 @@ export default {
     padding-right: 25px;
     padding-bottom: 25px;
 
+    @media screen and (min-width: 1920px) {
+      margin-top: 20vh;
+      margin-left: 15%;
+    }
+
     @media screen and (max-width: 1220px) {
-      max-width: 100%;
+      max-width: 80%;
       margin-top: -70px;
       margin-left: 25px;
+    }
+
+    @media screen and (max-width: 1024px) and (orientation: landscape) {
+      width: 75%;
+      margin-top: -275px;
     }
   }
 
@@ -119,6 +130,10 @@ export default {
       width: 65%;
       align-self: flex-end;
       order: -1;
+    }
+
+    @media screen and (max-width: 1024px) and (orientation: landscape) {
+      width: 50%;
     }
 
     img {
