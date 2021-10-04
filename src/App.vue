@@ -264,7 +264,7 @@ input[type="submit"],
   text-align: center;
 
   .button_ctas & {
-    width: 90px;
+    width: 106px;
     bottom: -40px;
   }
 

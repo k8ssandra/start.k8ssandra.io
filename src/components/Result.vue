@@ -13,7 +13,7 @@
               </v-icon>
               <span>Copy</span>
               <transition name="fade">
-                <span class="copy-tooltip" v-show="showConfigCopied">Link Copied!</span>
+                <span class="copy-tooltip" v-show="showConfigCopied">Output Copied!</span>
               </transition>
             </a>
           </div>
