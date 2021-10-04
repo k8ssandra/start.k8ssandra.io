@@ -20,7 +20,7 @@
           <ShareUrl />
         </div>
       </div>
-        <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview" cols="50">
+        <textarea id="config_preview" readonly v-model="cassandra_output" name="config_preview">
           </textarea>
     </div>
     <div class="helm__container">
@@ -237,7 +237,8 @@ export default {
   }
 
   textarea {
-    max-width: 500px;
+    width: 100%;
+    max-width: 405px;
     margin: 25px 30px;
     background-color: var(--color-brand-dark-blue);
     border: 0;
@@ -247,7 +248,7 @@ export default {
     resize: none;
     outline: none;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 992px) {
       display: none;
       margin: 20px;
     }
@@ -276,7 +277,7 @@ h3 {
   padding: 30px;
   border-top: 1px solid var(--color-brand-light-blue);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 992px) {
     padding: 20px;
     border: 0;
   }
