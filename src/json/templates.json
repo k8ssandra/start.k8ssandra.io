@@ -132,6 +132,7 @@
     "updateDataCenterName": "dc1",
     "updateTotalClusterSize": 3,
     "updateVersion": "3.11.10",
+    "updateStorageClass": "gp2",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 31,
     "updateCpuCoresAmount": 7000,
