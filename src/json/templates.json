@@ -23,7 +23,7 @@
     "updateMonitoringDashboards": false
   },
   {
-    "updateName": "Local Dev",
+    "updateName": "local-dev",
     "updateDescription": "This is the template for Local build Values",
     "addRacks": [
       {
@@ -45,7 +45,7 @@
     "updateStargateCpuAmount": 200
   },
   {
-    "updateName": "Azure AKS Template",
+    "updateName": "azure-aks-template",
     "updateDescription": "This is the template for AKS Values",
     "addRacks": [
       {
@@ -79,7 +79,7 @@
     "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
   },
   {
-    "updateName": "Digital Ocean DOK Template",
+    "updateName": "digital-ocean-dok-template",
     "updateDescription": "This is the template for DOK Values",
     "addRacks": [
       {
@@ -113,7 +113,7 @@
     "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
   },
   {
-    "updateName": "Amazon EKS Template",
+    "updateName": "amazon-eks-template",
     "updateDescription": "This is the template for EKS Values",
     "addRacks": [
       {
@@ -148,7 +148,7 @@
     "updateMedusaS3Region": "us-east-1"
   },
   {
-    "updateName": "Google GKE Template",
+    "updateName": "google-gke-template",
     "updateDescription": "This is the template for GKE Values",
     "addRacks": [
       {
