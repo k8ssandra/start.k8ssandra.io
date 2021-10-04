@@ -57,7 +57,7 @@
             </v-slider>
         </div>
         <div>
-          <span>{{ cluster_size_total }} Nodes Total</span>
+          <span>{{ num_of_racks }} Rack(s) x {{ cluster_size_per }} Node(s) Per Rack = <strong>{{ cluster_size_total }} Node(s) Total</strong></span>
         </div>
     </div>
 </template>
@@ -100,6 +100,11 @@ export default {
       },
       set(value) {
         this.$store.commit("updateDataCenterName", value);
+      },
+    },
+    num_of_racks: {
+      get() {
+        return this.$store.state.settings.config.cassandra.datacenters[0].racks.length;
       },
     },
   },

@@ -48,7 +48,7 @@
             </template>
           </v-slider>
         </div>
-        <span>Total Instances {{totalInstances}}</span>
+        <span>{{ num_of_racks }} Rack(s) x {{ size }} Instance(s) Per Rack = <strong>{{ totalInstances }} Instance(s) Total</strong></span>
         <div>
           <label>CPU</label>
           <v-slider
@@ -135,6 +135,11 @@ export default {
       },
       set(value) {
         this.$store.commit("updateStargateHeapMb", value);
+      },
+    },
+    num_of_racks: {
+      get() {
+        return this.$store.state.settings.config.cassandra.datacenters[0].racks.length;
       },
     },
   },
