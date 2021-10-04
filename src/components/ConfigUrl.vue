@@ -51,6 +51,10 @@ export default {
     margin-top: 24px;
     display: flex;
     flex-wrap: nowrap;
+
+    @media screen and (max-width: 480px) {
+      flex-wrap: wrap;
+    }
   }
 
   h3 {
@@ -71,10 +75,18 @@ export default {
     border: 2px solid var(--color-grey-medium);
     flex-grow: 1;
     outline: none;
+
+    @media screen and (max-width: 480px) {
+      margin: 0 0 10px;
+    }
   }
 
   button {
     margin: 0;
     padding: 8px 20px;
+
+    @media screen and (max-width: 480px) {
+      width: 100%;
+    }
   }
 </style>

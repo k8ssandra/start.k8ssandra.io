@@ -339,7 +339,7 @@ input[type="submit"],
   width:100%;
   text-align: center;
   padding: 74px 15px 46px;
-  z-index: 2;
+  z-index: 1;
 
   @media screen and (max-width: 768px) {
     padding-top: 20px;
