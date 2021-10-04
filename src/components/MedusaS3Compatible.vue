@@ -1,19 +1,25 @@
 <template>
     <div class="provider__details">
         <div>
-            <label>Host</label>
             <v-text-field
                 v-model="host"
                 placeholder="Host Name"
-            ></v-text-field>
+            >
+                <template v-slot:prepend>
+                    <label>Host</label>
+                </template>
+            </v-text-field>
         </div>
         <div>
-            <label>Port</label>
             <v-text-field
                 v-model="port"
                 :rules="[rules.number]"
                 persistent-hint
-            ></v-text-field>
+            >
+                <template v-slot:prepend>
+                    <label>Port</label>
+                </template>
+            </v-text-field>
         </div>
         <div class="provider__secure">
             <label>Secure</label>

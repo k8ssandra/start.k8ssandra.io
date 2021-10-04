@@ -2,14 +2,17 @@
     <div class="node_config">
         <h4>Node Config</h4>
         <div>
-            <label>CPU Cores*</label>
             <v-text-field
                 v-model.number="cpu_number"
                 :rules="[rules.required, rules.integers]"
                 suffix="milliCPU"
                 hint="1000n = 1vCPU; Integers only"
                 persistent-hint
-            ></v-text-field>
+            >
+                <template v-slot:prepend>
+                    <label>CPU Cores*</label>
+                </template>
+            </v-text-field>
         </div>
         <div>
             <label>RAM</label>
@@ -26,49 +29,55 @@
             </v-slider>
         </div>
         <div>
-            <label>
-                Storage Class*
-                <v-tooltip right>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-icon
-                            v-bind="attrs"
-                            v-on="on"
-                        >
-                            far fa-question-circle
-                        </v-icon>
-                    </template>
-                    <span>K8ssandra recommends a storage class with the VolumeBindingMode set to WaitForFirstConsumer. If you need to check this consider running `kubectl get storageclasses` against your cluster.</span>
-                </v-tooltip>
-            </label>
             <v-combobox
                 v-model="storage_class"
                 :items="storage_classes"
                 dense
                 minlength=3 type="text"
                 append-icon="fa-chevron-down"
-            ></v-combobox>
+            >
+                <template v-slot:prepend>
+                    <label>
+                        Storage Class*
+                        <v-tooltip right>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-icon
+                                    v-bind="attrs"
+                                    v-on="on"
+                                >
+                                    far fa-question-circle
+                                </v-icon>
+                            </template>
+                            <span>K8ssandra recommends a storage class with the VolumeBindingMode set to WaitForFirstConsumer. If you need to check this consider running `kubectl get storageclasses` against your cluster.</span>
+                        </v-tooltip>
+                    </label>
+                </template>
+            </v-combobox>
         </div>
         <div>
-            <label>
-                Storage Amount
-                <v-tooltip right>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-icon
-                            v-bind="attrs"
-                            v-on="on"
-                        >
-                            far fa-question-circle
-                        </v-icon>
-                    </template>
-                    <span>Generally you want to target 1-2 TB of active data per node with additional capacity for overhead purposes.</span>
-                </v-tooltip>
-            </label>
             <v-text-field
                 v-model.number="storage_number"
                 suffix="GB"
                 hint="Max 4000GB; Integers only"
                 persistent-hint
-            ></v-text-field>
+            >
+                <template v-slot:prepend>
+                    <label>
+                        Storage Amount
+                        <v-tooltip right>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-icon
+                                    v-bind="attrs"
+                                    v-on="on"
+                                >
+                                    far fa-question-circle
+                                </v-icon>
+                            </template>
+                            <span>Generally you want to target 1-2 TB of active data per node with additional capacity for overhead purposes.</span>
+                        </v-tooltip>
+                    </label>
+                </template>
+            </v-text-field>
         </div>
         <div class="separator"></div>
         <h4>Advanced Settings</h4>

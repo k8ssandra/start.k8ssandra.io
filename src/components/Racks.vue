@@ -43,33 +43,39 @@
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
                       <form v-on:submit.prevent="addNode(num)" class="rackadd">
-                        <label>
-                          Label
-                          <v-tooltip right>
-                            <template v-slot:activator="{ on, attrs }">
-                              <v-icon
-                                  v-bind="attrs"
-                                  v-on="on"
-                              >
-                                far fa-question-circle
-                              </v-icon>
-                            </template>
-                            <span>Labels specified are matched to Kubernetes workers during scheduling to control where pods are placed within the cluster.</span>
-                          </v-tooltip>
-                        </label>
                         <v-combobox
                             v-model="nodeLabelValue[num]"
                             :items="label_items"
                             dense
                             minlength=3 type="text"
                             append-icon="fa-chevron-down"
-                        ></v-combobox>
+                        >
+                          <template v-slot:prepend>
+                            <label>
+                              Label
+                              <v-tooltip right>
+                                <template v-slot:activator="{ on, attrs }">
+                                  <v-icon
+                                      v-bind="attrs"
+                                      v-on="on"
+                                  >
+                                    far fa-question-circle
+                                  </v-icon>
+                                </template>
+                                <span>Labels specified are matched to Kubernetes workers during scheduling to control where pods are placed within the cluster.</span>
+                              </v-tooltip>
+                            </label>
+                          </template>
+                        </v-combobox>
 
-                        <label>Value</label>
                         <v-text-field
                             v-model="nodeValueValue[num]"
                             minlength=3 type="text"
-                        ></v-text-field>
+                        >
+                          <template v-slot:prepend>
+                            <label>Value</label>
+                          </template>
+                        </v-text-field>
                         <input type="submit" value="add">
                       </form>
                     </v-expansion-panel-content>

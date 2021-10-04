@@ -34,14 +34,17 @@
       <div class="separator"></div>
         <h4>Backend</h4>
         <div>
-          <label>Provider</label>
           <v-select
               v-model="provider"
               :items="providers"
               single-line
               append-icon="fa-chevron-down"
               dense
-          ></v-select>
+          >
+            <template v-slot:prepend>
+              <label>Provider</label>
+            </template>
+          </v-select>
         </div>
         <div v-if="provider">
           <div class="separator"></div>
@@ -56,33 +59,39 @@
                 <MedusaS3Compatible />
               </div>
               <div>
-                <label>Bucket Name</label>
                 <v-text-field
                     v-model="bucketName"
                     placeholder="Name"
                     hint="Bucket must already exist. K8ssandra will not provision this for you."
                     persistent-hint
-                ></v-text-field>
+                >
+                  <template v-slot:prepend>
+                    <label>Bucket Name</label>
+                  </template>
+                </v-text-field>
               </div>
               <div>
-                  <label>
-                    Storage Secret
-                    <v-tooltip right>
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-icon
-                            v-bind="attrs"
-                            v-on="on"
-                        >
-                          fa-question-circle
-                        </v-icon>
-                      </template>
-                      <span>{{ details[provider]['tooltip'] }} </span>
-                    </v-tooltip>
-                  </label>
                 <v-text-field
                     v-model="storage_secret"
                     placeholder="Secret"
-                ></v-text-field>
+                >
+                  <template v-slot:prepend>
+                    <label>
+                      Storage Secret
+                      <v-tooltip right>
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-icon
+                              v-bind="attrs"
+                              v-on="on"
+                          >
+                            fa-question-circle
+                          </v-icon>
+                        </template>
+                        <span>{{ details[provider]['tooltip'] }} </span>
+                      </v-tooltip>
+                    </label>
+                  </template>
+                </v-text-field>
               </div>
             </div>
         </div>
