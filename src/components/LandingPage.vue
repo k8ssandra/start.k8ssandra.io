@@ -75,7 +75,6 @@ export default {
     line-height: 1.6;
 
     @media screen and (max-width: 768px) {
-      max-width: 90%;
       font-size: 20px;
     }
   }
@@ -119,6 +118,12 @@ export default {
     @media screen and (max-width: 1024px) and (orientation: landscape) {
       width: 75%;
       margin-top: -275px;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      margin-top: -70px;
+      margin-left: 25px;
     }
   }
 
