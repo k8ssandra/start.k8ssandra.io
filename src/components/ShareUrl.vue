@@ -78,6 +78,16 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+
+  @media screen and (max-width: 992px) {
+    width: 60vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 90vw;
+    top: 10vh;
+  }
+
   button {
     position: absolute;
     right: 10px;

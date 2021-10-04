@@ -66,6 +66,7 @@ export default {
 <style lang="scss" scoped>
 .input {
   max-width: 400px;
+  z-index: 0;
 
   @media screen and (max-width: 992px) {
     max-width: 600px;
