@@ -7,7 +7,6 @@
           :rules="[rules.required, rules.name, rules.firstLetter, rules.lastLetter]"
           counter="50"
           placeholder="Instance Name"
-          single-line
       >
         <template v-slot:prepend>
           <label>Name*</label>
