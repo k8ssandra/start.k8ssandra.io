@@ -24,11 +24,14 @@
                   </form>
                   </div>
                   <div class="racklist__btns">
-                  <button class="racklist__title-edit" @click.prevent="rackTitleEdit(num)">
-                  <v-icon>
-                    fas fa-pencil-alt
-                  </v-icon>
-                </button>
+                    <button class="racklist__title-edit" @click.prevent="rackTitleEdit(num)">
+                      <v-icon v-if="rackEdit[num]" color="#0097FF">
+                        fas fa-check-circle
+                      </v-icon>
+                      <v-icon v-else>
+                        fas fa-pencil-alt
+                      </v-icon>
+                    </button>
                   <button class="racklist__remove" @click.prevent="removeRack(num)"><v-icon>fa fa-times-circle</v-icon>
                   </button>
                   </div>
