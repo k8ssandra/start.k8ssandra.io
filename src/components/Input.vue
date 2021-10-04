@@ -102,9 +102,14 @@ export default {
     .v-text-field {
       margin-top: 0;
       padding-top: 0;
+      flex-wrap: wrap;
 
       &:not(.v-textarea) .v-input__slot {
         border: 2px solid var(--color-grey-medium);
+      }
+
+      .v-input__prepend-outer {
+        margin: 0;
       }
     }
 
@@ -313,6 +318,15 @@ export default {
       font-size: 14px;
       line-height: 1;
       font-weight: 700;
+      color: var(--color-brand-black);
+    }
+
+    .error--text label {
+      color: var(--color-brand-red);
+    }
+
+    .rackadd > label {
+      color: var(--color-white);
     }
 
     .provider__secure,

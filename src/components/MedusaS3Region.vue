@@ -1,13 +1,16 @@
 <template>
         <div>
-          <label>Region</label>
           <v-select
               v-model="region"
               :items="regions"
               single-line
               append-icon="fa-chevron-down"
               dense
-          ></v-select>
+          >
+            <template v-slot:prepend>
+              <label>Region</label>
+            </template>
+          </v-select>
         </div>
 </template>
 

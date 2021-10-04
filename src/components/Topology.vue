@@ -15,11 +15,14 @@
          </v-tooltip>
        </h4>
         <div>
-            <label>DataCenters*</label>
             <v-text-field
                 v-model="datacenter_name"
                 :rules="[rules.required]"
-            ></v-text-field>
+            >
+              <template v-slot:prepend>
+                <label>DataCenters*</label>
+              </template>
+            </v-text-field>
         </div>
         <Racks />
         <div>

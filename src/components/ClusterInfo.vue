@@ -2,32 +2,42 @@
   <div class="clusterInfo">
     <h4>Cluster Info</h4>
     <div>
-      <label>Name*</label>
       <v-text-field
           v-model="name"
           :rules="[rules.required, rules.name, rules.firstLetter, rules.lastLetter]"
           counter="50"
           placeholder="Instance Name"
-      ></v-text-field>
+          single-line
+      >
+        <template v-slot:prepend>
+          <label>Name*</label>
+        </template>
+      </v-text-field>
     </div>
     <div>
-      <label>Description</label>
       <v-textarea
           v-model="description"
           placeholder="Instance Description"
           counter="150"
           no-resize
           rows="4"
-      ></v-textarea>
+      >
+        <template v-slot:prepend>
+          <label>Description</label>
+        </template>
+      </v-textarea>
     </div>
     <div>
-      <label>Version*</label>
       <v-select
           v-model="version"
           :items="cassandra_versions"
           append-icon="fa-chevron-down"
           dense
-      ></v-select>
+      >
+        <template v-slot:prepend>
+          <label>Version*</label>
+        </template>
+      </v-select>
     </div>
     <div class="auth">
       Authentication:
