@@ -40,7 +40,7 @@ export default {
 .home {
   margin-top:280px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 992px) {
     margin-top: 240px;
   }
 }
@@ -55,7 +55,7 @@ export default {
     max-width: 900px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 992px) {
     max-width: 100%;
     justify-content: center;
     flex-direction: column;
@@ -75,5 +75,14 @@ h1 {
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+
+.landing-page + .container {
+  max-height: calc(100vh - 280px);
+  overflow: hidden;
+
+  @media screen and (max-width: 992px) {
+    max-height: calc(100vh - 240px);
+  }
 }
 </style>

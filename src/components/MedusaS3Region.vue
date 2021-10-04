@@ -6,6 +6,7 @@
               :items="regions"
               single-line
               append-icon="fa-chevron-down"
+              dense
           ></v-select>
         </div>
 </template>

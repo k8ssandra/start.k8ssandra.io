@@ -67,8 +67,8 @@ export default {
 .input {
   max-width: 400px;
 
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
+  @media screen and (max-width: 992px) {
+    max-width: 600px;
     margin: 0 auto;
   }
 
@@ -161,6 +161,10 @@ export default {
       border: 2px solid var(--color-grey-medium);
     }
 
+    .v-select__selection {
+      font-size: 14px;
+    }
+
     .v-select__selections,
     .v-select__slot input {
       padding-left: 14px;
@@ -175,11 +179,6 @@ export default {
           color: #0097FF;
         }
       }
-    }
-
-    .v-autocomplete__content.v-menu__content .v-select-list {
-      padding: 0;
-      border-radius: 0;
     }
 
     .v-input__slider {

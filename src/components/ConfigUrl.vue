@@ -3,14 +3,26 @@
         <h3>Share your configuration</h3>
         <span>Use this link to share the current configuration.</span>
         <div class="configurl__wrapper">
-          <input id="configurl" v-model="uriendcoded"><button @click.prevent="grabEncode">Copy</button></div>
+          <input id="configurl" v-model="uriendcoded">
+          <button @click.prevent="grabEncode">
+              Copy
+              <transition name="fade">
+                <span class="copy-tooltip" v-show="showUrlCopied">Link Copied!</span>
+              </transition>
+          </button>
         </div>
+    </div>
 </template>
 
 <script>
 
 export default {
   name: "ConfigUrl",
+  data () {
+    return {
+      showUrlCopied: false
+    }
+  },
   computed: {
     uriendcoded() {   
       let builtPath = window.location.origin + "?data="
@@ -27,6 +39,8 @@ export default {
     grabEncode() {
       document.getElementById('configurl').select();
       document.execCommand("copy");
+      this.showUrlCopied = true;
+      setTimeout(() => this.showUrlCopied = false, 2000);
     },
   }
 };
