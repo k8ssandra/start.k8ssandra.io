@@ -5,7 +5,7 @@
       <v-text-field
           v-model="name"
           :rules="[rules.required, rules.name, rules.firstLetter, rules.lastLetter]"
-          counter="50"
+          counter="153"
           placeholder="Instance Name"
       >
         <template v-slot:prepend>
