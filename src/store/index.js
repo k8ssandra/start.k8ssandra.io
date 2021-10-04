@@ -204,6 +204,8 @@ export default new Vuex.Store({
     },
     updateStargateHeapMb(state, txt) {
       state.settings.config.stargate.heapMB = txt;
+      // let calcStargateHeapMB = (txt * 1024);
+      // state.settings.config.stargate.heapMB = calcStargateHeapMB;
     },
     updateReaperEnabled(state, txt) {
       state.settings.config.reaper.enabled = txt;

@@ -78,11 +78,11 @@
                 track-color="#b2becd"
             >
               <template v-slot:prepend>
-                1
+                1 GB
               </template>
 
               <template v-slot:append>
-                {{ max_heap }}
+                {{ max_heap }} GB
               </template>
             </v-slider>
             <span>Max value based on 50% of RAM</span>
