@@ -354,6 +354,14 @@ button {
       font-size: 16px;
       color: var(--color-white);
     }
+
+    .button:hover {
+      span:not(.copy-tooltip),
+      .v-icon {
+        color: var(--color-brand-yellow);
+        text-decoration: none;
+      }
+    }
   }
 }
 
