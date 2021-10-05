@@ -342,7 +342,7 @@ input[type="submit"],
   background-color: var(--color-brand-light-blue);
   width:100%;
   text-align: center;
-  padding: 74px 15px 46px;
+  padding: 50px 15px 40px;
   z-index: 1;
 
   @media screen and (max-width: 768px) {
