@@ -40,8 +40,8 @@ export default {
 .home {
   margin-top:245px;
 
-  @media screen and (max-width: 992px) {
-    margin-top: 220px;
+  @media screen and (max-width: 768px) {
+    margin-top: 225px;
   }
 }
 .container {
