@@ -103,6 +103,10 @@ h1 {
   font-size: 66px;
   line-height: 1.2;
 
+  @media screen and (max-width: 992px) {
+    font-size: 60px;
+  }
+
   @media screen and (max-width: 768px) {
     font-size: 44px;
   }
@@ -342,8 +346,9 @@ input[type="submit"],
   background-color: var(--color-brand-light-blue);
   width:100%;
   text-align: center;
-  padding: 74px 15px 46px;
+  padding: 50px 15px 40px;
   z-index: 1;
+  overflow: hidden;
 
   @media screen and (max-width: 768px) {
     padding-top: 20px;
