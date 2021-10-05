@@ -6,6 +6,7 @@
           v-model="name"
           :rules="[rules.required, rules.name, rules.firstLetter, rules.lastLetter]"
           counter="153"
+          maxlength="153"
           placeholder="Instance Name"
       >
         <template v-slot:prepend>
@@ -18,6 +19,7 @@
           v-model="description"
           placeholder="Instance Description"
           counter="150"
+          maxlength="150"
           no-resize
           rows="4"
       >
