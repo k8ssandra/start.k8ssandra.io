@@ -144,6 +144,7 @@ export default {
       color: var(--color-grey-dark);
       order: -1;
       margin: 8px 0 0;
+      line-height: 16px;
     }
 
     .v-text-field.v-input--has-state.error--text {
@@ -211,7 +212,7 @@ export default {
         bottom: 0;
         margin: 0;
         font-size: 12px;
-        line-height: 18px;
+        line-height: 16px;
       }
 
       .v-input__slot {
