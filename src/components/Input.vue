@@ -269,10 +269,18 @@ export default {
 
         > .v-input__append-outer {
           margin: 0 0 0 6px;
+
+          @media screen and (max-width: 480px) {
+            margin-left: 0;
+          }
         }
 
         > .v-input__prepend-outer {
           margin: 0 14px 0 0;
+
+          @media screen and (max-width: 480px) {
+            margin-right: 8px;
+          }
         }
       }
 
@@ -350,10 +358,6 @@ export default {
 
     .provider__secure label {
       margin-bottom: 0;
-
-      @media screen and (max-width: 768px) {
-        margin-bottom: 10px;
-      }
     }
 
     .module__heading {

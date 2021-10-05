@@ -297,13 +297,8 @@ input[type="submit"],
     margin-left: auto;
   }
 
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    padding: 20px;
-
-    .v-input {
-      margin-left: 0;
-    }
+  @media screen and (max-width: 480px) {
+    padding: 10px;
   }
 }
 

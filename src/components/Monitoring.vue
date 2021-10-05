@@ -129,17 +129,16 @@ export default {
     font-size: 14px;
     font-weight: 700;
 
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
+    @media screen and (max-width: 480px) {
+      padding: 10px;
+
+      .v-tooltip + .v-icon.v-icon {
+        margin-left: 4px;
+      }
     }
 
     .v-input {
       margin-left: auto;
-
-      @media screen and (max-width: 768px) {
-        margin-top: 10px;
-        margin-left: 0;
-      }
     }
 
     label {
@@ -148,8 +147,8 @@ export default {
       display: flex;
       align-items: center;
 
-      @media screen and (max-width: 768px) {
-        padding-right: 0;
+      @media screen and (max-width: 480px) {
+        padding-right: 5px;
       }
     }
   }

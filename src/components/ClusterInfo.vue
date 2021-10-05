@@ -160,10 +160,6 @@ export default {
 .auth {
   .v-input {
     margin-left: auto;
-
-    @media screen and (max-width: 768px) {
-      margin-left: 0;
-    }
   }
 }
 </style>
