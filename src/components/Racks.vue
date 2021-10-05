@@ -41,7 +41,7 @@
                   <v-expansion-panel>
                     <v-expansion-panel-header expand-icon="fa-chevron-circle-down">
                       <div class="racklist__nodeadd">
-                        <button @click.prevent="showNodes(num)">Add Nodes</button>
+                        <button @click.prevent="showNodes(num)">Add Labels</button>
                       </div>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
@@ -79,7 +79,7 @@
                             <label>Value</label>
                           </template>
                         </v-text-field>
-                        <input type="submit" value="add">
+                        <input type="submit" value="Add Label">
                       </form>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
@@ -297,6 +297,7 @@ ul.racklist__list {
     padding: 5px 10px;
     font-size: 12px;
     line-height: 1.5;
+    word-break: break-all;
 
     &:not(:last-of-type) {
       margin-bottom: 5px;
