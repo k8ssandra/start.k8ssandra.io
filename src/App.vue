@@ -268,6 +268,10 @@ input[type="submit"],
     bottom: -40px;
   }
 
+  .helm__container & {
+    width: auto;
+  }
+
   &.fade-enter-active, &.fade-leave-active {
     transition: opacity .5s;
   }
