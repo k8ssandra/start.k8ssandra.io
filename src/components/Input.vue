@@ -377,8 +377,12 @@ export default {
     .module__pretitle {
       font-size: 10px;
       text-transform: uppercase;
-      text-decoration: underline;
       letter-spacing: 1.43px;
+      color: var(--color-brand-black);
+
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     .v-text-field > .v-input__control > .v-input__slot::before,

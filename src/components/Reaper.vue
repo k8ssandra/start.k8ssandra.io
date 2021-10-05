@@ -1,6 +1,6 @@
 <template>
 <div class="module reaper">
-  <span class="module__pretitle">Reaper</span>
+  <a class="module__pretitle" href="https://docs.k8ssandra.io/components/reaper/" target="_blank">Reaper</a>
   <div class="module__heading">
         <h3>
           Repair
