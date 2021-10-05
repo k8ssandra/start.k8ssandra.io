@@ -20,7 +20,7 @@
                 :rules="[rules.required]"
             >
               <template v-slot:prepend>
-                <label>DataCenters*</label>
+                <label>Data Centers*</label>
               </template>
             </v-text-field>
         </div>
