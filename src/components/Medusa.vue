@@ -85,7 +85,7 @@
                               v-bind="attrs"
                               v-on="on"
                           >
-                            fa-question-circle
+                            far fa-question-circle
                           </v-icon>
                         </template>
                         <span>{{ details[provider]['tooltip'] }} </span>
