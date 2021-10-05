@@ -153,7 +153,7 @@ export default {
 
   span {
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 16px;
     color: #6F7A87;
   }
 </style>
