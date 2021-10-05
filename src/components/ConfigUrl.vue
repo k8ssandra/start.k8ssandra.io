@@ -61,7 +61,7 @@ export default {
     margin: 14px auto;
   }
 
-  .modal div > span {
+  .modal div > span:not(.copy-tooltip) {
     margin: 0 15px;
     text-decoration: none;
   }
