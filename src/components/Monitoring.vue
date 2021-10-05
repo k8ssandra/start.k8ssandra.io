@@ -11,7 +11,7 @@
                 v-bind="attrs"
                 v-on="on"
             >
-              fa-question-circle
+              far fa-question-circle
             </v-icon>
           </template>
           <span>Deploy the prometheus-community/kube-prometheus-stack Helm chart alongside K8ssandra.</span>
@@ -38,7 +38,7 @@
                 v-bind="attrs"
                 v-on="on"
             >
-              fa-question-circle
+              far fa-question-circle
             </v-icon>
           </template>
           <span>Deploy prometheus-operator ServiceMonitor Custom Resources for monitoring the K8ssandra cluster.</span>
@@ -65,7 +65,7 @@
                 v-bind="attrs"
                 v-on="on"
             >
-              fa-question-circle
+              far fa-question-circle
             </v-icon>
           </template>
           <span>Deploy preconfigured Grafana Dashboards via Kubernetes ConfigMap objects.</span>
