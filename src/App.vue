@@ -147,7 +147,8 @@ input[type="submit"],
 .landing-page button,
 .export .button,
 .helm__container button,
-.configurl__wrapper button {
+.configurl__wrapper button,
+.toggle__seeds {
   display: inline-block;
   position: relative;
   margin-top: 2px; // match half word-spacing
