@@ -377,7 +377,7 @@ textarea#config_preview {
 .helm__docs {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 
   a {
     font-family: var(--ff-usual);
