@@ -8,16 +8,16 @@
             <span>Share</span>
         </a>
         <transition name="fade">
-        <div v-if="isOpen" class="modal-container">
-        <div class="modal">
-            <button @click="toggleModal">
-                <v-icon
-                >
-                    fa-times-circle
-                </v-icon>
-            </button>
-            <ConfigUrl />
-        </div>
+        <div v-if="isOpen" class="modal-container" @click="toggleModal">
+            <div class="modal" @click.stop="">
+                <button @click="toggleModal">
+                    <v-icon
+                    >
+                        fa-times-circle
+                    </v-icon>
+                </button>
+                <ConfigUrl />
+            </div>
         </div>
         </transition>
     </div>
