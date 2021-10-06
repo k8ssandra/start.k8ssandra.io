@@ -251,6 +251,7 @@ ul.racklist__list {
       .racklist__racktitle {
         margin: 0;
         flex-grow: 1;
+        word-break: break-word;
       }
       & > button {
         margin-left: 5px;
