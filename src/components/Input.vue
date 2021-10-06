@@ -379,12 +379,23 @@ export default {
     }
 
     .module__pretitle {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.43px;
-      color: var(--color-brand-black);
+      a {
+        text-transform: uppercase;
+        letter-spacing: 1.43px;
+      }
 
-      &:hover {
+      .theme--light.v-icon {
+        margin-left: 5px;
+        margin-bottom: 2px;
+      }
+
+      a,
+      .theme--light.v-icon {
+        font-size: 10px;
+        color: var(--color-brand-black);
+      }
+
+      &:hover a {
         text-decoration: none;
       }
     }
