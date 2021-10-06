@@ -130,6 +130,7 @@ export default {
 
 
   span {
+    display: inline-block;
     font-size: 12px;
     line-height: 16px;
     color: #6F7A87;
