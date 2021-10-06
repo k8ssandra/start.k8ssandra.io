@@ -26,18 +26,8 @@
     <div class="helm__container">
       <h3>
         Helm Install
-        <v-tooltip right>
-          <template v-slot:activator="{ on, attrs }">
-            <v-icon
-                v-bind="attrs"
-                v-on="on"
-            >
-              fa-question
-            </v-icon>
-          </template>
-          <span>Helm install tooltip text</span>
-        </v-tooltip>
       </h3>
+      <span class="helm__docs"><a href="https://helm.sh/docs/intro/install/" target="_blank">View Documentation</a><v-icon>fa-external-link-alt</v-icon></span>
       <div class="export">
         <a class="button" href @click.prevent="exportConfig">Download YAML File</a>
       </div>
@@ -382,5 +372,33 @@ textarea#config_preview {
   justify-content: center;
   height: auto;
   padding-bottom: 0;
+}
+
+.helm__docs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  a {
+    font-family: var(--ff-usual);
+    font-weight: normal;
+  }
+
+  .theme--light.v-icon {
+    margin-left: 5px;
+  }
+
+  a,
+  .theme--light.v-icon {
+    color: var(--color-brand-light-blue);
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  &:hover {
+    a {
+      text-decoration: none;
+    }
+  }
 }
 </style>

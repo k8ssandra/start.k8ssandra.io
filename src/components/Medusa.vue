@@ -51,7 +51,7 @@
           <div class="separator"></div>
           <div class="provider__details">
             <h4>{{ details[provider]['title'] }} Configuration</h4>
-            <a class="provider__docs" :href="details[provider]['docs']" target="_blank">View Documentation<v-icon>fa-external-link-alt</v-icon></a>
+            <span class="provider__docs"><a :href="details[provider]['docs']" target="_blank">View Documentation</a><v-icon>fa-external-link-alt</v-icon></span>
 
               <div v-if="provider === 's3' || provider === 's3_compatible'" >
                 <MedusaS3Region />
@@ -206,10 +206,19 @@ export default {
     h4 {
       margin-bottom: 0px;
     }
-  a.provider__docs, a.provider__docs .theme--light.v-icon {
-    color: var(--color-brand-light-blue);
-    font-size: 12px;
-    line-height: 1;
+  .provider__docs {
+    a,
+    .theme--light.v-icon {
+      color: var(--color-brand-light-blue);
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    &:hover {
+      a {
+        text-decoration: none;
+      }
+    }
   }
   .theme--light.v-icon {
     margin-left: 5px;
