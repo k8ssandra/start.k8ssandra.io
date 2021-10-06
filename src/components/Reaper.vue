@@ -1,6 +1,6 @@
 <template>
 <div class="module reaper">
-  <a class="module__pretitle" href="https://docs.k8ssandra.io/components/reaper/" target="_blank">Reaper</a>
+  <span class="module__pretitle"><a href="https://docs.k8ssandra.io/components/reaper/" target="_blank">Reaper</a><v-icon>fa-external-link-alt</v-icon></span>
   <div class="module__heading">
         <h3>
           Repair

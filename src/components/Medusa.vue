@@ -1,6 +1,6 @@
 <template>
 <div class="module medusa">
-  <a class="module__pretitle" href="https://docs.k8ssandra.io/components/medusa/" target="_blank">Medusa</a>
+  <span class="module__pretitle"><a href="https://docs.k8ssandra.io/components/medusa/" target="_blank">Medusa</a><v-icon>fa-external-link-alt</v-icon></span>
   <div class="module__heading">
     <h3>
       Backup & Restore
