@@ -323,6 +323,11 @@ ul.racklist__list {
       font-weight: 700;
     }
 
+    > div {
+      flex-grow: 1;
+      padding-right: 10px;
+    }
+
     .racklist__remove {
       margin-left: auto;
       text-decoration: none;
