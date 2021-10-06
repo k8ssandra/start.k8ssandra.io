@@ -250,6 +250,12 @@ input[type="submit"],
       margin-left: 0;
     }
   }
+
+  h3 & {
+    @media screen and (max-width: 420px) {
+      display: flex;
+    }
+  }
 }
 
 .copy-tooltip {
