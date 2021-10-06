@@ -333,6 +333,7 @@ input[type="submit"],
 
   .v-menu__content {
     border-radius: 0;
+    z-index: 0 !important;
   }
 }
 
