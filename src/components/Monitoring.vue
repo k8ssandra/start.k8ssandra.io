@@ -137,6 +137,15 @@ export default {
       }
     }
 
+    @media screen and (max-width: 420px) {
+      .v-tooltip + .v-icon.v-icon {
+        display: flex;
+        margin-top: 4px;
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+    }
+
     .v-input {
       margin-left: auto;
     }
@@ -149,6 +158,10 @@ export default {
 
       @media screen and (max-width: 480px) {
         padding-right: 5px;
+      }
+
+      @media screen and (max-width: 420px) {
+        display: block;
       }
     }
   }
