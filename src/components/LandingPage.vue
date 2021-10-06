@@ -114,21 +114,28 @@ export default {
       margin-left: 15%;
     }
 
-    @media screen and (max-width: 1220px) {
-      max-width: 80%;
-      margin-top: -70px;
-      margin-left: 25px;
+    @media screen and (min-width: 1025px) and (max-width: 1220px) {
+      padding: 0 0 100px 50px;
+      max-width: 50%;
+      margin-top: -30%;
     }
 
-    @media screen and (max-width: 1024px) and (orientation: landscape) {
-      width: 75%;
-      margin-top: -275px;
+    @media screen and (min-width: 911px) and (max-width: 1024px) {
+      padding: 0 40px 30px 10px;
+      max-width: 60%;
+      margin-top: -30%;
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 910px) {
+      padding: 0 40px 30px 10px;
+      max-width: 70%;
+      margin-top: -30%;
     }
 
     @media screen and (max-width: 768px) {
+      padding: 0 40px 30px 10px;
       max-width: 100%;
-      margin-top: -70px;
-      margin-left: 25px;
+      margin-top: -25%;
     }
   }
 
