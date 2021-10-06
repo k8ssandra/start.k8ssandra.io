@@ -367,6 +367,15 @@ input[type="submit"],
     bottom: 0;
     left: 0;
     z-index: -1;
+
+    @media screen and (max-width: 992px) {
+      top: 40px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 </style>
