@@ -87,6 +87,11 @@ export default {
     letter-spacing: 1.43px;
     text-transform: uppercase;
   }
+
+  .templates button {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 }
 .landing-page__wrapper {
   display: flex;
