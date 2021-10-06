@@ -120,20 +120,21 @@ export default {
       margin-top: -30%;
     }
 
-    @media screen and (min-width: 911px) and (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
       padding: 0 40px 30px 10px;
+    }
+
+    @media screen and (min-width: 911px) and (max-width: 1024px) {
       max-width: 60%;
       margin-top: -30%;
     }
 
     @media screen and (min-width: 769px) and (max-width: 910px) {
-      padding: 0 40px 30px 10px;
       max-width: 70%;
       margin-top: -30%;
     }
 
     @media screen and (max-width: 768px) {
-      padding: 0 40px 30px 10px;
       max-width: 100%;
       margin-top: -25%;
     }
