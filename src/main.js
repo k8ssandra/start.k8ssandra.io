@@ -9,6 +9,8 @@ import Rollbar from 'rollbar';
 
 Vue.config.productionTip = false
 
+console.log(process.env.VUE_APP_ROLLBAR_ACCESS_TOKEN)
+
 Vue.prototype.$rollbar = new Rollbar({
   accessToken: process.env.VUE_APP_ROLLBAR_ACCESS_TOKEN,
   captureUncaught: true,
