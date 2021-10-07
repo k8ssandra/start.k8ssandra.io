@@ -63,7 +63,7 @@ export default {
   components: {},
   data() {
     return {
-      cassandra_versions: ["4.0.0", "3.11.10", "3.11.9", "3.11.8", "3.11.7"],
+      cassandra_versions: ["4.0.1", "4.0.0", "3.11.11", "3.11.8", "3.11.7"],
       rules: {
         required: (value) => !!value || "Required.",
         name: (value) => {

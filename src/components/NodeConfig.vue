@@ -218,6 +218,8 @@ export default {
 }
 
 .advanced > span {
+  display: inline-block;
+  margin-top: 10px;
   font-size: 12px;
   line-height: 16px;
   color: #6F7A87;

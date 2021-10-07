@@ -147,7 +147,8 @@ input[type="submit"],
 .landing-page button,
 .export .button,
 .helm__container button,
-.configurl__wrapper button {
+.configurl__wrapper button,
+.toggle__seeds {
   display: inline-block;
   position: relative;
   margin-top: 2px; // match half word-spacing
@@ -250,6 +251,12 @@ input[type="submit"],
       margin-left: 0;
     }
   }
+
+  h3 & {
+    @media screen and (max-width: 420px) {
+      display: flex;
+    }
+  }
 }
 
 .copy-tooltip {
@@ -333,6 +340,7 @@ input[type="submit"],
 
   .v-menu__content {
     border-radius: 0;
+    z-index: 0 !important;
   }
 }
 
@@ -360,6 +368,15 @@ input[type="submit"],
     bottom: 0;
     left: 0;
     z-index: -1;
+
+    @media screen and (max-width: 992px) {
+      top: 40px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 </style>

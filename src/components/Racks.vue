@@ -17,14 +17,14 @@
             <ul class="racklist__list">
               <li class="racklist__item" v-for="(rack, num) in racks" :key="num">
                 <div class="racklist__primary">
-                  <h4 class="racklist__racktitle">{{rack.name}}</h4>
+                  <h4 class="racklist__racktitle" v-show="!rackEdit[num]">{{rack.name}}</h4>
                   <div class="racklist__title-container" v-show="rackEdit[num]">
                   <form v-on:submit.prevent="sumbitName(num)"  class="racklist__title-form">
                   <input type='text' v-model="rackNewName">
                   </form>
                   </div>
                   <div class="racklist__btns">
-                    <button class="racklist__title-edit" @click.prevent="rackTitleEdit(num)">
+                    <button class="racklist__title-edit" @click.prevent="rackTitleEdit(num, rack.name)">
                       <v-icon v-if="rackEdit[num]" color="#0097FF">
                         fas fa-check-circle
                       </v-icon>
@@ -171,12 +171,13 @@ export default {
       this.rackNewName = "";
       this.$forceUpdate();
     },
-    rackTitleEdit(num) {
+    rackTitleEdit(num, current) {
       if (this.rackEdit[num] === true) {
         this.sumbitName(num);
       }
       else {
       this.rackEdit = this.rackEdit.map(() => {
+        this.rackNewName = current;
         return false;
       });
       this.rackEdit[num] = true;
@@ -199,8 +200,7 @@ export default {
 
 <style lang="scss">
 .rackadd {
-  background: var(--color-brand-black);
-  /*margin: 20px 0;*/
+  background: var(--color-grey-light);
   padding: 20px;
 
   input[type="submit"] {
@@ -221,7 +221,7 @@ export default {
 
   h5,
   label {
-    color: var(--color-white);
+    color: var(--color-brand-black);
 
     .v-expansion-panel-content & {
       color: var(--color-brand-black);
@@ -259,9 +259,23 @@ ul.racklist__list {
       }
       .racklist__title-container {
         background-color: var(--color-brand-black);
-        position: absolute;
-        top: 10px;
-        left: 10px;
+      }
+
+      .racklist__title-form {
+        position: relative;
+
+        &::after {
+          content: '';
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          border-bottom: 2px solid var(--color-white);
+        }
+      }
+
+      .racklist__btns {
+        flex-shrink: 0;
       }
 
       input[type="text"] {
@@ -269,13 +283,13 @@ ul.racklist__list {
         color: var(--color-white);
         border-width: 0;
         padding: 0;
-        outline: var(--color-brand-black) !important;
-        border-bottom: 2px solid var(--color-white);
+        outline: var(--color-brand-black)!important;
         font-size: 22px;
         line-height: 26px;
         letter-spacing: -1.1px;
         font-family: var(--ff-museoSans);
         font-weight: 700;
+        vertical-align: middle;
       }
       .racklist__btns > button > .v-icon {
         color: var(--color-white);
@@ -306,6 +320,11 @@ ul.racklist__list {
 
     span {
       font-weight: 700;
+    }
+
+    > div {
+      flex-grow: 1;
+      padding-right: 10px;
     }
 
     .racklist__remove {
