@@ -200,8 +200,7 @@ export default {
 
 <style lang="scss">
 .rackadd {
-  background: var(--color-brand-black);
-  /*margin: 20px 0;*/
+  background: var(--color-grey-light);
   padding: 20px;
 
   input[type="submit"] {
@@ -222,7 +221,7 @@ export default {
 
   h5,
   label {
-    color: var(--color-white);
+    color: var(--color-brand-black);
 
     .v-expansion-panel-content & {
       color: var(--color-brand-black);

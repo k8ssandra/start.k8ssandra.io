@@ -345,10 +345,6 @@ export default {
       color: var(--color-brand-red);
     }
 
-    .rackadd > label {
-      color: var(--color-white);
-    }
-
     .provider__secure,
     .rackadd {
       label {
