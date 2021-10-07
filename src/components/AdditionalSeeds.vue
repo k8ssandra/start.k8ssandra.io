@@ -1,35 +1,34 @@
 <template>
   <div class="additionalSeeds">
     <label>Additional Seeds</label>
-      <button v-if="!showForm" @click.prevent="toggleForm" class="toggle__seeds">Add Seed</button>
-        <div v-if="showForm" class="seeds__form">
-          <form v-on:submit.prevent="addAddSeed" class="seedadd">
-            <v-text-field
-                v-model="seedValue"
-                placeholder="Seed name"
-                minlength=3
-            >
-              <template v-slot:prepend>
-                <label>Seed Name</label>
-              </template>
-            </v-text-field>
-            <input type="submit"  value="Add Seed">
-          </form>
+      <div class="seeds__form">
+        <form v-on:submit.prevent="addAddSeed" class="seedadd">
+          <v-text-field
+              v-model="seedValue"
+              placeholder="Seed name"
+              minlength=3
+          >
+            <template v-slot:prepend>
+              <label>Seed Name</label>
+            </template>
+          </v-text-field>
+          <input type="submit"  value="Add Seed">
+        </form>
 
-          <ul class="seeds_list">
-            <li class="seeds__seed" v-for="(seed, num) in seeds" :key="num">
-              <div class="seed__primary">
-                <span>{{ seed }}</span>
-                <button @click.prevent="removeSeed(num)">
-                  <v-icon
-                  >
-                    fa-times-circle
-                  </v-icon>
-                </button>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <ul class="seeds_list">
+          <li class="seeds__seed" v-for="(seed, num) in seeds" :key="num">
+            <div class="seed__primary">
+              <span>{{ seed }}</span>
+              <button @click.prevent="removeSeed(num)">
+                <v-icon
+                >
+                  fa-times-circle
+                </v-icon>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
   </div>
 </template>
 
@@ -39,7 +38,6 @@ export default {
   data() {
     return {
       seedValue: "",
-      showForm: false,
     };
   },
   computed: {
@@ -61,12 +59,6 @@ export default {
     },
     removeSeed(num) {
       this.$store.commit("removeSeed", num);
-      if (this.seeds.length < 1) {
-        this.showForm = false;
-      }
-    },
-    toggleForm() {
-      this.showForm = !this.showForm;
     }
   },
 };
