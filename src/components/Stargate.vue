@@ -68,6 +68,7 @@
             </template>
           </v-slider>
         </div>
+        <span class="help-text">1000m = 1vCPU</span>
 
         <div>
           <label>RAM</label>
@@ -183,6 +184,7 @@ export default {
 
   span {
     display: inline-block;
+    margin-top: 10px;
     font-size: 12px;
     line-height: 16px;
     color: #6F7A87;
