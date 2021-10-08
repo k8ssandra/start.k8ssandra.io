@@ -53,17 +53,18 @@
           <label>CPU</label>
           <v-slider
               min="0"
-              max="4000"
+              max="32000"
               v-model.number="cpu_number"
               thumb-label="always"
               track-color="#b2becd"
+              step="100"
           >
             <template v-slot:prepend>
               0 milliCPU
             </template>
 
             <template v-slot:append>
-              4000 milliCPU
+              32000 milliCPU
             </template>
           </v-slider>
         </div>

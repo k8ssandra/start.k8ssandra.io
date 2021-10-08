@@ -228,7 +228,7 @@ export default {
 
   textarea {
     width: 100%;
-    max-width: 405px;
+    max-width: calc(100% - 60px);
     margin: 25px 30px;
     background-color: var(--color-brand-dark-blue);
     border: 0;
@@ -237,6 +237,7 @@ export default {
     font-family: monospace;
     resize: none;
     outline: none;
+    scrollbar-width: none;
 
     @media screen and (max-width: 992px) {
       display: none;
