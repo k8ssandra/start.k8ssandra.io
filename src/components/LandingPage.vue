@@ -63,6 +63,7 @@ export default {
   color: var(--color-white);
   z-index: 10;
   overflow-y: scroll;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     width: 0; /* Remove scrollbar space */
