@@ -11,7 +11,7 @@
     "updateStorageAmount": 1,
     "updateHeapAmount": 1,
     "updateCpuCoresAmount": 1,
-    "updateRamCoresAmount": 1,
+    "updateRamCoresAmount": 2,
     "updateMonitoringKubePrometheus": false,
     "updateStargateEnabled": false,
     "updateStargateSize": 1,
