@@ -10,7 +10,7 @@ import Rollbar from 'rollbar';
 Vue.config.productionTip = false
 
 Vue.prototype.$rollbar = new Rollbar({
-  accessToken: process.env.VUE_APP_ROLLBAR_ACCESS_TOKEN,
+  accessToken: '548ddb1369d94e178782b452e511d4a8',
   captureUncaught: true,
   captureUnhandledRejections: true,
 });
