@@ -70,6 +70,25 @@
         </div>
 
         <div>
+          <label>RAM</label>
+          <v-slider
+              min="2"
+              max="256"
+              v-model.number="ram_number"
+              thumb-label="always"
+              track-color="#b2becd"
+          >
+            <template v-slot:prepend>
+              2 GB
+            </template>
+
+            <template v-slot:append>
+              256 GB
+            </template>
+          </v-slider>
+        </div>
+
+        <div>
             <label>Heap Amount</label>
             <v-slider
                 min="1"
@@ -98,7 +117,7 @@ export default {
   computed: {
     max_heap() {
       let heapMax = Math.floor(
-        this.$store.state.settings.k8_config.ram_cores / 2
+        this.$store.state.settings.k8_config.stargate_ram_cores / 2
       );
       return heapMax;
     },
@@ -130,6 +149,14 @@ export default {
       },
       set(value) {
         this.$store.commit("updateStargateCpuAmount", value);
+      },
+    },
+    ram_number: {
+      get() {
+        return this.$store.state.settings.k8_config.stargate_ram_cores;
+      },
+      set(value) {
+        this.$store.commit("updateStargateRamCoresAmount", value);
       },
     },
     heap_mb: {

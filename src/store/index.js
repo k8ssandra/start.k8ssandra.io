@@ -80,6 +80,7 @@ export default new Vuex.Store({
         "ram_cores": 1,
         "heap_number": 1,
         "label_items": ["kubernetes.io/arch", "kubernetes.io/hostname ", "node.kubernetes.io/instance-type", "topology.kubernetes.io/region", "failure-domain.beta.kubernetes.io/region", "failure-domain.beta.kubernetes.io/zone", "topology.kubernetes.io/zone"],
+        "stargate_ram_cores": 1,
       },
     },
     "encodestore": "",
@@ -200,6 +201,9 @@ export default new Vuex.Store({
     },
     updateStargateCpuUnit(state, txt) {
       state.settings.config.stargate.heapMB = txt;
+    },
+    updateStargateRamCoresAmount(state, txt) {
+      state.settings.k8_config.stargate_ram_cores = txt;
     },
     updateStargateHeapMb(state, txt) {
       state.settings.config.stargate.heapMB = txt;
