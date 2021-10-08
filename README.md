@@ -1,10 +1,10 @@
-# K8ssandra Configuration Builder README
+# K8ssandra Configuration Builder
 
-This repository configures K8ssandra yaml files with a custom UI running at start.k8ssandra.io.
+This repository configures K8ssandra yaml files with a custom UI running at [start.k8ssandra.io](https://start.k8ssandra.io).
 
 ## Using
 
-There are helpful links and mouse-over tooltips to help guide users through the configuration experience. Additional documentation for k8ssandra and related services can be accessed at docs.k8ssandra.io.
+There are helpful links and mouse-over tooltips to help guide users through the configuration experience. Additional documentation for k8ssandra and related services can be accessed at [docs.k8ssandra.io](https://docs.k8ssandra.io).
 
 ## Building 
 
@@ -20,4 +20,4 @@ For a production build, run `npm run build`.
 
 ## License
 
-The start.k8ssandra.io configurator is an open source tool released under the Apache 2.0 license. 
+The [start.k8ssandra.io](https://start.k8ssandra.io) configurator is an open source tool released under the Apache 2.0 license. 
