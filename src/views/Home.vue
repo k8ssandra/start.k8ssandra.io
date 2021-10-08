@@ -6,6 +6,7 @@
     <div class="container">
       <Input />
       <Result />
+      <Restart />
     </div>
   </div>
 
@@ -16,11 +17,13 @@
 import Input from "@/components/Input.vue";
 import Result from "@/components/Result.vue";
 import LandingPage from "@/components/LandingPage.vue";
+import Restart from "../components/Restart";
 
 
 export default {
   name: "Home",
   components: {
+    Restart,
     Input,
     Result,
     LandingPage
