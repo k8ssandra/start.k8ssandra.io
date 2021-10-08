@@ -2,18 +2,25 @@
     <div class="node_config">
         <h4>Node Config</h4>
         <div>
-            <v-text-field
+            <label>CPU Cores*</label>
+            <v-slider
+                min="0"
+                max="32000"
                 v-model.number="cpu_number"
-                :rules="[rules.required, rules.integers]"
-                suffix="milliCPU"
-                hint="1000m = 1vCPU; Integers only"
-                persistent-hint
+                thumb-label="always"
+                track-color="#b2becd"
+                step="100"
             >
                 <template v-slot:prepend>
-                    <label>CPU Cores*</label>
+                    0 milliCPU
                 </template>
-            </v-text-field>
+
+                <template v-slot:append>
+                    32000 milliCPU
+                </template>
+            </v-slider>
         </div>
+        <span class="help-text">1000m = 1vCPU</span>
         <div>
             <label>RAM</label>
             <v-slider
@@ -215,7 +222,8 @@ export default {
   }
 }
 
-.advanced > span {
+.advanced > span,
+.help-text {
   display: inline-block;
   margin-top: 10px;
   font-size: 12px;
