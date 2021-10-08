@@ -96,7 +96,9 @@ export default {
   name: "Stargate",
   computed: {
     max_heap() {
-      let heapMax = (Math.pow(2,this.$store.state.settings.k8_config.ram_cores)) / 2;
+      let heapMax = Math.floor(
+        this.$store.state.settings.k8_config.ram_cores / 2
+      );
       return heapMax;
     },
     enabled: {
