@@ -204,7 +204,6 @@ export default new Vuex.Store({
     },
     updateStargateRamCoresAmount(state, txt) {
       state.settings.k8_config.stargate_ram_cores = txt;
-      // let displayedRamAmount = state.settings.k8_config.stargate_ram_cores + "Gi"
     },
     updateStargateHeapMb(state, txt) {
       state.settings.config.stargate.heapMB = txt;

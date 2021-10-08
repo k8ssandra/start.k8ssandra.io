@@ -72,14 +72,14 @@
         <div>
           <label>RAM</label>
           <v-slider
-              min="1"
+              min="2"
               max="256"
               v-model.number="ram_number"
               thumb-label="always"
               track-color="#b2becd"
           >
             <template v-slot:prepend>
-              1 GB
+              2 GB
             </template>
 
             <template v-slot:append>
