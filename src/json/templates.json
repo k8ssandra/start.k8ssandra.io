@@ -1,27 +1,31 @@
 [
   {
-    "updateName": "",
+    "updateName": "k8ssandra",
     "updateDescription": "",
-    "addRacks": [],
-    "updateDataCenterName": "",
+    "updateDataCenterName": "dc1",
+    "addRacks": [
+      {
+        "name": "rack-1"
+      }
+    ],
     "updateTotalClusterSize": 1,
-    "updateVersion": "4.0.1",
-    "updateAuthentication": false,
+    "updateVersion": "4.0.0",
+    "updateAuthentication": true,
     "updateStorageClass": "standard",
     "updateStorageAmount": 1,
     "updateHeapAmount": 1,
     "updateCpuCoresAmount": 1,
     "updateRamCoresAmount": 2,
-    "updateMonitoringKubePrometheus": false,
-    "updateStargateEnabled": false,
+    "updateMonitoringKubePrometheus": true,
+    "updateStargateEnabled": true,
     "updateStargateSize": 1,
     "updateStargateRamCoresAmount": 2,
     "updateStargateHeapMb": 1,
     "updateStargateCpuAmount": 1,
-    "updateReaperEnabled": false,
+    "updateReaperEnabled": true,
     "updateMedusaEnabled": false,
-    "updateMonitoringServiceMonitors": false,
-    "updateMonitoringDashboards": false
+    "updateMonitoringServiceMonitors": true,
+    "updateMonitoringDashboards": true
   },
   {
     "updateName": "local-dev",
@@ -33,7 +37,7 @@
     ],
     "updateDataCenterName": "dc1",
     "updateTotalClusterSize": 1,
-    "updateVersion": "4.0.1",
+    "updateVersion": "4.0.0",
     "updateStorageClass": "local-path",
     "updateStorageAmount": 5,
     "updateHeapAmount": 1,
@@ -65,7 +69,7 @@
     ],
     "updateDataCenterName": "dc1",
     "updateTotalClusterSize": 3,
-    "updateVersion": "4.0.1",
+    "updateVersion": "4.0.0",
     "updateStorageClass": "managed-premium",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 31,
@@ -97,7 +101,7 @@
     ],
     "updateDataCenterName": "dc1",
     "updateTotalClusterSize": 3,
-    "updateVersion": "4.0.1",
+    "updateVersion": "4.0.0",
     "updateStorageClass": "do-block-storage-wait",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 31,
@@ -135,7 +139,7 @@
     ],
     "updateDataCenterName": "dc1",
     "updateTotalClusterSize": 3,
-    "updateVersion": "4.0.1",
+    "updateVersion": "4.0.0",
     "updateStorageClass": "gp2",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 31,
@@ -157,12 +161,12 @@
     "updateDescription": "This is the template for GKE Values",
     "addRacks": [
       {
-        "name": "us-central1-f",
-        "affinityLabels": { "topology.kubernetes.io/zone": "us-central1-f" }
+        "name": "us-central1-a",
+        "affinityLabels": { "topology.kubernetes.io/zone": "us-central1-a" }
       },
       {
-        "name": "us-central1-a",
-        "affinityLabels": { "topology.kubernetes.io/zone": "s-central1-a" }
+        "name": "us-central1-b",
+        "affinityLabels": { "topology.kubernetes.io/zone": "us-central1-b" }
       },
       {
         "name": "us-central1-c",
@@ -171,7 +175,7 @@
     ],
     "updateDataCenterName": "dc1",
     "updateTotalClusterSize": 3,
-    "updateVersion": "4.0.1",
+    "updateVersion": "4.0.0",
     "updateStorageClass": "standard-rwo",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 8,
