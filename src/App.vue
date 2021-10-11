@@ -321,7 +321,7 @@ input[type="submit"],
 
 .modal-container {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(21, 61, 113, 0.8);
   position: fixed;
   top: 0;
