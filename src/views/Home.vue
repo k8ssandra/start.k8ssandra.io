@@ -17,7 +17,7 @@
 import Input from "@/components/Input.vue";
 import Result from "@/components/Result.vue";
 import LandingPage from "@/components/LandingPage.vue";
-import Restart from "../components/Restart";
+import Restart from "@/components/Restart";
 
 
 export default {

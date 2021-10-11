@@ -3,7 +3,7 @@
     "updateName": "",
     "updateDescription": "",
     "addRacks": [],
-    "updateDataCenterName": " ",
+    "updateDataCenterName": "",
     "updateTotalClusterSize": 1,
     "updateVersion": "4.0.1",
     "updateAuthentication": false,
