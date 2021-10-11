@@ -90,15 +90,6 @@ export default {
       // let translatedData = {...data};
       let translatedData = JSON.parse(JSON.stringify(data));
 
-      if (data.cassandra.auth.enabled !== true) {
-        delete translatedData.cassandra.auth;
-      }
-      if (data.stargate.enabled !== true) {
-        delete translatedData["stargate"];
-      }
-      if (data.reaper.enabled !== true) {
-        delete translatedData["reaper"];
-      }
       if (data.medusa.storage === "local") {
         delete translatedData.medusa.bucketName;
         delete translatedData.medusa.storageSecret;
@@ -124,9 +115,6 @@ export default {
         data.monitoring.prometheus.provision_service_monitors !== true
       ) {
         delete translatedData.monitoring;
-      }
-      if (data["kube-prometheus-stack"].enabled !== true) {
-        delete translatedData["kube-prometheus-stack"];
       }
       if (data.cassandra.cassandraLibDirVolume.additionalSeeds.length === 0) {
         delete translatedData.cassandra.cassandraLibDirVolume.additionalSeeds;
