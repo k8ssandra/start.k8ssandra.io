@@ -103,7 +103,7 @@ export default {
     background-position: left bottom;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 581px) {
     width: 90vw;
     top: 10vh;
     padding: 40px 40px 30px;
