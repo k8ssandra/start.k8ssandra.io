@@ -11,17 +11,17 @@
          <div class="separator"></div>
 
          <div>
-           <button @click.prevent="start(0)">Start Custom Configuration</button>
+           <button @click.prevent="start('default')">Start Custom Configuration</button>
          </div>
 
          <span>Start with presets</span>
 
          <div class="templates">
-           <button @click.prevent="start(1)">Local Template</button>
-           <button @click.prevent="start(2)">Azure AKS</button>
-           <button @click.prevent="start(3)">Digital Ocean</button>
-           <button @click.prevent="start(4)">Amazon EKS</button>
-           <button @click.prevent="start(5)">Google GKE</button>
+           <button @click.prevent="start('local')">Local Template</button>
+           <button @click.prevent="start('aks')">Azure AKS</button>
+           <button @click.prevent="start('dok')">Digital Ocean</button>
+           <button @click.prevent="start('eks')">Amazon EKS</button>
+           <button @click.prevent="start('gke')">Google GKE</button>
          </div>
        </div>
       <figure><img src="../assets/images/landing.png"></figure>

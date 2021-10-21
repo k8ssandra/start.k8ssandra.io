@@ -44,7 +44,7 @@ export default new Vuex.Store({
         "stargate": {
           "enabled": true,
           "replicas": 1,
-          "heapMB": 1,
+          "heap": 1,
           "cpuReqMillicores": 1,
           "cpuLimMillicores": 1,
         },
@@ -76,11 +76,11 @@ export default new Vuex.Store({
         "cluster_size_per": 1,
         "stargate_instance_per": 1,
         "storage_amount": 1,
-        "cpu_cores": 1,
-        "ram_cores": 1,
+        "cpu": 1,
+        "ram": 1,
         "heap_number": 1,
         "label_items": ["kubernetes.io/arch", "kubernetes.io/hostname ", "node.kubernetes.io/instance-type", "topology.kubernetes.io/region", "failure-domain.beta.kubernetes.io/region", "failure-domain.beta.kubernetes.io/zone", "topology.kubernetes.io/zone"],
-        "stargate_ram_cores": 1,
+        "stargate_ram": 1,
       },
     },
     "encodestore": "",
@@ -147,16 +147,16 @@ export default new Vuex.Store({
       let totalSize = numOfRacks * parseInt(SizePer);
       state.settings.config.cassandra.datacenters[0].size = totalSize;
     },
-    updateCpuCoresAmount(state, txt) {
-      state.settings.k8_config.cpu_cores = txt;
-      let displayedCpuAmount = state.settings.k8_config.cpu_cores + "m";
+    updateCpuAmount(state, txt) {
+      state.settings.k8_config.cpu = txt;
+      let displayedCpuAmount = state.settings.k8_config.cpu + "m";
       // let parsed = JSON.parse(displayedCpuAmount);
       state.settings.config.cassandra.resources.requests.cpu = displayedCpuAmount;
       state.settings.config.cassandra.resources.limits.cpu = displayedCpuAmount;
     },
-    updateRamCoresAmount(state, txt) {
-      state.settings.k8_config.ram_cores = txt;
-      let displayedRamAmount = state.settings.k8_config.ram_cores + "Gi";
+    updateRamAmount(state, txt) {
+      state.settings.k8_config.ram = txt;
+      let displayedRamAmount = state.settings.k8_config.ram + "Gi";
       state.settings.config.cassandra.resources.requests.memory = displayedRamAmount;
       state.settings.config.cassandra.resources.limits.memory = displayedRamAmount;
     },
@@ -199,14 +199,11 @@ export default new Vuex.Store({
       state.settings.config.stargate.cpuReqMillicores = txt;
       state.settings.config.stargate.cpuLimMillicores = txt;
     },
-    updateStargateCpuUnit(state, txt) {
-      state.settings.config.stargate.heapMB = txt;
+    updateStargateRamAmount(state, txt) {
+      state.settings.k8_config.stargate_ram = txt;
     },
-    updateStargateRamCoresAmount(state, txt) {
-      state.settings.k8_config.stargate_ram_cores = txt;
-    },
-    updateStargateHeapMb(state, txt) {
-      state.settings.config.stargate.heapMB = txt;
+    updateStargateHeap(state, txt) {
+      state.settings.config.stargate.heap = txt;
     },
     updateReaperEnabled(state, txt) {
       state.settings.config.reaper.enabled = txt;

@@ -52,7 +52,7 @@
         <div>
           <label>CPU</label>
           <v-slider
-              min="0"
+              min="100"
               max="32000"
               v-model.number="cpu_number"
               thumb-label="always"
@@ -60,7 +60,7 @@
               step="100"
           >
             <template v-slot:prepend>
-              0 milliCPU
+              100 milliCPU
             </template>
 
             <template v-slot:append>
@@ -94,7 +94,7 @@
             <v-slider
                 min="1"
                 :max='max_heap'
-                v-model.number="heap_mb"
+                v-model.number="heap"
                 thumb-label="always"
                 track-color="#b2becd"
             >
@@ -118,7 +118,7 @@ export default {
   computed: {
     max_heap() {
       let heapMax = Math.floor(
-        this.$store.state.settings.k8_config.stargate_ram_cores / 2
+        this.$store.state.settings.k8_config.stargate_ram / 2
       );
       return heapMax;
     },
@@ -154,18 +154,18 @@ export default {
     },
     ram_number: {
       get() {
-        return this.$store.state.settings.k8_config.stargate_ram_cores;
+        return this.$store.state.settings.k8_config.stargate_ram;
       },
       set(value) {
-        this.$store.commit("updateStargateRamCoresAmount", value);
+        this.$store.commit("updateStargateRamAmount", value);
       },
     },
-    heap_mb: {
+    heap: {
       get() {
-        return this.$store.state.settings.config.stargate.heapMB;
+        return this.$store.state.settings.config.stargate.heap;
       },
       set(value) {
-        this.$store.commit("updateStargateHeapMb", value);
+        this.$store.commit("updateStargateHeap", value);
       },
     },
     num_of_racks: {
