@@ -4,7 +4,7 @@
         <div>
             <label>CPU Cores*</label>
             <v-slider
-                min="0"
+                min="100"
                 max="32000"
                 v-model.number="cpu_number"
                 thumb-label="always"
@@ -12,7 +12,7 @@
                 step="100"
             >
                 <template v-slot:prepend>
-                    0 milliCPU
+                    100 milliCPU
                 </template>
 
                 <template v-slot:append>
@@ -164,24 +164,24 @@ export default {
     max_heap() {
       let heapMax =
         Math.floor(
-          this.$store.state.settings.k8_config.ram_cores / 2
+          this.$store.state.settings.k8_config.ram / 2
         );
       return heapMax;
     },
     cpu_number: {
       get() {
-        return this.$store.state.settings.k8_config.cpu_cores;
+        return this.$store.state.settings.k8_config.cpu;
       },
       set(value) {
-        this.$store.commit("updateCpuCoresAmount", value);
+        this.$store.commit("updateCpuAmount", value);
       },
     },
     ram_number: {
       get() {
-        return this.$store.state.settings.k8_config.ram_cores;
+        return this.$store.state.settings.k8_config.ram;
       },
       set(value) {
-        this.$store.commit("updateRamCoresAmount", value);
+        this.$store.commit("updateRamAmount", value);
       },
     },
     heap_number: {

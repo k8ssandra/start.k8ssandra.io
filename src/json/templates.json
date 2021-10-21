@@ -1,5 +1,5 @@
-[
-  {
+{
+  "default": {
     "updateName": "k8ssandra",
     "updateDescription": "",
     "updateDataCenterName": "dc1",
@@ -14,20 +14,20 @@
     "updateStorageClass": "standard",
     "updateStorageAmount": 1,
     "updateHeapAmount": 1,
-    "updateCpuCoresAmount": 1,
-    "updateRamCoresAmount": 2,
+    "updateCpuAmount": 1,
+    "updateRamAmount": 2,
     "updateMonitoringKubePrometheus": true,
     "updateStargateEnabled": true,
     "updateStargateSize": 1,
-    "updateStargateRamCoresAmount": 2,
-    "updateStargateHeapMb": 1,
+    "updateStargateRamAmount": 2,
+    "updateStargateHeap": 1,
     "updateStargateCpuAmount": 1,
     "updateReaperEnabled": true,
     "updateMedusaEnabled": false,
     "updateMonitoringServiceMonitors": true,
     "updateMonitoringDashboards": true
   },
-  {
+  "local": {
     "updateName": "local-dev",
     "updateDescription": "This is the template for Local build Values",
     "addRacks": [
@@ -41,16 +41,16 @@
     "updateStorageClass": "local-path",
     "updateStorageAmount": 5,
     "updateHeapAmount": 1,
-    "updateCpuCoresAmount": 1000,
-    "updateRamCoresAmount": 2,
+    "updateCpuAmount": 1000,
+    "updateRamAmount": 2,
     "updateMonitoringKubePrometheus": true,
     "updateStargateEnabled": true,
     "updateStargateSize": 1,
-    "updateStargateRamCoresAmount": 256,
-    "updateStargateHeapMb": 256,
+    "updateStargateRamAmount": 2,
+    "updateStargateHeap": 1,
     "updateStargateCpuAmount": 200
   },
-  {
+  "aks": {
     "updateName": "azure-aks-template",
     "updateDescription": "This is the template for AKS Values",
     "addRacks": [
@@ -73,19 +73,19 @@
     "updateStorageClass": "managed-premium",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 31,
-    "updateCpuCoresAmount": 7000,
-    "updateRamCoresAmount": 60,
+    "updateCpuAmount": 7000,
+    "updateRamAmount": 60,
     "updateStargateEnabled": true,
     "updateStargateSize": 1,
-    "updateStargateRamCoresAmount": 256,
-    "updateStargateHeapMb": 1024,
+    "updateStargateRamAmount": 32,
+    "updateStargateHeap": 8,
     "updateStargateCpuAmount": 3000,
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "azure_blobs",
     "updateMedusaBucketName": "prod-k8ssandra-storage-bucket",
     "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
   },
-  {
+  "dok": {
     "updateName": "digital-ocean-dok-template",
     "updateDescription": "This is the template for DOK Values",
     "addRacks": [
@@ -105,12 +105,12 @@
     "updateStorageClass": "do-block-storage-wait",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 31,
-    "updateCpuCoresAmount": 31000,
-    "updateRamCoresAmount": 55,
+    "updateCpuAmount": 31000,
+    "updateRamAmount": 55,
     "updateStargateEnabled": true,
     "updateStargateSize": 1,
-    "updateStargateRamCoresAmount": 256,
-    "updateStargateHeapMb": 1024,
+    "updateStargateRamAmount": 32,
+    "updateStargateHeap": 8,
     "updateStargateCpuAmount": 1000,
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "s3_compatible",
@@ -120,7 +120,7 @@
     "updateMedusaBucketName": "k8ssandra-prod-backups",
     "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key"
   },
-  {
+  "eks": {
     "updateName": "amazon-eks-template",
     "updateDescription": "This is the template for EKS Values",
     "addRacks": [
@@ -143,12 +143,12 @@
     "updateStorageClass": "gp2",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 31,
-    "updateCpuCoresAmount": 7000,
-    "updateRamCoresAmount": 60,
+    "updateCpuAmount": 7000,
+    "updateRamAmount": 60,
     "updateStargateEnabled": true,
     "updateStargateSize": 1,
-    "updateStargateRamCoresAmount": 256,
-    "updateStargateHeapMb": 1024,
+    "updateStargateRamAmount": 32,
+    "updateStargateHeap": 8,
     "updateStargateCpuAmount": 3000,
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "s3",
@@ -156,7 +156,7 @@
     "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key",
     "updateMedusaS3Region": "us-east-1"
   },
-  {
+  "gke": {
     "updateName": "google-gke-template",
     "updateDescription": "This is the template for GKE Values",
     "addRacks": [
@@ -179,12 +179,12 @@
     "updateStorageClass": "standard-rwo",
     "updateStorageAmount": 2048,
     "updateHeapAmount": 8,
-    "updateCpuCoresAmount": 5000,
-    "updateRamCoresAmount": 50,
+    "updateCpuAmount": 5000,
+    "updateRamAmount": 50,
     "updateStargateEnabled": true,
     "updateStargateSize": 1,
-    "updateStargateRamCoresAmount": 256,
-    "updateStargateHeapMb": 1024,
+    "updateStargateRamAmount": 32,
+    "updateStargateHeap": 8,
     "updateStargateCpuAmount": 1000,
     "updateMedusaEnabled": true,
     "updateMedusaProvider": "google_storage",
@@ -192,4 +192,4 @@
     "updateMedusaStorageSecret": "prod-k8ssandra-medusa-key",
     "setLabelOptions": ["kubernetes.io/arch", "kubernetes.io/hostname ", "node.kubernetes.io/instance-type", "topology.kubernetes.io/region", "failure-domain.beta.kubernetes.io/region", "failure-domain.beta.kubernetes.io/zone", "topology.kubernetes.io/zone", "cloud.google.com/machine-family", "cloud.google.com/gke-nodepool"]
   }
-]
+}

@@ -122,6 +122,10 @@ export default {
       if (data.cassandra.datacenters[0].name.length === 0) {
         delete translatedData.cassandra.datacenters;
       }
+      
+      translatedData.stargate.heapMB = translatedData.stargate.heap * 1024;
+      delete translatedData.stargate.heap;
+      
       let output = YAML.stringify(translatedData);
       //built this in to replace the issue with json to yaml - check for options
       // output = output.replace("kubeprometheusstack", "kube-prometheus-stack");
